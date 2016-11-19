@@ -4,7 +4,7 @@ import platform.game.level.Level;
 import java.util.ArrayList;
 import java.util.List;
 import platform.util.Box;
-
+import platform.util.Sprite;
 import platform.util.Input;
 import platform.util.Loader;
 import platform.util.Output;
