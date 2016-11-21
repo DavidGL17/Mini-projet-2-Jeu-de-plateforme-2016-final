@@ -41,8 +41,10 @@ public class Simulator implements World {
     	unregistered = new ArrayList<Actor>();
     	Block block1 = new Block(new Vector(-4, -1),new Vector(4, 0),loader);
     	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),loader);
+    	Fireball fireball = new Fireball(new Vector(-3,5), new Vector(3, 2),loader);
     	actors.add(block1);
     	actors.add(block2);
+    	actors.add(fireball);
     }
     @Override
     public void setView(Vector center , double radius) {
@@ -77,7 +79,7 @@ public class Simulator implements World {
 		}
 		// Apply update
 		for (Actor a : actors){		
-			a.update(view);
+			a.update(input);
 		}
 		// Draw everything
 		for (Actor a : actors.descending ()){

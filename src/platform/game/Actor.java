@@ -5,6 +5,7 @@ import platform.util.Input;
 import platform.util.Vector;
 import platform.util.Output;
 import platform.util.Sprite;
+import platform.util.Loader;
 
 /**
  * Base class of all simulated actors, attached to a world.
@@ -12,8 +13,11 @@ import platform.util.Sprite;
 public abstract class Actor implements Comparable<Actor> {
 	private int priority;
 	private World world;
-	public Actor(int p){
+	private Sprite sprite;
+
+	public Actor(int p,Loader loader,String dessin){
 		priority=p;
+		sprite = loader.getSprite(dessin);
 	}
 	// pour évoluer au cours du temps :
 	public void update(Input input) {}
@@ -39,7 +43,7 @@ public abstract class Actor implements Comparable<Actor> {
 		return false ;
 	}
 	public Box getBox () {
-		return null ;
+		return null;
 	}
 	public Vector getPosition () {
 		Box box = getBox () ;
@@ -57,5 +61,8 @@ public abstract class Actor implements Comparable<Actor> {
 	}
 	protected World getWorld(){
 		return world;
+	}
+	public Sprite getSprite(){
+		return sprite;
 	}
 }

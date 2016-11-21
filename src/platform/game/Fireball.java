@@ -12,8 +12,10 @@ class Fireball extends Actor{
 	private Vector vitesse;
 	private Box box;
 	private final double SIZE = 0.4;
-	public Fireball(Vector vitesse, Vector position){
-		super(9001);
+	private final static String dessin = "fireball";
+	
+	public Fireball(Vector vitesse, Vector position, Loader loader){
+		super(9001,loader,dessin);
 		if (vitesse ==null){
 			throw new NullPointerException();
 		}
@@ -22,18 +24,33 @@ class Fireball extends Actor{
 		}
 		this.position=position;
 		this.vitesse=vitesse;
+		box = new Box(position, SIZE, SIZE);
 	}
 	@Override
 	public Box getBox () {
-	//position est l'attribut position de l'objet SIZE une constante choisie pour la taille , par exemple 0.4
-	return new Box(position , SIZE , SIZE) ;
+		return box;
 	}
 	@Override
 	public void update(Input input) {
-	super.update(input) ;
-	double delta = input.getDeltaTime () ;
-	Vector acceleration = new Vector (0.0, -9.81) ;
-	vitesse = vitesse.add(acceleration.mul(delta)) ;
-	position = position.add(vitesse.mul(delta)) ;
+		super.update(input);
+		double delta = input.getDeltaTime () ;
+		Vector acceleration = new Vector (0.0, -9.81) ;
+		vitesse = vitesse.add(acceleration.mul(delta)) ;
+		position = position.add(vitesse.mul(delta));
+		box = new Box(position, SIZE, SIZE);
 	}
+	public void draw(Input input, Output output){
+		output.drawSprite(getSprite(), getBox(), input.getTime());
+	}
+	@Override
+	public void interact(Actor other) {
+		super.interact(other);
+		if (other.isSolid ()) {
+			Vector delta = other.getBox ().getCollision(position) ;
+				if (delta != null) {
+						position = position.add(delta) ;
+						vitesse = vitesse.mirrored(delta) ;
+				}
+			}
+		}
 }
