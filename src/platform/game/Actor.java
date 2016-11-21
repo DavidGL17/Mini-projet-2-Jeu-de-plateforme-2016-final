@@ -46,7 +46,7 @@ public abstract class Actor implements Comparable<Actor> {
 		return null;
 	}
 	public Vector getPosition () {
-		Box box = getBox () ;
+		Box box = getBox() ;
 		if (box == null)
 			return null ;
 			return box.getCenter () ;
