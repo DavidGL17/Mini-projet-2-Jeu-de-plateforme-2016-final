@@ -48,11 +48,10 @@ public class Player extends Actor{
 	
 	@Override
 	public void interact(Actor other) {
-		super.interact(other) ;
 		if (other.isSolid ()) {
 			Vector delta = other.getBox().getCollision(box);
-			colliding = true;
 			if (delta != null) {
+				colliding = true;
 				position = position.add(delta) ;
 				if (delta.getX() != 0.0){
 					vitesse = new Vector (0.0, vitesse.getY());
@@ -71,10 +70,10 @@ public class Player extends Actor{
 		super.update(input);
 		double maxSpeedRight = 4.0 ;
 		double maxSpeedLeft = -4.0;
-//		if (colliding) {
-//			double scale = Math.pow (0.001 , input.getDeltaTime ()) ;
-//			vitesse = vitesse.mul(scale) ;
-//		}
+		if (colliding) {
+			double scale = Math.pow (0.001 , input.getDeltaTime ()) ;
+			vitesse = vitesse.mul(scale) ;
+		}
 		if (input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown ()) {
 			if (vitesse.getX() < maxSpeedRight) {
 				double increase = 60.0 * input.getDeltaTime () ;
@@ -95,10 +94,10 @@ public class Player extends Actor{
 				vitesse = new Vector(speed , vitesse.getY()) ;
 			}
 		}
-		if (input.getKeyboardButton(KeyEvent.VK_UP).isPressed ()){
-//			if (colliding){
+		if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
+			if (colliding){
 				vitesse = new Vector(vitesse.getX(), 7.0);
-//			}
+			}
 		}
 		double delta = input.getDeltaTime () ;
 		Vector acceleration = new Vector (0.0, -9.81) ;
@@ -108,5 +107,9 @@ public class Player extends Actor{
 	}
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox());
+	}
+	public void postUpdate(){
+		super.postUpdate();
+		getWorld().setView(position,8);
 	}
 }

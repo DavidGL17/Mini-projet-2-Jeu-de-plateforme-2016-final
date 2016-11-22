@@ -16,11 +16,11 @@ public interface World {
     * @param center viewport center , not null
     * @param radius viewport radius , positive
     */
-    public void setView(Vector center , double radius) ;
+    public void setView(Vector center , double radius);
     public void register(Actor actor);
     public void unregister(Actor actor);
     default public Vector getGravity(){
-    	Vector gravity = new Vector(0.0, 9.81);
+    	Vector gravity = new Vector(0.0, -9.81);
     	return gravity;
     }
 }

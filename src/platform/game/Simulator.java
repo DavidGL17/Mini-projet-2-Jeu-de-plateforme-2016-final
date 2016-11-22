@@ -20,12 +20,13 @@ public class Simulator implements World {
 
     private Loader loader;
     private Vector currentCenter ;
-    private double currentRadius ;
+    private double currentRadius;
     private Vector expectedCenter = Vector.ZERO;
-    private double expectedRadius=10;
+    private double expectedRadius=radius;
     private SortedCollection<Actor> actors = new SortedCollection<Actor>();
     private List<Actor> registered;
     private List<Actor> unregistered;
+    public static double radius = 8;
     /**
     * Create a new simulator.
     * @param loader associated loader , not null
@@ -36,7 +37,7 @@ public class Simulator implements World {
     	}
     	this.loader = loader ;
     	currentCenter = Vector.ZERO ;
-    	currentRadius = 10.0 ;
+    	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
     	Block block1 = new Block(new Vector(-4, -1),new Vector(4, 0),loader);
@@ -47,7 +48,7 @@ public class Simulator implements World {
     	actors.add(block1);
     	actors.add(block2);
     	actors.add(block3);
-//    	actors.add(fireball);
+    	actors.add(fireball);
     	actors.add(franky);
     }
     @Override
@@ -56,8 +57,8 @@ public class Simulator implements World {
     			throw new NullPointerException () ;
     	if (radius <= 0.0)
     		throw new IllegalArgumentException("radius must be positive") ;
-    	expectedCenter = center ;
-    	expectedRadius = radius ;
+    	expectedCenter = center;
+    	expectedRadius = radius;
     }
 	
     /**
@@ -71,9 +72,11 @@ public class Simulator implements World {
 		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor ;
 		View view = new View(input , output) ;
 		view.setTarget(currentCenter , currentRadius) ;
+		// Pre Update
 		for (Actor actor : actors){
 			actor.preUpdate();
 		}
+		// Interact
 		for (Actor actor : actors){
 			for (Actor other : actors){
 				if (actor.getPriority () > other.getPriority ()){
@@ -89,11 +92,10 @@ public class Simulator implements World {
 		for (Actor a : actors.descending ()){
 			a.draw(view , view) ;
 		}
+		// Post Update
 		for (Actor actor : actors){
 			actor.postUpdate();
 		}
-		if (view.getMouseButton (1).isPressed ())
-			setView(view.getMouseLocation (), 10.0) ;
 		// Add registered actors
 		for (int i = 0 ; i < registered.size() ; ++i) {
 			Actor actor = registered.get(i) ;
@@ -111,18 +113,43 @@ public class Simulator implements World {
 		}
 		unregistered.clear () ;
 	}
-
     @Override
     public Loader getLoader() {
         return loader;
     }
     @Override
     public void register(Actor actor) {
-    registered.add(actor) ;
+    	registered.add(actor) ;
+    	actor.register(world);
     }
     @Override
     public void unregister(Actor actor) {
-    unregistered.add(actor) ;
+    	unregistered.add(actor) ;
     }
-    
+    private World world = new World() {
+		
+		@Override
+		public void unregister(Actor actor) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void setView(Vector center, double radius) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void register(Actor actor) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public Loader getLoader() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	};
 }
