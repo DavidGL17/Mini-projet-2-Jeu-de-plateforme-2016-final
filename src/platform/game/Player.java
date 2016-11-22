@@ -48,6 +48,7 @@ public class Player extends Actor{
 			Vector delta = other.getBox().getCollision(box);
 			if (delta != null) {
 				position = position.add(delta) ;
+				vitesse = new Vector(0, 0);
 				if (delta.getX() != 0.0){
 					vitesse = new Vector (0.0, vitesse.getY()) ;
 					if (delta.getY() != 0.0){
@@ -67,6 +68,6 @@ public class Player extends Actor{
 		box = new Box(position, SIZE, SIZE);
 	}
 	public void draw(Input input, Output output){
-		output.drawSprite(getSprite(), getBox(), input.getTime());
+		output.drawSprite(getSprite(), getBox());
 	}
 }
