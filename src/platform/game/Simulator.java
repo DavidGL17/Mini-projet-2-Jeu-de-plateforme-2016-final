@@ -41,11 +41,13 @@ public class Simulator implements World {
     	unregistered = new ArrayList<Actor>();
     	Block block1 = new Block(new Vector(-4, -1),new Vector(4, 0),loader);
     	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),loader);
+    	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), loader);
     	Fireball fireball = new Fireball(new Vector(-3,5), new Vector(3, 2),loader);
-    	Player franky = new Player(new Vector(0, -1), new Vector(2, 3), loader);
+    	Player franky = new Player(new Vector(0, -4), new Vector(2, 3), loader);
     	actors.add(block1);
     	actors.add(block2);
-    	actors.add(fireball);
+    	actors.add(block3);
+//    	actors.add(fireball);
     	actors.add(franky);
     }
     @Override

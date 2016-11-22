@@ -1,5 +1,7 @@
 package platform.game;
 
+import java.awt.event.KeyEvent;
+
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Sprite;
@@ -41,16 +43,19 @@ public class Player extends Actor{
 	public Vector getVitesse() {
 		return vitesse;
 	}
+	
+	private boolean colliding = false;
+	
 	@Override
 	public void interact(Actor other) {
 		super.interact(other) ;
 		if (other.isSolid ()) {
 			Vector delta = other.getBox().getCollision(box);
+			colliding = true;
 			if (delta != null) {
 				position = position.add(delta) ;
-				vitesse = new Vector(0, 0);
 				if (delta.getX() != 0.0){
-					vitesse = new Vector (0.0, vitesse.getY()) ;
+					vitesse = new Vector (0.0, vitesse.getY());
 					if (delta.getY() != 0.0){
 						vitesse = new Vector(vitesse.getX(), 0.0) ;
 					}
@@ -58,12 +63,46 @@ public class Player extends Actor{
 			}
 		}
 	}
+	public void preUpdate(){
+		colliding=false;
+	}
 	@Override
 	public void update(Input input) {
 		super.update(input);
+		double maxSpeedRight = 4.0 ;
+		double maxSpeedLeft = -4.0;
+//		if (colliding) {
+//			double scale = Math.pow (0.001 , input.getDeltaTime ()) ;
+//			vitesse = vitesse.mul(scale) ;
+//		}
+		if (input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown ()) {
+			if (vitesse.getX() < maxSpeedRight) {
+				double increase = 60.0 * input.getDeltaTime () ;
+				double speed = vitesse.getX() + increase ;
+				if (speed > maxSpeedRight){
+					speed = maxSpeedRight ;
+				}
+				vitesse = new Vector(speed , vitesse.getY()) ;
+			}
+		}
+		if (input.getKeyboardButton(KeyEvent.VK_LEFT).isDown ()) {
+			if (vitesse.getX() > maxSpeedLeft) {
+				double decrease = -60.0 * input.getDeltaTime () ;
+				double speed = vitesse.getX() + decrease ;
+				if (speed < maxSpeedLeft){
+					speed = maxSpeedLeft ;
+				}
+				vitesse = new Vector(speed , vitesse.getY()) ;
+			}
+		}
+		if (input.getKeyboardButton(KeyEvent.VK_UP).isPressed ()){
+//			if (colliding){
+				vitesse = new Vector(vitesse.getX(), 7.0);
+//			}
+		}
 		double delta = input.getDeltaTime () ;
 		Vector acceleration = new Vector (0.0, -9.81) ;
-		vitesse = vitesse.add(acceleration.mul(delta)) ;
+		vitesse = vitesse.add(acceleration.mul(delta));
 		position = position.add(vitesse.mul(delta));
 		box = new Box(position, SIZE, SIZE);
 	}
