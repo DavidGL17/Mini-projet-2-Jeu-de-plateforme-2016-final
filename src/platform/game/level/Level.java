@@ -32,7 +32,7 @@ public abstract class Level extends Actor {
 
     @Override
     public void draw(Input input, Output output){
-        Sprite sprite = getSprite("pixel.black");
+        Sprite sprite = getWorld().getLoader().getSprite("pixel.black");
         output.drawSprite(sprite, output.getBox(), 0.0, fadein);
     }
     
