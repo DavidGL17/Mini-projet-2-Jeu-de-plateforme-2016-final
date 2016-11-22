@@ -14,6 +14,7 @@ public class Player extends Actor{
 	private Box box;
 	private final double SIZE = 1;
 	private final static String dessin = "blocker.happy";
+	private double HP = 3;
 	
 	public Player(Vector vitesse, Vector position, Loader loader){
 		super(1337,loader,dessin);
@@ -106,7 +107,7 @@ public class Player extends Actor{
 		//Q : boule de feu
 		if (input.getKeyboardButton(KeyEvent.VK_Q).isPressed ()){
 			Vector v = new Vector(-4,4);
-			Fireball fireball = new Fireball(v, position, getWorld().getLoader());
+			Fireball fireball = new Fireball(v, position, getWorld().getLoader(),this);
 			getWorld().register(fireball);
 		}
 		double delta = input.getDeltaTime () ;

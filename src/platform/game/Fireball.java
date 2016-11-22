@@ -13,8 +13,9 @@ public class Fireball extends Actor{
 	private Box box;
 	private final double SIZE = 0.4;
 	private final static String dessin = "fireball";
+	private Player owner = null;
 	
-	public Fireball(Vector vitesse, Vector position, Loader loader){
+	public Fireball(Vector vitesse, Vector position, Loader loader, Player owner){
 		super(9001,loader,dessin);
 		if (vitesse ==null){
 			throw new NullPointerException();
@@ -25,6 +26,7 @@ public class Fireball extends Actor{
 		this.position=position;
 		this.vitesse=vitesse;
 		box = new Box(position, SIZE, SIZE);
+		this.owner=owner;
 	}
 	@Override
 	public Box getBox () {
@@ -47,10 +49,17 @@ public class Fireball extends Actor{
 		super.interact(other);
 		if (other.isSolid ()) {
 			Vector delta = other.getBox ().getCollision(position) ;
-				if (delta != null) {
-						position = position.add(delta) ;
-						vitesse = vitesse.mirrored(delta) ;
-				}
+			if (delta != null) {
+					position = position.add(delta) ;
+					vitesse = vitesse.mirrored(delta) ;
 			}
 		}
+		if (other.getBox().isColliding(getBox())){
+			if (other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
+			// faire en sorte ici que la boule feu disparaisse
+			// une fois qu'elle a infligé un dommage.
+			}
+		}
+	}
+	
 }

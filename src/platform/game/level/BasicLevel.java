@@ -23,12 +23,10 @@ public class BasicLevel extends Level {
         Block block1 = new Block(new Vector(-4, -1),new Vector(4, 0),world.getLoader());
     	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),world.getLoader());
     	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
-    	Fireball fireball = new Fireball(new Vector(-3,5), new Vector(3, 2),world.getLoader());
     	Player franky = new Player(new Vector(0, -4), new Vector(2, 3), world.getLoader());
     	world.register(block1);
     	world.register(block2);
     	world.register(block3);
-    	world.register(fireball);
     	world.register(franky);
     }
     
