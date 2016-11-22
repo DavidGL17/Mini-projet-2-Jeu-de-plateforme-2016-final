@@ -14,9 +14,15 @@ public class Block extends Actor {
 	private final static String dessin = "box.empty";
 	private Box box;
 	
+	//Constructeur de base
 	public Block(Vector basGauche, Vector hautDroite, Loader loader){
 		super(0,loader,dessin);
 		box = new Box(basGauche, hautDroite);
+	}
+	//Constructeur utilisé par les levels. Permet de régler la taille
+	public Block(Box box, Sprite sprite){
+		super(0,sprite);
+		this.box=box;
 	}
 	public void draw(Input input , Output output) {
 		output.drawSprite(getSprite(), box);
