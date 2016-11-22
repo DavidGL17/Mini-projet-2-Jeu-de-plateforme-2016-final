@@ -1,6 +1,7 @@
 package platform.game;
 
 import platform.game.level.Level;
+import platform.game.level.BasicLevel;
 import java.util.ArrayList;
 import java.util.List;
 import platform.util.Box;
@@ -40,16 +41,20 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
-    	Block block1 = new Block(new Vector(-4, -1),new Vector(4, 0),loader);
-    	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),loader);
-    	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), loader);
-    	Fireball fireball = new Fireball(new Vector(-3,5), new Vector(3, 2),loader);
-    	Player franky = new Player(new Vector(0, -4), new Vector(2, 3), loader);
-    	register(block1);
-    	register(block2);
-    	register(block3);
-    	register(fireball);
-    	register(franky);
+//    	Block block1 = new Block(new Vector(-4, -1),new Vector(4, 0),loader);
+//    	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),loader);
+//    	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), loader);
+//    	Fireball fireball = new Fireball(new Vector(-3,5), new Vector(3, 2),loader);
+//    	Player franky = new Player(new Vector(0, -4), new Vector(2, 3), loader);
+//    	register(block1);
+//    	register(block2);
+//    	register(block3);
+//    	register(fireball);
+//    	register(franky);
+    	niveaux = new Level[]{new BasicLevel()};
+    	nextLevel();
+    	register(nextLevel);
+    	transition = false;
     }
     @Override
     public Loader getLoader() {
@@ -75,6 +80,26 @@ public class Simulator implements World {
     	expectedRadius = radius;
     }
 	
+    //Levels
+    private Level[] niveaux;
+	private Level nextLevel;
+    private int compteurDeNiveau = 0;
+    private boolean transition = false;
+    
+    public void nextLevel(){
+    	if (compteurDeNiveau<niveaux.length){
+    		setNextLevel(niveaux[compteurDeNiveau]);
+    	} else {
+    		compteurDeNiveau = 0;
+    		setNextLevel(niveaux[compteurDeNiveau]);
+    	}
+    	++compteurDeNiveau;
+    	transition = true;
+    }
+    public void setNextLevel(Level level){
+    	nextLevel = level;
+    }
+    
     /**
      * Simulate a single step of the simulation.
      * @param input input object to use, not null
@@ -86,6 +111,24 @@ public class Simulator implements World {
 		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor ;
 		View view = new View(input , output) ;
 		view.setTarget(currentCenter , currentRadius) ;
+		// si un acteur a mis transition à true pour demander le passage
+		// à un autre niveau :
+		if (transition) {
+//			if (nextLevel == null) {
+//				nextLevel = Level.createDefaultLevel () ;
+//			}
+			// si un acteur a appelé setNextLevel , next ne sera pas null :
+//			Level level = nextLevel ;
+			transition = false ;
+//			nextLevel = null ;
+			actors.clear () ;
+			registered.clear () ;
+			// tous les anciens acteurs sont désenregistrés ,
+			// y compris le Level précédent :
+			unregistered.clear () ;
+			register(nextLevel) ;
+		}
+		
 		// Pre Update
 		for (Actor actor : actors){
 			actor.preUpdate();
@@ -117,13 +160,13 @@ public class Simulator implements World {
 				actors.add(actor) ;
 			}
 		}
-		registered.clear () ;
+		registered.clear();
 		// Remove unregistered actors
 		for (int i = 0 ; i < unregistered.size() ; ++i) {
 			Actor actor = unregistered.get(i) ;
 			actor.unregister();
 			actors.remove(actor) ;
 		}
-		unregistered.clear () ;
+		unregistered.clear();
 	}
 }

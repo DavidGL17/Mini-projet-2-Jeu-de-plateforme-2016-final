@@ -14,16 +14,21 @@ public abstract class Actor implements Comparable<Actor> {
 	private int priority;
 	private World world;
 	private Sprite sprite;
+	private Loader loader;
 
 	//Pour fireball et player
 	public Actor(int p,Loader loader,String dessin){
 		priority=p;
 		sprite = loader.getSprite(dessin);
+		this.loader=loader;
 	}
 	//Pour les blocks
 	public Actor(int p,Sprite sprite){
 		priority=p;
 		this.sprite = sprite;
+	}
+	//Pour les levels
+	public Actor(){
 	}
 	
 	// pour évoluer au cours du temps :

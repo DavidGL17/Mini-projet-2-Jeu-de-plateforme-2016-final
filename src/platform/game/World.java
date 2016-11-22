@@ -3,6 +3,7 @@ package platform.game;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
+import platform.game.level.Level;;
 
 /**
  * Represents an environment populated by actors.
@@ -23,4 +24,9 @@ public interface World {
     	Vector gravity = new Vector(0.0, -9.81);
     	return gravity;
     }
+    // permet d'indiquer que la transition à un autre niveau
+    // doit se faire :
+    public void nextLevel () ;
+    // permet de passer au niveau level :
+    public void setNextLevel(Level level) ;
 }
