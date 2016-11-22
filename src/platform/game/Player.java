@@ -48,6 +48,7 @@ public class Player extends Actor{
 	
 	@Override
 	public void interact(Actor other) {
+		super.interact(other);
 		if (other.isSolid ()) {
 			Vector delta = other.getBox().getCollision(box);
 			if (delta != null) {
@@ -55,9 +56,9 @@ public class Player extends Actor{
 				position = position.add(delta) ;
 				if (delta.getX() != 0.0){
 					vitesse = new Vector (0.0, vitesse.getY());
-					if (delta.getY() != 0.0){
-						vitesse = new Vector(vitesse.getX(), 0.0) ;
-					}
+				}
+				if (delta.getY() != 0.0){
+					vitesse = new Vector(vitesse.getX(), 0.0) ;
 				}
 			}
 		}
