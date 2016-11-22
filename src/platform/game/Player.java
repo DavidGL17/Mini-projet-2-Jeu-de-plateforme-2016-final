@@ -1,7 +1,6 @@
 package platform.game;
 
 import java.awt.event.KeyEvent;
-
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Sprite;
@@ -76,6 +75,7 @@ public class Player extends Actor{
 			double scale = Math.pow (0.001 , input.getDeltaTime ()) ;
 			vitesse = vitesse.mul(scale) ;
 		}
+		//Flèche droite : droite
 		if (input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown ()) {
 			if (vitesse.getX() < MAX_SPEED_RIGHT) {
 				double increase = 60.0 * input.getDeltaTime () ;
@@ -86,6 +86,7 @@ public class Player extends Actor{
 				vitesse = new Vector(speed , vitesse.getY()) ;
 			}
 		}
+		//Flèche gauche : gauche
 		if (input.getKeyboardButton(KeyEvent.VK_LEFT).isDown ()) {
 			if (vitesse.getX() > MAX_SPEED_LEFT) {
 				double decrease = -60.0 * input.getDeltaTime () ;
@@ -96,13 +97,15 @@ public class Player extends Actor{
 				vitesse = new Vector(speed , vitesse.getY()) ;
 			}
 		}
+		//Espace : saut
 		if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
 			if (colliding){
 				vitesse = new Vector(vitesse.getX(), 7.0);
 			}
 		}
+		//Q : boule de feu
 		if (input.getKeyboardButton(KeyEvent.VK_Q).isPressed ()){
-			Vector v = vitesse.add(vitesse.resized(2.0));
+			Vector v = new Vector(-4,4);
 			Fireball fireball = new Fireball(v, position, getWorld().getLoader());
 			getWorld().register(fireball);
 		}

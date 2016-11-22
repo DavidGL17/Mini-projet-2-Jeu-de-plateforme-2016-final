@@ -7,7 +7,7 @@ import platform.util.Output;
 import platform.util.Vector;
 import platform.util.Loader;
 
-class Fireball extends Actor{
+public class Fireball extends Actor{
 	private Vector position;
 	private Vector vitesse;
 	private Box box;
