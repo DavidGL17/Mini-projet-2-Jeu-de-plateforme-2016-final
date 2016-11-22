@@ -45,12 +45,27 @@ public class Simulator implements World {
     	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), loader);
     	Fireball fireball = new Fireball(new Vector(-3,5), new Vector(3, 2),loader);
     	Player franky = new Player(new Vector(0, -4), new Vector(2, 3), loader);
-    	actors.add(block1);
-    	actors.add(block2);
-    	actors.add(block3);
-    	actors.add(fireball);
-    	actors.add(franky);
+    	register(block1);
+    	register(block2);
+    	register(block3);
+    	register(fireball);
+    	register(franky);
     }
+    @Override
+    public Loader getLoader() {
+        return loader;
+    }
+    @Override
+    public void register(Actor actor) {
+    	registered.add(actor) ;
+    	actor.register(this);
+    }
+    @Override
+    public void unregister(Actor actor) {
+    	unregistered.add(actor) ;
+    }
+    
+    
     @Override
     public void setView(Vector center , double radius) {
     	if (center == null)
@@ -100,7 +115,6 @@ public class Simulator implements World {
 		for (int i = 0 ; i < registered.size() ; ++i) {
 			Actor actor = registered.get(i) ;
 			if ( !actors.contains(actor)) {
-				actor.register(this);
 				actors.add(actor) ;
 			}
 		}
@@ -113,43 +127,4 @@ public class Simulator implements World {
 		}
 		unregistered.clear () ;
 	}
-    @Override
-    public Loader getLoader() {
-        return loader;
-    }
-    @Override
-    public void register(Actor actor) {
-    	registered.add(actor) ;
-    	actor.register(world);
-    }
-    @Override
-    public void unregister(Actor actor) {
-    	unregistered.add(actor) ;
-    }
-    private World world = new World() {
-		
-		@Override
-		public void unregister(Actor actor) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void setView(Vector center, double radius) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void register(Actor actor) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public Loader getLoader() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-	};
 }
