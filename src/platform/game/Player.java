@@ -66,6 +66,17 @@ public class Player extends Actor{
 			}
 		}
 	}
+	@Override
+	public boolean hurt(Actor instigator , Damage type, double amount , Vector location) {
+		switch (type) {
+			case AIR :
+				vitesse = getPosition().sub(location).resized(amount) ;
+				return true ;
+			default :
+				return super.hurt(instigator , type, amount , location) ;
+		}
+	}
+	
 	public void preUpdate(){
 		colliding=false;
 	}
