@@ -45,6 +45,9 @@ public class Player extends Actor{
 	}
 	
 	private boolean colliding = false;
+	private final double MAX_SPEED_RIGHT = 4;
+	private final double MAX_SPEED_LEFT = -4;
+
 	
 	@Override
 	public void interact(Actor other) {
@@ -69,28 +72,26 @@ public class Player extends Actor{
 	@Override
 	public void update(Input input) {
 		super.update(input);
-		double maxSpeedRight = 4.0 ;
-		double maxSpeedLeft = -4.0;
 		if (colliding) {
 			double scale = Math.pow (0.001 , input.getDeltaTime ()) ;
 			vitesse = vitesse.mul(scale) ;
 		}
 		if (input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown ()) {
-			if (vitesse.getX() < maxSpeedRight) {
+			if (vitesse.getX() < MAX_SPEED_RIGHT) {
 				double increase = 60.0 * input.getDeltaTime () ;
 				double speed = vitesse.getX() + increase ;
-				if (speed > maxSpeedRight){
-					speed = maxSpeedRight ;
+				if (speed > MAX_SPEED_RIGHT){
+					speed = MAX_SPEED_RIGHT ;
 				}
 				vitesse = new Vector(speed , vitesse.getY()) ;
 			}
 		}
 		if (input.getKeyboardButton(KeyEvent.VK_LEFT).isDown ()) {
-			if (vitesse.getX() > maxSpeedLeft) {
+			if (vitesse.getX() > MAX_SPEED_LEFT) {
 				double decrease = -60.0 * input.getDeltaTime () ;
 				double speed = vitesse.getX() + decrease ;
-				if (speed < maxSpeedLeft){
-					speed = maxSpeedLeft ;
+				if (speed < MAX_SPEED_LEFT){
+					speed = MAX_SPEED_LEFT ;
 				}
 				vitesse = new Vector(speed , vitesse.getY()) ;
 			}
@@ -99,6 +100,11 @@ public class Player extends Actor{
 			if (colliding){
 				vitesse = new Vector(vitesse.getX(), 7.0);
 			}
+		}
+		if (input.getKeyboardButton(KeyEvent.VK_Q).isPressed ()){
+			Vector v = vitesse.add(vitesse.resized(2.0));
+			Fireball fireball = new Fireball(v, position, getWorld().getLoader());
+			getWorld().register(fireball);
 		}
 		double delta = input.getDeltaTime () ;
 		Vector acceleration = new Vector (0.0, -9.81) ;

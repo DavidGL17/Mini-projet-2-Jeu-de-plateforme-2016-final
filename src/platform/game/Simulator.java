@@ -65,7 +65,6 @@ public class Simulator implements World {
     	unregistered.add(actor) ;
     }
     
-    
     @Override
     public void setView(Vector center , double radius) {
     	if (center == null)
