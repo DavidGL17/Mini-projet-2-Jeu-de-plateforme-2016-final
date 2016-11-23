@@ -3,7 +3,6 @@ package platform.game;
 import java.awt.event.KeyEvent;
 import platform.util.Box;
 import platform.util.Input;
-import platform.util.Sprite;
 import platform.util.Output;
 import platform.util.Vector;
 import platform.util.Loader;
@@ -68,10 +67,11 @@ public class Player extends Actor{
 	}
 	@Override
 	public boolean hurt(Actor instigator , Damage type, double amount , Vector location) {
+		super.hurt(instigator, type, amount, location);
 		switch (type) {
 			case AIR :
-				vitesse = getPosition().sub(location).resized(amount) ;
-				return true ;
+				vitesse = getPosition().sub(location).resized(amount);
+				return true;
 			default :
 				return super.hurt(instigator , type, amount , location) ;
 		}
