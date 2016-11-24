@@ -90,7 +90,6 @@ public class Simulator implements World {
     	nextLevel = level;
     }
     public void tryAgain(){
-    	System.out.println(compteurDeNiveau);
     	--compteurDeNiveau;
     	setNextLevel(niveaux[compteurDeNiveau]);
     	++compteurDeNiveau;

@@ -27,7 +27,7 @@ public class BasicLevel extends Level {
     	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
     	Player franky = new Player(new Vector(0, -4), new Vector(2, 3), world.getLoader());
     	Jumper jumper = new Jumper(new Vector(3,1.5), world.getLoader());    
-    	world.register(new Limits(new Box(new Vector(0, -15) , 2, 30)));
+    	world.register(new Limits(new Box(new Vector(0, -15) , 1000, 2)));
     	world.register(block1);    	
     	world.register(block2);
     	world.register(block3);
