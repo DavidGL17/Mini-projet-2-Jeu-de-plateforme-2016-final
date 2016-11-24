@@ -24,6 +24,7 @@ public interface World {
     	Vector gravity = new Vector(0.0, -9.81);
     	return gravity;
     }
+    public int hurt(Box area , Actor instigator , Damage type ,double amount , Vector location);
     // permet d'indiquer que la transition à un autre niveau
     // doit se faire :
     public void nextLevel () ;

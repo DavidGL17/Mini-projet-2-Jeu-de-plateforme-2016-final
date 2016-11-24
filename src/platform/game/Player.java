@@ -13,7 +13,7 @@ public class Player extends Actor{
 	private Box box;
 	private final double SIZE = 1;
 	private final static String dessin = "blocker.happy";
-	private double HP = 3;
+	private double HP = 5;
 	
 	public Player(Vector vitesse, Vector position, Loader loader){
 		super(1337,loader,dessin);
