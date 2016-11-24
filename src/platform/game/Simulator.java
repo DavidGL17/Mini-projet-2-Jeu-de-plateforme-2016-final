@@ -149,7 +149,7 @@ public class Simulator implements World {
 		}
 		// Draw everything
 		for (Actor a : actors.descending ()){
-			a.draw(view , view) ;
+			a.draw(view, view);
 		}
 		// Post Update
 		for (Actor actor : actors){
