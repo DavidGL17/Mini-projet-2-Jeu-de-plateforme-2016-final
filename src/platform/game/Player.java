@@ -72,12 +72,7 @@ public class Player extends Actor{
 					vitesse = new Vector(vitesse.getX(), 0.0) ;
 				}
 			}
-		} else {
-			if (other.isKey()){
-				other.hurt(this, Damage.ACTIVATION, Damage.ACTIVATION.getDamage(), position);
-			}
 		}
-		
 	}
 	@Override
 	public boolean hurt(Actor instigator , Damage type, double amount , Vector location) {

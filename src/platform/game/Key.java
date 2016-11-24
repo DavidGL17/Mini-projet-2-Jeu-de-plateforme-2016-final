@@ -15,39 +15,30 @@ public class Key extends Actor implements Signal{
 	public final static String red = "key.red";
 
 	public Key(Vector position, Loader loader, String color){
-		super(10,new Box(position, WIDTH, HEIGHT),loader, color);
+		super(1400,new Box(position, WIDTH, HEIGHT),loader, color);
 	}
 	
 	private boolean taken = false;
 	
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		switch (type){
-		case ACTIVATION :
-			return true;
+//		case ACTIVATION :
+//			taken = true;
+//			return true;
 		default :
 			return false;
 		}
 	}
-<<<<<<< HEAD
 	public void update(Input input) {
 		if (taken){
 			getWorld().unregister(this);
-=======
-	public void touched(){
-		taken = true;
-	}
-	
-	public void interact(Actor other, Actor key) {
-		super.interact(other);
-		if ((getBox().isColliding(other.getBox()))){
-			getWorld().unregister(key);
 		}
 	}
-	public void draw(Input input , Output output) {
-		if ((taken)){
-		} else {
-			output.drawSprite(getSprite(), getBox());
->>>>>>> origin/master
+	
+	public void interact(Actor other){
+		super.interact(other);
+		if ((getBox().isColliding(other.getBox()))){
+			getWorld().unregister(this);
 		}
 	}
 	public void draw(Input input , Output output) {
@@ -55,8 +46,5 @@ public class Key extends Actor implements Signal{
 	}
 	public boolean isActive(){
 		return taken;
-	}
-	public boolean isKey(){
-		return true;
 	}
 }

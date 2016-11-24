@@ -42,7 +42,7 @@ public class BasicLevel extends Level {
 //    	world.register(new Spikebas(new Vector(-4,4.9), world.getLoader()));
 //    	world.register(new Spikegauche(new Vector(-2.5,3.1), world.getLoader()));
 //    	world.register(new Spikedroite(new Vector(-5.5,3.1), world.getLoader()));
-    	Key key = new Key(new Vector(-11, 2), world.getLoader(), Key.red);
+    	Key key = new Key(new Vector(-11, 2), world.getLoader(), Key.blue);
     	world.register(new Torch(new Vector(-10, 2), world.getLoader()));
     	world.register(key);
     	world.register(block1);    	
