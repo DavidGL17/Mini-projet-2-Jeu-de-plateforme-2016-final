@@ -16,20 +16,20 @@ public class Key extends Actor implements Signal{
 
 	public Key(Vector position, Loader loader, String color){
 		super(10,new Box(position, WIDTH, HEIGHT),loader, color);
+		taken = false;
 	}
 	
 	private boolean taken = false;
 	
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
+		super.hurt(instigator, type, amount, location);
 		switch (type){
 		case ACTIVATION :
+			taken = true;
 			return true;
 		default :
 			return false;
 		}
-	}
-	public void touched(){
-		taken = true;
 	}
 	public void draw(Input input , Output output) {
 		if ((taken)){
