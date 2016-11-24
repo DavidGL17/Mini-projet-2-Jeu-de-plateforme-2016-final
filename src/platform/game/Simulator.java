@@ -89,9 +89,16 @@ public class Simulator implements World {
     public void setNextLevel(Level level){
     	nextLevel = level;
     }
-    
-    
-    @Override
+    public void tryAgain(){
+    	System.out.println(compteurDeNiveau);
+    	--compteurDeNiveau;
+    	setNextLevel(niveaux[compteurDeNiveau]);
+    	++compteurDeNiveau;
+    	transition = true;
+    }
+	
+	
+	@Override
     public int hurt(Box area , Actor instigator , Damage type ,double amount , Vector location) {
     	int victims = 0 ;
     	for (Actor actor : actors)
@@ -109,20 +116,15 @@ public class Simulator implements World {
      */
 	public void update(Input input, Output output){
 		double factor = 0.002 ;
-		currentCenter = currentCenter.mul (1.0 -factor).add(expectedCenter.mul(factor)) ;
-		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor ;
-		View view = new View(input , output) ;
-		view.setTarget(currentCenter , currentRadius) ;
+		currentCenter = currentCenter.mul (1.0 -factor).add(expectedCenter.mul(factor));
+		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor;
+		View view = new View(input , output);
+		view.setTarget(currentCenter , currentRadius);
 		// si un acteur a mis transition à true pour demander le passage
 		// à un autre niveau :
 		if (transition) {
-//			if (nextLevel == null) {
-//				nextLevel = Level.createDefaultLevel () ;
-//			}
 			// si un acteur a appelé setNextLevel , next ne sera pas null :
-//			Level level = nextLevel ;
 			transition = false ;
-//			nextLevel = null ;
 			actors.clear () ;
 			registered.clear () ;
 			// tous les anciens acteurs sont désenregistrés ,

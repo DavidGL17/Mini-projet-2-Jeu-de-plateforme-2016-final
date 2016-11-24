@@ -31,6 +31,11 @@ public abstract class Actor implements Comparable<Actor> {
 	//Pour les levels
 	public Actor(){
 	}
+	//Pour limits
+	public Actor(Box box, int priority){
+		this.box=box;
+		this.priority=priority;
+	}
 	
 	//Getters and setters
 	protected World getWorld(){
@@ -53,6 +58,9 @@ public abstract class Actor implements Comparable<Actor> {
 	}
 	public int getPriority(){
 		return priority;
+	}
+	public void setPriority(int p){
+		priority=p;
 	}
 	protected void setSprite(String dessin){
 		sprite = world.getLoader().getSprite(dessin);

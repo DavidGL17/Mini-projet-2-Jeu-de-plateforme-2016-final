@@ -13,6 +13,7 @@ public class Player extends Actor{
 	private final static double SIZE = 1;
 	private final static String dessin = "blocker.happy";
 	private double HP = 5;
+	private double HPMax = 5;
 	
 	public Player(Vector vitesse, Vector position, Loader loader){
 		super(1337,new Box(position, SIZE, SIZE),loader,dessin);
@@ -37,7 +38,13 @@ public class Player extends Actor{
 	public Vector getVitesse() {
 		return vitesse;
 	}
-	
+	/**
+	 * @return the hP
+	 */
+	public double getHP() {
+		return HP;
+	}
+
 	private boolean colliding = false;
 	private final double MAX_SPEED_RIGHT = 4;
 	private final double MAX_SPEED_LEFT = -4;
@@ -66,6 +73,9 @@ public class Player extends Actor{
 		switch (type) {
 			case AIR :
 				vitesse = getPosition().sub(location).resized(amount);
+				return true;
+			case VOID :
+				HP = 0;
 				return true;
 			default :
 				return super.hurt(instigator , type, amount , location) ;
@@ -115,6 +125,10 @@ public class Player extends Actor{
 			Vector v = new Vector(-4,4);
 			Fireball fireball = new Fireball(v, position, getWorld().getLoader(),this);
 			getWorld().register(fireball);
+		}
+		if (HP<=0){
+			getWorld().unregister(this);
+			getWorld().tryAgain();
 		}
 		double delta = input.getDeltaTime () ;
 		Vector acceleration = new Vector (0.0, -9.81) ;

@@ -8,6 +8,7 @@ import platform.game.Player;
 import platform.game.Actor;
 import platform.game.Fireball;
 import platform.game.Jumper;
+import platform.game.Limits;
 
 public class BasicLevel extends Level {
     // UNCOMMENT ME WHEN NEEDED
@@ -25,7 +26,10 @@ public class BasicLevel extends Level {
     	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),world.getLoader());
     	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
     	Player franky = new Player(new Vector(0, -4), new Vector(2, 3), world.getLoader());
-    	Jumper jumper = new Jumper(new Vector(3,1.5), world.getLoader());    	world.register(block1);    	world.register(block2);
+    	Jumper jumper = new Jumper(new Vector(3,1.5), world.getLoader());    
+    	world.register(new Limits(new Box(new Vector(0, -15) , 2, 30)));
+    	world.register(block1);    	
+    	world.register(block2);
     	world.register(block3);
     	world.register(franky);
     	world.register(jumper);

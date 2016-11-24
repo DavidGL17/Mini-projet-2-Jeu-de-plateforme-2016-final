@@ -30,4 +30,5 @@ public interface World {
     public void nextLevel () ;
     // permet de passer au niveau level :
     public void setNextLevel(Level level) ;
+    public void tryAgain();
 }

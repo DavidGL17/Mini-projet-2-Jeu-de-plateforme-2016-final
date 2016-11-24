@@ -10,8 +10,11 @@ public class Jumper extends Actor{
 
 	private Vector position; 
 	private double cooldown;
+	private final double COOLDOWN = 1;
 	private final static String repos = "jumper.normal";
 	private final static String retracte = "jumper.extended";
+	private final int PRIORITY_COOLDOWN = 1320;
+	private final int PRIORITY_NORMAL = 1340;
 	
 	public Jumper(Vector position, Loader loader){
 		super(1340, new Box(position, 1.3, 1), loader, repos);
@@ -24,8 +27,10 @@ public class Jumper extends Actor{
 		if (!(cooldown <= 0)){
 			cooldown -= input.getDeltaTime();
 			setSprite(retracte);
+			setPriority(PRIORITY_COOLDOWN);
 		} else {
 			setSprite(repos);
+			setPriority(PRIORITY_NORMAL);
 		}
 	}
 	
@@ -35,7 +40,7 @@ public class Jumper extends Actor{
 		if ((cooldown <= 0) && (getBox().isColliding(other.getBox()))){
 			Vector below = new Vector(position.getX(), position.getY()-1) ;
 			if (other.hurt(this , Damage.AIR, Damage.AIR.getDamage(), below)){
-					cooldown = 0.5;
+					cooldown = COOLDOWN;
 			}
 		}
 	}
