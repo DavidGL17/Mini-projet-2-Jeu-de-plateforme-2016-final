@@ -10,6 +10,7 @@ import platform.game.Fireball;
 import platform.game.Jumper;
 import platform.game.Limits;
 import platform.game.Overlay;
+import platform.game.Spikes;
 
 public class BasicLevel extends Level {
     // UNCOMMENT ME WHEN NEEDED
@@ -32,6 +33,7 @@ public class BasicLevel extends Level {
     	Jumper jumper = new Jumper(new Vector(3,1.5), world.getLoader());    
     	world.register(new Limits(new Box(new Vector(0, -15) , 1000, 5)));
     	world.register(new Block(new Box(new Vector(-10, 0), 30, 2), world.getLoader().getSprite("stone.broken.2")));
+    	world.register(new Spikes(new Vector(-4,1.5), world.getLoader()));
     	world.register(block1);    	
     	world.register(block2);
     	world.register(block3);
