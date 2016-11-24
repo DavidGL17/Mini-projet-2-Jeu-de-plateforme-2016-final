@@ -45,6 +45,12 @@ public class Player extends Actor{
 	public double getHP() {
 		return HP;
 	}
+	/**
+	 * @return the hPMax
+	 */
+	public double getHPMax() {
+		return HPMax;
+	}
 
 	private boolean colliding = false;
 	private final double MAX_SPEED_RIGHT = 4;
