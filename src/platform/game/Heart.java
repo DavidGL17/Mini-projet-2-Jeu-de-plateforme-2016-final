@@ -11,7 +11,7 @@ public class Heart extends Actor {
 	private final double COOLDOWN = 10;
 	private Vector position;
 	private final  static String HEART = "Heart.full";
-	private final static double SIZE = 0.8;
+	private final static double SIZE = 0.5;
 	
 	public Heart(Vector position,Loader loader){
 		super(1400, new Box(position, SIZE, SIZE), loader, HEART);

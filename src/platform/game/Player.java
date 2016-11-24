@@ -150,6 +150,14 @@ public class Player extends Actor{
 				getWorld().register(new Fireball(v, position, getWorld().getLoader(),this));
 			}
 		}
+		//W : degats AIR
+		if (input.getKeyboardButton(KeyEvent.VK_W).isPressed ()){
+			if (lastKey.equals("L")){
+				getWorld ().hurt(new Box(new Vector(position.getX()-1, position.getY()), SIZE, SIZE), this , Damage.AIR , Damage.AIR.getDamage(),getPosition ());
+			} else {
+				getWorld ().hurt(new Box(new Vector(position.getX()+1, position.getY()), SIZE, SIZE), this , Damage.AIR , Damage.AIR.getDamage(),getPosition ());
+			}
+		}
 		if (HP<=0){
 			getWorld().unregister(this);
 			getWorld().tryAgain();

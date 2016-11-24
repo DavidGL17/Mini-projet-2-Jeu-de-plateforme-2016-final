@@ -13,6 +13,7 @@ import platform.game.Jumper;
 import platform.game.Limits;
 import platform.game.Overlay;
 import platform.game.Spikes;
+import platform.game.Torch;
 
 public class BasicLevel extends Level {
     // UNCOMMENT ME WHEN NEEDED
@@ -37,9 +38,10 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(-10, 0), 30, 2), world.getLoader().getSprite("stone.broken.2")));
     	world.register(new Spikes(new Vector(-4,1.5), world.getLoader()));
     	world.register(new Heart(new Vector(-4, 3), world.getLoader()));
-    	world.register(new Spikebas(new Vector(-4,4.9), world.getLoader()));
-    	world.register(new Spikegauche(new Vector(-2.5,3.1), world.getLoader()));
-    	world.register(new Spikedroite(new Vector(-5.5,3.1), world.getLoader()));
+//    	world.register(new Spikebas(new Vector(-4,4.9), world.getLoader()));
+//    	world.register(new Spikegauche(new Vector(-2.5,3.1), world.getLoader()));
+//    	world.register(new Spikedroite(new Vector(-5.5,3.1), world.getLoader()));
+    	world.register(new Torch(new Vector(-10, 2), world.getLoader()));
     	world.register(block1);    	
     	world.register(block2);
     	world.register(block3);
