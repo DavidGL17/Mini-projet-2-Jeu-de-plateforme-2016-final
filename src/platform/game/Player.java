@@ -72,6 +72,8 @@ public class Player extends Actor{
 					vitesse = new Vector(vitesse.getX(), 0.0) ;
 				}
 			}
+		} else {
+			other.hurt(this, Damage.ACTIVATION, Damage.ACTIVATION.getDamage(), position); 
 		}
 	}
 	@Override

@@ -6,7 +6,7 @@ import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
 
-public class Torch extends Actor {
+public class Torch extends Actor implements Signal {
 	private Vector position;
 	private final String TORCH_LIT_1 = "torch.lit.1";
 	private final String TORCH_LIT_2 = "torch.lit.2";
@@ -19,6 +19,9 @@ public class Torch extends Actor {
 	public Torch(Vector position, Loader loader){
 		super(10,new Box(position, LARGEUR, HAUTEUR),loader.getSprite(TORCH));
 		this.position = position;
+	}
+	public boolean isActive(){
+		return lit;
 	}
 	
 	private double variation = 0;
