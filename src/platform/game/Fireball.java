@@ -10,12 +10,12 @@ import platform.util.Loader;
 public class Fireball extends Actor{
 	private Vector position;
 	private Vector vitesse;
-	private final double SIZE = 0.4;
+	private final static double SIZE = 0.4;
 	private final static String dessin = "fireball";
 	private Player owner = null;
 	
 	public Fireball(Vector vitesse, Vector position, Loader loader, Player owner){
-		super(9001,new Box(position, SIZE, SIZE),dessin);
+		super(9001,new Box(position, SIZE, SIZE), loader,dessin);
 		if (vitesse ==null){
 			throw new NullPointerException();
 		}
