@@ -12,24 +12,19 @@ import platform.util.Loader;
  */
 public class Block extends Actor {
 	private final static String dessin = "box.empty";
-	private Box box;
 	
 	//Constructeur de base
 	public Block(Vector basGauche, Vector hautDroite, Loader loader){
-		super(0,loader,dessin);
-		box = new Box(basGauche, hautDroite);
+		super(0,new Box(basGauche, hautDroite),loader ,dessin);
 	}
 	//Constructeur utilisé par les levels. Permet de régler la taille
 	public Block(Box box, Sprite sprite){
-		super(0,sprite);
-		this.box=box;
+		super(0,box,sprite);
 	}
 	public void draw(Input input , Output output) {
-		output.drawSprite(getSprite(), box);
+		output.drawSprite(getSprite(), getBox());
 	}
-	public Box getBox(){
-		return box;
-	}
+	
 	public boolean isSolid(){
 		return true;
 	}
