@@ -14,16 +14,19 @@ public abstract class Actor implements Comparable<Actor> {
 	private int priority;
 	private World world;
 	private Sprite sprite;
+	private Box box;
 
 	//Pour fireball et player
-	public Actor(int p,Loader loader,String dessin){
+	public Actor(int p,Box box,Loader loader,String dessin){
 		priority=p;
 		sprite = loader.getSprite(dessin);
+		this.box = box;
 	}
 	//Pour les blocks
-	public Actor(int p,Sprite sprite){
+	public Actor(int p,Box box,Sprite sprite){
 		priority=p;
 		this.sprite = sprite;
+		this.box = box;
 	}
 	//Pour les levels
 	public Actor(){
@@ -37,7 +40,10 @@ public abstract class Actor implements Comparable<Actor> {
 		return sprite;
 	}
 	public Box getBox () {
-		return null;
+		return box;
+	}
+	protected void setBox(Box box){
+		this.box= box;
 	}
 	public Vector getPosition () {
 		Box box = getBox() ;

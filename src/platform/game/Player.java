@@ -10,13 +10,12 @@ import platform.util.Loader;
 public class Player extends Actor{
 	private Vector position;
 	private Vector vitesse;
-	private Box box;
-	private final double SIZE = 1;
+	private final static double SIZE = 1;
 	private final static String dessin = "blocker.happy";
 	private double HP = 5;
 	
 	public Player(Vector vitesse, Vector position, Loader loader){
-		super(1337,loader,dessin);
+		super(1337,new Box(position, SIZE, SIZE),loader,dessin);
 		if (vitesse ==null){
 			throw new NullPointerException();
 		}
@@ -25,10 +24,6 @@ public class Player extends Actor{
 		}
 		this.position=position;
 		this.vitesse=vitesse;
-		box = new Box(position, SIZE, SIZE);
-	}
-	public Box getBox(){
-		return box;
 	}
 	/**
 	 * @return the position
@@ -52,7 +47,7 @@ public class Player extends Actor{
 	public void interact(Actor other) {
 		super.interact(other);
 		if (other.isSolid ()) {
-			Vector delta = other.getBox().getCollision(box);
+			Vector delta = other.getBox().getCollision(getBox());
 			if (delta != null) {
 				colliding = true;
 				position = position.add(delta) ;
@@ -125,7 +120,7 @@ public class Player extends Actor{
 		Vector acceleration = new Vector (0.0, -9.81) ;
 		vitesse = vitesse.add(acceleration.mul(delta));
 		position = position.add(vitesse.mul(delta));
-		box = new Box(position, SIZE, SIZE);
+		setBox(new Box(position, SIZE, SIZE));
 	}
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox());

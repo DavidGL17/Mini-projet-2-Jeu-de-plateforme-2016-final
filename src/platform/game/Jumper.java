@@ -10,14 +10,12 @@ public class Jumper extends Actor{
 
 	private Vector position; 
 	private double cooldown;
-	private Box box;
 	private final static String repos = "jumper.normal";
 	private final static String retracte = "jumper.extended";
 	
 	public Jumper(Vector position, Loader loader){
-		super(1340, loader, repos);
+		super(1340, new Box(position, 1.3, 1), loader, repos);
 		this.position = position;
-	box = new Box(position, 1.3, 1);
 	}
 	
 	@Override
@@ -43,9 +41,6 @@ public class Jumper extends Actor{
 	}
 	public boolean isSolid(){
 		return true;
-	}
-	public Box getBox(){
-		return box;
 	}
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox());
