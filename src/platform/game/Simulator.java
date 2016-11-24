@@ -114,7 +114,7 @@ public class Simulator implements World {
      * @param output output object to use, not null
      */
 	public void update(Input input, Output output){
-		double factor = 0.002 ;
+		double factor = 0.08 ;
 		currentCenter = currentCenter.mul (1.0 -factor).add(expectedCenter.mul(factor));
 		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor;
 		View view = new View(input , output);

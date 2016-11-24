@@ -1,19 +1,20 @@
 package platform.game;
 
 import java.awt.event.KeyEvent;
+
 import platform.util.Box;
 import platform.util.Input;
+import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
-import platform.util.Loader;
 
 public class Player extends Actor{
 	private Vector position;
 	private Vector vitesse;
 	private final static double SIZE = 1;
 	private final static String dessin = "blocker.happy";
-	private double HP = 5;
-	private double HPMax = 5;
+	private double HP = 10;
+	private double HPMax = 10;
 	
 	public Player(Vector vitesse, Vector position, Loader loader){
 		super(1337,new Box(position, SIZE, SIZE),loader,dessin);
@@ -82,6 +83,8 @@ public class Player extends Actor{
 		}
 	}
 	
+	private String lastKey = "R";
+	
 	public void preUpdate(){
 		colliding=false;
 	}
@@ -94,6 +97,7 @@ public class Player extends Actor{
 		}
 		//Flèche droite : droite
 		if (input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown ()) {
+			lastKey = "R";
 			if (vitesse.getX() < MAX_SPEED_RIGHT) {
 				double increase = 60.0 * input.getDeltaTime () ;
 				double speed = vitesse.getX() + increase ;
@@ -105,6 +109,7 @@ public class Player extends Actor{
 		}
 		//Flèche gauche : gauche
 		if (input.getKeyboardButton(KeyEvent.VK_LEFT).isDown ()) {
+			lastKey = "L";
 			if (vitesse.getX() > MAX_SPEED_LEFT) {
 				double decrease = -60.0 * input.getDeltaTime () ;
 				double speed = vitesse.getX() + decrease ;
@@ -122,9 +127,13 @@ public class Player extends Actor{
 		}
 		//Q : boule de feu
 		if (input.getKeyboardButton(KeyEvent.VK_Q).isPressed ()){
-			Vector v = new Vector(-4,4);
-			Fireball fireball = new Fireball(v, position, getWorld().getLoader(),this);
-			getWorld().register(fireball);
+			if (lastKey.equals("R")){
+				Vector v = new Vector(4+vitesse.getX(),4+vitesse.getY());
+				getWorld().register(new Fireball(v, position, getWorld().getLoader(),this));
+			} else {
+				Vector v = new Vector(-4+vitesse.getX(),4+vitesse.getY());
+				getWorld().register(new Fireball(v, position, getWorld().getLoader(),this));
+			}
 		}
 		if (HP<=0){
 			getWorld().unregister(this);

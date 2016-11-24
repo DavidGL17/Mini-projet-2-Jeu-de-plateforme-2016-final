@@ -27,17 +27,14 @@ public class Fireball extends Actor{
 		this.owner=owner;
 	}
 
-	@Override
-	public void update(Input input) {
-		super.update(input);
-		double delta = input.getDeltaTime () ;
-		Vector acceleration = new Vector (0.0, -9.81) ;
-		vitesse = vitesse.add(acceleration.mul(delta)) ;
-		position = position.add(vitesse.mul(delta));
-		setBox(new Box(position, SIZE, SIZE));
-	}
-	public void draw(Input input, Output output){
-		output.drawSprite(getSprite(), getBox(), input.getTime());
+	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
+		switch(type) {
+		case VOID : 
+			getWorld().unregister(this);
+			return true;
+		default :
+			return true;
+		}
 	}
 	@Override
 	public void interact(Actor other) {
@@ -56,5 +53,16 @@ public class Fireball extends Actor{
 			}
 		}
 	}
-	
+	@Override
+	public void update(Input input) {
+		super.update(input);
+		double delta = input.getDeltaTime () ;
+		Vector acceleration = new Vector (0.0, -9.81) ;
+		vitesse = vitesse.add(acceleration.mul(delta)) ;
+		position = position.add(vitesse.mul(delta));
+		setBox(new Box(position, SIZE, SIZE));
+	}
+	public void draw(Input input, Output output){
+		output.drawSprite(getSprite(), getBox(), input.getTime());
+	}
 }
