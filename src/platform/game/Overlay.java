@@ -18,6 +18,7 @@ public class Overlay extends Actor{
 	public Overlay(Player player){
 		super(0, new Box(new Vector(player.getPosition().getX(), player.getPosition().getY()+0.5), 0.2, 0.2), player.getWorld().getLoader().getSprite(COEUR_PLEIN));
 		this.player = player;
+		this.position= new Vector(player.getPosition().getX()+0.1, player.getPosition().getY()+0.8);
 	}
 	public Vector getPosition(){
 		return position;
@@ -25,6 +26,7 @@ public class Overlay extends Actor{
 	
 	public void update(Input input) {
 		super.update(input);
+		this.position= new Vector(player.getPosition().getX()+0.1, player.getPosition().getY()+0.8);
 	}
 	public void draw(Input input, Output output){
 		double p = -0.5;
