@@ -10,6 +10,7 @@ import platform.game.Spikebas;
 import platform.game.Spikedroite;
 import platform.game.Spikegauche;
 import platform.game.Jumper;
+import platform.game.Key;
 import platform.game.Limits;
 import platform.game.Overlay;
 import platform.game.Spikes;
@@ -41,7 +42,9 @@ public class BasicLevel extends Level {
 //    	world.register(new Spikebas(new Vector(-4,4.9), world.getLoader()));
 //    	world.register(new Spikegauche(new Vector(-2.5,3.1), world.getLoader()));
 //    	world.register(new Spikedroite(new Vector(-5.5,3.1), world.getLoader()));
+    	Key key = new Key(new Vector(-11, 2), world.getLoader(), Key.red);
     	world.register(new Torch(new Vector(-10, 2), world.getLoader()));
+    	world.register(key);
     	world.register(block1);    	
     	world.register(block2);
     	world.register(block3);
