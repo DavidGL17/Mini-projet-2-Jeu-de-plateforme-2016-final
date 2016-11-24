@@ -28,7 +28,7 @@ public class Overlay extends Actor{
 	}
 	public void draw(Input input, Output output){
 		double p = -0.5;
-		for (int i = 0;i<player.getHP()/2;++i){
+		for (int i = 1;i<=player.getHP()/2;++i){
 			output.drawSprite(getSprite(), new Box(new Vector(getPosition().getX()+p, getPosition().getY()), SIZE, SIZE));
 			p +=0.2;
 		}

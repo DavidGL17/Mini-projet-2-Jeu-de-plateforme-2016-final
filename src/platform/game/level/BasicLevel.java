@@ -2,6 +2,7 @@ package platform.game.level;
 
 import platform.game.World;
 import platform.game.Block;
+import platform.game.Heart;
 import platform.util.Box;
 import platform.util.Vector;
 import platform.game.Player;
@@ -32,6 +33,7 @@ public class BasicLevel extends Level {
     	world.register(new Limits(new Box(new Vector(0, -15) , 1000, 5)));
     	world.register(new Block(new Box(new Vector(-10, 0), 30, 2), world.getLoader().getSprite("stone.broken.2")));
     	world.register(new Spikes(new Vector(-4,1.5), world.getLoader()));
+    	world.register(new Heart(new Vector(-5, 3), world.getLoader()));
     	world.register(block1);    	
     	world.register(block2);
     	world.register(block3);
