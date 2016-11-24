@@ -84,6 +84,9 @@ public class Player extends Actor{
 			case VOID :
 				HP = 0;
 				return true;
+			case PHYSICAL :
+				HP -= amount;
+				return true;
 			default :
 				return super.hurt(instigator , type, amount , location) ;
 		}

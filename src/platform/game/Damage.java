@@ -6,7 +6,7 @@ PHYSICAL (2),
 AIR (10),
 VOID (1000000),
 ACTIVATION (0),
-HEAL (-1);
+HEAL (-2);
 	
 	private double damage = 0.0;
 	
