@@ -10,10 +10,10 @@ import platform.util.Loader;
 public class Spikes extends Actor{
 
 	private Vector position;
-	private final static String spikeHaut = "spikes";
-	private final static String spikeBas = "spikebas";
-	private final static String spikeGauche = "spikegauche";
-	private final static String spikeDroite = "spikedroite";
+	private final static String spikeHaut = "spikeshaut";
+	private final static String spikeBas = "spikesbas";
+	private final static String spikeGauche = "spikesgauche";
+	private final static String spikeDroite = "spikesdroite";
 	private double cooldown;
 	private final double COOLDOWN = 1;
 	private final int PRIORITY_COOLDOWN = 1320;
