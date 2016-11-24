@@ -31,13 +31,18 @@ public class Key extends Actor implements Signal{
 			return false;
 		}
 	}
-	public void draw(Input input , Output output) {
-		if ((taken)){
-		} else {
-			output.drawSprite(getSprite(), getBox());
+	public void update(Input input) {
+		if (taken){
+			getWorld().unregister(this);
 		}
+	}
+	public void draw(Input input , Output output) {
+		output.drawSprite(getSprite(), getBox());
 	}
 	public boolean isActive(){
 		return taken;
+	}
+	public boolean isKey(){
+		return true;
 	}
 }

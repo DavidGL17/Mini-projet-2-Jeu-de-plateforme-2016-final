@@ -23,6 +23,9 @@ public class Torch extends Actor implements Signal {
 	public boolean isActive(){
 		return lit;
 	}
+	public boolean isSignal(){
+		return true;
+	}
 	
 	private double variation = 0;
 	private final double VARIATION_MAX = 1;

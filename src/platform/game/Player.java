@@ -73,8 +73,11 @@ public class Player extends Actor{
 				}
 			}
 		} else {
-			other.hurt(this, Damage.ACTIVATION, Damage.ACTIVATION.getDamage(), position); 
+			if (other.isKey()){
+				other.hurt(this, Damage.ACTIVATION, Damage.ACTIVATION.getDamage(), position);
+			}
 		}
+		
 	}
 	@Override
 	public boolean hurt(Actor instigator , Damage type, double amount , Vector location) {
