@@ -5,8 +5,6 @@ import platform.game.Block;
 import platform.util.Box;
 import platform.util.Vector;
 import platform.game.Player;
-import platform.game.Actor;
-import platform.game.Fireball;
 import platform.game.Jumper;
 import platform.game.Limits;
 import platform.game.Overlay;
