@@ -88,11 +88,15 @@ public class Player extends Actor{
 				HP -= amount;
 				return true;
 			case HEAL :
-				HP -= amount;
-				if (HP>HPMax){
-					HP = HPMax;
+				if (HP<HPMax){
+					HP -= amount;
+					if (HP>HPMax){
+						HP = HPMax;
+					}
+					return true;
+				} else {
+					return false;
 				}
-				return true;
 			default :
 				return super.hurt(instigator , type, amount , location) ;
 		}
