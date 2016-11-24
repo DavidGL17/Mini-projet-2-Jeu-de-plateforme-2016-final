@@ -10,7 +10,7 @@ import platform.util.Loader;
 public class Spikes extends Actor{
 
 	private Vector position;
-	private final static String spikeHaut = "spikeshaut";
+	private final static String spikeHaut = "spikes";
 	private final static String spikeBas = "spikesbas";
 	private final static String spikeGauche = "spikesgauche";
 	private final static String spikeDroite = "spikesdroite";
@@ -22,6 +22,10 @@ public class Spikes extends Actor{
 	public Spikes(Vector position, Loader loader){
 		super(1400, new Box(position, 1.5, 1), loader, spikeHaut);
 		this.position = position;
+		
+	}
+	public Spikes(int i, Box box, Loader loader, String sprite) {
+		super(1400,box,loader, sprite);
 		
 	}
 	@Override
