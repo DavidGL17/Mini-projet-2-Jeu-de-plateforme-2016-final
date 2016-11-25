@@ -14,6 +14,10 @@ public class Locker extends Block implements Signal{
 	public final static String red = "lock.red";
 	public final static String yellow = "lock.yellow";
 	public final static String green = "lock.green";
+	private boolean timer = false;
+	private final double COOLDOWN_MAX = 0.5;
+	private double cooldown = COOLDOWN_MAX;
+	private boolean destructionBegins = false;
 
 	
 	public Locker(Vector position, Loader loader, String color,Signal signal){
@@ -21,13 +25,26 @@ public class Locker extends Block implements Signal{
 		this.signal= signal;
 		this.position=position;
 	}
+	public Locker(Vector position, Loader loader, String color,Signal signal, boolean timer){
+		super(new Box(position, SIZE, SIZE), loader.getSprite(color));
+		this.signal= signal;
+		this.position=position;
+		this.timer = timer;
+	}
 	
 	public boolean isSolid(){
 		return !signal.isActive();
 	}
 	// pour évoluer au cours du temps :
 	public void update(Input input) {
-		if (signal.isActive()){
+		if (signal.isActive()&&timer){
+			destructionBegins = true;
+			cooldown -= input.getDeltaTime();
+		}
+		if (!timer &&(signal.isActive())){
+			setBox(null);
+		}
+		if (timer && (cooldown <=0)){
 			setBox(null);
 		}
 	}
