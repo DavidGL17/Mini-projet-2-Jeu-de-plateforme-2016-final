@@ -1,9 +1,16 @@
 package platform.game;
 
-import platform.game.level.*;
+import platform.game.level.Level;
+import platform.game.level.BasicLevel;
 import java.util.ArrayList;
 import java.util.List;
-import platform.util.*;
+import platform.util.Box;
+import platform.util.Input;
+import platform.util.Loader;
+import platform.util.Output;
+import platform.util.SortedCollection;
+import platform.util.Vector;
+import platform.util.View;
 
 /**
  * Basic implementation of world, managing a complete collection of actors.
@@ -33,7 +40,7 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
-    	niveaux = new Level[]{new LevelTestDavid()};
+    	niveaux = new Level[]{new BasicLevel()};
     	nextLevel();
     	register(nextLevel);
     	transition = false;
