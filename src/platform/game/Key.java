@@ -22,10 +22,10 @@ public class Key extends Actor implements Signal{
 	
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		switch (type){
-		case ACTIVATION :
-			taken = true;
-			getWorld().unregister(this);
-			return true;
+//		case ACTIVATION :
+//			taken = true;
+//			getWorld().unregister(this);
+//			return true;
 		default :
 			return false;
 		}
@@ -38,6 +38,10 @@ public class Key extends Actor implements Signal{
 	
 	public void interact(Actor other){
 		super.interact(other);
+		if (other.isPlayer()&&(other.getBox().isColliding(getBox()))){
+			taken = true;
+			getWorld().unregister(this);
+		}
 	}
 	public void draw(Input input , Output output) {
 		output.drawSprite(getSprite(), getBox());

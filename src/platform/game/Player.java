@@ -102,6 +102,9 @@ public class Player extends Actor{
 				return super.hurt(instigator , type, amount , location) ;
 		}
 	}
+	public boolean isPlayer(){
+		return true;
+	}
 	
 	private String lastKey = "R";
 	private final double MAX_SPEED_RIGHT = 5;

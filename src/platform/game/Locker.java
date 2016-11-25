@@ -15,7 +15,7 @@ public class Locker extends Block implements Signal{
 	public final static String yellow = "lock.yellow";
 	public final static String green = "lock.green";
 	private boolean timer = false;
-	private final double COOLDOWN_MAX = 0.5;
+	private final double COOLDOWN_MAX = 1;
 	private double cooldown = COOLDOWN_MAX;
 	private boolean destructionBegins = false;
 
@@ -44,14 +44,21 @@ public class Locker extends Block implements Signal{
 		if (!timer &&(signal.isActive())){
 			setBox(null);
 		}
-		if (timer && (cooldown <=0)){
+		if (destructionBegins && (cooldown <=0)){
 			setBox(null);
+			timer = false;
 		}
 	}
 	// pour être dessiné
 	public void draw(Input input , Output output) {
-		if (!signal.isActive()){
-			output.drawSprite(getSprite(), getBox());
+		if (!timer && !destructionBegins){
+			if (!signal.isActive()){
+				output.drawSprite(getSprite(), getBox());
+			}
+		} else {
+			if (cooldown>0){
+				output.drawSprite(getSprite(), getBox());
+			}
 		}
 	}
 
