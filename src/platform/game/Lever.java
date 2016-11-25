@@ -12,7 +12,7 @@ public class Lever extends Actor implements Signal{
 	private final String LEVER_RIGHT = "lever.right";
 	private final String LEVER_LEFT = "lever.left";
 	private final static double WIDTH = 1;
-	private final static double HEIGHT = 0.5;
+	private final static double HEIGHT = 1;
 	
 	public Lever(Vector position, Loader loader){
 		super(10, new Box(position, WIDTH, HEIGHT), loader.getSprite("lever.left"));
@@ -39,6 +39,6 @@ public class Lever extends Actor implements Signal{
 
 	@Override
 	public boolean isActive() {
-		return value;
+		return !value;
 	}
 }

@@ -30,7 +30,6 @@ public class Key extends Actor implements Signal{
 		}
 	}
 	public void update(Input input) {
-		System.out.println(taken);
 		if (taken){
 			getWorld().unregister(this);
 		}

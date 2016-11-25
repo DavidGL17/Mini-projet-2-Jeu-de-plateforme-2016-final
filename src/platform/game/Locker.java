@@ -10,10 +10,10 @@ public class Locker extends Block implements Signal{
 	private Signal signal;
 	private Vector position;
 	private final static double SIZE =1;
-	private final static String blue = "lock.blue";
-	private final static String red = "lock.red";
-	private final static String yellow = "lock.yellow";
-	private final static String green = "lock.green";
+	public final static String blue = "lock.blue";
+	public final static String red = "lock.red";
+	public final static String yellow = "lock.yellow";
+	public final static String green = "lock.green";
 
 	
 	public Locker(Vector position, Loader loader, String color,Signal signal){
@@ -23,7 +23,7 @@ public class Locker extends Block implements Signal{
 	}
 	
 	public boolean isSolid(){
-		return !signal.isActive();
+		return signal.isActive();
 	}
 	// pour évoluer au cours du temps :
 	public void update(Input input) {
