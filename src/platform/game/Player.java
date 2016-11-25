@@ -76,6 +76,9 @@ public class Player extends Actor{
 	public boolean hurt(Actor instigator , Damage type, double amount , Vector location) {
 		super.hurt(instigator, type, amount, location);
 		switch (type) {
+			case FIRE :
+				HP -= amount;
+				return true;
 			case AIR :
 				vitesse = getPosition().sub(location).resized(amount);
 				return true;
@@ -103,6 +106,9 @@ public class Player extends Actor{
 	private String lastKey = "R";
 	private final double MAX_SPEED_RIGHT = 5;
 	private final double MAX_SPEED_LEFT = -5;
+	private double cooldownBouleDeFeu;
+	private double conteurDeBoule = 0;
+	private final double COOLDOWN_BOULE_DE_FEU = 1;
 	
 	public void preUpdate(){
 		colliding=false;
@@ -145,13 +151,23 @@ public class Player extends Actor{
 			}
 		}
 		//Q : boule de feu
-		if (input.getKeyboardButton(KeyEvent.VK_Q).isPressed ()){
-			if (lastKey.equals("R")){
-				Vector v = new Vector(4+vitesse.getX(),4+vitesse.getY());
-				getWorld().register(new Fireball(v, position, getWorld().getLoader(),this));
-			} else {
-				Vector v = new Vector(-4+vitesse.getX(),4+vitesse.getY());
-				getWorld().register(new Fireball(v, position, getWorld().getLoader(),this));
+		if (cooldownBouleDeFeu>0){
+			cooldownBouleDeFeu -= input.getDeltaTime();
+		}
+		if (conteurDeBoule>=3){
+			cooldownBouleDeFeu=COOLDOWN_BOULE_DE_FEU;
+			conteurDeBoule=0;
+		}
+		if (cooldownBouleDeFeu <=0){
+			if (input.getKeyboardButton(KeyEvent.VK_Q).isPressed ()){
+				if (lastKey.equals("R")){
+					Vector v = new Vector(4+vitesse.getX(),4+vitesse.getY());
+					getWorld().register(new Fireball(v, position, getWorld().getLoader(),this));
+				} else {
+					Vector v = new Vector(-4+vitesse.getX(),4+vitesse.getY());
+					getWorld().register(new Fireball(v, position, getWorld().getLoader(),this));
+				}
+				++conteurDeBoule;
 			}
 		}
 		//W : dégats AIR
