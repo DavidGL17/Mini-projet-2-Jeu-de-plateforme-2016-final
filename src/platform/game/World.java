@@ -1,9 +1,9 @@
 package platform.game;
 
+import platform.game.level.Level;
 import platform.util.Box;
 import platform.util.Loader;
-import platform.util.Vector;
-import platform.game.level.Level;;
+import platform.util.Vector;;
 
 /**
  * Represents an environment populated by actors.

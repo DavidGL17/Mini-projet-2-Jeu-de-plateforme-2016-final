@@ -2,10 +2,9 @@ package platform.game;
 
 import platform.util.Box;
 import platform.util.Input;
-import platform.util.Sprite;
+import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
-import platform.util.Loader;
 
 public class Fireball extends Actor{
 	private Vector position;
@@ -46,12 +45,13 @@ public class Fireball extends Actor{
 					vitesse = vitesse.mirrored(delta) ;
 			}
 		}
-//		if (other.getBox().isColliding(getBox())){
-//			if (other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
-//			// faire en sorte ici que la boule feu disparaisse
-//			// une fois qu'elle a infligé un dommage.
-//			}
-//		}
+		if (other.getBox() !=null){
+			if (other.getBox().isColliding(getBox())){
+				if (other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
+					getWorld().unregister(this);
+				}
+			}
+		}
 	}
 	@Override
 	public void update(Input input) {

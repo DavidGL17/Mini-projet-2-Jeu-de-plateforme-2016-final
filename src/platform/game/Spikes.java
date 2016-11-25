@@ -2,10 +2,9 @@ package platform.game;
 
 import platform.util.Box;
 import platform.util.Input;
-import platform.util.Vector;
-import platform.util.Output;
-import platform.util.Sprite;
 import platform.util.Loader;
+import platform.util.Output;
+import platform.util.Vector;
 
 public class Spikes extends Actor{
 

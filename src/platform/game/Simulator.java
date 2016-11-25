@@ -1,9 +1,10 @@
 package platform.game;
 
-import platform.game.level.Level;
-import platform.game.level.BasicLevel;
 import java.util.ArrayList;
 import java.util.List;
+
+import platform.game.level.BasicLevel;
+import platform.game.level.Level;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
