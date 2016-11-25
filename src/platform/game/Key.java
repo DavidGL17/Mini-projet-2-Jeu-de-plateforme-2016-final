@@ -38,6 +38,7 @@ public class Key extends Actor implements Signal{
 	public void interact(Actor other){
 		super.interact(other);
 		if ((getBox().isColliding(other.getBox()))){
+			taken = true;
 			getWorld().unregister(this);
 		}
 	}

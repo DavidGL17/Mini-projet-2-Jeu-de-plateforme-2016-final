@@ -53,8 +53,6 @@ public class Player extends Actor{
 	}
 
 	private boolean colliding = false;
-	private final double MAX_SPEED_RIGHT = 4;
-	private final double MAX_SPEED_LEFT = -4;
 
 	
 	@Override
@@ -103,6 +101,8 @@ public class Player extends Actor{
 	}
 	
 	private String lastKey = "R";
+	private final double MAX_SPEED_RIGHT = 5;
+	private final double MAX_SPEED_LEFT = -5;
 	
 	public void preUpdate(){
 		colliding=false;
