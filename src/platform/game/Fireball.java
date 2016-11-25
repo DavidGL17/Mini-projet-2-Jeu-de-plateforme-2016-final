@@ -46,12 +46,12 @@ public class Fireball extends Actor{
 					vitesse = vitesse.mirrored(delta) ;
 			}
 		}
-		if (other.getBox().isColliding(getBox())){
-			if (other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
-			// faire en sorte ici que la boule feu disparaisse
-			// une fois qu'elle a infligé un dommage.
-			}
-		}
+//		if (other.getBox().isColliding(getBox())){
+//			if (other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
+//			// faire en sorte ici que la boule feu disparaisse
+//			// une fois qu'elle a infligé un dommage.
+//			}
+//		}
 	}
 	@Override
 	public void update(Input input) {
