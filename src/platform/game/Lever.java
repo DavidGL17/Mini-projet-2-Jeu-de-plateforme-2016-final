@@ -28,21 +28,17 @@ public class Lever extends Actor implements Signal{
 			return false;
 		}
 	}
-	// pour évoluer au cours du temps :
-		public void update(Input input) {
-			
+	// pour être dessiné
+	public void draw(Input input , Output output) {
+		if (value){
+			output.drawSprite(getWorld().getLoader().getSprite(LEVER_LEFT), getBox());
+		} else {
+			output.drawSprite(getWorld().getLoader().getSprite(LEVER_RIGHT), getBox());
 		}
-		// pour être dessiné
-		public void draw(Input input , Output output) {
-			if (value){
-				output.drawSprite(getWorld().getLoader().getSprite(LEVER_LEFT), getBox());
-			} else {
-				output.drawSprite(getWorld().getLoader().getSprite(LEVER_RIGHT), getBox());
-			}
-		}
+	}
 
-		@Override
-		public boolean isActive() {
-			return value;
-		}
+	@Override
+	public boolean isActive() {
+		return value;
+	}
 }
