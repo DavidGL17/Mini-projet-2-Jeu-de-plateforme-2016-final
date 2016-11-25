@@ -42,9 +42,11 @@ public class BasicLevel extends Level {
     	
     	Key key = new Key(new Vector(2, 8), world.getLoader(), Key.blue);
     	Locker locker1 = (new Locker(new Vector(4, 7.5), world.getLoader(), Locker.blue, key));
-    	Locker locker2 = (new Locker(new Vector(4, 7.5), world.getLoader(), Locker.blue, locker1, true));
+    	Locker locker2 = (new Locker(new Vector(4, 8.5), world.getLoader(), Locker.blue, locker1, true));
+    	Locker locker3 = new Locker(new Vector(4, 9.5), world.getLoader(), Locker.blue, locker2, true);
     	world.register(locker1);
     	world.register(locker2);
+    	world.register(locker3);
     	world.register(key);
     	world.register(new Limits(new Box(new Vector(0, -15) , 1000, 5)));
     	world.register(new Block(new Box(new Vector(-10, 11), 2, 1), world.getLoader().getSprite("stone.2")));
@@ -70,9 +72,6 @@ public class BasicLevel extends Level {
     	world.register(new Spikes(new Vector(-1,1.5), world.getLoader()));
     	world.register(new Spikes(new Vector(0.5,1.5), world.getLoader()));
     	world.register(new Spikes(new Vector(2,1.5), world.getLoader()));
-    	world.register(new Locker(new Vector(4, 7.5), world.getLoader(), Locker.blue, key));
-    	world.register(new Locker(new Vector(4, 8.5), world.getLoader(), Locker.blue, key, true));
-    	world.register(new Locker(new Vector(4, 9.5), world.getLoader(), Locker.blue, key, true));
     	
     									// Outdoor
     	

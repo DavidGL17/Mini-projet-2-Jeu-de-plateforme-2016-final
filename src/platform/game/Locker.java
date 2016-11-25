@@ -15,9 +15,10 @@ public class Locker extends Block implements Signal{
 	public final static String yellow = "lock.yellow";
 	public final static String green = "lock.green";
 	private boolean timer = false;
-	private final double COOLDOWN_MAX = 1;
+	private final double COOLDOWN_MAX = 0.5;
 	private double cooldown = COOLDOWN_MAX;
 	private boolean destructionBegins = false;
+	private boolean destructionDone = false;
 
 	
 	public Locker(Vector position, Loader loader, String color,Signal signal){
@@ -37,7 +38,7 @@ public class Locker extends Block implements Signal{
 	}
 	// pour évoluer au cours du temps :
 	public void update(Input input) {
-		if (signal.isActive()&&timer){
+		if (signal.isActive()&&timer&&!destructionDone){
 			destructionBegins = true;
 			cooldown -= input.getDeltaTime();
 		}
@@ -46,7 +47,7 @@ public class Locker extends Block implements Signal{
 		}
 		if (destructionBegins && (cooldown <=0)){
 			setBox(null);
-			timer = false;
+			destructionDone = true;
 		}
 	}
 	// pour être dessiné
@@ -64,6 +65,10 @@ public class Locker extends Block implements Signal{
 
 	@Override
 	public boolean isActive() {
-		return signal.isActive();
+		if (!timer){
+			return signal.isActive();
+		} else {
+			return destructionDone;
+		}
 	}
 }
