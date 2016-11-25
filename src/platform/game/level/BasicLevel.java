@@ -33,7 +33,7 @@ public class BasicLevel extends Level {
         Block block1 = new Block(new Vector(-4, -1),new Vector(4, 0),world.getLoader());
     	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),world.getLoader());
     	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
-    	Player franky = new Player(new Vector(0, -4), new Vector(-10, 11), world.getLoader());
+    	Player franky = new Player(new Vector(0, -4), new Vector(30, 10), world.getLoader());
     	world.register(franky);
     	Overlay overlayfranky = new Overlay(franky);
     	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader());    
@@ -133,9 +133,47 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(30, 7.5), 1, 1), world .getLoader().getSprite("box.empty")));
     	world.register(new Block(new Box(new Vector(30, 8.5), 1, 1), world .getLoader().getSprite("box.empty")));
     	world.register(new Block(new Box(new Vector(30, 9.5), 1, 1), world .getLoader().getSprite("box.empty")));
-    	world.register(new Block(new Box(new Vector(28, 8), 1, 1), world .getLoader().getSprite("box.empty")));
-    	world.register(new Block(new Box(new Vector(28, 10), 1, 1), world .getLoader().getSprite("box.empty")));
-    	world.register(new Block(new Box(new Vector(26, 8), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(29, 7.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(29, 8.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(28, 7.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(40, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(40, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(40, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(40, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(40, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(40, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(40, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+
+    	world.register(new Block(new Box(new Vector(42, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(42, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(42, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(42, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(44, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(44, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(44, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(44, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(46, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(46, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(46, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(46, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(48, 6), 2, 2), world .getLoader().getSprite("grass.middle")));  
+    	world.register(new Block(new Box(new Vector(48, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(48, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(48, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(50, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(50, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(50, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(50, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(52, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(52, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(52, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(52, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(54, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	world.register(new Block(new Box(new Vector(54, 4), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(54, 2), 2, 2), world .getLoader().getSprite("grass.center")));
+    	world.register(new Block(new Box(new Vector(54, 0), 2, 2), world .getLoader().getSprite("grass.center")));
+
+
 
 
 
