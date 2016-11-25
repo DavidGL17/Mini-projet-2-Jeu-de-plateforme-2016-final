@@ -22,6 +22,9 @@ public class Locker extends Block implements Signal{
 		this.position=position;
 	}
 	
+	public boolean isSolid(){
+		return !signal.isActive();
+	}
 	// pour évoluer au cours du temps :
 	public void update(Input input) {
 		if (signal.isActive()){
