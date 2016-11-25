@@ -69,8 +69,6 @@ public class BasicLevel extends Level {
     	world.register(new Locker(new Vector(4, 7.5), world.getLoader(), Locker.blue, key));
     	world.register(new Locker(new Vector(4, 8.5), world.getLoader(), Locker.blue, key));
     	world.register(new Locker(new Vector(4, 9.5), world.getLoader(), Locker.blue, key));
-
-
     	
     									// Outdoor
     	
@@ -143,7 +141,14 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(40, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(40, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(40, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
-
+    	world.register(new Block(new Box(new Vector(40, 7.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(40, 8.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(40, 9.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(41, 7.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(41, 8.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(42, 7.5), 1, 1), world .getLoader().getSprite("box.empty")));
+    	world.register(new Block(new Box(new Vector(35, 11), 1, 1), world .getLoader().getSprite("box.empty")));
+    	Jumper jumper2 = new Jumper(new Vector(35,12), world.getLoader());    
     	world.register(new Block(new Box(new Vector(42, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(42, 4), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(42, 2), 2, 2), world .getLoader().getSprite("grass.center")));
@@ -172,13 +177,6 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(54, 4), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(54, 2), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(54, 0), 2, 2), world .getLoader().getSprite("grass.center")));
-
-
-
-
-
-
-
     	
 //    	world.register(new Heart(new Vector(-3, 7), world.getLoader()));
 //    	world.register(new Heart(new Vector(-8, 7), world.getLoader()));
@@ -195,6 +193,7 @@ public class BasicLevel extends Level {
 //    	world.register(block3);
     	world.register(overlayfranky);
     	world.register(jumper);
+    	world.register(jumper2);
     }
     
 }
