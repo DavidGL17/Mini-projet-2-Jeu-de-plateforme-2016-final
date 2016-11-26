@@ -14,6 +14,7 @@ import platform.game.Key;
 import platform.game.Lever;
 import platform.game.Limits;
 import platform.game.Locker;
+import platform.game.Mover;
 import platform.game.Overlay;
 import platform.game.Spikes;
 import platform.game.Torch;
@@ -128,6 +129,10 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(26, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(28, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(30, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
+    	Lever lever = new Lever(new Vector(26, 9), world.getLoader());
+    	Mover mover = new Mover(new Vector(24, 9), new Vector(24, 12), 1, 1, world.getLoader(), lever, "grass.middle");
+    	world.register(mover);
+    	world.register(lever);
     
     										// Saut
     	
@@ -183,8 +188,8 @@ public class BasicLevel extends Level {
     	
 //    	world.register(new Heart(new Vector(-3, 7), world.getLoader()));
 //    	world.register(new Heart(new Vector(-8, 7), world.getLoader()));
-    	Lever lever = new Lever(new Vector(-8, 7), world.getLoader());
-    	world.register(lever);
+//    	Lever lever = new Lever(new Vector(-8, 7), world.getLoader());
+//    	world.register(lever);
     	world.register(new Heart(new Vector(2, 7), world.getLoader()));
 //    	world.register(new Spikebas(new Vector(-4,4.9), world.getLoader()));
 //    	world.register(new Spikegauche(new Vector(-2.5,3.1), world.getLoader()));

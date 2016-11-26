@@ -40,7 +40,7 @@ public class Mover extends Block{
 				current = 1.0 ;
 				currentPosition=on;
 			}
-			currentPosition = new Vector(off.getX()-((current*(off.getX()-on.getX()))), off.getY()-((current*(off.getY()-on.getY()))));
+			currentPosition = new Vector(off.getX()+((current*(on.getX()-off.getX()))), off.getY()+((current*(on.getY()-off.getY()))));
 		}
 		if (!signal.isActive()){
 			current -= input.getDeltaTime ();
@@ -48,7 +48,7 @@ public class Mover extends Block{
 				current = 0.0 ;
 				currentPosition = off;
 			}
-			currentPosition = new Vector(on.getX()-(1/(current*(on.getX()-off.getX()))), on.getY()-(1/(current*(on.getY()-off.getY()))));
+			currentPosition = new Vector(on.getX()-((1-current)*(on.getX()-off.getX())), on.getY()-((1-current)*(on.getY()-off.getY())));
 		}
 	}
 }
