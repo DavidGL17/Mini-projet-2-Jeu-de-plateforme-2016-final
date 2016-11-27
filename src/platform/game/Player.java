@@ -183,11 +183,7 @@ public class Player extends Actor{
 		}
 		//E : activer leviers,...
 		if (input.getKeyboardButton(KeyEvent.VK_E).isPressed ()){
-			if (lastKey.equals("L")){
-				getWorld ().hurt(new Box(new Vector(position.getX()-1, position.getY()), SIZE, SIZE), this , Damage.ACTIVATION , Damage.ACTIVATION.getDamage(),getPosition ());
-			} else {
-				getWorld ().hurt(new Box(new Vector(position.getX()+1, position.getY()), SIZE, SIZE), this , Damage.ACTIVATION , Damage.ACTIVATION.getDamage(),getPosition ());
-			}
+			getWorld ().hurt(new Box(new Vector(position.getX(), position.getY()), SIZE, SIZE), this , Damage.ACTIVATION , Damage.ACTIVATION.getDamage(),getPosition ());
 		}
 		if (HP<=0){
 			getWorld().unregister(this);

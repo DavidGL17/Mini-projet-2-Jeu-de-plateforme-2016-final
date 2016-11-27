@@ -12,9 +12,9 @@ public class Exit extends Actor{
 	private double Width;
 	private Signal signal;
 	public final static String fermee = "door.closed";
-	public final static String ouverte = "door.ouverte";
+	public final static String ouverte = "door.open";
 
-	public Exit(Vector position, double Width, double Height,Loader loader, Signal signal, int niveauSuivant){
+	public Exit(Vector position, double Width, double Height,Loader loader, Signal signal){
 		super(1500, new Box(position, Width, Height), loader.getSprite(fermee));
 		this.Height=Height;
 		this.Width=Width;
@@ -23,10 +23,12 @@ public class Exit extends Actor{
 	}
 	
 	public void interact(Actor other) {
-		if (other.getBox().isColliding(getBox())){
-			if (other.isPlayer()){
-				if (signal.isActive()){
-					getWorld().nextLevel();
+		if (!(other.getBox()==null)){
+			if (other.getBox().isColliding(getBox())){
+				if (other.isPlayer()){
+					if (signal.isActive()){
+						getWorld().nextLevel();
+					}
 				}
 			}
 		}

@@ -51,9 +51,7 @@ public class Fireball extends Actor{
 		if (other.getBox() !=null){
 			if (other.getBox().isColliding(getBox())){
 				if (!other.equals(owner) && owner!=null){
-					if (other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
-						getWorld().unregister(this);
-					}
+					other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition());
 				}
 			}
 		}
@@ -72,6 +70,6 @@ public class Fireball extends Actor{
 		setBox(new Box(position, SIZE, SIZE));
 	}
 	public void draw(Input input, Output output){
-		output.drawSprite(getSprite(), getBox(), input.getTime());
+		output.drawSprite(getSprite(), getBox(), input.getTime()*25);
 	}
 }

@@ -11,12 +11,14 @@ public class Overlay extends Actor{
 	private final String COEUR_DEMI= "heart.half";
 	private final String COEUR_VIDE = "heart.empty";
 	private final double SIZE = 0.2;
+	private final double HPMax;
 	private Vector position;
 	
 	public Overlay(Player player){
 		super(0, new Box(new Vector(player.getPosition().getX(), player.getPosition().getY()+0.5), 0.2, 0.2), player.getWorld().getLoader().getSprite(COEUR_PLEIN));
 		this.player = player;
 		this.position= new Vector(player.getPosition().getX()+0.1, player.getPosition().getY()+0.8);
+		HPMax = player.getHPMax()/10/2*(-1);
 	}
 	public Vector getPosition(){
 		return position;
@@ -27,7 +29,7 @@ public class Overlay extends Actor{
 		this.position= new Vector(player.getPosition().getX()+0.1, player.getPosition().getY()+0.8);
 	}
 	public void draw(Input input, Output output){
-		double p = -0.5;
+		double p = HPMax;
 		for (int i = 1;i<=player.getHP()/2;++i){
 			output.drawSprite(getSprite(), new Box(new Vector(getPosition().getX()+p, getPosition().getY()), SIZE, SIZE));
 			p +=0.2;

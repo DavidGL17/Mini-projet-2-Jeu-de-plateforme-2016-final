@@ -2,6 +2,7 @@ package platform.game.level;
 
 import platform.game.World;
 import platform.game.Block;
+import platform.game.Exit;
 import platform.game.Heart;
 import platform.util.Box;
 import platform.util.Vector;
@@ -37,7 +38,7 @@ public class BasicLevel extends Level {
     	Player franky = new Player(new Vector(0, -4), new Vector(-10, 12), world.getLoader());
     	world.register(franky);
     	Overlay overlayfranky = new Overlay(franky);
-    	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader());    
+    	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader()); 
     	
     									// Salle 1
     	
@@ -129,10 +130,11 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(26, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(28, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(30, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
-    	Lever lever = new Lever(new Vector(26, 9), world.getLoader());
-    	Mover mover = new Mover(new Vector(24, 9), new Vector(24, 12), 1, 1, world.getLoader(), lever, "grass.middle");
+    	Lever lever = new Lever(new Vector(26, 8), world.getLoader());
+    	Mover mover = new Mover(new Vector(24, 8), new Vector(24, 12), 1, 1, world.getLoader(), lever, "grass.middle");
     	world.register(mover);
     	world.register(lever);
+    	world.register(new Exit(new Vector(23, 8), 1, 2, world.getLoader(), lever));
     
     										// Saut
     	
