@@ -52,11 +52,12 @@ public abstract class Actor implements Comparable<Actor> {
 	}
 	public Vector getPosition () {
 		Box box = getBox() ;
-		if (box == null)
+		if (box == null){
 			return null ;
-			return box.getCenter () ;
+		}
+		return box.getCenter () ;
 	}
-	public int getPriority(){
+	protected int getPriority(){
 		return priority;
 	}
 	public void setPriority(int p){
