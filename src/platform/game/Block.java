@@ -19,7 +19,7 @@ public class Block extends Actor {
 	}
 	//Constructeur utilisé par les levels. Permet de régler la taille
 	public Block(Box box, Sprite sprite){
-		super(0,box,sprite);
+		super(10,box,sprite);
 	}
 	public void draw(Input input , Output output) {
 		output.drawSprite(getSprite(), getBox());

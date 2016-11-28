@@ -1,7 +1,9 @@
 package platform.game;
 
 import platform.util.Box;
+import platform.util.Input;
 import platform.util.Loader;
+import platform.util.Output;
 import platform.util.Vector;
 
 public class BlockDeco extends Block{
@@ -14,6 +16,7 @@ public class BlockDeco extends Block{
 		WIDTH = width;
 		HEIGHT = height;
 		this.position = position;
+		this.setPriority(-10);
 	}
 	
 	/**
@@ -35,5 +38,7 @@ public class BlockDeco extends Block{
 	public boolean isSolid(){
 		return false;
 	}
-	
+	public void draw(Input input, Output output){
+		output.drawSprite(getSprite(), new Box(position, WIDTH, HEIGHT));
+	}
 }

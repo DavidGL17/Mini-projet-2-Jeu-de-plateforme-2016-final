@@ -16,6 +16,12 @@ public class Background extends Actor{
 		this.owner = owner;
 		lastOwnersPosition = owner.getPosition();
 	}
+	public void addBlock(BlockDeco block){
+		if (block == null){
+			throw new NullPointerException("Le bloc est null");
+		} 
+		blocks.add(block);
+	}
 	
 	// pour évoluer au cours du temps :
 	public void update(Input input) {
@@ -23,8 +29,14 @@ public class Background extends Actor{
 		double xDifference = lastOwnersPosition.getX()-ownersPosition.getX();
 		double yDifference = lastOwnersPosition.getY()-ownersPosition.getY();
 		for (BlockDeco b : blocks){
-			Vector newPosition = new Vector(b.getPosition().getX()+xDifference, b.getPosition().getY()+yDifference);
+			Vector newPosition = new Vector(b.getPosition().getX()-xDifference, b.getPosition().getY()-yDifference);
 			b.setPosition(newPosition);
+		}
+		lastOwnersPosition = owner.getPosition();
+	}
+	public void draw(Input input, Output output){
+		for (BlockDeco b : blocks){
+			b.draw(input, output);
 		}
 	}
 }
