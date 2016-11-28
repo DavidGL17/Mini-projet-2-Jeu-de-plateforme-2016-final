@@ -155,10 +155,10 @@ public class Player extends Actor{
 		if (!limite){
 			if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
 				if (colliding && input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown()&& Math.abs(vitesse.getY()) > 0) {
-					vitesse = new Vector(-15, 8);	
+					vitesse = new Vector(-10, 8);	
 					} else {
 						if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && Math.abs(vitesse.getY()) > 0){
-							vitesse = new Vector(15, 8);	
+							vitesse = new Vector(10, 8);	
 						} else {
 							if (colliding){
 								vitesse = new Vector(vitesse.getX(), 7);		
