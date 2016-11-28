@@ -196,7 +196,7 @@ public class Player extends Actor{
 				getWorld ().hurt(new Box(new Vector(position.getX()+1, position.getY()), SIZE, SIZE), this , Damage.AIR , Damage.AIR.getDamage(),getPosition ());
 			}
 		}
-		//E : activer leviers,...
+		//E : active leviers,...
 		if (input.getKeyboardButton(KeyEvent.VK_E).isPressed ()){
 			getWorld ().hurt(new Box(new Vector(position.getX(), position.getY()), SIZE, SIZE), this , Damage.ACTIVATION , Damage.ACTIVATION.getDamage(),getPosition ());
 		}

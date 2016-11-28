@@ -1,6 +1,7 @@
 package platform.game.level;
 
 import platform.game.Block;
+import platform.game.BlockDestructible;
 import platform.game.Exit;
 import platform.game.Key;
 import platform.game.LimiteTangible;
@@ -21,6 +22,7 @@ public class Level_02 extends Level{
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
+	    world.register(new BlockDestructible(new Vector(0, 3), 1, 1, world.getLoader(), "box.empty","box.empty.fire.1"));
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
 	    world.register(new LimiteTangible(new Vector(-4, 0), 2, 30));
 	    world.register(new Block(new Box(new Vector(0, -3), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
