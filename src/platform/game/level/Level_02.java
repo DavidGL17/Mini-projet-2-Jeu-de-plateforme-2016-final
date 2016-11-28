@@ -17,7 +17,7 @@ public class Level_02 extends Level{
 	    public void register(World world) {
         super.register(world);
 
-		Player franky = new Player(new Vector(0, 1), new Vector(0, 0), world.getLoader());
+		Player franky = new Player(new Vector(0, 1), new Vector(54, 15), world.getLoader());
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
@@ -67,10 +67,7 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(54, -11), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(52, -5), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(54, -5), 2, 6), world.getLoader().getSprite("grass.center1_3")));
-	    world.register(new Block(new Box(new Vector(52, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
-	    world.register(new Block(new Box(new Vector(54, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
-	    world.register(new Jumper(new Vector(54, 5), world.getLoader()));
-	    Key keyRed = new Key(new Vector(52, 4.5), world.getLoader(), Key.red);
+	    Key keyRed = new Key(new Vector(52, -1.5), world.getLoader(), Key.red);
 	    Locker locker1 = new Locker(new Vector(57, 12.5), world.getLoader(), Locker.red, keyRed);
 	    Locker locker2 = new Locker(new Vector(59, 12.5), world.getLoader(), Locker.red, keyRed);
 	    Locker locker3 = new Locker(new Vector(57, 13.5), world.getLoader(), Locker.red, keyRed);
