@@ -53,22 +53,22 @@ public class Player extends Actor{
 	}
 
 	private boolean colliding = false;
-	private String zoneColliding = "";
-
 	
 	@Override
 	public void interact(Actor other) {
 		super.interact(other);
 		if (other.isSolid ()) {
-			Vector delta = other.getBox().getCollision(getBox());
-			if (delta != null) {
-				colliding = true;
-				position = position.add(delta) ;
-				if (delta.getX() != 0.0){
-					vitesse = new Vector (0.0, vitesse.getY());
-				}
-				if (delta.getY() != 0.0){
-					vitesse = new Vector(vitesse.getX(), 0.0) ;
+			if (!other.isLimiteTangible()){
+				Vector delta = other.getBox().getCollision(getBox());
+				if (delta != null) {
+					colliding = true;
+					position = position.add(delta) ;
+					if (delta.getX() != 0.0){
+						vitesse = new Vector (0.0, vitesse.getY());
+					}
+					if (delta.getY() != 0.0){
+						vitesse = new Vector(vitesse.getX(), 0.0) ;
+					}
 				}
 			}
 		}

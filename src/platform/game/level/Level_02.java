@@ -22,8 +22,7 @@ public class Level_02 extends Level{
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
-	    world.register(new Limits(new Box(new Vector(-4, 0), 2, 30)));
-	    
+	    world.register(new LimiteTangible(new Vector(-4, 0), 2, 30));
 	    world.register(new Block(new Box(new Vector(0, -3), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(0, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(0, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
