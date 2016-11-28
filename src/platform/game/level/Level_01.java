@@ -3,6 +3,7 @@ package platform.game.level;
 import platform.game.Block;
 import platform.game.Exit;
 import platform.game.Key;
+import platform.game.LimiteTangible;
 import platform.game.Limits;
 import platform.game.Locker;
 import platform.game.Overlay;
@@ -27,6 +28,8 @@ public class Level_01 extends Level {
 	    	world.register(new Limits(new Box(new Vector(0, -12) , 1000, 5)));
 	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
 	    	world.register(key);
+		    world.register(new LimiteTangible(new Vector(-10, 0), 2, 30));
+
 
 
 	        													// Spawn
@@ -45,6 +48,8 @@ public class Level_01 extends Level {
 	    	world.register(new Block(new Box(new Vector(20, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(10, -6), 2, 6), world.getLoader().getSprite("grass.center1_3")));    
 	    	
+	    	
+	    	world.register(new BlockDeco(new Vector(6, 8), 10, 5, world.getLoader(), "foliagePack_008"));
 	    	world.register(new BlockDeco(new Vector(-8, 4), 2, 2, world.getLoader(), "foliagePack_leaves_044"));
 	    	world.register(new BlockDeco(new Vector(-6, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
 	    	world.register(new BlockDeco(new Vector(-4, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
@@ -61,6 +66,7 @@ public class Level_01 extends Level {
 	    	world.register(new BlockDeco(new Vector(18, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
 	    	world.register(new BlockDeco(new Vector(20, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
 	    	world.register(new BlockDeco(new Vector(22, 4), 2, 2, world.getLoader(), "foliagePack_leaves_002"));
+
 
 
 
