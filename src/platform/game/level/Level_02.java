@@ -1,6 +1,7 @@
 package platform.game.level;
 
 import platform.game.Block;
+import platform.game.BlockDestructible;
 import platform.game.Exit;
 import platform.game.Key;
 import platform.game.LimiteTangible;
@@ -21,9 +22,9 @@ public class Level_02 extends Level{
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
+	    world.register(new BlockDestructible(new Vector(0, 3), 1, 1, world.getLoader(), "box.empty","box.empty.fire.1"));
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
-	    world.register(new Limits(new Box(new Vector(-4, 0), 2, 30)));
-	    
+	    world.register(new LimiteTangible(new Vector(-4, 0), 2, 30));
 	    world.register(new Block(new Box(new Vector(0, -3), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(0, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(0, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
@@ -70,7 +71,6 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(54, -5), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(52, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(54, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
-	    world.register(new Jumper(new Vector(54, 5), world.getLoader()));
 	    Key keyRed = new Key(new Vector(52, 4.5), world.getLoader(), Key.red);
 	    Locker locker1 = new Locker(new Vector(57, 12.5), world.getLoader(), Locker.red, keyRed);
 	    Locker locker2 = new Locker(new Vector(59, 12.5), world.getLoader(), Locker.red, keyRed);
@@ -84,7 +84,7 @@ public class Level_02 extends Level{
 	    world.register(locker5);
 	    world.register(keyRed);
 	    world.register(new Exit(new Vector(58, 13), 1, 2, world.getLoader(), keyRed));
-
+	    world.register(new LimiteTangible(new Vector(62, 12), 2, 30));
 	    
 	    world.register(new Block(new Box(new Vector(58, 9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(58, 3), 6, 6), world.getLoader().getSprite("grass.center3")));
