@@ -150,10 +150,20 @@ public class Player extends Actor{
 		}
 		//Espace : saut
 		if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
-			if (colliding){
-				vitesse = new Vector(vitesse.getX(), 8);
-			}
+			if (colliding && input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown()&& Math.abs(vitesse.getY()) > 0) {
+				vitesse = new Vector(-15, 8);	
+				} else {
+					if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && Math.abs(vitesse.getY()) > 0){
+						vitesse = new Vector(15, 8);	
+					} else {
+						if (colliding){
+							vitesse = new Vector(vitesse.getX(), 7);	
+							
+						}
+					} 
+				}
 		}
+			
 		//Q : boule de feu
 		if (cooldownBouleDeFeu>0){
 			cooldownBouleDeFeu -= input.getDeltaTime();
