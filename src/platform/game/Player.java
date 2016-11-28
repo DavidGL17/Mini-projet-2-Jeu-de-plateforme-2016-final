@@ -53,22 +53,25 @@ public class Player extends Actor{
 	}
 
 	private boolean colliding = false;
+	private boolean limite = false;
 	
 	@Override
 	public void interact(Actor other) {
 		super.interact(other);
 		if (other.isSolid ()) {
-			if (!other.isLimiteTangible()){
-				Vector delta = other.getBox().getCollision(getBox());
-				if (delta != null) {
-					colliding = true;
-					position = position.add(delta) ;
+			Vector delta = other.getBox().getCollision(getBox());
+			if (delta != null) {
+				colliding = true;
+				limite = false;
+				position = position.add(delta) ;
 					if (delta.getX() != 0.0){
-						vitesse = new Vector (0.0, vitesse.getY());
-					}
-					if (delta.getY() != 0.0){
-						vitesse = new Vector(vitesse.getX(), 0.0) ;
-					}
+					vitesse = new Vector (0.0, vitesse.getY());
+				}
+				if (delta.getY() != 0.0){
+					vitesse = new Vector(vitesse.getX(), 0.0) ;
+				}
+				if (other.isLimiteTangible()){
+					limite = true;
 				}
 			}
 		}
@@ -149,19 +152,20 @@ public class Player extends Actor{
 			}
 		}
 		//Espace : saut
-		if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
-			if (colliding && input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown()&& Math.abs(vitesse.getY()) > 0) {
-				vitesse = new Vector(-15, 8);	
-				} else {
-					if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && Math.abs(vitesse.getY()) > 0){
-						vitesse = new Vector(15, 8);	
+		if (!limite){
+			if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
+				if (colliding && input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown()&& Math.abs(vitesse.getY()) > 0) {
+					vitesse = new Vector(-15, 8);	
 					} else {
-						if (colliding){
-							vitesse = new Vector(vitesse.getX(), 7);	
-							
-						}
-					} 
-				}
+						if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && Math.abs(vitesse.getY()) > 0){
+							vitesse = new Vector(15, 8);	
+						} else {
+							if (colliding){
+								vitesse = new Vector(vitesse.getX(), 7);		
+							}
+						} 
+					}
+			}
 		}
 			
 		//Q : boule de feu
