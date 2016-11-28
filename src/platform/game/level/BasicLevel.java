@@ -133,7 +133,7 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(26, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(28, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(30, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
-    	Lever lever = new Lever(new Vector(26, 8), world.getLoader());
+    	Lever lever = new Lever(new Vector(24, 9), world.getLoader());
     	Mover mover = new Mover(new Vector(24, 8), new Vector(24, 12), 1, 1, world.getLoader(), lever, "grass.middle");
     	world.register(mover);
     	world.register(lever);
