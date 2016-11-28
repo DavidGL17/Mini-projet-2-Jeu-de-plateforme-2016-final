@@ -34,6 +34,15 @@ public class Player extends Actor{
 		return position;
 	}
 	/**
+	 * @param position the position to set
+	 */
+	protected void setPosition(Vector position) {
+		if (position == null){
+			throw new NullPointerException();
+		}
+		this.position = position;
+	}
+	/**
 	 * @return the vitesse
 	 */
 	public Vector getVitesse() {

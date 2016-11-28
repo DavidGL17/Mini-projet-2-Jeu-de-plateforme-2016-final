@@ -28,7 +28,7 @@ public class Simulator implements World {
     private SortedCollection<Actor> actors = new SortedCollection<Actor>();
     private List<Actor> registered;
     private List<Actor> unregistered;
-    public static double radius = 8;
+    public static double radius = 10;
     /**
     * Create a new simulator.
     * @param loader associated loader , not null
@@ -115,7 +115,7 @@ public class Simulator implements World {
      * @param output output object to use, not null
      */
 	public void update(Input input, Output output){
-		double factor = 0.08 ;
+		double factor = 0.1 ;
 		currentCenter = currentCenter.mul (1.0 -factor).add(expectedCenter.mul(factor));
 		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor;
 		View view = new View(input , output);
