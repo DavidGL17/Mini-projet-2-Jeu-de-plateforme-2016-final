@@ -76,6 +76,8 @@ public class BasicLevel extends Level {
     	world.register(new Spikes(new Vector(0.5,1.5), world.getLoader()));
     	world.register(new Spikes(new Vector(2,1.5), world.getLoader()));
     	
+    	world.register(new Block(new Box(new Vector(-10, 18), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
+    	
     									// Outdoor
     	
     	world.register(new Block(new Box(new Vector(6, 6), 2, 2), world.getLoader().getSprite("grass.middle")));    
