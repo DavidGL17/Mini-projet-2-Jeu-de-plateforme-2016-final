@@ -49,7 +49,12 @@ public class Level_01 extends Level {
 	    	world.register(new Block(new Box(new Vector(10, -6), 2, 6), world.getLoader().getSprite("grass.center1_3")));    
 	    	
 	    	
-	    	world.register(new BlockDeco(new Vector(6, 8), 10, 5, world.getLoader(), "foliagePack_008"));
+	    	world.register(new BlockDeco(new Vector(0, 3.5), 1, 1, world.getLoader(), "foliagePack_001"));
+	    	world.register(new BlockDeco(new Vector(14, 3.5), 1, 1, world.getLoader(), "foliagePack_001"));
+	    	world.register(new BlockDeco(new Vector(-4, 3.5), 1, 1, world.getLoader(), "foliagePack_004"));
+	    	world.register(new BlockDeco(new Vector(6, 7), 9, 5, world.getLoader(), "foliagePack_008"));
+	    	world.register(new BlockDeco(new Vector(5, 3.5), 1, 1, world.getLoader(), "mushroomRed"));
+	    	world.register(new BlockDeco(new Vector(7.5, 3.5), 1, 1, world.getLoader(), "mushroomBrown"));
 	    	world.register(new BlockDeco(new Vector(-8, 4), 2, 2, world.getLoader(), "foliagePack_leaves_044"));
 	    	world.register(new BlockDeco(new Vector(-6, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
 	    	world.register(new BlockDeco(new Vector(-4, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
@@ -66,6 +71,12 @@ public class Level_01 extends Level {
 	    	world.register(new BlockDeco(new Vector(18, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
 	    	world.register(new BlockDeco(new Vector(20, 4), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
 	    	world.register(new BlockDeco(new Vector(22, 4), 2, 2, world.getLoader(), "foliagePack_leaves_002"));
+	    	world.register(new BlockDeco(new Vector(2, 8), 8, 3, world.getLoader(), "hill_largeAlt"));
+	    	world.register(new BlockDeco(new Vector(-2, 6), 6, 2, world.getLoader(), "hill_largeAlt"));
+	    	world.register(new BlockDeco(new Vector(0, 8), 10, 3, world.getLoader(), "hill_largeAlt"));
+	    
+
+
 
 
 
@@ -74,10 +85,8 @@ public class Level_01 extends Level {
 
 	    														// Jump
 	    	
-	    	world.register(new Block(new Box(new Vector(34, 4), 6, 6), world.getLoader().getSprite("grass.center3")));    
-	    	world.register(new Block(new Box(new Vector(34, 10), 6, 6), world.getLoader().getSprite("grass.center3")));  
+	    	world.register(new Block(new Box(new Vector(34, 8), 6, 6), world.getLoader().getSprite("grass.center3")));  
 	    	world.register(new Block(new Box(new Vector(34, 14), 6, 6), world.getLoader().getSprite("grass.center3")));    
-	    	world.register(new Block(new Box(new Vector(34, 6), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(34, 2), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(34, -4), 6, 6), world.getLoader().getSprite("grass.center3")));   
 	    	world.register(new Block(new Box(new Vector(34, -6), 6, 6), world.getLoader().getSprite("grass.center3")));   
@@ -90,6 +99,9 @@ public class Level_01 extends Level {
 	    	world.register(new Block(new Box(new Vector(34, 20), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
 	    	world.register(new Block(new Box(new Vector(23, 18), 2, 6), world.getLoader().getSprite("grass.center1_3")));    
 	    	world.register(new Block(new Box(new Vector(23, 24), 2, 6), world.getLoader().getSprite("grass.middle1_3")));    
+	    	
+	    	
+	    	
 
 
 	    														// Exit
