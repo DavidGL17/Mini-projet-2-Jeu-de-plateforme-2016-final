@@ -107,8 +107,8 @@ public class Player extends Actor{
 	}
 	
 	private String lastKey = "R";
-	private final double MAX_SPEED_RIGHT = 5;
-	private final double MAX_SPEED_LEFT = -5;
+	private final double MAX_SPEED_RIGHT = 8;
+	private final double MAX_SPEED_LEFT = -8;
 	private double cooldownBouleDeFeu;
 	private double conteurDeBoule = 0;
 	private final double COOLDOWN_BOULE_DE_FEU = 1;
