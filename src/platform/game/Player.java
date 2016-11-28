@@ -53,6 +53,7 @@ public class Player extends Actor{
 	}
 
 	private boolean colliding = false;
+	private String zoneColliding = "";
 
 	
 	@Override
@@ -68,6 +69,28 @@ public class Player extends Actor{
 				}
 				if (delta.getY() != 0.0){
 					vitesse = new Vector(vitesse.getX(), 0.0) ;
+				}
+				Vector droite = new Vector(getPosition().getX()+0.5, getPosition().getY()); 
+				Vector gauche = new Vector(getPosition().getX()-0.5, getPosition().getY()); 
+				Vector bas = new Vector(getPosition().getX(), getPosition().getY()-0.5); 
+				double diffDroiteX = Math.abs(droite.getX()-delta.getX());
+				double diffDroiteY = Math.abs(droite.getY()-delta.getY());
+				double diffGaucheX = Math.abs(gauche.getX()-delta.getX());
+				double diffGaucheY = Math.abs(gauche.getY()-delta.getY());
+				double diffBasX = Math.abs(bas.getX()-delta.getX());
+				double diffBasY = Math.abs(bas.getY()-delta.getY());
+				if ((diffDroiteX<diffGaucheX)&&(diffDroiteY<diffGaucheY)){
+					if ((diffDroiteX<diffBasX)&&(diffDroiteY<diffBasY)){
+						zoneColliding = "R";
+					} else {
+						zoneColliding = "D";
+					}
+				} else {
+					if (diffGaucheX<diffBasX&&(diffGaucheY<diffBasY)){
+						zoneColliding = "L";
+					} else {
+						zoneColliding = "D";
+					}
 				}
 			}
 		}
@@ -149,8 +172,16 @@ public class Player extends Actor{
 		}
 		//Espace : saut
 		if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
-			if (colliding){
-				vitesse = new Vector(vitesse.getX(), 7.0);
+			if (colliding&&zoneColliding.equals("D")){
+				vitesse = new Vector(vitesse.getX(), 8.0);
+			} else {
+				if (colliding&&zoneColliding.equalsIgnoreCase("R")&&lastKey.equals("R")){
+					vitesse = new Vector(-10, 8);
+				} else {
+					if (colliding&&zoneColliding.equals("L")){
+						vitesse = new Vector(10, 8);
+					}
+				}
 			}
 		}
 		//Q : boule de feu

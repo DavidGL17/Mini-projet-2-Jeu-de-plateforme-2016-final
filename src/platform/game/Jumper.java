@@ -17,7 +17,7 @@ public class Jumper extends Actor{
 	private final int PRIORITY_NORMAL = 1340;
 	
 	public Jumper(Vector position, Loader loader){
-		super(1340, new Box(position, 1.3, 1), loader, repos);
+		super(1340, new Box(position, 1.3, 2), loader, repos);
 		this.position = position;
 	}
 	
@@ -38,7 +38,7 @@ public class Jumper extends Actor{
 	public void interact(Actor other) {
 		super.interact(other);
 		if ((cooldown <= 0) && (getBox().isColliding(other.getBox()))){
-			Vector below = new Vector(position.getX(), position.getY()-1) ;
+			Vector below = new Vector(position.getX(), position.getY()) ;
 			if (other.hurt(this , Damage.AIR, Damage.AIR.getDamage(), below)){
 					cooldown = COOLDOWN;
 			}
