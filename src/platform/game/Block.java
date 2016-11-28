@@ -15,11 +15,11 @@ public class Block extends Actor {
 	
 	//Constructeur de base
 	public Block(Vector basGauche, Vector hautDroite, Loader loader){
-		super(0,new Box(basGauche, hautDroite),loader ,dessin);
+		super(1,new Box(basGauche, hautDroite),loader ,dessin);
 	}
 	//Constructeur utilisé par les levels. Permet de régler la taille
 	public Block(Box box, Sprite sprite){
-		super(10,box,sprite);
+		super(1,box,sprite);
 	}
 	public void draw(Input input , Output output) {
 		output.drawSprite(getSprite(), getBox());

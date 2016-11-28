@@ -7,20 +7,15 @@ import platform.util.Output;
 import platform.util.Vector;
 
 public class Background extends Actor{
-	private ArrayList<BlockDeco> blocks = new ArrayList<BlockDeco>();
+	private BlockDeco block;
 	private Player owner;
 	private Vector lastOwnersPosition;
 	
-	public Background(Player owner){
+	public Background(Player owner, BlockDeco block){
 		super(null, 0);
 		this.owner = owner;
+		this.block = block;
 		lastOwnersPosition = owner.getPosition();
-	}
-	public void addBlock(BlockDeco block){
-		if (block == null){
-			throw new NullPointerException("Le bloc est null");
-		} 
-		blocks.add(block);
 	}
 	
 	// pour évoluer au cours du temps :
@@ -28,15 +23,11 @@ public class Background extends Actor{
 		Vector ownersPosition = owner.getPosition();
 		double xDifference = lastOwnersPosition.getX()-ownersPosition.getX();
 		double yDifference = lastOwnersPosition.getY()-ownersPosition.getY();
-		for (BlockDeco b : blocks){
-			Vector newPosition = new Vector(b.getPosition().getX()-xDifference, b.getPosition().getY()-yDifference);
-			b.setPosition(newPosition);
-		}
+		Vector newPosition = new Vector(block.getPosition().getX()-xDifference, block.getPosition().getY()-yDifference);
+		block.setPosition(newPosition);
 		lastOwnersPosition = owner.getPosition();
 	}
 	public void draw(Input input, Output output){
-		for (BlockDeco b : blocks){
-			b.draw(input, output);
-		}
+		block.draw(input, output);
 	}
 }

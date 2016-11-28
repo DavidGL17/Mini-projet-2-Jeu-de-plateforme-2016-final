@@ -34,13 +34,11 @@ public class BasicLevel extends Level {
         // Create blocks
 //        world.register(new Block(new Box(new Vector(0, 0), 4, 2), world.getLoader().getSprite("stone.broken.2")));
 //        world.register(new Block(new Box(new Vector(-1.5, 1.5), 1, 1), world.getLoader().getSprite("stone.broken.1")));
-        BlockDeco block1 = new BlockDeco(new Vector(0, 4),10,10,world.getLoader(),"stone.2");
     	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),world.getLoader());
     	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
     	Player franky = new Player(new Vector(0, -4), new Vector(-10, 12), world.getLoader());
     	world.register(franky);
-    	Background backgroundfrancky = new Background(franky);
-    	backgroundfrancky.addBlock(block1);
+    	Background backgroundfrancky = new Background(franky,new BlockDeco(franky.getPosition(),25,30,getWorld().getLoader(),"bg"));
     	world.register(backgroundfrancky);
     	Overlay overlayfranky = new Overlay(franky);
     	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader()); 
