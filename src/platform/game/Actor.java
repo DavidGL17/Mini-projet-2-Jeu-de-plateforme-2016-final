@@ -63,8 +63,8 @@ public abstract class Actor implements Comparable<Actor> {
 	public void setPriority(int p){
 		priority=p;
 	}
-	protected void setSprite(String dessin){
-		sprite = world.getLoader().getSprite(dessin);
+	protected void setSprite(String dessin, Loader loader){
+		sprite = loader.getSprite(dessin);
 	}
 	
 	// pour évoluer au cours du temps :

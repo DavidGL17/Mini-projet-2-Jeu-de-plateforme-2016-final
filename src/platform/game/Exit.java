@@ -35,9 +35,9 @@ public class Exit extends Actor{
 	}
 	public void update(Input input) {
 		if (signal.isActive()){
-			setSprite(ouverte);
+			setSprite(ouverte, getWorld().getLoader());
 		} else {
-			setSprite(fermee);
+			setSprite(fermee,getWorld().getLoader());
 		}
 	}
 	// pour être dessiné

@@ -13,7 +13,7 @@ public class Lava extends Limits{
 	public Lava(Box box, Loader loader, String dessin){
 		super(box);
 		this.dessin = dessin;
-		setSprite(dessin);
+		setSprite(dessin, loader);
 	}
 	
 	// pour être dessiné

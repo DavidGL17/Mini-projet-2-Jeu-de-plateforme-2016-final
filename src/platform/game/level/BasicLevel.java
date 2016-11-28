@@ -1,26 +1,24 @@
 package platform.game.level;
 
-import platform.game.World;
 import platform.game.Background;
 import platform.game.Block;
 import platform.game.BlockDeco;
 import platform.game.Exit;
 import platform.game.Heart;
-import platform.util.Box;
-import platform.util.Vector;
-import platform.game.Player;
-import platform.game.Spikebas;
-import platform.game.Spikedroite;
-import platform.game.Spikegauche;
 import platform.game.Jumper;
 import platform.game.Key;
+import platform.game.Lava;
 import platform.game.Lever;
 import platform.game.Limits;
 import platform.game.Locker;
 import platform.game.Mover;
 import platform.game.Overlay;
+import platform.game.Player;
 import platform.game.Spikes;
 import platform.game.Torch;
+import platform.game.World;
+import platform.util.Box;
+import platform.util.Vector;
 
 public class BasicLevel extends Level {
     // UNCOMMENT ME WHEN NEEDED
@@ -39,7 +37,7 @@ public class BasicLevel extends Level {
     	Player franky = new Player(new Vector(0, -4), new Vector(-10, 12), world.getLoader());
     	world.register(franky);
     	Background backgroundfrancky = new Background(franky,new BlockDeco(franky.getPosition(),25,30,getWorld().getLoader(),"bg"));
-    	world.register(backgroundfrancky);
+//    	world.register(backgroundfrancky);
     	Overlay overlayfranky = new Overlay(franky);
     	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader()); 
     	
@@ -109,9 +107,9 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(18, 0), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(20, 0), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(12, 6), 2, 2), world.getLoader().getSprite("grass.middle")));
-    	world.register(new Block(new Box(new Vector(14, 6), 2, 2), world.getLoader().getSprite("liquidLava")));
-    	world.register(new Block(new Box(new Vector(16, 6), 2, 2), world.getLoader().getSprite("liquidLava")));
-    	world.register(new Block(new Box(new Vector(18, 6), 2, 2), world.getLoader().getSprite("liquidLava")));
+    	world.register(new Lava(new Box(new Vector(14, 5.5), 2, 1.5), world.getLoader(),Lava.LAVA_TOP));
+    	world.register(new Lava(new Box(new Vector(16, 5.5), 2, 1.5),  world.getLoader(),Lava.LAVA_TOP));
+    	world.register(new Lava(new Box(new Vector(18, 5.5), 2, 1.5),  world.getLoader(),Lava.LAVA_TOP));
     	world.register(new Block(new Box(new Vector(20, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(22, 4), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(24, 4), 2, 2), world .getLoader().getSprite("grass.center")));
