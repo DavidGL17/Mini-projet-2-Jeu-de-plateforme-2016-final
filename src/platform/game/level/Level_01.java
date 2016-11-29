@@ -33,8 +33,6 @@ public class Level_01 extends Level {
 
 
 	        													// Spawn
-	    	
-
 		    
 	    	world.register(new Block(new Box(new Vector(0, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
 	    	world.register(new Block(new Box(new Vector(-6, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
@@ -49,7 +47,6 @@ public class Level_01 extends Level {
 	    	world.register(new Block(new Box(new Vector(14, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(20, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(10, -6), 2, 6), world.getLoader().getSprite("grass.center1_3")));    
-	    	
 	    	
 	    	world.register(new BlockDeco(new Vector(0, 3.5), 1, 1, world.getLoader(), "foliagePack_001"));
 	    	world.register(new BlockDeco(new Vector(14, 3.5), 1, 1, world.getLoader(), "foliagePack_001"));
