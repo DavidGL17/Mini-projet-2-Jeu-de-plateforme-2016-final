@@ -109,9 +109,9 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(18, 0), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(20, 0), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(12, 6), 2, 2), world.getLoader().getSprite("grass.middle")));
-    	world.register(new Lava(new Box(new Vector(14, 5.5), 2, 1.5), world.getLoader(),Lava.LAVA_TOP));
-    	world.register(new Lava(new Box(new Vector(16, 5.5), 2, 1.5),  world.getLoader(),Lava.LAVA_TOP));
-    	world.register(new Lava(new Box(new Vector(18, 5.5), 2, 1.5),  world.getLoader(),Lava.LAVA_TOP));
+//    	world.register(new Lava(new Box(new Vector(14, 5.5), 2, 1.5), world.getLoader(),Lava.LAVA_TOP));
+//    	world.register(new Lava(new Box(new Vector(16, 5.5), 2, 1.5),  world.getLoader(),Lava.LAVA_TOP));
+//    	world.register(new Lava(new Box(new Vector(18, 5.5), 2, 1.5),  world.getLoader(),Lava.LAVA_TOP));
     	world.register(new Block(new Box(new Vector(20, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(22, 4), 2, 2), world .getLoader().getSprite("grass.center")));
     	world.register(new Block(new Box(new Vector(24, 4), 2, 2), world .getLoader().getSprite("grass.center")));

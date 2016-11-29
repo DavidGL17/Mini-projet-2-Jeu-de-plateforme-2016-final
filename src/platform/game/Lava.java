@@ -6,13 +6,9 @@ import platform.util.Loader;
 import platform.util.Output;
 
 public class Lava extends Limits{
-	private final String dessin;
-	public final static String LAVA_TOP = "liquidLavaTop_mid";
-	public final static String LAVA_MID = "liquidLava";
 
 	public Lava(Box box, Loader loader, String dessin){
 		super(box);
-		this.dessin = dessin;
 		setSprite(dessin, loader);
 	}
 	
