@@ -6,6 +6,7 @@ import java.util.List;
 import platform.game.level.Level;
 import platform.game.level.Level_01;
 import platform.game.level.Level_02;
+import platform.game.level.Level_04;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -42,7 +43,7 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
-    	niveaux = new Level[]{new Level_01(), new Level_02()};
+    	niveaux = new Level[]{new Level_01(), new Level_02(), new Level_04()};
     	nextLevel();
     	register(nextLevel);
     	transition = false;

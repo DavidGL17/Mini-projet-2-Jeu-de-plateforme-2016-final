@@ -18,7 +18,7 @@ public class Level_02 extends Level{
 	    public void register(World world) {
         super.register(world);
 
-		Player franky = new Player(new Vector(0, 1), new Vector(8, 0), world.getLoader());
+		Player franky = new Player(new Vector(0, 1), new Vector(40, 15), world.getLoader());
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
@@ -39,7 +39,9 @@ public class Level_02 extends Level{
 	    
 	    world.register(new BlockDeco(new Vector(12, 0), 20, 30, world.getLoader(), "Background_92"));
 	    world.register(new BlockDeco(new Vector(35, 2), 20, 30, world.getLoader(), "Background_92"));
-    	
+	    world.register(new BlockDeco(new Vector(54, 8), 8 , 12, world.getLoader(), "Background2_84"));
+	    world.register(new BlockDeco(new Vector(40, 18), 20, 100, world.getLoader(), "Background_112"));
+	    
 	    
 	    											//Début du saut
 	    world.register(new Block(new Box(new Vector(18, -9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
@@ -97,7 +99,6 @@ public class Level_02 extends Level{
 	    world.register(new Exit(new Vector(58, 13), 1.5, 2, world.getLoader(), keyRed));
 	    world.register(new LimiteTangible(new Vector(62, 12), 2, 30));
 	    
-	    world.register(new BlockDeco(new Vector(54, 8), 8 , 12, world.getLoader(), "Background2_84"));
 	    
 	    world.register(new Block(new Box(new Vector(58, 9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(58, 3), 6, 6), world.getLoader().getSprite("grass.center3")));
