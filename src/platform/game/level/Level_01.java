@@ -20,7 +20,6 @@ public class Level_01 extends Level {
 	        super.register(world);
 	        
 	        // Register a new instance, to restart level automatically
-	        world.setNextLevel(new BasicLevel());
 	    	Player franky = new Player(new Vector(0, -4), new Vector(4, 6), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);

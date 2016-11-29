@@ -161,21 +161,32 @@ public class Player extends Actor{
 			}
 		}
 		//Espace : saut
+		//Espace + Gauche/Droite : Long Walljump
+		//Espace + Gauche/Droite + Haut : Petit Walljump en hauteur
 		if (!limite){
 			if (input.getKeyboardButton(KeyEvent.VK_SPACE).isPressed ()){
-				if (colliding && input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown()&& Math.abs(vitesse.getY()) > 0) {
+				if (colliding && input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown() && input.getKeyboardButton(KeyEvent.VK_UP).isDown() && Math.abs(vitesse.getY()) > 0) {
 					vitesse = new Vector(-10, 8);	
 					} else {
-						if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && Math.abs(vitesse.getY()) > 0){
-							vitesse = new Vector(10, 8);	
+						if (colliding && input.getKeyboardButton(KeyEvent.VK_RIGHT).isDown() && Math.abs(vitesse.getY()) > 0){
+							vitesse = new Vector(-15, 3);
 						} else {
-							if (colliding){
-								vitesse = new Vector(vitesse.getX(), 7);		
+							if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && input.getKeyboardButton(KeyEvent.VK_UP).isDown() && Math.abs(vitesse.getY()) > 0){
+							vitesse = new Vector(10, 8);	
+							} else {
+								if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && Math.abs(vitesse.getY()) > 0){
+									vitesse = new Vector(15, 3);
+								} else {
+									if (colliding){
+										vitesse = new Vector(vitesse.getX(), 7);		
+								}
 							}
-						} 
+						}
+						}
 					}
 			}
 		}
+						
 			
 		//Q : boule de feu
 		if (cooldownBouleDeFeu>0){
