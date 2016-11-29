@@ -19,7 +19,7 @@ public class Level_03 extends Level{
 	        super.register(world);
 	
 	
-	Player franky = new Player(new Vector(0, -4), new Vector(33, 6), world.getLoader());
+	Player franky = new Player(new Vector(0, -4), new Vector(40, -30), world.getLoader());
 	world.register(franky);
 	Overlay overlayfranky = new Overlay(franky);
 	world.register(overlayfranky);
@@ -57,7 +57,7 @@ public class Level_03 extends Level{
 	world.register(new Spikes(new Vector(26, 1.5), world.getLoader()));
 
 
-													// Castle
+													//Outside Castle
 	
 	world.register(new Block(new Box(new Vector(40, -4), 6, 6), world.getLoader().getSprite("castle.middle.left3"))); 
 	world.register(new Block(new Box(new Vector(40, 2), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
@@ -92,6 +92,20 @@ public class Level_03 extends Level{
 	world.register(new Spikedroite(new Vector(33.5, -19.5), world.getLoader()));
 	world.register(new Spikegauche(new Vector(36.5, -22), world.getLoader()));
 	world.register(new Spikegauche(new Vector(36.5, -23.5), world.getLoader()));
+
+													//Inside Castle
+	
+	world.register(new Block(new Box(new Vector(46, -16), 6, 6), world.getLoader().getSprite("castle.center3")));   	
+	world.register(new Block(new Box(new Vector(46, -22), 6, 6), world.getLoader().getSprite("castle.center3")));   
+	world.register(new Block(new Box(new Vector(46, -30), 6, 6), world.getLoader().getSprite("castle.center3")));   
+	world.register(new Block(new Box(new Vector(46, -36), 6, 6), world.getLoader().getSprite("castle.center3")));   
+	world.register(new Block(new Box(new Vector(52, -36), 6, 6), world.getLoader().getSprite("castle.center3")));   
+	world.register(new Block(new Box(new Vector(52, -30), 6, 6), world.getLoader().getSprite("castle.center3")));   
+	world.register(new Block(new Box(new Vector(52, -22), 6, 6), world.getLoader().getSprite("castle.center3")));   
+	world.register(new Block(new Box(new Vector(52, -16), 6, 6), world.getLoader().getSprite("castle.center3")));  
+	world.register(new Block(new Box(new Vector(58, -28), 6, 2), world.getLoader().getSprite("mover")));   
+
+
 
 
 
