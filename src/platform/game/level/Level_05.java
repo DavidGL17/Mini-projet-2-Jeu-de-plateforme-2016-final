@@ -79,7 +79,7 @@ public class Level_05 extends Level{
 	    world.register(new Block(new Box(new Vector(24, 24), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    
 	    Lever lever = new Lever(new Vector(5, 1), loader);
-	    Mover mover = new Mover(new Vector(15, 4.5), new Vector(14, 10.5), 2, 9, loader, lever, "stone.7");
+	    Mover mover = new Mover(new Vector(15, 4.5), new Vector(14, 10.5), 2, 9, 1, loader, lever, "stone.7");
 	    world.register(lever);
 	    world.register(mover);
 	    
