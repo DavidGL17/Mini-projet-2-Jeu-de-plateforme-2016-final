@@ -21,7 +21,7 @@ public class Level_01 extends Level {
 	        
 	        // Register a new instance, to restart level automatically
 	        world.setNextLevel(new BasicLevel());
-	    	Player franky = new Player(new Vector(0, -4), new Vector(-6, 6), world.getLoader());
+	    	Player franky = new Player(new Vector(0, -4), new Vector(44, 26), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
@@ -34,6 +34,8 @@ public class Level_01 extends Level {
 
 	        													// Spawn
 	    	
+
+		    
 	    	world.register(new Block(new Box(new Vector(0, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
 	    	world.register(new Block(new Box(new Vector(-6, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
 	    	world.register(new Block(new Box(new Vector(6, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
@@ -84,7 +86,7 @@ public class Level_01 extends Level {
 
 
 	    														// Jump
-	    	
+
 	    	world.register(new Block(new Box(new Vector(34, 8), 6, 6), world.getLoader().getSprite("grass.center3")));  
 	    	world.register(new Block(new Box(new Vector(34, 14), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(34, 2), 6, 6), world.getLoader().getSprite("grass.center3")));    
@@ -105,6 +107,7 @@ public class Level_01 extends Level {
 
 
 	    														// Exit
+	    	
 	    	world.register(new Block(new Box(new Vector(30, 22), 2, 2), world.getLoader().getSprite("grassCliffLeft")));    
 	    	world.register(new Block(new Box(new Vector(36, 22), 6, 2), world.getLoader().getSprite("grass.middle3")));    
 	    	world.register(new Block(new Box(new Vector(42, 20), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
@@ -149,6 +152,11 @@ public class Level_01 extends Level {
 	    	world.register(new Block(new Box(new Vector(68, -4), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Exit(new Vector(58, 6), 1, 2, world.getLoader(), key));
 
+	    	world.register(new BlockDeco(new Vector(30, 24), 2, 2, world.getLoader(), "foliagePack_leaves_044"));
+	    	world.register(new BlockDeco(new Vector(52, 24), 2, 2, world.getLoader(), "foliagePack_leaves_002"));
+	    	world.register(new BlockDeco(new Vector(41, 24), 2, 20, world.getLoader(), "longbush2"));
+	    	world.register(new BlockDeco(new Vector(56, 27), 6, 6, world.getLoader(), "brickWall"));
+	    	world.register(new BlockDeco(new Vector(50, 13), 20, 20, world.getLoader(), "brickWall"));
 
 
 
