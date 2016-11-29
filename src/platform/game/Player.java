@@ -172,16 +172,16 @@ public class Player extends Actor{
 							vitesse = new Vector(-15, 3);
 						} else {
 							if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && input.getKeyboardButton(KeyEvent.VK_UP).isDown() && Math.abs(vitesse.getY()) > 0){
-							vitesse = new Vector(10, 8);	
+								vitesse = new Vector(10, 8);	
 							} else {
 								if (colliding && input.getKeyboardButton(KeyEvent.VK_LEFT).isDown() && Math.abs(vitesse.getY()) > 0){
 									vitesse = new Vector(15, 3);
 								} else {
 									if (colliding){
 										vitesse = new Vector(vitesse.getX(), 7);		
+									}
 								}
 							}
-						}
 						}
 					}
 			}
