@@ -5,27 +5,29 @@ import platform.util.Input;
 import platform.util.Loader;
 import platform.util.Vector;
 
-//Cette classe est la base de nos monstre, des petits slimes aux boss. 
-//WIP
-
 public abstract class Monster extends Actor{
 	private Vector position;
 	private Vector vitesse;
-	private final static double SIZE = 1;
-	private final static String dessin = "blocker.happy";
-	private double HP = 10;
-	private double HPMax = 10;
+	private Box boxDAction;
+	private final double width;
+	private final double height;
 	
-	public Monster(Vector vitesse, Vector position, Loader loader){
-		super(1337,new Box(position, SIZE, SIZE),loader,dessin);
+	public Monster(Vector vitesse, Vector position, double width, double height, Box boxDAction,Loader loader, String dessin){
+		super(1337,new Box(position, width,height),loader,dessin);
 		if (vitesse ==null){
 			throw new NullPointerException();
 		}
 		if (position==null){
 			throw new NullPointerException ();
 		}
+		if (boxDAction == null){
+			throw new NullPointerException();
+		}
 		this.position=position;
 		this.vitesse=vitesse;
+		this.boxDAction = boxDAction;
+		this.width = width;
+		this.height = height;
 	}
 	/**
 	 * @return the position
@@ -40,19 +42,19 @@ public abstract class Monster extends Actor{
 		return vitesse;
 	}
 	/**
-	 * @return the hP
+	 * @param position the position to set
 	 */
-	public double getHP() {
-		return HP;
-	}
-	/**
-	 * @return the hPMax
-	 */
-	public double getHPMax() {
-		return HPMax;
+	protected void setPosition(Vector position) {
+		if (position == null){
+			throw new NullPointerException();
+		}
+		this.position = position;
 	}
 
 	private boolean colliding = false;
+	private boolean triggered = false;
+	private Vector positionTriggered;
+	private Player theEnnemi;
 
 	
 	@Override
@@ -70,10 +72,14 @@ public abstract class Monster extends Actor{
 					vitesse = new Vector(vitesse.getX(), 0.0) ;
 				}
 			}
+			if (other.isPlayer()&&other.getBox().isColliding(boxDAction)){
+				positionTriggered = other.getPosition();
+				triggered = true;
+				theEnnemi = ((Player)other);
+			}
 		}
 	}
 	
-	private String lastKey = "R";
 	private final double MAX_SPEED_RIGHT = 5;
 	private final double MAX_SPEED_LEFT = -5;
 	public void preUpdate(){
@@ -86,5 +92,10 @@ public abstract class Monster extends Actor{
 			double scale = Math.pow (0.001 , input.getDeltaTime ()) ;
 			vitesse = vitesse.mul(scale) ;
 		}
+		double delta = input.getDeltaTime () ;
+		Vector acceleration = new Vector (0.0, -9.81) ;
+		vitesse = vitesse.add(acceleration.mul(delta));
+		position = position.add(vitesse.mul(delta));
+		setBox(new Box(position, width, height));
 	}
 }
