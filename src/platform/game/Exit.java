@@ -15,7 +15,7 @@ public class Exit extends Actor{
 	public final static String ouverte = "door.open";
 
 	public Exit(Vector position, double Width, double Height,Loader loader, Signal signal){
-		super(1500, new Box(position, Width, Height), loader.getSprite(fermee));
+		super(10, new Box(position, Width, Height), loader.getSprite(fermee));
 		this.Height=Height;
 		this.Width=Width;
 		this.position=position;
@@ -36,8 +36,10 @@ public class Exit extends Actor{
 	public void update(Input input) {
 		if (signal.isActive()){
 			setSprite(ouverte, getWorld().getLoader());
+			setPriority(1500);
 		} else {
 			setSprite(fermee,getWorld().getLoader());
+			setPriority(10);
 		}
 	}
 	// pour être dessiné
