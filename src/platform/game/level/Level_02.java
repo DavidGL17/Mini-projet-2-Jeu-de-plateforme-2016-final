@@ -1,7 +1,7 @@
 package platform.game.level;
 
 import platform.game.Block;
-import platform.game.BlockDestructible;
+import platform.game.BlockDeco;
 import platform.game.Exit;
 import platform.game.Key;
 import platform.game.LimiteTangible;
@@ -9,7 +9,6 @@ import platform.game.Limits;
 import platform.game.Locker;
 import platform.game.Overlay;
 import platform.game.Player;
-import platform.game.Teleporteur;
 import platform.game.World;
 import platform.util.Box;
 import platform.util.Vector;
@@ -19,12 +18,15 @@ public class Level_02 extends Level{
 	    public void register(World world) {
         super.register(world);
 
-		Player franky = new Player(new Vector(0, 1), new Vector(0, 0), world.getLoader());
+		Player franky = new Player(new Vector(0, 1), new Vector(8, 0), world.getLoader());
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
+	    
+	    
+	    												//Spawn	
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
-	    world.register(new LimiteTangible(new Vector(-4, 0), 2, 30));
+	    world.register(new LimiteTangible(new Vector(7, 0), 2, 30));
 	    world.register(new Block(new Box(new Vector(0, -3), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(0, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(0, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
@@ -35,6 +37,11 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(12, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(12, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    
+	    world.register(new BlockDeco(new Vector(12, 0), 20, 30, world.getLoader(), "Background_92"));
+	    world.register(new BlockDeco(new Vector(35, 2), 20, 30, world.getLoader(), "Background_92"));
+    	
+	    
+	    											//Début du saut
 	    world.register(new Block(new Box(new Vector(18, -9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(24, -9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(18, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
@@ -71,20 +78,26 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(54, -5), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(52, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(54, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
+	    
+	    
 	    Key keyRed = new Key(new Vector(52, 4.5), world.getLoader(), Key.red);
-	    Locker locker1 = new Locker(new Vector(57, 12.5), world.getLoader(), Locker.red, keyRed);
-	    Locker locker2 = new Locker(new Vector(59, 12.5), world.getLoader(), Locker.red, keyRed);
-	    Locker locker3 = new Locker(new Vector(57, 13.5), world.getLoader(), Locker.red, keyRed);
-	    Locker locker4 = new Locker(new Vector(59, 13.5), world.getLoader(), Locker.red, keyRed);
-	    Locker locker5 = new Locker(new Vector(58, 14.5), world.getLoader(), Locker.red, keyRed);
+	    Locker locker1 = new Locker(new Vector(56.5, 12.5), world.getLoader(), Locker.red, keyRed);
+	    Locker locker2 = new Locker(new Vector(59.5, 12.5), world.getLoader(), Locker.red, keyRed);
+	    Locker locker3 = new Locker(new Vector(56.5, 13.5), world.getLoader(), Locker.red, keyRed);
+	    Locker locker4 = new Locker(new Vector(59.5, 13.5), world.getLoader(), Locker.red, keyRed);
+	    Locker locker5 = new Locker(new Vector(58.5, 14.5), world.getLoader(), Locker.red, keyRed);
+	    Locker locker6 = new Locker(new Vector(57.5, 14.5), world.getLoader(), Locker.red, keyRed);
 	    world.register(locker1);
 	    world.register(locker2);
 	    world.register(locker3);
 	    world.register(locker4);
 	    world.register(locker5);
+	    world.register(locker6);
 	    world.register(keyRed);
-	    world.register(new Exit(new Vector(58, 13), 1, 2, world.getLoader(), keyRed));
+	    world.register(new Exit(new Vector(58, 13), 1.5, 2, world.getLoader(), keyRed));
 	    world.register(new LimiteTangible(new Vector(62, 12), 2, 30));
+	    
+	    world.register(new BlockDeco(new Vector(54, 8), 8 , 12, world.getLoader(), "Background2_84"));
 	    
 	    world.register(new Block(new Box(new Vector(58, 9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(58, 3), 6, 6), world.getLoader().getSprite("grass.center3")));
