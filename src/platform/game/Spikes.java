@@ -39,9 +39,9 @@ public class Spikes extends Actor{
 		super.interact(other);
 		if ((cooldown <= 0) && (getBox().isColliding(other.getBox()))){
 			if (getBox().isColliding(other.getBox())){
-			other.hurt(this , Damage.PHYSICAL , Damage.PHYSICAL.getDamage() ,Vector.ZERO);
-			cooldown = COOLDOWN;
-
+				if (other.hurt(this , Damage.PHYSICAL , Damage.PHYSICAL.getDamage() ,Vector.ZERO)){
+					cooldown = COOLDOWN;
+				}
 			}
 		}
 	}

@@ -23,7 +23,7 @@ public class Level_05 extends Level{
 		super.register(world);
 		Loader loader = world.getLoader();
 		
-		Player franky = new Player(new Vector(0, 1), new Vector(4, -57), world.getLoader());
+		Player franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
