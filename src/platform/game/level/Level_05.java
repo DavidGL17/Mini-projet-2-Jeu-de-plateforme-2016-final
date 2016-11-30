@@ -32,6 +32,9 @@ public class Level_05 extends Level{
 	    world.register(new BlockDeco(new Vector(6, 6), 30, 30, world.getLoader(), "bg_castle3"));
 
 	    										//Platforme
+	    world.register(new Block(new Box(new Vector(-18, -3), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -9), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -15), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -3), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -9), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -15), 6, 6), world.getLoader().getSprite("castle.center3")));
@@ -60,6 +63,11 @@ public class Level_05 extends Level{
 											//murs et toit
 	    
 												//bord gauche
+	    world.register(new Block(new Box(new Vector(-18, 3), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, 9), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, 12), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, 18), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, 24), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, 3), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, 9), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, 12), 6, 6), world.getLoader().getSprite("castle.center3")));
@@ -106,6 +114,9 @@ public class Level_05 extends Level{
 	    world.register(new BlockDeco(new Vector(40, -50), 30, 30, world.getLoader(), "bg_castle3"));
 	    
 	    										//platforme principale
+	    world.register(new Block(new Box(new Vector(-18, -60), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -60), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
@@ -118,13 +129,10 @@ public class Level_05 extends Level{
 	    world.register(new Block(new Box(new Vector(6, -60), 6, 6), world.getLoader().getSprite("castle.middle3")));
 	    world.register(new Block(new Box(new Vector(6, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(6, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
-	    world.register(new Block(new Box(new Vector(30, -60), 6, 6), world.getLoader().getSprite("castle.middle3")));
-	    world.register(new Block(new Box(new Vector(30, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
-	    world.register(new Block(new Box(new Vector(30, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(36, -60), 6, 6), world.getLoader().getSprite("castle.middle3")));
 	    world.register(new Block(new Box(new Vector(36, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(36, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
-	    world.register(new Block(new Box(new Vector(42, -60), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(42, -60), 6, 6), world.getLoader().getSprite("castle.middle3")));
 	    world.register(new Block(new Box(new Vector(42, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(42, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(48, -60), 6, 6), world.getLoader().getSprite("castle.center3")));
@@ -133,24 +141,37 @@ public class Level_05 extends Level{
 	    world.register(new Block(new Box(new Vector(54, -60), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(54, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(54, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60, -60), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60, -66), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60, -72), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    
 	    				//Lava
 	    world.register(new Lava(new Box(new Vector(12, -59.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
 	    world.register(new Lava(new Box(new Vector(18, -59.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
 	    world.register(new Lava(new Box(new Vector(24, -59.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
+	    world.register(new Lava(new Box(new Vector(30, -59.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
 	    world.register(new Lava(new Box(new Vector(12, -63.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(18, -63.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(24, -63.25), 6, 4), loader, "liquidLava2"));
+	    world.register(new Lava(new Box(new Vector(30, -63.25), 6, 4), loader, "liquidLava2"));
+
 	    	//platformes
 	    world.register(new BlockDisparitionSignal(new Box(new Vector(11, -55), 1, 1), loader,"stone.1", lever));
 	    world.register(new Block(new Box(new Vector(13, -54), 1, 1), loader.getSprite("stone.1")));
 	    world.register(new BlockDisparitionSignal(new Box(new Vector(17, -56), 1, 1), loader,"stone.1", lever));
 	    world.register(new Block(new Box(new Vector(20,-54), 1, 1), loader.getSprite("stone.1")));
 	    world.register(new BlockDisparitionSignal(new Box(new Vector(22, -55), 1, 1), loader,"stone.1", lever));
-	    world.register(new BlockDisparitionSignal(new Box(new Vector(24, -56), 1, 1), loader,"stone.1", lever));	    
+	    world.register(new Block(new Box(new Vector(24,-56), 1, 1), loader.getSprite("stone.1")));
+	    world.register(new BlockDisparitionSignal(new Box(new Vector(27, -54), 1, 1), loader,"stone.1", lever));
+	    world.register(new BlockDisparitionSignal(new Box(new Vector(29, -56), 1, 1), loader,"stone.1", lever));	    
 
 	    
 	    										//bord gauche
+	    world.register(new Block(new Box(new Vector(-18, -54), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -48), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -42), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -36), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(-18, -30), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -54), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -48), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -42), 6, 6), world.getLoader().getSprite("castle.center3")));
@@ -163,15 +184,15 @@ public class Level_05 extends Level{
 	    world.register(new Block(new Box(new Vector(-6, -30), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    
 	    										//bord droite
-	    world.register(new Block(new Box(new Vector(42, -54), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
-	    world.register(new Block(new Box(new Vector(42, -48), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
-	    world.register(new Block(new Box(new Vector(42, -42), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
-	    world.register(new Block(new Box(new Vector(48, -54), 6, 6), world.getLoader().getSprite("castle.center3")));
-	    world.register(new Block(new Box(new Vector(48, -48), 6, 6), world.getLoader().getSprite("castle.center3")));
-	    world.register(new Block(new Box(new Vector(48, -42), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(48, -54), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
+	    world.register(new Block(new Box(new Vector(48, -48), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
+	    world.register(new Block(new Box(new Vector(48, -42), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
 	    world.register(new Block(new Box(new Vector(54, -54), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(54, -48), 6, 6), world.getLoader().getSprite("castle.center3")));
-	    world.register(new Block(new Box(new Vector(54 , -42), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(54, -42), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60, -54), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60, -48), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60 , -42), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    
 	    										// toit
 	    world.register(new Block(new Box(new Vector(0, -36), 6, 6), world.getLoader().getSprite("castle.center3")));
@@ -192,6 +213,10 @@ public class Level_05 extends Level{
 	    world.register(new Block(new Box(new Vector(42, -30), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(48, -36), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(48, -30), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(54, -36), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(54, -30), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60, -36), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(60, -30), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    
 	}
 }
