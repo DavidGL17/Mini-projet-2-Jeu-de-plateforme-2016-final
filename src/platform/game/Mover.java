@@ -22,6 +22,8 @@ public class Mover extends Block{
 		this.signal = signal;
 		currentPosition = off;
 		this.vitesseDeMouvement = vitesseDeMouvement;
+		this.Width = Width;
+		this.Height = Height;
 	}
 	public Box getBox(){
 		return new Box(currentPosition, Width, Height);
