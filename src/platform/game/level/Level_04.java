@@ -54,10 +54,10 @@ public class Level_04 extends Level{
 	    
 	    										//Signaux et deco
 	    world.register(new Block(new Box(new Vector(6, 5), 8, 2), world.getLoader().getSprite("stone.3")));
-	    Lever lever = new Lever(new Vector(-1, 0.5), loader);
-	    Lever lever2 = new Lever(new Vector(3.5, 0.5), loader);
-	    Lever lever3 = new Lever(new Vector(8, 0.5), loader);
-	    Lever lever4 = new Lever(new Vector(12.5, 0.5), loader);
+	    Lever lever = new Lever(new Vector(-1, 0.5), loader,"lever.right", "lever.left");
+	    Lever lever2 = new Lever(new Vector(3.5, 0.5), loader,"lever.right", "lever.left");
+	    Lever lever3 = new Lever(new Vector(8, 0.5), loader,"lever.right", "lever.left");
+	    Lever lever4 = new Lever(new Vector(12.5, 0.5), loader,"lever.right", "lever.left");
 	    world.register(lever);
 	    world.register(lever2);
 	    world.register(lever3);

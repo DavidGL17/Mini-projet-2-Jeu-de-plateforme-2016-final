@@ -9,14 +9,16 @@ import platform.util.Vector;
 public class Lever extends Actor implements Signal{
 	private Vector position;
 	private boolean value = true;
-	private final String LEVER_RIGHT = "lever.right";
-	private final String LEVER_LEFT = "lever.left";
+	private final String leverActive;
+	private final String leverNotActive;
 	private final static double WIDTH = 1;
 	private final static double HEIGHT = 1;
 	
-	public Lever(Vector position, Loader loader){
+	public Lever(Vector position, Loader loader, String leverActive, String leverNotActive){
 		super(10, new Box(position, WIDTH, HEIGHT), loader.getSprite("lever.left"));
 		this.position = position;
+		this.leverActive = leverActive;
+		this.leverNotActive = leverNotActive;
 	}
 	
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
@@ -31,9 +33,9 @@ public class Lever extends Actor implements Signal{
 	// pour être dessiné
 	public void draw(Input input , Output output) {
 		if (value){
-			output.drawSprite(getWorld().getLoader().getSprite(LEVER_LEFT), getBox());
+			output.drawSprite(getWorld().getLoader().getSprite(leverNotActive), getBox());
 		} else {
-			output.drawSprite(getWorld().getLoader().getSprite(LEVER_RIGHT), getBox());
+			output.drawSprite(getWorld().getLoader().getSprite(leverActive), getBox());
 		}
 	}
 
