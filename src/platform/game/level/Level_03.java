@@ -33,7 +33,9 @@ public class Level_03 extends Level{
 	
 													// Hill
 
-	world.register(new Block(new Box(new Vector(-12, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
+	world.register(new Block(new Box(new Vector(-12, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));  
+	world.register(new Block(new Box(new Vector(-18, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
+	world.register(new Block(new Box(new Vector(-24, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
 	world.register(new Block(new Box(new Vector(-6, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
 	world.register(new Block(new Box(new Vector(0, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
 	world.register(new Block(new Box(new Vector(6, -2), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
@@ -172,5 +174,10 @@ public class Level_03 extends Level{
 	world.register(new Block(new Box(new Vector(76, -12), 6, 6), world.getLoader().getSprite("castle.center3")));   	
 	world.register(new Exit(new Vector(65, 0), 1.5, 2, world.getLoader(), lever));
 	
+	
+												// Background
+	
+	world.register(new BlockDeco(new Vector(6, 0), 500, 500, world.getLoader(), "Background2_0"));
+
 	 }
 }
