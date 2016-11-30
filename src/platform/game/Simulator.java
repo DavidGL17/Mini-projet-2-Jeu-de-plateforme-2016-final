@@ -3,8 +3,7 @@ package platform.game;
 import java.util.ArrayList;
 import java.util.List;
 
-import platform.game.level.Level;
-import platform.game.level.Level_03;
+import platform.game.level.*;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;

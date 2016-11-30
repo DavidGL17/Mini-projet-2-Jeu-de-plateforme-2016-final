@@ -23,7 +23,7 @@ public class Level_03 extends Level{
 	        super.register(world);
 	
 	
-	Player franky = new Player(new Vector(0, -4), new Vector(64, 0), world.getLoader());
+	Player franky = new Player(new Vector(0, -4), new Vector(0, 0), world.getLoader());
 	world.register(franky);
 	Overlay overlayfranky = new Overlay(franky);
 	world.register(overlayfranky);
@@ -47,7 +47,7 @@ public class Level_03 extends Level{
 	world.register(new Block(new Box(new Vector(30, -22), 6, 6), world.getLoader().getSprite("grass.center3")));   
 	world.register(new Block(new Box(new Vector(30, -28), 6, 6), world.getLoader().getSprite("grass.center3")));   
 	world.register(new Block(new Box(new Vector(30, -34), 6, 6), world.getLoader().getSprite("grass.center3")));   
-	world.register(new Block(new Box(new Vector(30, -36), 6, 6), world.getLoader().getSprite("grass.center3")));   
+	world.register(new Block(new Box(new Vector(30, -36), 6, 6), world.getLoader(). getSprite("grass.center3")));   
 
 
 	world.register(new Jumper(new Vector(14, 2), world.getLoader()));
