@@ -1,6 +1,7 @@
 package platform.game.level;
 
 import platform.game.Block;
+import platform.game.BlockDeco;
 import platform.game.Exit;
 import platform.game.Heart;
 import platform.game.Jumper;
@@ -47,9 +48,16 @@ public class Level_03 extends Level{
 	world.register(new Block(new Box(new Vector(30, -22), 6, 6), world.getLoader().getSprite("grass.center3")));   
 	world.register(new Block(new Box(new Vector(30, -28), 6, 6), world.getLoader().getSprite("grass.center3")));   
 	world.register(new Block(new Box(new Vector(30, -34), 6, 6), world.getLoader().getSprite("grass.center3")));   
-	world.register(new Block(new Box(new Vector(30, -36), 6, 6), world.getLoader(). getSprite("grass.center3")));   
+	world.register(new Block(new Box(new Vector(30, -36), 6, 6), world.getLoader(). getSprite("grass.center3")));  
+
+	world.register(new Block(new Box(new Vector(0, -6), 6, 6), world.getLoader().getSprite("grass.center3")));   
+	world.register(new Block(new Box(new Vector(-6, -6), 6, 6), world.getLoader().getSprite("grass.center3")));   
+	world.register(new Block(new Box(new Vector(-12, -6), 6, 6), world.getLoader().getSprite("grass.center3")));   
+	world.register(new Block(new Box(new Vector(-18, -6), 6, 6), world.getLoader().getSprite("grass.center3")));   
+	world.register(new Block(new Box(new Vector(-24, -6), 6, 6), world.getLoader().getSprite("grass.center3")));   
 
 
+	
 	world.register(new Jumper(new Vector(14, 2), world.getLoader()));
 	world.register(new Spikes(new Vector(15.5, 1.5), world.getLoader()));
 	world.register(new Spikes(new Vector(17, 1.5), world.getLoader()));
@@ -59,6 +67,15 @@ public class Level_03 extends Level{
 	world.register(new Spikes(new Vector(23, 1.5), world.getLoader()));
 	world.register(new Spikes(new Vector(24.5, 1.5), world.getLoader()));
 	world.register(new Spikes(new Vector(26, 1.5), world.getLoader()));
+	
+	world.register(new BlockDeco(new Vector(-7, 4), 2, 20, world.getLoader(), "longbush2"));
+	world.register(new BlockDeco(new Vector(4, 4), 2, 2, world.getLoader(), "foliagePack_leaves_002"));
+	world.register(new BlockDeco(new Vector(4, 2), 2, 2, world.getLoader(), "foliagePack_leaves_022"));
+	world.register(new BlockDeco(new Vector(5, 2), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
+	world.register(new BlockDeco(new Vector(7, 2), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
+	world.register(new BlockDeco(new Vector(18, 2), 2, 20, world.getLoader(), "longbush2"));
+
+
 
 
 													//Outside Castle
@@ -98,6 +115,7 @@ public class Level_03 extends Level{
 	world.register(new Spikegauche(new Vector(36.5, -23.5), world.getLoader()));
 
 													//Inside Castle
+	
 	world.register(new Heart(new Vector(38, -26), world.getLoader()));
 	world.register(new Block(new Box(new Vector(46, -16), 6, 6), world.getLoader().getSprite("castle.center3")));   	
 	world.register(new Block(new Box(new Vector(46, -22), 6, 6), world.getLoader().getSprite("castle.center3")));   
@@ -107,7 +125,7 @@ public class Level_03 extends Level{
 	world.register(new Block(new Box(new Vector(52, -30), 6, 6), world.getLoader().getSprite("castle.center3")));   
 	world.register(new Block(new Box(new Vector(52, -22), 6, 6), world.getLoader().getSprite("castle.center3")));   
 	world.register(new Block(new Box(new Vector(52, -16), 6, 6), world.getLoader().getSprite("castle.center3")));  
-	Lever lever = new Lever(new Vector(58, -26.5), world.getLoader());
+	Lever lever = new Lever(new Vector(60.5, -26), world.getLoader(), "leverdroiteright", "leverdroite.left");
 	world.register(lever);
 	world.register(new Mover(new Vector(58, -28), new Vector(58, -2), 6, 2,1.0, world.getLoader(), lever, "mover"));
 	world.register(new Block(new Box(new Vector(58, -30), 6, 6), world.getLoader().getSprite("castle.center3")));   
