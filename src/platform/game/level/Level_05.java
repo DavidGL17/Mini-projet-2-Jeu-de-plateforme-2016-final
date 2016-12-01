@@ -107,8 +107,8 @@ public class Level_05 extends Level{
 	    
 	    
 	    										//Passage à l'autre coté 
-	    world.register(new Teleporteur(new Box(new Vector(0, 1), 1.5, 2), new Vector(4, -57), loader, "door.open"));
-	    world.register(new Teleporteur(new Box(new Vector(0, -56), 1.5, 2) , new Vector(4, 0), loader, "door.open"));
+	    world.register(new Teleporteur(new Box(new Vector(0, 1.5), 2.5, 2.5), new Vector(4, -57), loader, "teleporter"));
+	    world.register(new Teleporteur(new Box(new Vector(0, -55.5), 2.5, 2.5) , new Vector(4, 0), loader, "teleporter"));
 	    
 	    world.register(new BlockDeco(new Vector(10, -50), 30, 30, world.getLoader(), "bg_castle3"));
 	    world.register(new BlockDeco(new Vector(40, -50), 30, 30, world.getLoader(), "bg_castle3"));
