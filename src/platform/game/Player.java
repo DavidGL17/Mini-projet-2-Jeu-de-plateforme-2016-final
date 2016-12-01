@@ -12,7 +12,7 @@ public class Player extends Actor{
 	private Vector position;
 	private Vector vitesse;
 	private final static double SIZE = 1;
-	private final static String dessin = "blocker.happy";
+	private final static String dessin = "blocker.cool";
 	private double HP = 10;
 	private double HPMax = 10;
 	
