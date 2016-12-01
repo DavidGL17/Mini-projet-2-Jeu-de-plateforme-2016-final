@@ -35,8 +35,8 @@ public class Level_03 extends Level{
 
 	
 													// Hill
-	world.register(new Block(new Box(new Vector(30, 2), 2, 2), world.getLoader().getSprite("grassHalfLeft")));  
-	world.register(new Block(new Box(new Vector(32, 2), 2, 2), world.getLoader().getSprite("grassHalfRight")));  
+	world.register(new Block(new Box(new Vector(29, 2), 2, 2), world.getLoader().getSprite("grassHalfLeft")));  
+	world.register(new Block(new Box(new Vector(31, 2), 2, 2), world.getLoader().getSprite("grassHalfRight")));  
 	world.register(new Block(new Box(new Vector(-12, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));  
 	world.register(new Block(new Box(new Vector(-18, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
 	world.register(new Block(new Box(new Vector(-24, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));   
@@ -122,7 +122,6 @@ public class Level_03 extends Level{
 	world.register(new Block(new Box(new Vector(40, 8), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
 	world.register(new Block(new Box(new Vector(40, 14), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
 	world.register(new Block(new Box(new Vector(40, 20), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
-	world.register(new Block(new Box(new Vector(40, -4), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
 	world.register(new Block(new Box(new Vector(40, -10), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
 	world.register(new Block(new Box(new Vector(40, -16), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
 	world.register(new Block(new Box(new Vector(40, -22), 6, 6), world.getLoader().getSprite("castle.middle.left3")));   
