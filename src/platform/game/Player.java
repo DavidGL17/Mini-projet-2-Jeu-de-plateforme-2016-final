@@ -228,7 +228,7 @@ public class Player extends Actor{
 			getWorld().tryAgain();
 		}
 		double delta = input.getDeltaTime () ;
-		Vector acceleration = new Vector (0.0, -9.81) ;
+		Vector acceleration = getWorld().getGravity();
 		vitesse = vitesse.add(acceleration.mul(delta));
 		position = position.add(vitesse.mul(delta));
 		setBox(new Box(position, SIZE, SIZE));
