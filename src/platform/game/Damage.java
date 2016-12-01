@@ -6,7 +6,8 @@ PHYSICAL (5),
 AIR (10),
 VOID (1000000),
 ACTIVATION (0.1),
-HEAL (-2);
+HEAL (2),
+SMALLMONSTER (3);
 	
 	private double damage = 0.0;
 	

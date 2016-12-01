@@ -101,9 +101,12 @@ public class Player extends Actor{
 			case PHYSICAL :
 				HP -= amount;
 				return true;
+			case SMALLMONSTER :
+				HP -= amount;
+				return true;
 			case HEAL :
 				if (HP<HPMax){
-					HP -= amount;
+					HP += amount;
 					if (HP>HPMax){
 						HP = HPMax;
 					}
