@@ -2,9 +2,8 @@ package platform.game;
 
 public enum Damage {
 FIRE (2.0),
-PHYSICAL (5),
-AIR (10),
-VOID (1000000),
+PHYSICAL (2),
+AIR (10),VOID (1000000),
 ACTIVATION (0.1),
 HEAL (2),
 SMALLMONSTER (3);
