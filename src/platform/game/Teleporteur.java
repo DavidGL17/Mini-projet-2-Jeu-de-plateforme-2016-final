@@ -8,14 +8,14 @@ import platform.util.Vector;
 
 public class Teleporteur extends Actor{
 	private Vector positionDarrivee;
-	private final String dessin1 = "portal1";
+	private static final String dessin1 = "portal1";
 	private final String dessin2 = "portal2";
 	private final String dessin3 = "portal3";
 	private final String dessin4 = "portal4";
 	private double cooldown = 1;
 	
-	public Teleporteur(Box box, Vector positionDarrivee){
-		super(box,10000);
+	public Teleporteur(Box box, Vector positionDarrivee, Loader loader){
+		super(10000, box, loader, dessin1);
 		this.positionDarrivee = positionDarrivee;
 	}
 	
@@ -28,26 +28,27 @@ public class Teleporteur extends Actor{
 	}
 	//Pour évoluer au cours du temps
 	public void update(Input input){
-		cooldown -= input.getDeltaTime();
-		if (cooldown<0.75){
-			setSprite(dessin2, getWorld().getLoader());
-		} else {
-			if (cooldown<0.5){
-				setSprite(dessin3, getWorld().getLoader());
-			} else {
-				if (cooldown<0.25){
-					setSprite(dessin4, getWorld().getLoader());
-				} else {
-					if (cooldown<0){
-						setSprite(dessin1, getWorld().getLoader());
-						cooldown = 1;
-					}
-				}
-			}
+		cooldown -= input.getDeltaTime()/2;
+		if (cooldown<0){
+			cooldown = 1;
 		}
 	}
 	// pour être dessiné
 	public void draw(Input input , Output output) {
-		output.drawSprite(getSprite(), getBox());
+		if (cooldown<0.75){
+			output.drawSprite(getWorld().getLoader().getSprite(dessin2), getBox());
+		} else {
+			if (cooldown<0.5){
+				output.drawSprite(getWorld().getLoader().getSprite(dessin3), getBox());
+			} else {
+				if (cooldown<0.25){
+					output.drawSprite(getWorld().getLoader().getSprite(dessin4), getBox());
+				} else {
+					if (cooldown>=0.75){
+						output.drawSprite(getWorld().getLoader().getSprite(dessin1), getBox());
+					}
+				}
+			}
+		}
 	}
 }
