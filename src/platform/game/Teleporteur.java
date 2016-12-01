@@ -8,10 +8,10 @@ import platform.util.Vector;
 
 public class Teleporteur extends Actor{
 	private Vector positionDarrivee;
-	private final String dessin1 = "teleporter1";
-	private final String dessin2 = "teleporter2";
-	private final String dessin3 = "teleporter3";
-	private final String dessin4 = "teleporter4";
+	private final String dessin1 = "portal1";
+	private final String dessin2 = "portal2";
+	private final String dessin3 = "portal3";
+	private final String dessin4 = "portal4";
 	private double cooldown = 1;
 	
 	public Teleporteur(Box box, Vector positionDarrivee){

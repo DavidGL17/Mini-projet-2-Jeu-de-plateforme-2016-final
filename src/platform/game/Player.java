@@ -112,7 +112,7 @@ public class Player extends Actor{
 					return false;
 				}
 			default :
-				return super.hurt(instigator , type, amount , location) ;
+				return super.hurt(instigator , type, amount , location);
 		}
 	}
 	public boolean isPlayer(){
