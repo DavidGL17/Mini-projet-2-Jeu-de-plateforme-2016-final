@@ -33,7 +33,7 @@ public class Simulator implements World {
     */
     public Simulator(Loader loader , String [] args) {
     	if (loader == null) {
-    			throw new NullPointerException () ;
+    			throw new NullPointerException ();
     	}
     	this.loader = loader ;
     	currentCenter = Vector.ZERO ;
