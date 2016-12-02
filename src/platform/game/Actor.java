@@ -89,7 +89,7 @@ public abstract class Actor implements Comparable<Actor> {
 	}
 	public void preUpdate(){}
 	public void postUpdate(){}
-	public void register(World world) {
+	public void register(World world) throws Exception {
 		this.world = world ;
 	}
 	public void unregister () {

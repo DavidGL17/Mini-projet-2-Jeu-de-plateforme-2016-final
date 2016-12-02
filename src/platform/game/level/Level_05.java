@@ -19,7 +19,7 @@ import platform.util.Vector;
 
 public class Level_05 extends Level{
 	@Override
-    public void register(World world) {
+    public void register(World world) throws Exception {
 		super.register(world);
 		Loader loader = world.getLoader();
 		

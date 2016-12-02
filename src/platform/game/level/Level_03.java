@@ -21,7 +21,7 @@ import platform.util.Vector;
 
 public class Level_03 extends Level{
 	 @Override
-	    public void register(World world) {
+	    public void register(World world) throws Exception {
 	        super.register(world);
 	
 	
