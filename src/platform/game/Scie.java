@@ -16,7 +16,7 @@ public class Scie extends Actor{
 		return true;
 	}
 	public void interact(Actor other){
-		if (other.getBox().isColliding(getBox())){
+		if (other.getBox().isColliding(getBox())&&other.getBox()!=null){
 			other.hurt(this, Damage.VOID, Damage.VOID.getDamage(), getPosition());
 		}
 	}

@@ -1,6 +1,7 @@
 package platform.game.level;
 
 import platform.game.Block;
+import platform.game.BlockIndecis;
 import platform.game.Lava;
 import platform.game.Overlay;
 import platform.game.Player;
@@ -14,8 +15,14 @@ public class Level_07 extends Level{
     public void register(World world) {
 		super.register(world);
 		Loader loader = world.getLoader();
-		
-		Player franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
+		Player franky;
+		//premier spawn point
+		if (!world.getCheckpoint()){
+			franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
+		} else {
+			//deuxème spawn point (si le joueur a passer le checkpoint)
+			franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
+		}
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
@@ -77,6 +84,6 @@ public class Level_07 extends Level{
 	    
 	    
 	    //platformes
-	    world.register(actor);
+//	    world.register(new BlockIndecis(new Box(center, width, height), timerDisparition, timerApparition, loader, dessin));
 	}
 }
