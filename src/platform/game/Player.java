@@ -81,10 +81,10 @@ public class Player extends Actor{
 						vitesse = new Vector(vitesse.getX(), 0.0) ;
 					}
 				}
-				if (other.isLimiteTangible()){
-					limite = true;
-				}
 			}
+		}
+		if (other.isLimiteTangible()&&other.getBox().isColliding(getBox())){
+			limite = true;
 		}
 	}
 	@Override
