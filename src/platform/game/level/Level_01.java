@@ -16,7 +16,7 @@ import platform.util.Vector;
 public class Level_01 extends Level {
 
 	 @Override
-	    public void register(World world) throws Exception {
+	    public void register(World world) {
 	        super.register(world);
 	        
 	        // Register a new instance, to restart level automatically
@@ -144,7 +144,7 @@ public class Level_01 extends Level {
 	    	world.register(new Block(new Box(new Vector(50, 10), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	Locker locker1 = new Locker(new Vector(46.5, 22.5), world.getLoader(), Locker.blue, key);
 	    	world.register(locker1);
-	    	world.register(new Locker(new Vector(45.5, 22.5), world.getLoader(), Locker.blue, locker1, true, 1.0));
+	    	world.register(new Locker(new Vector(45.5, 22.5), world.getLoader(), Locker.blue, locker1, true));
 	    	world.register(new Block(new Box(new Vector(56, 22), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    
 	    	world.register(new Block(new Box(new Vector(62, 22), 6, 6), world.getLoader().getSprite("grass.center3")));   
 	    	world.register(new Block(new Box(new Vector(62, 18), 6, 6), world.getLoader().getSprite("grass.center3")));   

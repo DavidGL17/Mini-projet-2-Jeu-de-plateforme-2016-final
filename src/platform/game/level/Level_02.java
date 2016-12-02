@@ -15,7 +15,7 @@ import platform.util.Vector;
 
 public class Level_02 extends Level{
 	 @Override
-	    public void register(World world) throws Exception {
+	    public void register(World world) {
         super.register(world);
 
 		Player franky = new Player(new Vector(0, 1), new Vector(8, 0), world.getLoader());

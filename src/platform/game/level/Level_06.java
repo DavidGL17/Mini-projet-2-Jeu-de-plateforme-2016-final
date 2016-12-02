@@ -23,7 +23,7 @@ import platform.game.Heart;
 
 public class Level_06 extends Level{
 	 @Override
-	    public void register(World world) throws Exception {
+	    public void register(World world) {
 	        super.register(world);
 	
 	Player franky = new Player(new Vector(0, -4), new Vector(-4, 13), world.getLoader());
