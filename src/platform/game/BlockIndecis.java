@@ -11,15 +11,26 @@ public class BlockIndecis extends Block{
 	private double timerApparition;
 	private final double timerApparitionMax;
 	private boolean apparait = true;
+	private final String dessinApparait;
+	private final String dessinDisparait;
 	
-	public BlockIndecis(Box box, double timerDisparition, double timerApparition,Loader loader, String dessin){
-		super(box, loader.getSprite(dessin));
+	public BlockIndecis(Box box, double timerDisparition, double timerApparition,Loader loader, String dessinApparait, String dessinDisparait){
+		super(box, loader.getSprite(dessinApparait));
 		this.timerApparition = timerApparition;
 		this.timerApparitionMax = timerApparition;
 		this.timerDisparition = timerDisparition;
 		this.timerDisparitionMax = timerDisparition;
+		this.dessinApparait = dessinApparait;
+		this.dessinDisparait = dessinDisparait;
 	}
 	
+	public boolean isSolid(){
+		if (apparait){
+			return super.isSolid();
+		} else {
+			return false;
+		}
+	}
 	// pour évoluer au cours du temps :
 	public void update(Input input) {
 		if (apparait){
@@ -38,7 +49,9 @@ public class BlockIndecis extends Block{
 	}
 	public void draw(Input input , Output output) {
 		if (apparait){
-			output.drawSprite(getSprite(), getBox());
+			output.drawSprite(getWorld().getLoader().getSprite(dessinApparait), getBox());
+		} else {
+			output.drawSprite(getWorld().getLoader().getSprite(dessinDisparait), getBox());
 		}
 	}
 }

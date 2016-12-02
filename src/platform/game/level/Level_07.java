@@ -77,13 +77,24 @@ public class Level_07 extends Level{
 	    world.register(new Lava(new Box(new Vector(18, -2.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
 	    world.register(new Lava(new Box(new Vector(24, -2.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
 	    world.register(new Lava(new Box(new Vector(30, -2.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
+	    world.register(new Lava(new Box(new Vector(36, -2.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
+	    world.register(new Lava(new Box(new Vector(42, -2.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
+	    world.register(new Lava(new Box(new Vector(48, -2.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
 	    world.register(new Lava(new Box(new Vector(12, -6.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(18, -6.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(24, -6.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(30, -6.25), 6, 4), loader, "liquidLava2"));
+	    world.register(new Lava(new Box(new Vector(36, -6.25), 6, 4), loader, "liquidLava2"));
+	    world.register(new Lava(new Box(new Vector(42, -6.25), 6, 4), loader, "liquidLava2"));
+	    world.register(new Lava(new Box(new Vector(48, -6.25), 6, 4), loader, "liquidLava2"));
 	    
 	    
 	    //platformes
-	    world.register(new BlockIndecis(new Box(new Vector(12, 3), width, height), timerDisparition, timerApparition, loader, dessin));
+	    world.register(new BlockIndecis(new Box(new Vector(12, 1.5), 3, 1), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
+	    world.register(new Block(new Box(new Vector(18, 2), 3, 1), loader.getSprite("stone.3")));
+	    world.register(new BlockIndecis(new Box(new Vector(28, 1.5), 3, 1), 2, 1, loader, "stone.broken.3","stone.broken2.3"));
+	    world.register(new Block(new Box(new Vector(38, 2), 3, 1), loader.getSprite("stone.3")));
+//	    world.register(new BlockIndecis(new Box(new Vector(12, 1.5), 3, 1), 2, 1, loader, "stone.3"));
+
 	}
 }
