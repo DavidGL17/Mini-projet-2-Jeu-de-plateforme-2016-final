@@ -15,8 +15,7 @@ public class Locker extends Block implements Signal{
 	public final static String yellow = "lock.yellow";
 	public final static String green = "lock.green";
 	private boolean timer = false;
-	private final double COOLDOWN_MAX = 0.5;
-	private double cooldown = COOLDOWN_MAX;
+	private double cooldown;
 	private boolean destructionBegins = false;
 	private boolean destructionDone = false;
 
@@ -26,15 +25,19 @@ public class Locker extends Block implements Signal{
 		this.signal= signal;
 		this.position=position;
 	}
-	public Locker(Vector position, Loader loader, String color,Signal signal, boolean timer){
+	public Locker(Vector position, Loader loader, String color,Signal signal, boolean timer, double cooldown) throws Exception{
 		super(new Box(position, SIZE, SIZE), loader.getSprite(color));
 		this.signal= signal;
 		this.position=position;
 		this.timer = timer;
+		if (cooldown <=0){
+			throw new Exception("Le cooldown de locker ne peut pas être 0 ou plus petit");
+		}
+		this.cooldown = cooldown;
 	}
 	
 	public boolean isSolid(){
-		return !signal.isActive();
+		return !destructionDone;
 	}
 	// pour évoluer au cours du temps :
 	public void update(Input input) {
