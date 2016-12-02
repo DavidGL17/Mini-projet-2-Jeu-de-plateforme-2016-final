@@ -7,14 +7,17 @@ import platform.game.Limits;
 import platform.game.Locker;
 import platform.game.Overlay;
 import platform.game.Player;
+import platform.game.Scie;
 import platform.game.World;
 import platform.util.Box;
+import platform.util.Loader;
 import platform.util.Vector;
 
 public class Level_08 extends Level{
 	 @Override
 	    public void register(World world) {
 	        super.register(world);
+	Loader loader = world.getLoader();
 	
 	
 	Player franky = new Player(new Vector(0, -4), new Vector(-6, 0), world.getLoader());
@@ -28,6 +31,8 @@ public class Level_08 extends Level{
     world.register(new Block(new Box(new Vector(0, 28), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
     world.register(new Block(new Box(new Vector(0, 34), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 
+    world.register(new Scie(new Box(new Vector(0, 0), 4,4), loader, "saw1"));
+    
     world.register(new Block(new Box(new Vector(0, -6), 6, 6), world.getLoader().getSprite("castle.middle3")));
     world.register(new Block(new Box(new Vector(-6, -6), 6, 6), world.getLoader().getSprite("castle.middle3")));
     world.register(new Block(new Box(new Vector(-12, -6), 6, 6), world.getLoader().getSprite("castle.middle3")));
