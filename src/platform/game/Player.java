@@ -12,7 +12,7 @@ public class Player extends Actor{
 	private Vector position;
 	private Vector vitesse;
 	private final static double SIZE = 1;
-	private final static String dessin = "blocker.happy";
+	private final static String dessin = "blocker.cool";
 	private double HP = 10;
 	private double HPMax = 10;
 	
@@ -68,18 +68,16 @@ public class Player extends Actor{
 	public void interact(Actor other) {
 		super.interact(other);
 		if (other.isSolid ()) {
-			if (other.getBox() !=null){
-				Vector delta = other.getBox().getCollision(getBox());
-				if (delta != null) {
-					colliding = true;
-					limite = false;
-					position = position.add(delta) ;
+			Vector delta = other.getBox().getCollision(getBox());
+			if (delta != null) {
+				colliding = true;
+				limite = false;
+				position = position.add(delta) ;
 					if (delta.getX() != 0.0){
-						vitesse = new Vector (0.0, vitesse.getY());
-					}
-					if (delta.getY() != 0.0){
-						vitesse = new Vector(vitesse.getX(), 0.0) ;
-					}
+					vitesse = new Vector (0.0, vitesse.getY());
+				}
+				if (delta.getY() != 0.0){
+					vitesse = new Vector(vitesse.getX(), 0.0) ;
 				}
 				if (other.isLimiteTangible()){
 					limite = true;
