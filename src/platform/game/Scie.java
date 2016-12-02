@@ -16,8 +16,10 @@ public class Scie extends Actor{
 		return true;
 	}
 	public void interact(Actor other){
-		if (other.getBox().isColliding(getBox())&&other.getBox()!=null){
-			other.hurt(this, Damage.VOID, Damage.VOID.getDamage(), getPosition());
+		if (other.getBox()!=null){
+			if (other.getBox().isColliding(getBox())){
+				other.hurt(this, Damage.VOID, Damage.VOID.getDamage(), getPosition());
+			}
 		}
 	}
 	public void draw(Input input, Output output){

@@ -84,6 +84,6 @@ public class Level_07 extends Level{
 	    
 	    
 	    //platformes
-//	    world.register(new BlockIndecis(new Box(center, width, height), timerDisparition, timerApparition, loader, dessin));
+	    world.register(new BlockIndecis(new Box(new Vector(12, 3), width, height), timerDisparition, timerApparition, loader, dessin));
 	}
 }
