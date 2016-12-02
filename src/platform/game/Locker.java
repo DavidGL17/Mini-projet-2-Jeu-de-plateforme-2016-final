@@ -25,14 +25,11 @@ public class Locker extends Block implements Signal{
 		this.signal= signal;
 		this.position=position;
 	}
-	public Locker(Vector position, Loader loader, String color,Signal signal, boolean timer, double cooldown) throws Exception{
+	public Locker(Vector position, Loader loader, String color,Signal signal, boolean timer, double cooldown){
 		super(new Box(position, SIZE, SIZE), loader.getSprite(color));
 		this.signal= signal;
 		this.position=position;
 		this.timer = timer;
-		if (cooldown <=0){
-			throw new Exception("Le cooldown de locker ne peut pas être 0 ou plus petit");
-		}
 		this.cooldown = cooldown;
 	}
 	
