@@ -8,7 +8,6 @@ import platform.util.Vector;
 
 public class Locker extends Block implements Signal{
 	private Signal signal;
-	private Vector position;
 	private final static double SIZE =1;
 	public final static String blue = "lock.blue";
 	public final static String red = "lock.red";
@@ -23,12 +22,10 @@ public class Locker extends Block implements Signal{
 	public Locker(Vector position, Loader loader, String color,Signal signal){
 		super(new Box(position, SIZE, SIZE), loader.getSprite(color));
 		this.signal= signal;
-		this.position=position;
 	}
 	public Locker(Vector position, Loader loader, String color,Signal signal, boolean timer, double cooldown){
 		super(new Box(position, SIZE, SIZE), loader.getSprite(color));
 		this.signal= signal;
-		this.position=position;
 		this.timer = timer;
 		this.cooldown = cooldown;
 	}
