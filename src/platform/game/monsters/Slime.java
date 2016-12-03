@@ -9,17 +9,26 @@ import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
 
-//Cette classe permet de modeliser le comportement de slimes. 
+//Cette classe permet de modeliser le comportement de slimes. Le slime est d'abbord un gros monstre qui bouge lentement. 
+//Lors de sa mort, il fera apparaitre deux plus petit slimes
 
 public class Slime extends Monster{
-	private final static double width = 1;
-	private final static double height = 1;
-	private final static String dessin = "blocker.happy";
-	private double HPMax = 8;
-	private double HP = HPMax;
+	private final double width;
+	private final double height;
+	private final static String droite1 = "slime.right.1";
+	private final static String droite2 = "slime.right.2";
+	private final static String droite3 = "slime.right.3";
+	private final static String gauche1 = "slime.left.1";
+	private final static String gauche2 = "slime.left.2";
+	private final static String gauche3 = "slime.left.3";
+	private double HP;
 	
-	public Slime(Vector vitesse, Vector position, Box boxDAction, Loader loader){
-		super(vitesse, position, width, height, boxDAction, 0.1,loader, dessin);
+	public Slime(Vector vitesse, Vector position, double movement, double HPMax,Box boxDAction, Loader loader, double width, double height, boolean showMustGoOn){
+		super(vitesse, position, width, height, boxDAction, movement,loader, droite1);
+		this.height = height;
+		this.width = width;
+		this.showMustGoOn = showMustGoOn;
+		HP = HPMax;
 	}
 	
 	@Override
@@ -35,26 +44,74 @@ public class Slime extends Monster{
 				return false;
 		}
 	}
+	
+	//permet de donner un cooldown aux dégats du slime, afin d'éviter de mourir instantanément
+	private final double COOLDOWN_MAX_DEGATS = 0.5;
+	private double cooldownDegats = 0;
+	//permet de faire apparaitre les slimes (1 fois)
+	private boolean bigBrotherIsDead = false;
+	private boolean showMustGoOn;
+	
 	@Override
 	public void interact(Actor other){
 		super.interact(other);
 		//Blesse le player
 		if (other.isPlayer()&&other.getBox().isColliding(getBox())){
-			other.hurt(this, Damage.SMALLMONSTER, Damage.SMALLMONSTER.getDamage(), getPosition());
+			if(cooldownDegats<=0){
+				if (other.hurt(this, Damage.SMALLMONSTER, Damage.SMALLMONSTER.getDamage(), getPosition())){
+					cooldownDegats = COOLDOWN_MAX_DEGATS;
+				}
+			}
 		}
 	}
-
+	
+	//permet de gérer le dessin du slime
+	private final double COOLDOWN_MAX_DESSIN = 0.9;
+	private double cooldownDessin = COOLDOWN_MAX_DESSIN;
+	
 	@Override
 	public void update(Input input) {
 		super.update(input);
+		cooldownDessin -= input.getDeltaTime();
+		if (cooldownDessin<0){
+			cooldownDessin = COOLDOWN_MAX_DESSIN;
+		}
+		cooldownDegats -=input.getDeltaTime();
+		if (cooldownDegats<0){
+			cooldownDegats = 0;
+		}
 		if (HP<0){
 			getWorld().unregister(this);
+			bigBrotherIsDead = true;
+		}
+		if (bigBrotherIsDead&&showMustGoOn){
+			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX(), getPosition().getY()-(height/4)),0.05, 6,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
+			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()-getBoxDAction().getWidth()/4, getPosition().getY()-(height/4)),0.05, 6,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
 		}
 	}
 
 	@Override
 	public void draw(Input input, Output output) {
-		// TODO Auto-generated method stub
-		
+		if (getDirectionDroite()){
+			if (cooldownDessin>0.6){
+				output.drawSprite(getWorld().getLoader().getSprite(droite1), getBox());
+			} else {
+				if (cooldownDessin>0.3){
+					output.drawSprite(getWorld().getLoader().getSprite(droite2), getBox());
+				} else {
+					output.drawSprite(getWorld().getLoader().getSprite(droite3), getBox());
+				}
+			}
+		} else {
+			if (cooldownDessin>0.6){
+				output.drawSprite(getWorld().getLoader().getSprite(gauche1), getBox());
+			} else {
+				if (cooldownDessin>0.3){
+					output.drawSprite(getWorld().getLoader().getSprite(gauche2), getBox());
+				} else {
+					output.drawSprite(getWorld().getLoader().getSprite(gauche3), getBox());
+				}
+			}
+		}
 	}
 }

@@ -11,7 +11,7 @@ import platform.util.Vector;
 public abstract class Monster extends Actor{
 	private Vector position;
 	private Vector vitesse;
-	private Box boxDAction;
+	private final Box boxDAction;
 	private final double width;
 	private final double height;
 	
@@ -50,6 +50,15 @@ public abstract class Monster extends Actor{
 		return vitesse;
 	}
 
+	/**
+	 * @return the boxDAction
+	 * utile pour certains monstres en faisant apparitre d'autres à leur mort.
+	 * @see Slime
+	 */
+	public Box getBoxDAction() {
+		return boxDAction;
+	}
+
 	private boolean colliding = false;
 	//triggered permet de définir si le joueur est ou n'est pas dans la zone d'action. Elle permet de définir le comportement à adopter
 	private boolean triggered = false;
@@ -74,20 +83,28 @@ public abstract class Monster extends Actor{
 			}
 			//permet de savoir si le joueur est dans la box d'action. S'il n'y est pas, on vérifie que l'actor en question est bien le joueur.
 			//Si c'est le cas, cela veut dire que la box du joueur ne collide pas avec celle du monstre, et donc que le monstre ne doit pas être activé
-			if (other.isPlayer()&&other.getBox().isColliding(boxDAction)){
-				triggered = true;
-				theEnnemi = ((Player)other);
-			} else {
-				if (other.isPlayer()){
+			if (other.isPlayer()){
+				if (!boxDAction.isColliding(other.getPosition())||!other.getBox().isColliding(boxDAction)){
 					triggered = false;
 					theEnnemi = null;
+				} else {
+					triggered = true;
+					theEnnemi = ((Player)other);
 				}
-			}
+			} 
 		}
+		System.out.println(triggered);
 	}
 	
 	private final double movement;
 	private boolean directionDroite = true;
+	
+	/**
+	 * @return la direction du monstre
+	 */
+	public boolean getDirectionDroite() {
+		return directionDroite;
+	}
 	
 	@Override
 	public void preUpdate(){
@@ -109,11 +126,13 @@ public abstract class Monster extends Actor{
 				position = new Vector(position.getX()+movement, position.getY());
 				if (position.getX()>boxDAction.getCenter().getX()+(boxDAction.getWidth()/2)){
 					position = new Vector(boxDAction.getCenter().getX()+(boxDAction.getWidth()/2), position.getY());
+					directionDroite=false;
 				}
 			} else {
 				position = new Vector(position.getX()-movement, position.getY());
 				if (position.getX()<boxDAction.getCenter().getX()-(boxDAction.getWidth()/2)){
 					position = new Vector(boxDAction.getCenter().getX()-(boxDAction.getWidth()/2), position.getY());
+					directionDroite = true;
 				}
 			}
 		} else {
@@ -121,16 +140,20 @@ public abstract class Monster extends Actor{
 			if (position.getX()<theEnnemi.getPosition().getX()){
 				position = new Vector(position.getX()+movement, position.getY());
 			} else {
-				//permet d'éviter que le monstre bouge s'il est déja sur le joueur
-				if (position.getX() != theEnnemi.getPosition().getX()){
+				if (position.getX()>theEnnemi.getPosition().getX()){
 					position = new Vector(position.getX()-movement, position.getY());
+				} else {
+					//permet d'éviter que le monstre bouge s'il est déja sur le joueur
+					if (position.getX() != theEnnemi.getPosition().getX()){
+						position = new Vector(position.getX()-movement, position.getY());
+					}
 				}
 			}
 		}
 		setBox(new Box(position, width, height));
 	}
 	
-	//oblige les sous classes à redéfinir ces méthode (qui sont spécifiques à chaque monstre)
+	 //oblige les sous classes à redéfinir ces méthode (qui sont spécifiques à chaque monstre)
 	public abstract boolean hurt(Actor instigator , Damage type, double amount , Vector location);
 	public abstract void draw(Input input, Output output);
 }

@@ -46,9 +46,6 @@ public class Torch extends Actor implements Signal {
 		case FIRE :
 			currentTorch = TORCH_LIT_1;
 			variation = VARIATION_MAX;
-			if (!(lit)){
-				getWorld().unregister(instigator);
-			}
 			lit =true;
 			return true;
 		default :

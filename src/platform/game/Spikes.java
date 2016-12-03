@@ -32,6 +32,7 @@ public class Spikes extends Actor{
 			setPriority(PRIORITY_COOLDOWN);
 		} else {
 			setPriority(PRIORITY_NORMAL);
+			cooldown = 0;
 		}
 	}
 

@@ -51,7 +51,9 @@ public class Fireball extends Actor{
 		if (other.getBox() !=null){
 			if (other.getBox().isColliding(getBox())){
 				if (!other.equals(owner) && owner!=null){
-					other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition());
+					if(other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
+						getWorld().unregister(this);
+					}
 				}
 			}
 		}

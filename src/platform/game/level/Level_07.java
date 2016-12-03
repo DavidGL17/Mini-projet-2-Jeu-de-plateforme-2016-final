@@ -7,6 +7,7 @@ import platform.game.Lava;
 import platform.game.Overlay;
 import platform.game.Player;
 import platform.game.World;
+import platform.game.monsters.Slime;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
@@ -21,7 +22,7 @@ public class Level_07 extends Level{
 		Player franky;
 		//premier spawn point
 		if (!world.getCheckpoint()){
-			franky = new Player(new Vector(0, 1), new Vector(100, 3), world.getLoader());
+			franky = new Player(new Vector(0, 1), new Vector(108, 3), world.getLoader());
 		} else {
 			//deuxème spawn point (si le joueur a passer le checkpoint)
 			franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
@@ -140,6 +141,8 @@ public class Level_07 extends Level{
 	    world.register(new Block(new Box(new Vector(59, 3), 3, 1), loader.getSprite("stone.3")));
 	    world.register(new BlockIndecis(new Box(new Vector(69, 3), 3, 1), 2, 1, loader, "stone.broken.3","stone.broken2.3"));
 
+	    //slimes
+	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.03,10, new Box(new Vector(90, 1), 10, 8), loader, 2,2,true));
 
 	}
 }
