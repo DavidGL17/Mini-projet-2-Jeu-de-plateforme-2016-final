@@ -22,10 +22,10 @@ public class Level_07 extends Level{
 		Player franky;
 		//premier spawn point
 		if (!world.getCheckpoint()){
-			franky = new Player(new Vector(0, 1), new Vector(108, 3), world.getLoader());
+			franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
 		} else {
 			//deuxème spawn point (si le joueur a passer le checkpoint)
-			franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
+			franky = new Player(new Vector(0, 1), new Vector(108, 0), world.getLoader());
 		}
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
@@ -135,14 +135,14 @@ public class Level_07 extends Level{
 	    //platformes 1
 	    world.register(new BlockIndecis(new Box(new Vector(12, 1.5), 3, 1), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
 	    world.register(new Block(new Box(new Vector(18, 2), 3, 1), loader.getSprite("stone.3")));
-	    world.register(new BlockIndecis(new Box(new Vector(28, 1.5), 3, 1), 2, 1, loader, "stone.broken.3","stone.broken2.3"));
+	    world.register(new BlockIndecis(new Box(new Vector(28, 1.5), 3, 1), 1.5, 2, loader, "stone.broken.3","stone.broken2.3"));
 	    world.register(new Block(new Box(new Vector(38, 2), 3, 1), loader.getSprite("stone.3")));
-	    world.register(new BlockIndecis(new Box(new Vector(49, 3), 3, 1), 2, 1, loader, "stone.broken.3","stone.broken2.3"));
+	    world.register(new BlockIndecis(new Box(new Vector(49, 3), 3, 1), 2, 2, loader, "stone.broken.3","stone.broken2.3"));
 	    world.register(new Block(new Box(new Vector(59, 3), 3, 1), loader.getSprite("stone.3")));
-	    world.register(new BlockIndecis(new Box(new Vector(69, 3), 3, 1), 2, 1, loader, "stone.broken.3","stone.broken2.3"));
+	    world.register(new BlockIndecis(new Box(new Vector(69, 3), 3, 1), 1, 1, loader, "stone.broken.3","stone.broken2.3"));
 
 	    //slimes
-	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.03,10, new Box(new Vector(90, 1), 10, 8), loader, 2,2,true));
+	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.03,8, new Box(new Vector(90, 1), 10, 8), loader, 2,2,true));
 
 	}
 }

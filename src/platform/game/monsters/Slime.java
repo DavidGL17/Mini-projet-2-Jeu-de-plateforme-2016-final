@@ -22,6 +22,7 @@ public class Slime extends Monster{
 	private final static String gauche2 = "slime.left.2";
 	private final static String gauche3 = "slime.left.3";
 	private double HP;
+	private final double HP_MAX;
 	
 	public Slime(Vector vitesse, Vector position, double movement, double HPMax,Box boxDAction, Loader loader, double width, double height, boolean showMustGoOn){
 		super(vitesse, position, width, height, boxDAction, movement,loader, droite1);
@@ -29,6 +30,7 @@ public class Slime extends Monster{
 		this.width = width;
 		this.showMustGoOn = showMustGoOn;
 		HP = HPMax;
+		this.HP_MAX = HPMax;
 	}
 	
 	@Override
@@ -85,8 +87,8 @@ public class Slime extends Monster{
 			bigBrotherIsDead = true;
 		}
 		if (bigBrotherIsDead&&showMustGoOn){
-			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX(), getPosition().getY()-(height/4)),0.05, 6,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
-			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()-getBoxDAction().getWidth()/4, getPosition().getY()-(height/4)),0.05, 6,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
+			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX(), getPosition().getY()-(height/4)),0.05, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
+			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()-getBoxDAction().getWidth()/4, getPosition().getY()-(height/4)),0.05, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
 		}
 	}
 
