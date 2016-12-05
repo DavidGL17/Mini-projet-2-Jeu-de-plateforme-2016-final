@@ -33,20 +33,20 @@ public class Mover extends Block{
 	public void update(Input input) {
 		super.update(input) ;
 		if (signal.isActive()) {
+			currentPosition = new Vector(off.getX()+((vitesseDeMouvement*current*(on.getX()-off.getX()))), off.getY()+((vitesseDeMouvement*current*(on.getY()-off.getY()))));
 			current += input.getDeltaTime () ;
 			if (current > 1.0){
 				current = 1.0 ;
 				currentPosition=on;
 			}
-			currentPosition = new Vector(off.getX()+((vitesseDeMouvement*current*(on.getX()-off.getX()))), off.getY()+((vitesseDeMouvement*current*(on.getY()-off.getY()))));
 		}
 		if (!signal.isActive()){
 			current -= input.getDeltaTime ();
+			currentPosition = new Vector(on.getX()-(((1-current)*vitesseDeMouvement)*(on.getX()-off.getX())), on.getY()-(((1-current)*vitesseDeMouvement)*(on.getY()-off.getY())));
 			if (current < 0.0){
 				current = 0.0 ;
 				currentPosition = off;
 			}
-			currentPosition = new Vector(on.getX()-(((1-current)*vitesseDeMouvement)*(on.getX()-off.getX())), on.getY()-(((1-current)*vitesseDeMouvement)*(on.getY()-off.getY())));
 		}
 	}
 }
