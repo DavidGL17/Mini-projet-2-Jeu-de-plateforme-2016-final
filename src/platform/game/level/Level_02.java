@@ -1,13 +1,13 @@
 package platform.game.level;
 
-import platform.game.Exit;
-import platform.game.Key;
-import platform.game.LimiteTangible;
-import platform.game.Limits;
-import platform.game.Locker;
-import platform.game.Overlay;
-import platform.game.Player;
-import platform.game.World;
+import platform.game.Actors.Exit;
+import platform.game.Actors.Key;
+import platform.game.Actors.LimiteTangible;
+import platform.game.Actors.Limits;
+import platform.game.Actors.Locker;
+import platform.game.Actors.Overlay;
+import platform.game.Actors.Player;
+import platform.game.Actors.World;
 import platform.game.Blocks.Block;
 import platform.game.Blocks.BlockDeco;
 import platform.util.Box;

@@ -1,5 +1,7 @@
 package platform.game;
 
+import platform.game.Actors.Damage;
+import platform.game.Actors.World;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -38,7 +40,7 @@ public abstract class Actor implements Comparable<Actor> {
 	}
 	
 	//Getters and setters
-	protected World getWorld(){
+	public World getWorld(){
 		return world;
 	}
 	public Sprite getSprite(){

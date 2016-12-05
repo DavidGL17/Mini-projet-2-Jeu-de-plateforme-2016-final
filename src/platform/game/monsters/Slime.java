@@ -1,8 +1,8 @@
 package platform.game.monsters;
 
 import platform.game.Actor;
-import platform.game.Damage;
-import platform.game.Monster;
+import platform.game.Actors.Damage;
+import platform.game.Actors.Monster;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;

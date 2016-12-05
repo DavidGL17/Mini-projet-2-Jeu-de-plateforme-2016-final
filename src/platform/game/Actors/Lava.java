@@ -1,4 +1,4 @@
-package platform.game;
+package platform.game.Actors;
 
 import platform.util.Box;
 import platform.util.Input;

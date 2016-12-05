@@ -3,6 +3,8 @@ package platform.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import platform.game.Actors.Damage;
+import platform.game.Actors.World;
 import platform.game.level.*;
 import platform.util.Box;
 import platform.util.Input;

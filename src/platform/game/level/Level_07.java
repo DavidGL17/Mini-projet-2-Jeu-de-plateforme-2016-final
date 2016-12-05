@@ -1,10 +1,10 @@
 package platform.game.level;
 
-import platform.game.Checkpoint;
-import platform.game.Lava;
-import platform.game.Overlay;
-import platform.game.Player;
-import platform.game.World;
+import platform.game.Actors.Checkpoint;
+import platform.game.Actors.Lava;
+import platform.game.Actors.Overlay;
+import platform.game.Actors.Player;
+import platform.game.Actors.World;
 import platform.game.Blocks.Block;
 import platform.game.Blocks.BlockIndecis;
 import platform.game.monsters.Slime;

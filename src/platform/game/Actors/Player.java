@@ -1,7 +1,8 @@
-package platform.game;
+package platform.game.Actors;
 
 import java.awt.event.KeyEvent;
 
+import platform.game.Actor;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;

@@ -1,4 +1,4 @@
-package platform.game;
+package platform.game.Actors;
 
 public enum Damage {
 FIRE (2.0),

@@ -1,14 +1,14 @@
 package platform.game.level;
 
-import platform.game.Exit;
-import platform.game.Lava;
-import platform.game.Lever;
-import platform.game.Limits;
-import platform.game.Overlay;
-import platform.game.Player;
-import platform.game.Teleporteur;
-import platform.game.Torch;
-import platform.game.World;
+import platform.game.Actors.Exit;
+import platform.game.Actors.Lava;
+import platform.game.Actors.Lever;
+import platform.game.Actors.Limits;
+import platform.game.Actors.Overlay;
+import platform.game.Actors.Player;
+import platform.game.Actors.Teleporteur;
+import platform.game.Actors.Torch;
+import platform.game.Actors.World;
 import platform.game.Blocks.Block;
 import platform.game.Blocks.BlockDeco;
 import platform.game.Blocks.BlockDisparitionSignal;
