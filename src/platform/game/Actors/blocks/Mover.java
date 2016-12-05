@@ -26,6 +26,13 @@ public class Mover extends Block{
 		this.Width = Width;
 		this.Height = Height;
 	}
+	/**
+	 * @return the currentPosition
+	 * utile pour les sous classes
+	 */
+	public Vector getCurrentPosition() {
+		return currentPosition;
+	}
 	public Box getBox(){
 		return new Box(currentPosition, Width, Height);
 	}
