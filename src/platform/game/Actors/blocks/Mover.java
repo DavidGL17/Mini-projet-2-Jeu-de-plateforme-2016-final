@@ -47,8 +47,7 @@ public class Mover extends Block{
 				current = 1.0 ;
 				currentPosition=on;
 			}
-		}
-		if (!signal.isActive()){
+		} else {
 			current -= input.getDeltaTime ();
 			currentPosition = new Vector(on.getX()-(((1-current)*vitesseDeMouvement)*(on.getX()-off.getX())), on.getY()-(((1-current)*vitesseDeMouvement)*(on.getY()-off.getY())));
 			if (current*vitesseDeMouvement <= 0.0){

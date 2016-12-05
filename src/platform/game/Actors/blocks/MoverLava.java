@@ -20,7 +20,8 @@ public class MoverLava extends Mover{
 		this.boxDraw = new Box(off, Width, Height);
 		setPriority(1400);
 	}
-	//return la box utile pour les collisions
+	
+	//return la box utilisée pour les collisions
 	public Box getBox(){
 		return hitBox;
 	}
@@ -36,5 +37,8 @@ public class MoverLava extends Mover{
 	}
 	public void draw (Input input, Output output){
 		output.drawSprite(getSprite(), boxDraw);
+	}
+	public boolean isSolid(){
+		return false;
 	}
 }
