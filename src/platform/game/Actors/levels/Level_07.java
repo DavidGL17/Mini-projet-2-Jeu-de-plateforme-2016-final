@@ -142,7 +142,7 @@ public class Level_07 extends Level{
 	    world.register(new BlockIndecis(new Box(new Vector(69, 3), 3, 1), 1, 1, loader, "stone.broken.3","stone.broken2.3"));
 
 	    //slimes
-	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.02,8, new Box(new Vector(92, 1), 18, 4), loader, 2,2,true));
+	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.04,8, new Box(new Vector(92, 1), 18, 4), loader, 2,2,true));
 
 	}
 }
