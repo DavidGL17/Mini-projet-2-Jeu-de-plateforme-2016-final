@@ -1,4 +1,4 @@
-package platform.game;
+package platform.game.Blocks;
 
 import platform.game.Signals.Signal;
 import platform.util.Box;

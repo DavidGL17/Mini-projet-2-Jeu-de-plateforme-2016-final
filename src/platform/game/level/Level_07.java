@@ -1,12 +1,12 @@
 package platform.game.level;
 
-import platform.game.Block;
-import platform.game.BlockIndecis;
 import platform.game.Checkpoint;
 import platform.game.Lava;
 import platform.game.Overlay;
 import platform.game.Player;
 import platform.game.World;
+import platform.game.Blocks.Block;
+import platform.game.Blocks.BlockIndecis;
 import platform.game.monsters.Slime;
 import platform.util.Box;
 import platform.util.Loader;

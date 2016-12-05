@@ -1,18 +1,18 @@
 package platform.game.level;
 
-import platform.game.Block;
-import platform.game.BlockDeco;
 import platform.game.Key;
 import platform.game.Lava;
 import platform.game.LimiteTangible;
 import platform.game.Limits;
 import platform.game.Locker;
-import platform.game.Mover;
-import platform.game.MoverDamageFire;
 import platform.game.Overlay;
 import platform.game.Player;
 import platform.game.Scie;
 import platform.game.World;
+import platform.game.Blocks.Block;
+import platform.game.Blocks.BlockDeco;
+import platform.game.Blocks.Mover;
+import platform.game.Blocks.MoverDamageFire;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;

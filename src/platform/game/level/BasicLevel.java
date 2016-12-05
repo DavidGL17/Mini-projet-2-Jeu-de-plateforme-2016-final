@@ -1,22 +1,20 @@
 package platform.game.level;
 
-import platform.game.Background;
-import platform.game.Block;
-import platform.game.BlockDeco;
 import platform.game.Exit;
 import platform.game.Heart;
 import platform.game.Jumper;
 import platform.game.Key;
-import platform.game.Lava;
 import platform.game.Lever;
 import platform.game.Limits;
 import platform.game.Locker;
-import platform.game.Mover;
 import platform.game.Overlay;
 import platform.game.Player;
 import platform.game.Spikes;
 import platform.game.Torch;
 import platform.game.World;
+import platform.game.Blocks.Block;
+import platform.game.Blocks.BlockDeco;
+import platform.game.Blocks.Mover;
 import platform.util.Box;
 import platform.util.Vector;
 
@@ -36,8 +34,6 @@ public class BasicLevel extends Level {
     	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
     	Player franky = new Player(new Vector(0, -4), new Vector(-10, 12), world.getLoader());
     	world.register(franky);
-    	Background backgroundfrancky = new Background(franky,new BlockDeco(franky.getPosition(),25,30,getWorld().getLoader(),"bg"));
-//    	world.register(backgroundfrancky);
     	Overlay overlayfranky = new Overlay(franky);
     	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader()); 
     	
@@ -45,11 +41,11 @@ public class BasicLevel extends Level {
     	
     	Key key = new Key(new Vector(2, 8), world.getLoader(), Key.blue);
     	Locker locker1 = (new Locker(new Vector(4, 7.5), world.getLoader(), Locker.blue, key));
-    	Locker locker2 = (new Locker(new Vector(4, 8.5), world.getLoader(), Locker.blue, locker1, true));
-    	Locker locker3 = new Locker(new Vector(4, 9.5), world.getLoader(), Locker.blue, locker2, true);
+//    	Locker locker2 = (new Locker(new Vector(4, 8.5), world.getLoader(), Locker.blue, locker1, true));
+//    	Locker locker3 = new Locker(new Vector(4, 9.5), world.getLoader(), Locker.blue, locker2, true);
     	world.register(locker1);
-    	world.register(locker2);
-    	world.register(locker3);
+//    	world.register(locker2);
+//    	world.register(locker3);
     	world.register(key);
     	world.register(new Limits(new Box(new Vector(0, -15) , 1000, 5)));
     	world.register(new Block(new Box(new Vector(-10, 11), 2, 1), world.getLoader().getSprite("stone.2")));
@@ -133,11 +129,11 @@ public class BasicLevel extends Level {
     	world.register(new Block(new Box(new Vector(26, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(28, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
     	world.register(new Block(new Box(new Vector(30, 6), 2, 2), world .getLoader().getSprite("grass.middle")));
-    	Lever lever = new Lever(new Vector(24, 9), world.getLoader());
-    	Mover mover = new Mover(new Vector(24, 8), new Vector(24, 12), 1, 1, world.getLoader(), lever, "grass.middle");
-    	world.register(mover);
-    	world.register(lever);
-    	world.register(new Exit(new Vector(23, 8), 1, 2, world.getLoader(), lever));
+//    	Lever lever = new Lever(new Vector(24, 9), world.getLoader());
+//    	Mover mover = new Mover(new Vector(24, 8), new Vector(24, 12), 1, 1, world.getLoader(), lever, "grass.middle");
+//    	world.register(mover);
+//    	world.register(lever);
+//    	world.register(new Exit(new Vector(23, 8), 1, 2, world.getLoader(), lever));
     
     										// Saut
     	

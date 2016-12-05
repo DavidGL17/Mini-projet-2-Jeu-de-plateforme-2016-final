@@ -1,25 +1,19 @@
 package platform.game.level;
 
-import platform.game.And;
-import platform.game.Block;
-import platform.game.BlockDeco;
-import platform.game.Constant;
 import platform.game.Exit;
-import platform.game.Lever;
-import platform.game.LimiteTangible;
-import platform.game.Limits;
-import platform.game.Not;
+import platform.game.Heart;
 import platform.game.Overlay;
 import platform.game.Player;
-import platform.game.Spikedroite;
 import platform.game.Spikebas;
-import platform.game.Spikes;
+import platform.game.Spikedroite;
 import platform.game.Spikegauche;
-import platform.game.Torch;
+import platform.game.Spikes;
 import platform.game.World;
+import platform.game.Blocks.Block;
+import platform.game.Blocks.BlockDeco;
+import platform.game.Signals.Constant;
 import platform.util.Box;
 import platform.util.Vector;
-import platform.game.Heart;
 
 public class Level_06 extends Level{
 	 @Override

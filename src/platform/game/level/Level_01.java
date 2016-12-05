@@ -1,6 +1,5 @@
 package platform.game.level;
 
-import platform.game.Block;
 import platform.game.Exit;
 import platform.game.Key;
 import platform.game.LimiteTangible;
@@ -9,7 +8,8 @@ import platform.game.Locker;
 import platform.game.Overlay;
 import platform.game.Player;
 import platform.game.World;
-import platform.game.BlockDeco;
+import platform.game.Blocks.Block;
+import platform.game.Blocks.BlockDeco;
 import platform.util.Box;
 import platform.util.Vector;
 

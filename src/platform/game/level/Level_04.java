@@ -1,16 +1,16 @@
 package platform.game.level;
 
-import platform.game.And;
-import platform.game.Block;
-import platform.game.BlockDeco;
 import platform.game.Exit;
 import platform.game.Lever;
 import platform.game.Limits;
-import platform.game.Not;
 import platform.game.Overlay;
 import platform.game.Player;
 import platform.game.Torch;
 import platform.game.World;
+import platform.game.Blocks.Block;
+import platform.game.Blocks.BlockDeco;
+import platform.game.Signals.And;
+import platform.game.Signals.Not;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;

@@ -1,5 +1,7 @@
-package platform.game;
+package platform.game.Blocks;
 
+import platform.game.Actor;
+import platform.game.Damage;
 import platform.game.Signals.Signal;
 import platform.util.Input;
 import platform.util.Loader;
