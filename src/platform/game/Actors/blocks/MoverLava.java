@@ -14,10 +14,11 @@ import platform.util.Vector;
 public class MoverLava extends Mover{
 	private Box boxDraw;
 	private Box hitBox;
-	public MoverLava(Vector off, Vector on, double Width, double Height,Box hitBox, double vitesseDeMouvement, Loader loader,Signal signal, String dessin){
+	public MoverLava(Vector off, Vector on, double Width, double Height, Box hitBox, double vitesseDeMouvement, Loader loader,Signal signal, String dessin){
 		super(off, on, Width, Height, vitesseDeMouvement, loader, signal, dessin);
 		this.hitBox = hitBox;
 		this.boxDraw = new Box(off, Width, Height);
+		setPriority(1400);
 	}
 	//return la box utile pour les collisions
 	public Box getBox(){
