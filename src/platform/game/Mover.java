@@ -10,8 +10,8 @@ public class Mover extends Block{
 	private Vector  on;
 	private Vector currentPosition;
 	private Signal signal;
-	private static double Width;
-	private static double Height;
+	private final double Width;
+	private final double Height;
 	private double current = 0;
 	private double vitesseDeMouvement;
 	

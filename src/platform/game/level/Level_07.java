@@ -22,7 +22,7 @@ public class Level_07 extends Level{
 		Player franky;
 		//premier spawn point
 		if (!world.getCheckpoint()){
-			franky = new Player(new Vector(0, 1), new Vector(108, 0), world.getLoader());
+			franky = new Player(new Vector(0, 1), new Vector(100, 0), world.getLoader());
 		} else {
 			//deuxème spawn point (si le joueur a passer le checkpoint)
 			franky = new Player(new Vector(0, 1), new Vector(108, 0), world.getLoader());
