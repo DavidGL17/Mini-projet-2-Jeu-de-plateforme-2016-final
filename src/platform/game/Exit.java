@@ -1,5 +1,6 @@
 package platform.game;
 
+import platform.game.Signals.Signal;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
