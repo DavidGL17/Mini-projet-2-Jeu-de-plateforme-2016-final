@@ -68,22 +68,20 @@ public class Player extends Actor{
 	public void interact(Actor other) {
 		super.interact(other);
 		if (other.isSolid ()) {
-			if (other.getBox() !=null){
-				Vector delta = other.getBox().getCollision(getBox());
-				if (delta != null) {
-					colliding = true;
-					limite = false;
-					position = position.add(delta) ;
-					if (delta.getX() != 0.0){
-						vitesse = new Vector (0.0, vitesse.getY());
-					}
-					if (delta.getY() != 0.0){
-						vitesse = new Vector(vitesse.getX(), 0.0) ;
-					}
+			Vector delta = other.getBox().getCollision(getBox());
+			if (delta != null) {
+				colliding = true;
+				limite = false;
+				position = position.add(delta) ;
+				if (delta.getX() != 0.0){
+					vitesse = new Vector (0.0, vitesse.getY());
+				}
+				if (delta.getY() != 0.0){
+					vitesse = new Vector(vitesse.getX(), 0.0) ;
 				}
 			}
 		}
-		if (other.isLimiteTangible()&&other.getBox().isColliding(getBox())){
+		if (other.isLimiteTangible()&&getBox().isColliding(other.getBox())){
 			limite = true;
 		}
 	}

@@ -25,11 +25,9 @@ public class Checkpoint extends Actor{
 	}
 	
 	public void interact(Actor other){
-		if (other.getBox()!=null){
-			if (other.getBox().isColliding(getBox())&&other.isPlayer()){
-				checkpointDone = true;
-				getWorld().setCheckpoint(checkpointDone);
-			}
+		if (getBox().isColliding(other.getBox())&&other.isPlayer()){
+			checkpointDone = true;
+			getWorld().setCheckpoint(checkpointDone);
 		}
 	}
 	public void update(Input input){

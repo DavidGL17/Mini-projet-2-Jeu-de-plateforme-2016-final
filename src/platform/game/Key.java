@@ -20,25 +20,14 @@ public class Key extends Actor implements Signal{
 	
 	private boolean taken = false;
 	
-	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
-		switch (type){
-//		case ACTIVATION :
-//			taken = true;
-//			getWorld().unregister(this);
-//			return true;
-		default :
-			return false;
-		}
-	}
 	public void update(Input input) {
 		if (taken){
 			getWorld().unregister(this);
 		}
 	}
-	
 	public void interact(Actor other){
 		super.interact(other);
-		if (other.isPlayer()&&(other.getBox().isColliding(getBox()))){
+		if (other.isPlayer()&&(getBox().isColliding(other.getBox()))){
 			taken = true;
 			getWorld().unregister(this);
 		}

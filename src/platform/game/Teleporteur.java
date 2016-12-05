@@ -20,10 +20,8 @@ public class Teleporteur extends Actor{
 	}
 	
 	public void interact(Actor other) {
-		if (other.getBox()!=null&& other.getBox().isColliding(getBox())){
-			if (other.isPlayer()){
-				((Player)other).setPosition(positionDarrivee);
-			}
+		if (getBox().isColliding(other.getBox())&&other.isPlayer()){
+			((Player)other).setPosition(positionDarrivee);
 		}
 	}
 	//Pour évoluer au cours du temps

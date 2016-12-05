@@ -13,7 +13,7 @@ public class MoverDamageFire extends Mover{
 	private double cooldownDegats = COOLDOWN_MAX;
 	
 	public void interact(Actor other) {
-		if (other.getBox().isColliding(getBox())){
+		if (getBox().isColliding(other.getBox())){
 			if (cooldownDegats <= 0){
 				other.hurt(this, Damage.FIRE, Damage.FIRE.getDamage(), getPosition());
 				cooldownDegats = COOLDOWN_MAX;

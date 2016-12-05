@@ -23,12 +23,10 @@ public class Exit extends Actor{
 	}
 	
 	public void interact(Actor other) {
-		if (!(other.getBox()==null)){
-			if (other.getBox().isColliding(getBox())){
-				if (other.isPlayer()){
-					if (signal.isActive()){
-						getWorld().nextLevel();
-					}
+		if (getBox().isColliding(other.getBox())){
+			if (other.isPlayer()){
+				if (signal.isActive()){
+					getWorld().nextLevel();
 				}
 			}
 		}

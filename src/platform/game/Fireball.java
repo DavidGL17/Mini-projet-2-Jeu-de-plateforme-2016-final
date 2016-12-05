@@ -48,12 +48,10 @@ public class Fireball extends Actor{
 					vitesse = vitesse.mirrored(delta) ;
 			}
 		}
-		if (other.getBox() !=null){
-			if (other.getBox().isColliding(getBox())){
-				if (!other.equals(owner) && owner!=null){
-					if(other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
-						getWorld().unregister(this);
-					}
+		if (getBox().isColliding(other.getBox())){
+			if (!other.equals(owner) && owner!=null){
+				if(other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
+					getWorld().unregister(this);
 				}
 			}
 		}
