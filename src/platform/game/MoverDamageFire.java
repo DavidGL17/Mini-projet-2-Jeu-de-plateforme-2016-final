@@ -22,7 +22,10 @@ public class MoverDamageFire extends Mover{
 	}
 	public void update (Input input){
 		super.update(input);
-		
+		cooldownDegats -= input.getDeltaTime();
+		if (cooldownDegats < 0){
+			cooldownDegats = 0;
+		}
 	}
 	public boolean isSolid(){
 		return false;
