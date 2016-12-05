@@ -1,7 +1,7 @@
 package platform.game.Actors;
 
 import platform.game.Actor;
-import platform.game.level.Level;
+import platform.game.Actors.levels.Level;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;;

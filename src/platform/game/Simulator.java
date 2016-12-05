@@ -5,7 +5,8 @@ import java.util.List;
 
 import platform.game.Actors.Damage;
 import platform.game.Actors.World;
-import platform.game.level.*;
+import platform.game.Actors.levels.Level;
+import platform.game.Actors.levels.Level_08;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;

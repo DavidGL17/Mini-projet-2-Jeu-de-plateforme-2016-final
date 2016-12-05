@@ -1,4 +1,4 @@
-package platform.game.level;
+package platform.game.Actors.levels;
 
 import platform.game.Actor;
 import platform.util.Input;

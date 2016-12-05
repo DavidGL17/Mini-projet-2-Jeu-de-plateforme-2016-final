@@ -1,6 +1,6 @@
 package platform.game.Actors;
 
-import platform.game.Blocks.Block;
+import platform.game.Actors.blocks.Block;
 import platform.game.Signals.Signal;
 import platform.util.Box;
 import platform.util.Input;

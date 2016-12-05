@@ -1,4 +1,4 @@
-package platform.game.level;
+package platform.game.Actors.levels;
 
 import platform.game.Actors.Exit;
 import platform.game.Actors.Heart;
@@ -12,9 +12,9 @@ import platform.game.Actors.Player;
 import platform.game.Actors.Spikes;
 import platform.game.Actors.Torch;
 import platform.game.Actors.World;
-import platform.game.Blocks.Block;
-import platform.game.Blocks.BlockDeco;
-import platform.game.Blocks.Mover;
+import platform.game.Actors.blocks.Block;
+import platform.game.Actors.blocks.BlockDeco;
+import platform.game.Actors.blocks.Mover;
 import platform.util.Box;
 import platform.util.Vector;
 

@@ -1,4 +1,4 @@
-package platform.game.Blocks;
+package platform.game.Actors.blocks;
 
 import platform.game.Actor;
 import platform.game.Actors.Damage;

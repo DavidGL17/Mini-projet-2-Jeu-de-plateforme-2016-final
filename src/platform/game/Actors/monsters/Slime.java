@@ -1,4 +1,4 @@
-package platform.game.monsters;
+package platform.game.Actors.monsters;
 
 import platform.game.Actor;
 import platform.game.Actors.Damage;

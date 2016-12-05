@@ -1,13 +1,13 @@
-package platform.game.level;
+package platform.game.Actors.levels;
 
 import platform.game.Actors.Checkpoint;
 import platform.game.Actors.Lava;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
 import platform.game.Actors.World;
-import platform.game.Blocks.Block;
-import platform.game.Blocks.BlockIndecis;
-import platform.game.monsters.Slime;
+import platform.game.Actors.blocks.Block;
+import platform.game.Actors.blocks.BlockIndecis;
+import platform.game.Actors.monsters.Slime;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
