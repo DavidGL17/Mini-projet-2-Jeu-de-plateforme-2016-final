@@ -25,7 +25,7 @@ public class Level_08 extends Level{
     world.register(new LimiteTangible(new Vector(-4, 0), 2, 30));
 
 	
-	Player franky = new Player(new Vector(0, -4), new Vector(133, -7), world.getLoader());
+	Player franky = new Player(new Vector(0, -4), new Vector(5, 0), world.getLoader());
 	world.register(franky);
 	Overlay overlayfranky = new Overlay(franky);
 	world.register(overlayfranky);
@@ -67,19 +67,12 @@ public class Level_08 extends Level{
     world.register(new Lava(new Box(new Vector(92, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
     world.register(new Lava(new Box(new Vector(116, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
 
-//    world.register(new Lava(new Box(new Vector(145, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
     world.register(new Lava(new Box(new Vector(145, -32), 24, 16), loader, "liquidLava2"));
 
     world.register(new Lava(new Box(new Vector(87, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(111, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(135, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(63, -32), 24, 16), loader, "liquidLava2"));
-//    world.register(new Lava(new Box(new Vector(161, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
-
-    Key keytest = new Key(new Vector(150, -7), world.getLoader(), Key.red);
-    world.register(keytest);
-    world.register(new MoverDamageFire(new Vector(169, -16), new Vector(169, 0), 24, 16, 0.01, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
-    world.register(new MoverDamageFire(new Vector(145, -16), new Vector(145, 0), 24, 16, 0.01, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
 
     
     										// Lockers
@@ -330,24 +323,29 @@ public class Level_08 extends Level{
 
     world.register(new Scie(new Box(new Vector(99, -29), 2, 2), loader, "saw1"));
     world.register(new Scie(new Box(new Vector(99, -25), 2, 2), loader, "saw1"));
-//    world.register(new Scie(new Box(new Vector(102, -29), 2, 2), loader, "saw1"));		// Ces deux-la sont
-//    world.register(new Scie(new Box(new Vector(102, -25), 2, 2), loader, "saw1"));		// peut-�tre un peu chaud
-//
+    world.register(new Scie(new Box(new Vector(102, -29), 2, 2), loader, "saw1"));		// Ces deux-la sont
+    world.register(new Scie(new Box(new Vector(102, -25), 2, 2), loader, "saw1"));		// peut-�tre un peu chaud
 
-	Mover mob = new Mover(new Vector(108, -22), new Vector(108, -25), 1.5, 4, 1, world.getLoader(), locker147 , "pokerMad2");
+    
+    world.register(new Scie(new Box(new Vector(110, -30), 2, 2), loader, "saw1"));
+    world.register(new Scie(new Box(new Vector(115, -30), 2, 2), loader, "saw1"));
+    world.register(new Scie(new Box(new Vector(115, -25), 2, 2), loader, "saw1"));
+    world.register(new Scie(new Box(new Vector(120, -30), 2, 2), loader, "saw1"));
+    
+    Mover mob = new Mover(new Vector(108, -22), new Vector(108, -25), 1.5, 4, 1, world.getLoader(), locker147 , "pokerMad2");
 	world.register(mob);
-//    Key keytest = new Key(new Vector(112, -29), world.getLoader(), Key.red);
-//    world.register(keytest);
-//	Mover flame = new Mover(new Vector(130, -29), new Vector(90, -29), 1.5, 0.5, 1.5, world.getLoader(),  locker152 , "flame2");
-//	world.register(flame);
-//	Mover flame2 = new Mover(new Vector(130, -27), new Vector(90, -27), 1.5, 0.5, 1.5, world.getLoader(),  locker157 , "flame2");
-//	Mover flame3 = new Mover(new Vector(130, -25), new Vector(90, -25), 1.5, 0.5, 1.5, world.getLoader(), locker162 , "flame2");
-//	Mover flame4 = new Mover(new Vector(130, -26), new Vector(90, -26), 1.5, 0.5, 1.5, world.getLoader(),  locker167  , "flame2");
-//
-//	world.register(flame2);
-//	world.register(flame3);
-//	world.register(flame4);
-//  
+    Key keytest2 = new Key(new Vector(105, -29), world.getLoader(), Key.red);
+    world.register(keytest2);
+	MoverDamageFire flame = new MoverDamageFire(new Vector(135, -29), new Vector(65, -29), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
+	world.register(flame);
+	MoverDamageFire flame2 = new MoverDamageFire(new Vector(145, -27), new Vector(75, -27), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
+	MoverDamageFire flame3 = new MoverDamageFire(new Vector(155, -29), new Vector(85, -29), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
+	MoverDamageFire flame4 = new MoverDamageFire(new Vector(165, -25), new Vector(95, -25), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
+
+	world.register(flame2);
+	world.register(flame3);
+	world.register(flame4);
+  
  
    
     
@@ -378,12 +376,24 @@ public class Level_08 extends Level{
 
     
     										// The wall
+
+    Key keytest = new Key(new Vector(160, -7), world.getLoader(), Key.red);
+    world.register(keytest);
+    world.register(new MoverDamageFire(new Vector(169, -16), new Vector(169, 50), 24, 16, 0.05, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
+    world.register(new MoverDamageFire(new Vector(145, -16), new Vector(145, 50), 24, 16, 0.05, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
     
+  
+    world.register(new Block(new Box(new Vector(174, -5), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(174, 7), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(174, 19), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(174, 31), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(174, 43), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(174, 55), 20, 12), world.getLoader().getSprite("thewall")));
+
     world.register(new Block(new Box(new Vector(145, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
     world.register(new Block(new Box(new Vector(153, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
     world.register(new Block(new Box(new Vector(161, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
 
-    
     
     										// Background
 
