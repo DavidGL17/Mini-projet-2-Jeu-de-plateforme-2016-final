@@ -8,6 +8,7 @@ import platform.game.LimiteTangible;
 import platform.game.Limits;
 import platform.game.Locker;
 import platform.game.Mover;
+import platform.game.MoverDamageFire;
 import platform.game.Overlay;
 import platform.game.Player;
 import platform.game.Scie;
@@ -66,14 +67,19 @@ public class Level_08 extends Level{
     world.register(new Lava(new Box(new Vector(92, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
     world.register(new Lava(new Box(new Vector(116, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
 
-    world.register(new Lava(new Box(new Vector(145, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
+//    world.register(new Lava(new Box(new Vector(145, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
     world.register(new Lava(new Box(new Vector(145, -32), 24, 16), loader, "liquidLava2"));
 
     world.register(new Lava(new Box(new Vector(87, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(111, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(135, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(63, -32), 24, 16), loader, "liquidLava2"));
-    world.register(new Lava(new Box(new Vector(161, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
+//    world.register(new Lava(new Box(new Vector(161, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
+
+    Key keytest = new Key(new Vector(150, -7), world.getLoader(), Key.red);
+    world.register(keytest);
+    world.register(new MoverDamageFire(new Vector(169, -16), new Vector(169, 0), 24, 16, 0.01, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
+    world.register(new MoverDamageFire(new Vector(145, -16), new Vector(145, 0), 24, 16, 0.01, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
 
     
     										// Lockers
