@@ -78,6 +78,16 @@ public class Slime extends Monster{
 		if (cooldownDessin<0){
 			cooldownDessin = COOLDOWN_MAX_DESSIN;
 		}
+		//Ceci permet de régler lan hitbox dépendant du sprite utilisé 
+		if (cooldownDessin>0.6){
+			setBox(new Box(getPosition(), width, height));
+		} else {
+			if (cooldownDessin>0.3){
+				setBox(new Box(getPosition(), width, (height*2)/3));
+			} else {
+				setBox(new Box(getPosition(), width, height/3));
+			}
+		}
 		cooldownDegats -=input.getDeltaTime();
 		if (cooldownDegats<0){
 			cooldownDegats = 0;
@@ -96,22 +106,22 @@ public class Slime extends Monster{
 	public void draw(Input input, Output output) {
 		if (getDirectionDroite()){
 			if (cooldownDessin>0.6){
-				output.drawSprite(getWorld().getLoader().getSprite(droite1), getBox());
+				output.drawSprite(getWorld().getLoader().getSprite(droite1), new Box(getPosition(), width, height));
 			} else {
 				if (cooldownDessin>0.3){
-					output.drawSprite(getWorld().getLoader().getSprite(droite2), getBox());
+					output.drawSprite(getWorld().getLoader().getSprite(droite2), new Box(getPosition(), width, height));
 				} else {
-					output.drawSprite(getWorld().getLoader().getSprite(droite3), getBox());
+					output.drawSprite(getWorld().getLoader().getSprite(droite3), new Box(getPosition(), width, height));
 				}
 			}
 		} else {
 			if (cooldownDessin>0.6){
-				output.drawSprite(getWorld().getLoader().getSprite(gauche1), getBox());
+				output.drawSprite(getWorld().getLoader().getSprite(gauche1), new Box(getPosition(), width, height));
 			} else {
 				if (cooldownDessin>0.3){
-					output.drawSprite(getWorld().getLoader().getSprite(gauche2), getBox());
+					output.drawSprite(getWorld().getLoader().getSprite(gauche2), new Box(getPosition(), width, height));
 				} else {
-					output.drawSprite(getWorld().getLoader().getSprite(gauche3), getBox());
+					output.drawSprite(getWorld().getLoader().getSprite(gauche3), new Box(getPosition(), width, height));
 				}
 			}
 		}
