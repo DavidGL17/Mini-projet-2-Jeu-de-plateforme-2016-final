@@ -24,7 +24,7 @@ public class Level_08 extends Level{
     world.register(new LimiteTangible(new Vector(-4, 0), 2, 30));
 
 	
-	Player franky = new Player(new Vector(0, -4), new Vector(-2, 0), world.getLoader());
+	Player franky = new Player(new Vector(0, -4), new Vector(133, -7), world.getLoader());
 	world.register(franky);
 	Overlay overlayfranky = new Overlay(franky);
 	world.register(overlayfranky);
@@ -73,12 +73,13 @@ public class Level_08 extends Level{
     world.register(new Lava(new Box(new Vector(111, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(135, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(63, -32), 24, 16), loader, "liquidLava2"));
+    world.register(new Lava(new Box(new Vector(161, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
 
     
     										// Lockers
     
     Key keyRed = new Key(new Vector(0, -2), world.getLoader(), Key.red);
-	world.register(new Mover(new Vector(2.25, -1), new Vector(2.25, 4), 1.5, 4,1.0, world.getLoader(), keyRed, "stone.7"));
+	world.register(new Mover(new Vector(2.25, -1), new Vector(2.25, 4), 1.5, 4,5.0, world.getLoader(), keyRed, "stone.7"));
     world.register(keyRed);
     Locker locker2b = new Locker(new Vector(3.5, -8.5), world.getLoader(), Locker.red, keyRed, true, 0.2);
     Locker locker2c = new Locker(new Vector(3.5, -7.5), world.getLoader(), Locker.red, locker2b, true, 0.2);
@@ -303,6 +304,13 @@ public class Level_08 extends Level{
     Locker locker213 = new Locker(new Vector(131.5, -7.5), world.getLoader(), Locker.red, locker212, true,0.2);
     Locker locker214 = new Locker(new Vector(132.5, -7.5), world.getLoader(), Locker.red, locker213, true,0.2);
     Locker locker215 = new Locker(new Vector(133.5, -7.5), world.getLoader(), Locker.red, locker214, true,0.2);
+    Locker locker216 = new Locker(new Vector(134.5, -7.5), world.getLoader(), Locker.red, locker215, true,0.2);
+    Locker locker217 = new Locker(new Vector(135.5, -7.5), world.getLoader(), Locker.red, locker216, true,0.2);
+    Locker locker218 = new Locker(new Vector(136.5, -7.5), world.getLoader(), Locker.red, locker217, true,0.2);
+    Locker locker219 = new Locker(new Vector(137.5, -7.5), world.getLoader(), Locker.red, locker218, true,0.2);
+    Locker locker220 = new Locker(new Vector(138.5, -7.5), world.getLoader(), Locker.red, locker219, true,0.2);
+    Locker locker221 = new Locker(new Vector(139.5, -7.5), world.getLoader(), Locker.red, locker220, true,0.2);
+    Locker locker222 = new Locker(new Vector(140.5, -7.5), world.getLoader(), Locker.red, locker221, true,0.2);
 
 
    
@@ -317,7 +325,7 @@ public class Level_08 extends Level{
     world.register(new Scie(new Box(new Vector(99, -29), 2, 2), loader, "saw1"));
     world.register(new Scie(new Box(new Vector(99, -25), 2, 2), loader, "saw1"));
 //    world.register(new Scie(new Box(new Vector(102, -29), 2, 2), loader, "saw1"));		// Ces deux-la sont
-//    world.register(new Scie(new Box(new Vector(102, -25), 2, 2), loader, "saw1"));		// peut-être un peu chaud
+//    world.register(new Scie(new Box(new Vector(102, -25), 2, 2), loader, "saw1"));		// peut-ï¿½tre un peu chaud
 //
 
 	Mover mob = new Mover(new Vector(108, -22), new Vector(108, -25), 1.5, 4, 1, world.getLoader(), locker147 , "pokerMad2");
@@ -342,21 +350,17 @@ public class Level_08 extends Level{
 
     world.register(new Block(new Box(new Vector(87, 13), 2, 8), world.getLoader().getSprite("stone.broken.7")));
     world.register(new Scie(new Box(new Vector(88, 16), 3, 3), loader, "saw1"));
-
     world.register(new Block(new Box(new Vector(87, 26), 2, 8), world.getLoader().getSprite("stone.broken.7")));
     world.register(new Block(new Box(new Vector(78, 16.5), 2, 2), world.getLoader().getSprite("stone.broken.1")));
     world.register(new Scie(new Box(new Vector(87, 22), 3, 3), loader, "saw1"));
-
     world.register(new Block(new Box(new Vector(97, 13), 2, 5), world.getLoader().getSprite("stone.broken.7")));
     world.register(new Scie(new Box(new Vector(97, 16), 3, 3), loader, "saw1"));
     world.register(new Scie(new Box(new Vector(93, 7), 5, 5), loader, "saw1"));
     world.register(new Block(new Box(new Vector(87, 5), 2, 8), world.getLoader().getSprite("stone.broken.7")));
     world.register(new Block(new Box(new Vector(87, -3), 2, 8), world.getLoader().getSprite("stone.broken.7")));
     world.register(new Scie(new Box(new Vector(95, 0), 5, 5), loader, "saw1"));
-
     world.register(new Block(new Box(new Vector(104, 3), 2, 10), world.getLoader().getSprite("stone.broken.7")));
     world.register(new Scie(new Box(new Vector(104, 8.5), 1.9, 1.9), loader, "saw1"));
-
     world.register(new Block(new Box(new Vector(115, 13), 10, 2), world.getLoader().getSprite("stone.broken.3")));
     world.register(new Scie(new Box(new Vector(104, 12), 3.5, 3.5), loader, "saw1"));
     world.register(new Block(new Box(new Vector(113, 8), 2, 8), world.getLoader().getSprite("stone.broken.7")));
@@ -367,7 +371,16 @@ public class Level_08 extends Level{
     world.register(new Scie(new Box(new Vector(124, 2), 6, 6), loader, "saw1"));
 
     
+    										// The wall
+    
+    world.register(new Block(new Box(new Vector(145, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
+    world.register(new Block(new Box(new Vector(153, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
+    world.register(new Block(new Box(new Vector(161, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
+
+    
+    
     										// Background
+
     world.register(new BlockDeco(new Vector(15, -9), 10, 5, world.getLoader(), "pillier2"));
     world.register(new BlockDeco(new Vector(30, -9), 10, 5, world.getLoader(), "pillier2"));
     world.register(new BlockDeco(new Vector(45, -9), 10, 5, world.getLoader(), "pillier2"));
@@ -408,6 +421,10 @@ public class Level_08 extends Level{
     world.register(new BlockDeco(new Vector(137, 18), 18, 18, world.getLoader(), "bg_castledark3"));
     world.register(new BlockDeco(new Vector(137, 36), 18, 18, world.getLoader(), "bg_castledark3"));
     world.register(new BlockDeco(new Vector(137, -18), 18, 18, world.getLoader(), "bg_castledark3"));
+    world.register(new BlockDeco(new Vector(155, 0), 18, 18, world.getLoader(), "bg_castledark3"));
+    world.register(new BlockDeco(new Vector(155, -18), 18, 18, world.getLoader(), "bg_castledark3"));
+    world.register(new BlockDeco(new Vector(155, 18), 18, 18, world.getLoader(), "bg_castledark3"));
+    world.register(new BlockDeco(new Vector(155, 36), 18, 18, world.getLoader(), "bg_castledark3"));
 
 
     
@@ -636,6 +653,13 @@ public class Level_08 extends Level{
     world.register(locker213);
     world.register(locker214);
     world.register(locker215);
+    world.register(locker216);
+    world.register(locker217);
+    world.register(locker218);
+    world.register(locker219);
+    world.register(locker220);
+    world.register(locker221);
+    world.register(locker222);
 
 	
 	
