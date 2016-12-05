@@ -127,8 +127,9 @@ public class Player extends Actor{
 	private final double MAX_SPEED_RIGHT = 8;
 	private final double MAX_SPEED_LEFT = -8;
 	private double cooldownBouleDeFeu;
-	private double conteurDeBoule = 0;
-	private final double COOLDOWN_BOULE_DE_FEU = 1;
+	private int conteurDeBoule = 0;
+	private final double COOLDOWN_BOULE_DE_FEU = 0.7;
+	private final int MAX_BOULEDEFEU_SUITE = 2;
 	
 	public void preUpdate(){
 		colliding=false;
@@ -196,7 +197,7 @@ public class Player extends Actor{
 		if (cooldownBouleDeFeu>0){
 			cooldownBouleDeFeu -= input.getDeltaTime();
 		}
-		if (conteurDeBoule>=3){
+		if (conteurDeBoule>=MAX_BOULEDEFEU_SUITE){
 			cooldownBouleDeFeu=COOLDOWN_BOULE_DE_FEU;
 			conteurDeBoule=0;
 		}
