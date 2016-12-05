@@ -1,4 +1,4 @@
-package platform.game;
+package platform.game.Signals;
 
 public class Or implements Signal{
 	private Signal signal1;

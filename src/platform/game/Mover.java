@@ -1,5 +1,6 @@
 package platform.game;
 
+import platform.game.Signals.Signal;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -31,7 +32,7 @@ public class Mover extends Block{
 
 	@Override
 	public void update(Input input) {
-		super.update(input) ;
+		super.update(input);
 		if (signal.isActive()) {
 			currentPosition = new Vector(off.getX()+((vitesseDeMouvement*current*(on.getX()-off.getX()))), off.getY()+((vitesseDeMouvement*current*(on.getY()-off.getY()))));
 			current += input.getDeltaTime () ;

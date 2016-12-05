@@ -1,4 +1,4 @@
-package platform.game;
+package platform.game.Signals;
 
 public class Constant implements Signal{
 	private boolean signal;

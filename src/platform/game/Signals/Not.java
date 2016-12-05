@@ -1,4 +1,4 @@
-package platform.game;
+package platform.game.Signals;
 
 public class Not implements Signal {
 	private final Signal signal ;
