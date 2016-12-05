@@ -11,6 +11,7 @@ import platform.game.Actors.Scie;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
+import platform.game.Actors.blocks.BlockIndecis;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.blocks.MoverDamageFire;
 import platform.util.Box;
@@ -78,7 +79,7 @@ public class Level_08 extends Level{
     										// Lockers
     
     Key keyRed = new Key(new Vector(0, -2), world.getLoader(), Key.red);
-	world.register(new Mover(new Vector(2.25, -1), new Vector(2.25, 4), 1.5, 4,5.0, world.getLoader(), keyRed, "stone.7"));
+	world.register(new Mover(new Vector(2.25, -1), new Vector(2.25, 4), 1.5, 4,1.0, world.getLoader(), keyRed, "stone.7"));
     world.register(keyRed);
     Locker locker2b = new Locker(new Vector(3.5, -8.5), world.getLoader(), Locker.red, keyRed, true, 0.2);
     Locker locker2c = new Locker(new Vector(3.5, -7.5), world.getLoader(), Locker.red, locker2b, true, 0.2);
@@ -277,29 +278,29 @@ public class Level_08 extends Level{
     Locker locker187 = new Locker(new Vector(128.5, -30.5), world.getLoader(), Locker.red, locker186, true,0.2);
     Locker locker188 = new Locker(new Vector(129.5, -30.5), world.getLoader(), Locker.red, locker187, true,0.2);
     Locker locker189 = new Locker(new Vector(130.5, -30.5), world.getLoader(), Locker.red, locker188, true,0.2);
-    Locker locker190 = new Locker(new Vector(130.5, -29.5), world.getLoader(), Locker.red, locker189, true,0.2);
-    Locker locker191 = new Locker(new Vector(130.5, -28.5), world.getLoader(), Locker.red, locker190, true,0.2);
-    Locker locker192 = new Locker(new Vector(130.5, -27.5), world.getLoader(), Locker.red, locker191, true,0.2);
-    Locker locker193 = new Locker(new Vector(130.5, -26.5), world.getLoader(), Locker.red, locker192, true,0.2);
-    Locker locker194 = new Locker(new Vector(130.5, -25.5), world.getLoader(), Locker.red, locker193, true,0.2);
-    Locker locker195 = new Locker(new Vector(130.5, -24.5), world.getLoader(), Locker.red, locker194, true,0.2);
-    Locker locker196 = new Locker(new Vector(130.5, -23.5), world.getLoader(), Locker.red, locker195, true,0.2);
-    Locker locker197 = new Locker(new Vector(130.5, -22.5), world.getLoader(), Locker.red, locker196, true,0.2);
-    Locker locker198 = new Locker(new Vector(130.5, -21.5), world.getLoader(), Locker.red, locker197, true,0.2);
-    Locker locker199 = new Locker(new Vector(130.5, -20.5), world.getLoader(), Locker.red, locker198, true,0.2);
-    Locker locker200 = new Locker(new Vector(130.5, -19.5), world.getLoader(), Locker.red, locker199, true,0.2);
-    Locker locker201 = new Locker(new Vector(130.5, -18.5), world.getLoader(), Locker.red, locker200, true,0.2);
-    Locker locker202 = new Locker(new Vector(130.5, -17.5), world.getLoader(), Locker.red, locker201, true,0.2);
-    Locker locker203 = new Locker(new Vector(130.5, -16.5), world.getLoader(), Locker.red, locker202, true,0.2);
-    Locker locker204 = new Locker(new Vector(130.5, -15.5), world.getLoader(), Locker.red, locker203, true,0.2);
-    Locker locker205 = new Locker(new Vector(130.5, -14.5), world.getLoader(), Locker.red, locker204, true,0.2);
-    Locker locker206 = new Locker(new Vector(130.5, -13.5), world.getLoader(), Locker.red, locker205, true,0.2);
-    Locker locker207 = new Locker(new Vector(130.5, -12.5), world.getLoader(), Locker.red, locker206, true,0.2);
-    Locker locker208 = new Locker(new Vector(130.5, -11.5), world.getLoader(), Locker.red, locker207, true,0.2);
-    Locker locker209 = new Locker(new Vector(130.5, -10.5), world.getLoader(), Locker.red, locker208, true,0.2);
-    Locker locker210 = new Locker(new Vector(130.5, -9.5), world.getLoader(), Locker.red, locker209, true,0.2);
-    Locker locker211 = new Locker(new Vector(130.5, -8.5), world.getLoader(), Locker.red, locker210, true,0.2);
-    Locker locker212 = new Locker(new Vector(130.5, -7.5), world.getLoader(), Locker.red, locker211, true,0.2);
+    Locker locker190 = new Locker(new Vector(131.5, -30.5), world.getLoader(), Locker.red, locker189, true,0.2);
+    Locker locker191 = new Locker(new Vector(131.5, -29.5), world.getLoader(), Locker.red, locker190, true,0.2);
+    Locker locker192 = new Locker(new Vector(131.5, -28.5), world.getLoader(), Locker.red, locker191, true,0.2);
+    Locker locker193 = new Locker(new Vector(131.5, -27.5), world.getLoader(), Locker.red, locker192, true,0.2);
+    Locker locker194 = new Locker(new Vector(131.5, -26.5), world.getLoader(), Locker.red, locker193, true,0.2);
+    Locker locker195 = new Locker(new Vector(131.5, -25.5), world.getLoader(), Locker.red, locker194, true,0.2);
+    Locker locker196 = new Locker(new Vector(131.5, -24.5), world.getLoader(), Locker.red, locker195, true,0.2);
+    Locker locker197 = new Locker(new Vector(131.5, -23.5), world.getLoader(), Locker.red, locker196, true,0.2);
+    Locker locker198 = new Locker(new Vector(131.5, -22.5), world.getLoader(), Locker.red, locker197, true,0.2);
+    Locker locker199 = new Locker(new Vector(131.5, -21.5), world.getLoader(), Locker.red, locker198, true,0.2);
+    Locker locker200 = new Locker(new Vector(131.5, -20.5), world.getLoader(), Locker.red, locker199, true,0.2);
+    Locker locker201 = new Locker(new Vector(131.5, -19.5), world.getLoader(), Locker.red, locker200, true,0.2);
+    Locker locker202 = new Locker(new Vector(131.5, -18.5), world.getLoader(), Locker.red, locker201, true,0.2);
+    Locker locker203 = new Locker(new Vector(131.5, -17.5), world.getLoader(), Locker.red, locker202, true,0.2);
+    Locker locker204 = new Locker(new Vector(131.5, -16.5), world.getLoader(), Locker.red, locker203, true,0.2);
+    Locker locker205 = new Locker(new Vector(131.5, -15.5), world.getLoader(), Locker.red, locker204, true,0.2);
+    Locker locker206 = new Locker(new Vector(131.5, -14.5), world.getLoader(), Locker.red, locker205, true,0.2);
+    Locker locker207 = new Locker(new Vector(131.5, -13.5), world.getLoader(), Locker.red, locker206, true,0.2);
+    Locker locker208 = new Locker(new Vector(131.5, -12.5), world.getLoader(), Locker.red, locker207, true,0.2);
+    Locker locker209 = new Locker(new Vector(131.5, -11.5), world.getLoader(), Locker.red, locker208, true,0.2);
+    Locker locker210 = new Locker(new Vector(131.5, -10.5), world.getLoader(), Locker.red, locker209, true,0.2);
+    Locker locker211 = new Locker(new Vector(131.5, -9.5), world.getLoader(), Locker.red, locker210, true,0.2);
+    Locker locker212 = new Locker(new Vector(131.5, -8.5), world.getLoader(), Locker.red, locker211, true,0.2);
     Locker locker213 = new Locker(new Vector(131.5, -7.5), world.getLoader(), Locker.red, locker212, true,0.2);
     Locker locker214 = new Locker(new Vector(132.5, -7.5), world.getLoader(), Locker.red, locker213, true,0.2);
     Locker locker215 = new Locker(new Vector(133.5, -7.5), world.getLoader(), Locker.red, locker214, true,0.2);
@@ -323,8 +324,8 @@ public class Level_08 extends Level{
 
     world.register(new Scie(new Box(new Vector(99, -29), 2, 2), loader, "saw1"));
     world.register(new Scie(new Box(new Vector(99, -25), 2, 2), loader, "saw1"));
-    world.register(new Scie(new Box(new Vector(102, -29), 2, 2), loader, "saw1"));		// Ces deux-la sont
-    world.register(new Scie(new Box(new Vector(102, -25), 2, 2), loader, "saw1"));		// peut-�tre un peu chaud
+//    world.register(new Scie(new Box(new Vector(102, -29), 2, 2), loader, "saw1"));		// Ces deux-la sont
+//    world.register(new Scie(new Box(new Vector(102, -25), 2, 2), loader, "saw1"));		// peut-�tre un peu chaud
 
     
     world.register(new Scie(new Box(new Vector(110, -30), 2, 2), loader, "saw1"));
@@ -377,6 +378,9 @@ public class Level_08 extends Level{
     
     										// The wall
 
+    world.register(new BlockIndecis(new Box(new Vector(123, -7), 6, 2), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
+
+    
     Key keytest = new Key(new Vector(160, -7), world.getLoader(), Key.red);
     world.register(keytest);
     world.register(new MoverDamageFire(new Vector(169, -16), new Vector(169, 50), 24, 16, 0.05, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
