@@ -6,6 +6,7 @@ import platform.util.Vector;
 public class MoverDamageFire extends Mover{
 	public MoverDamageFire(Vector off, Vector on, double Width, double Height, double vitesseDeMouvement, Loader loader,Signal signal, String dessin){
 		super(off, on, Width, Height, vitesseDeMouvement, loader,signal, dessin);
+		setPriority(1400);
 	}
 	
 	public void interact(Actor other) {
