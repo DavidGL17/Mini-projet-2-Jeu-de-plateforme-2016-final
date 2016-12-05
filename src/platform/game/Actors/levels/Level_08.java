@@ -8,12 +8,14 @@ import platform.game.Actors.Locker;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
 import platform.game.Actors.Scie;
+import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockIndecis;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.blocks.MoverDamageFire;
+import platform.game.Actors.blocks.MoverLava;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
@@ -26,7 +28,7 @@ public class Level_08 extends Level{
     world.register(new LimiteTangible(new Vector(-4, 0), 2, 30));
 
 	
-	Player franky = new Player(new Vector(0, -4), new Vector(-2, 0), world.getLoader());
+	Player franky = new Player(new Vector(0, -4), new Vector(145, -7), world.getLoader());
 	world.register(franky);
 	Overlay overlayfranky = new Overlay(franky);
 	world.register(overlayfranky);
@@ -335,13 +337,13 @@ public class Level_08 extends Level{
     
     Mover mob = new Mover(new Vector(108, -22), new Vector(108, -25), 1.5, 4, 1, world.getLoader(), locker147 , "pokerMad2");
 	world.register(mob);
-    Key keytest2 = new Key(new Vector(105, -29), world.getLoader(), Key.red);
-    world.register(keytest2);
-	MoverDamageFire flame = new MoverDamageFire(new Vector(135, -29), new Vector(65, -29), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
+	SignalInvisibleConstant plaque = new SignalInvisibleConstant(new Box(new Vector(105, -28), 5, 1));
+    world.register(plaque);
+	MoverDamageFire flame = new MoverDamageFire(new Vector(135, -29), new Vector(65, -29), 1.5, 0.5, 0.1, world.getLoader(), plaque, "flame2");
 	world.register(flame);
-	MoverDamageFire flame2 = new MoverDamageFire(new Vector(145, -27), new Vector(75, -27), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
-	MoverDamageFire flame3 = new MoverDamageFire(new Vector(155, -29), new Vector(85, -29), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
-	MoverDamageFire flame4 = new MoverDamageFire(new Vector(165, -25), new Vector(95, -25), 1.5, 0.5, 0.1, world.getLoader(), keytest2, "flame2");
+	MoverDamageFire flame2 = new MoverDamageFire(new Vector(145, -27), new Vector(75, -27), 1.5, 0.5, 0.1, world.getLoader(), plaque, "flame2");
+	MoverDamageFire flame3 = new MoverDamageFire(new Vector(155, -29), new Vector(85, -29), 1.5, 0.5, 0.1, world.getLoader(), plaque, "flame2");
+	MoverDamageFire flame4 = new MoverDamageFire(new Vector(165, -25), new Vector(95, -25), 1.5, 0.5, 0.1, world.getLoader(), plaque, "flame2");
 
 	world.register(flame2);
 	world.register(flame3);
@@ -383,8 +385,8 @@ public class Level_08 extends Level{
     
     Key keytest = new Key(new Vector(160, -7), world.getLoader(), Key.red);
     world.register(keytest);
-    world.register(new MoverDamageFire(new Vector(169, -16), new Vector(169, 50), 24, 16, 0.05, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
-    world.register(new MoverDamageFire(new Vector(145, -16), new Vector(145, 50), 24, 16, 0.05, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
+    world.register(new MoverLava(new Vector(169, -16), new Vector(169, 50), 24, 16,new Box(new Vector(24,16), 24,13), 0.05, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
+    world.register(new MoverLava(new Vector(145, -16), new Vector(145, 50), 24, 16,new Box(new Vector(24,16), 24,13) ,0.05, world.getLoader(), keytest, "liquidLavaTop_mid6x4"));
     
   
     world.register(new Block(new Box(new Vector(174, -5), 20, 12), world.getLoader().getSprite("thewall")));
