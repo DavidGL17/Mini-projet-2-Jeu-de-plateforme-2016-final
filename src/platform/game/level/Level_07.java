@@ -22,7 +22,7 @@ public class Level_07 extends Level{
 		Player franky;
 		//premier spawn point
 		if (!world.getCheckpoint()){
-			franky = new Player(new Vector(0, 1), new Vector(4, 0), world.getLoader());
+			franky = new Player(new Vector(0, 1), new Vector(108, 0), world.getLoader());
 		} else {
 			//deuxème spawn point (si le joueur a passer le checkpoint)
 			franky = new Player(new Vector(0, 1), new Vector(108, 0), world.getLoader());
@@ -142,7 +142,7 @@ public class Level_07 extends Level{
 	    world.register(new BlockIndecis(new Box(new Vector(69, 3), 3, 1), 1, 1, loader, "stone.broken.3","stone.broken2.3"));
 
 	    //slimes
-	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.03,8, new Box(new Vector(90, 1), 10, 8), loader, 2,2,true));
+	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.01,8, new Box(new Vector(90, 1), 8, 4), loader, 2,2,true));
 
 	}
 }

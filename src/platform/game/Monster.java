@@ -81,19 +81,18 @@ public abstract class Monster extends Actor{
 					vitesse = new Vector(vitesse.getX(), 0.0) ;
 				}
 			}
-			//permet de savoir si le joueur est dans la box d'action. S'il n'y est pas, on vérifie que l'actor en question est bien le joueur.
-			//Si c'est le cas, cela veut dire que la box du joueur ne collide pas avec celle du monstre, et donc que le monstre ne doit pas être activé
-			if (other.isPlayer()){
-				if (!boxDAction.isColliding(other.getPosition())||!other.getBox().isColliding(boxDAction)){
-					triggered = false;
-					theEnnemi = null;
-				} else {
-					triggered = true;
-					theEnnemi = ((Player)other);
-				}
-			} 
 		}
-		System.out.println(triggered);
+		//permet de savoir si le joueur est dans la box d'action. S'il n'y est pas, on vérifie que l'actor en question est bien le joueur.
+		//Si c'est le cas, cela veut dire que la box du joueur ne collide pas avec celle du monstre, et donc que le monstre ne doit pas être activé
+		if (other.isPlayer()){
+			if (boxDAction.isColliding(other.getBox())){
+				triggered = true;
+				theEnnemi = ((Player)other);
+			} else {
+				triggered = false;
+				theEnnemi = null;
+			}
+		}
 	}
 	
 	private final double movement;
@@ -106,6 +105,12 @@ public abstract class Monster extends Actor{
 		return directionDroite;
 	}
 	
+	/**
+	 * @return the movement
+	 */
+	public double getMovement() {
+		return movement;
+	}
 	@Override
 	public void preUpdate(){
 		colliding=false;
@@ -144,7 +149,7 @@ public abstract class Monster extends Actor{
 					position = new Vector(position.getX()-movement, position.getY());
 				} else {
 					//permet d'éviter que le monstre bouge s'il est déja sur le joueur
-					if (position.getX() != theEnnemi.getPosition().getX()){
+					if (position.getX() == theEnnemi.getPosition().getX()){
 						position = new Vector(position.getX()-movement, position.getY());
 					}
 				}
