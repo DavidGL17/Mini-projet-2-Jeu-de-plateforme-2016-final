@@ -97,7 +97,6 @@ public class Level_03 extends Level{
 	world.register(new BlockDeco(new Vector(7, 2), 2, 2, world.getLoader(), "foliagePack_leaves_001"));
 	world.register(new BlockDeco(new Vector(18, 2), 2, 20, world.getLoader(), "longbush2"));
 	world.register(new BlockDeco(new Vector(35, 0), 8, 12, world.getLoader(), "Background3_86"));
-	world.register(new BlockDeco(new Vector(5, 6), 15, 4, world.getLoader(), "hill_largeAlt"));
 	world.register(new BlockDeco(new Vector(1, 4), 13, 3, world.getLoader(), "hill_largeAlt"));
 	world.register(new BlockDeco(new Vector(3, 6), 17, 4, world.getLoader(), "hill_largeAlt"));
 	world.register(new BlockDeco(new Vector(30, 6), 3, 4, world.getLoader(), "foliagePack_059"));
