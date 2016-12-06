@@ -1,6 +1,7 @@
 package platform.game.Actors.levels;
 
 import platform.game.Actors.Checkpoint;
+import platform.game.Actors.Exit;
 import platform.game.Actors.Key;
 import platform.game.Actors.Lava;
 import platform.game.Actors.Lever;
@@ -33,7 +34,7 @@ public class Level_08 extends Level{
 	world.register(checkpoint);
 	Player franky;
 	if (!world.getCheckpoint()){
-				franky = new Player(new Vector(0, 1), new Vector(170, 50), world.getLoader());
+				franky = new Player(new Vector(0, 1), new Vector(-2, -2), world.getLoader());
 			} else {
 				franky = new Player(new Vector(0, 1), new Vector(154, -6), world.getLoader());
 			}
@@ -402,7 +403,15 @@ public class Level_08 extends Level{
     world.register(new Block(new Box(new Vector(174, 31), 20, 12), world.getLoader().getSprite("thewall")));
     world.register(new Block(new Box(new Vector(174, 43), 20, 12), world.getLoader().getSprite("thewall")));
     world.register(new Block(new Box(new Vector(174, 57.5), 20, 12), world.getLoader().getSprite("thewall")));
-    world.register(new Block(new Box(new Vector(174, 69.5), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(167.5, 67), 7, 7), world.getLoader().getSprite("castle.middle.left3")));
+    world.register(new Block(new Box(new Vector(180.5, 67), 7, 7), world.getLoader().getSprite("castle.middle.right3")));
+    world.register(new Block(new Box(new Vector(180.5, 70), 7, 7), world.getLoader().getSprite("castle.middle.right3")));
+    world.register(new Block(new Box(new Vector(174.5, 70), 7, 7), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(174.5, 67), 7, 7), world.getLoader().getSprite("castle.center3")));
+
+    world.register(new Block(new Box(new Vector(170, 77), 20, 8), world.getLoader().getSprite("castle.top")));
+    world.register(new Block(new Box(new Vector(188, 77), 20, 8), world.getLoader().getSprite("castle.top")));
+
     world.register(new Block(new Box(new Vector(145, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
     world.register(new Block(new Box(new Vector(153, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
     world.register(new Block(new Box(new Vector(161, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
@@ -431,9 +440,10 @@ public class Level_08 extends Level{
 	world.register(new Mover(new Vector(156.5, 57), new Vector(151, 57), 5, 5, 1 , world.getLoader(), new And(lever, new Not(plaque3)), "castle.middle.corner3.3"));
     world.register(new MoverLava(new Vector(169, -16), new Vector(169, 48), 24, 16,new Box(new Vector(24,16), 24,13), 1, world.getLoader(), plaque3, "liquidLavaTop_mid6x4"));
     world.register(new MoverLava(new Vector(145, -16), new Vector(145, 48), 24, 16,new Box(new Vector(24,16), 24,13), 1, world.getLoader(), plaque3, "liquidLavaTop_mid6x4"));
+    world.register(new LimiteTangible(new Vector(151, 90), 2, 100));
 
+	world.register(new Exit(new Vector(170, 71.5), 1.5, 2, world.getLoader(), plaque3));
     
-//    world.register(new Scie(new Box(new Vector(147, 48), 10, 10), loader, "saw1"));
 
     										// Background
 
@@ -484,10 +494,11 @@ public class Level_08 extends Level{
     world.register(new BlockDeco(new Vector(155, 48), 18, 18, world.getLoader(), "bg_castledark3"));
     world.register(new BlockDeco(new Vector(137, 48), 18, 18, world.getLoader(), "bg_castledark3"));
     world.register(new BlockDeco(new Vector(173, 50), 18, 18, world.getLoader(), "bg_castle3"));
+    world.register(new BlockDeco(new Vector(173, 68), 18, 18, world.getLoader(), "bg_castle3"));
 
 
     
-    world.register(new BlockDeco(new Vector(155, 70), 100, 20, world.getLoader(), "Background_112"));
+    world.register(new BlockDeco(new Vector(155, 70), 20, 100, world.getLoader(), "Background_112"));
 	world.register(new BlockDeco(new Vector(6, 0), 500, 505, world.getLoader(), "Background2_0"));
 	
 											//Register
