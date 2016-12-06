@@ -17,7 +17,7 @@ public class Level_07 extends Level{
     public void register(World world) {
 		super.register(world);
 		Loader loader = world.getLoader();
-		Checkpoint checkpoint = new Checkpoint(new Vector(108, 1), loader);
+		Checkpoint checkpoint = new Checkpoint(new Vector(108, 1), loader, "flagBlueHanging", "flagBlue","flagBlue2");
 	    world.register(checkpoint);
 		Player franky;
 		//premier spawn point
