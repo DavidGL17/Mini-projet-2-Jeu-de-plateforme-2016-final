@@ -68,8 +68,8 @@ public class Player extends Actor{
 	@Override
 	public void interact(Actor other) {
 		super.interact(other);
-		if (other.isSolid ()) {
-			Vector delta = getBox().getCollision(other.getBox());
+		if (other.isSolid ()&&other.getBox()!=null) {
+			Vector delta = other.getBox().getCollision(getBox());			
 			if (delta != null) {
 				colliding = true;
 				limite = false;

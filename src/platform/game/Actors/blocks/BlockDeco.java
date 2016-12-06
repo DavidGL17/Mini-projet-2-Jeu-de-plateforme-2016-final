@@ -18,6 +18,7 @@ public class BlockDeco extends Block{
 		this.position = position;
 		this.setPriority(-10);
 	}
+	
 	public boolean isSolid(){
 		return false;
 	}
