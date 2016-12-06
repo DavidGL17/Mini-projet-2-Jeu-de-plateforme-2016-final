@@ -18,6 +18,8 @@ import platform.game.Actors.blocks.BlockIndecis;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.blocks.MoverDamageFire;
 import platform.game.Actors.blocks.MoverLava;
+import platform.game.Signals.And;
+import platform.game.Signals.Not;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
@@ -27,11 +29,11 @@ public class Level_08 extends Level{
 	    public void register(World world) {
 	        super.register(world);
 	Loader loader = world.getLoader();
-	Checkpoint checkpoint = new Checkpoint(new Vector(154, -6), loader);
+	Checkpoint checkpoint = new Checkpoint(new Vector(154, -6), loader, "flagRedHanging", "flagRed", "flagRed2");
 	world.register(checkpoint);
 	Player franky;
 	if (!world.getCheckpoint()){
-				franky = new Player(new Vector(0, 1), new Vector(148, 60), world.getLoader());
+				franky = new Player(new Vector(0, 1), new Vector(170, 50), world.getLoader());
 			} else {
 				franky = new Player(new Vector(0, 1), new Vector(154, -6), world.getLoader());
 			}
@@ -388,8 +390,8 @@ public class Level_08 extends Level{
     world.register(new BlockIndecis(new Box(new Vector(123, -7), 6, 2), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
     SignalInvisibleConstant plaque2 = new SignalInvisibleConstant(new Box(new Vector(160, -7), 6, 6));
     world.register(plaque2);
-    world.register(new MoverLava(new Vector(169, -16), new Vector(169, 50), 24, 16,new Box(new Vector(24,16), 24,13), 0.05, world.getLoader(), plaque2, "liquidLavaTop_mid6x4"));
-    world.register(new MoverLava(new Vector(145, -16), new Vector(145, 50), 24, 16,new Box(new Vector(24,16), 24,13) ,0.05, world.getLoader(), plaque2, "liquidLavaTop_mid6x4"));
+    world.register(new MoverLava(new Vector(169, -16), new Vector(169, 48), 24, 16,new Box(new Vector(24,16), 24,13), 0.05, world.getLoader(), plaque2, "liquidLavaTop_mid6x4"));
+    world.register(new MoverLava(new Vector(145, -16), new Vector(145, 48), 24, 16,new Box(new Vector(24,16), 24,13) ,0.05, world.getLoader(), plaque2, "liquidLavaTop_mid6x4"));
 
     world.register(new Block(new Box(new Vector(144.5, 58), 20, 8), world.getLoader().getSprite("castle.top")));
     world.register(new Block(new Box(new Vector(126.5, 58), 20, 8), world.getLoader().getSprite("castle.top")));
@@ -399,15 +401,14 @@ public class Level_08 extends Level{
     world.register(new Block(new Box(new Vector(174, 19), 20, 12), world.getLoader().getSprite("thewall")));
     world.register(new Block(new Box(new Vector(174, 31), 20, 12), world.getLoader().getSprite("thewall")));
     world.register(new Block(new Box(new Vector(174, 43), 20, 12), world.getLoader().getSprite("thewall")));
-    world.register(new Block(new Box(new Vector(174, 65), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(174, 57.5), 20, 12), world.getLoader().getSprite("thewall")));
+    world.register(new Block(new Box(new Vector(174, 69.5), 20, 12), world.getLoader().getSprite("thewall")));
     world.register(new Block(new Box(new Vector(145, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
     world.register(new Block(new Box(new Vector(153, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
     world.register(new Block(new Box(new Vector(161, -8), 8, 2), world.getLoader().getSprite("stone.broken.3")));
 
-    world.register(new Block(new Box(new Vector(167.5, 55.5), 7, 7), world.getLoader().getSprite("castle.middle.left3")));
     world.register(new Block(new Box(new Vector(180.5, 52.5), 7, 7), world.getLoader().getSprite("castle.middle.right3")));
-    world.register(new Block(new Box(new Vector(180.5, 55.5), 7, 7), world.getLoader().getSprite("castle.middle.right3")));
-    world.register(new Block(new Box(new Vector(177.5, 52.5), 7, 7), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(175.5, 52.5), 7, 7), world.getLoader().getSprite("castle.center3")));
     
     world.register(new BlockIndecis(new Box(new Vector(162, 8), 4, 2), 1, 1.5, loader, "stone.broken.3", "stone.broken2.3"));
     
@@ -422,12 +423,14 @@ public class Level_08 extends Level{
     world.register(new BlockIndecis(new Box(new Vector(159, 36), 2, 6), 2, 1.5, loader, "stone.broken.7", "stone.broken2.7"));
     world.register(new BlockIndecis(new Box(new Vector(152, 42), 2, 6), 2, 1, loader, "stone.broken.7", "stone.broken2.7"));
 
-    Lever lever = new Lever(new Vector(176.5, 57.5), loader,"leverdroiteright", "leverdroite.left");
+    Lever lever = new Lever(new Vector(171.5, 50), loader,"leverdroiteright", "leverdroite.left");
     world.register(lever);
-    Lever lever2 = new Lever(new Vector(152, 63), loader,"lever.right", "lever.left");
-    world.register(lever2);
-    world.register(new Mover(new Vector(162, 57), new Vector(167, 57), 5, 5, 1, world.getLoader(), lever2, "castle.middle.corner4.3"));
-	world.register(new Mover(new Vector(156.5, 57), new Vector(151, 57), 5, 5, 1 , world.getLoader(), lever2, "castle.middle.corner3.3"));
+    SignalInvisibleConstant plaque3 = new SignalInvisibleConstant(new Box(new Vector(160, 62), 10, 2));
+    world.register(plaque3);
+    world.register(new Mover(new Vector(162, 57), new Vector(167, 57), 5, 5, 1, world.getLoader(), new And(lever, new Not(plaque3)), "castle.middle.corner4.3"));
+	world.register(new Mover(new Vector(156.5, 57), new Vector(151, 57), 5, 5, 1 , world.getLoader(), new And(lever, new Not(plaque3)), "castle.middle.corner3.3"));
+    world.register(new MoverLava(new Vector(169, -16), new Vector(169, 48), 24, 16,new Box(new Vector(24,16), 24,13), 1, world.getLoader(), plaque3, "liquidLavaTop_mid6x4"));
+    world.register(new MoverLava(new Vector(145, -16), new Vector(145, 48), 24, 16,new Box(new Vector(24,16), 24,13), 1, world.getLoader(), plaque3, "liquidLavaTop_mid6x4"));
 
     
 //    world.register(new Scie(new Box(new Vector(147, 48), 10, 10), loader, "saw1"));
