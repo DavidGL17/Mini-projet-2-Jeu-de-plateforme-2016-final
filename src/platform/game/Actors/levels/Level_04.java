@@ -27,6 +27,7 @@ public class Level_04 extends Level{
 	    world.register(overlayfranky);
 	    
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
+	    world.register(new BlockDeco(new Vector(6, 10), 5, 10, world.getLoader(), "zoneTexteLevel001"));
 	    world.register(new BlockDeco(new Vector(6, 6), 18, 18, world.getLoader(), "bg_castle3"));
 
 	    										//Platforme
