@@ -91,6 +91,12 @@ public class Level_07 extends Level{
 	    world.register(new Block(new Box(new Vector(108, -3), 6, 6), world.getLoader().getSprite("castle.middle3")));
 	    world.register(new Block(new Box(new Vector(108, -9), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(108, -12), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(114, -3), 6, 6), world.getLoader().getSprite("castle.middle3")));
+	    world.register(new Block(new Box(new Vector(114, -9), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(114, -12), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(120, -3), 6, 6), world.getLoader().getSprite("castle.middle3")));
+	    world.register(new Block(new Box(new Vector(120, -9), 6, 6), world.getLoader().getSprite("castle.center3")));
+	    world.register(new Block(new Box(new Vector(120, -12), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    
 	    
 	    //lava
@@ -142,7 +148,9 @@ public class Level_07 extends Level{
 	    world.register(new BlockIndecis(new Box(new Vector(69, 3), 3, 1), 1, 1, loader, "stone.broken.3","stone.broken2.3"));
 
 	    //slimes
-	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.04,8, new Box(new Vector(92, 1), 18, 4), loader, 2,2,true));
+	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.025,8, new Box(new Vector(92, 1), 18, 4), loader, 2,2,true));
+	    
+	    	//postCheckpoint
 
 	}
 }

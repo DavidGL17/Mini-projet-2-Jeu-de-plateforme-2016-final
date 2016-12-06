@@ -97,8 +97,8 @@ public class Slime extends Monster{
 			bigBrotherIsDead = true;
 		}
 		if (bigBrotherIsDead&&showMustGoOn){
-			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX(), getPosition().getY()-(height/4)),getMovement()*2, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
-			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()-getBoxDAction().getWidth()/4, getPosition().getY()-(height/4)),getMovement()*2, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
+			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX(), getPosition().getY()-(height/4)),getMovement()*1.25, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
+			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()-getBoxDAction().getWidth()/4, getPosition().getY()-(height/4)),getMovement()*1.25, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
 		}
 	}
 

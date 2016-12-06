@@ -1,5 +1,7 @@
 package platform.game.Actors;
 
+import java.nio.charset.spi.CharsetProvider;
+
 import platform.game.Actor;
 import platform.util.Box;
 import platform.util.Input;
@@ -29,7 +31,7 @@ public class Checkpoint extends Actor{
 	}
 	
 	public void interact(Actor other){
-		if (getBox().isColliding(other.getBox())&&other.isPlayer()){
+		if (getBox().isColliding(other.getBox())&&other.isPlayer()&&!checkpointDone){
 			checkpointDone = true;
 			getWorld().setCheckpoint(checkpointDone);
 		}
