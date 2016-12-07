@@ -4,9 +4,11 @@ import platform.game.Actors.Checkpoint;
 import platform.game.Actors.Lava;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
+import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockIndecis;
+import platform.game.Actors.blocks.MoverLava;
 import platform.game.Actors.monsters.Slime;
 import platform.util.Box;
 import platform.util.Loader;
@@ -150,7 +152,33 @@ public class Level_07 extends Level{
 	    //slimes
 	    world.register(new Slime(new Vector(0, 0), new Vector(90, 1),0.025,8, new Box(new Vector(92, 1), 18, 4), loader, 2,2,true));
 	    
+	    
+	    
 	    	//postCheckpoint
+	    
+	    //lava
+	    for(int i = 0;i<16;++i){
+	    	world.register(new Lava(new Box(new Vector(126+(6*i), -2.25), 6, 4), loader, "liquidLavaTop_mid3x2"));
+	    }
+	    for(int i = 0;i<16;++i){
+		    world.register(new Lava(new Box(new Vector(126+(6*i), -6.25), 6, 4), loader, "liquidLava2"));
+	    }
+	    for(int i = 0;i<16;++i){
+		    world.register(new Lava(new Box(new Vector(126+(6*i), -10.25), 6, 4), loader, "liquidLava2"));
+	    }
+	    //mover Lava
+	    SignalInvisibleConstant signalInvisible1 = new SignalInvisibleConstant(new Box(new Vector(130, 6), 2, 20));
+	    world.register(signalInvisible1);
+	    world.register(new MoverLava(new Vector(133, -8), new Vector(210, 5), 20, 16, new Box(new Vector(133, -12), 20, 16), 0.04, loader, signalInvisible1, "liquidLavaTop_mid6x4"));
+	    //platformes
+	    world.register(new BlockIndecis(new Box(new Vector(132, 1.5), 3, 1), 3, 2, loader, "stone.broken.3", "stone.broken2.3"));
+	    world.register(new Block(new Box(new Vector(145, 2), 3, 1), loader.getSprite("stone.3")));
+	    world.register(new BlockIndecis(new Box(new Vector(157, 1.5), 3, 1), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
+	    world.register(new Block(new Box(new Vector(166, 4), 2, 6), loader.getSprite("stone.7")));
+	    world.register(new BlockIndecis(new Box(new Vector(175, 1.5), 3, 1), 1, 1, loader, "stone.broken.3", "stone.broken2.3"));
+	    world.register(new BlockIndecis(new Box(new Vector(185, 5), 2, 6), 2, 1, loader, "stone.broken.7", "stone.broken2.7"));
+	    world.register(new Block(new Box(new Vector(179, 11), 2, 6), loader.getSprite("stone.7")));
+	    world.register(new Block(new Box(new Vector(201, 2), 3, 1), loader.getSprite("stone.3")));
 
 	}
 }
