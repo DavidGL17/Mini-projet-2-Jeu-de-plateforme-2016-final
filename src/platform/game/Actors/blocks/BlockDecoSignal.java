@@ -6,7 +6,7 @@ import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
 
-//Nous utilisons cette classe pour siplay du texte principalement
+//Nous utilisons cette classe pour display du texte principalement
 public class BlockDecoSignal extends BlockDeco{
 	private final Signal signal;
 	
