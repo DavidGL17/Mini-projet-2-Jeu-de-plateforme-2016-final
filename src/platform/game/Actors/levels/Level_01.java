@@ -30,11 +30,11 @@ public class Level_01 extends Level {
 	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
 	    	world.register(key);
 		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
-		    Loader loader = world.getLoader();
+//		    Loader loader = world.getLoader();
 		    //texte de début
-		    SignalInvisibleCollision signal1Texte = new SignalInvisibleCollision(new Box(new Vector(5, 6), 4, 6));
-		    world.register(signal1Texte);
-		    world.register(new BlockDecoSignal(new Vector(5, 5), 15, 10, loader, "dcfce", signal1Texte));
+//		    SignalInvisibleCollision signal1Texte = new SignalInvisibleCollision(new Box(new Vector(5, 6), 4, 6));
+//		    world.register(signal1Texte);
+//		    world.register(new BlockDecoSignal(new Vector(5, 5), 15, 10, loader, "dcfce", signal1Texte));
 
 
 		    
