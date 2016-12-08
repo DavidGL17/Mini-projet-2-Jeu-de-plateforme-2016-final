@@ -8,7 +8,7 @@ import platform.util.Output;
 public class Lava extends Limits{
 
 	public Lava(Box box, Loader loader, String dessin){
-		super(box);
+		super(new Box(box.getCenter(), box.getWidth(), box.getHeight()));
 		setSprite(dessin, loader);
 	}
 	
