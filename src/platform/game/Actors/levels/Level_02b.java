@@ -26,7 +26,7 @@ public class Level_02b extends Level{
 	        super.register(world);
 	        
 	        // Register a new instance, to restart level automatically
-	    	Player franky = new Player(new Vector(0, -4), new Vector(324, 4), world.getLoader());
+	    	Player franky = new Player(new Vector(0, -4), new Vector(2, 4), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
@@ -249,13 +249,13 @@ public class Level_02b extends Level{
 
 	    											// Background
 	    	
-		    world.register(new BlockDeco(new Vector(6, 2), 20, 60, world.getLoader(), "Background_17"));
+		    world.register(new BlockDeco(new Vector(11, -2), 20, 60, world.getLoader(), "Background_17"));
 		    world.register(new BlockDeco(new Vector(20, 30), 20, 100, world.getLoader(), "Background_112"));
-		    world.register(new BlockDeco(new Vector(66, 2), 20, 60, world.getLoader(), "Background_17"));
+		    world.register(new BlockDeco(new Vector(71, -2), 20, 60, world.getLoader(), "Background_17"));
 		    world.register(new BlockDeco(new Vector(131, -2), 20, 60, world.getLoader(), "Background_17"));
 		    world.register(new BlockDeco(new Vector(191, -2), 20, 60, world.getLoader(), "Background_17"));
 		    world.register(new BlockDeco(new Vector(180, 12), 15, 25, world.getLoader(), "Background_18"));
 
-		    world.register(new BlockDeco(new Vector(250, 0), 500, 505, world.getLoader(), "Background2_1"));
+		    world.register(new BlockDeco(new Vector(240, 0), 500, 505, world.getLoader(), "Background2_1"));
 	 }
 }
