@@ -42,8 +42,8 @@ public class Fireball extends Actor{
 	@Override
 	public void interact(Actor other) {
 		super.interact(other);
-		if (other.isSolid ()) {
-			Vector delta = other.getBox ().getCollision(position) ;
+		if (other.isSolid()&&other.getBox()!=null) {
+			Vector delta = other.getBox().getCollision(position);
 			if (delta != null) {
 					position = position.add(delta) ;
 					vitesse = vitesse.mirrored(delta) ;

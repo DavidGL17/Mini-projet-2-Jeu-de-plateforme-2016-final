@@ -1,7 +1,5 @@
 package platform.game.Actors.monsters;
 
-import org.omg.PortableServer.ServantRetentionPolicyValue;
-
 import platform.game.Actor;
 import platform.game.Actors.Damage;
 import platform.game.Actors.Monster;
