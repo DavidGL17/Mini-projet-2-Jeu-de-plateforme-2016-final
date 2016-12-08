@@ -7,10 +7,13 @@ import platform.game.Actors.Limits;
 import platform.game.Actors.Locker;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
+import platform.game.Actors.SignalInvisibleCollision;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
+import platform.game.Actors.blocks.BlockDecoSignal;
 import platform.util.Box;
+import platform.util.Loader;
 import platform.util.Vector;
 
 public class Level_01 extends Level {
@@ -19,7 +22,6 @@ public class Level_01 extends Level {
 	    public void register(World world) {
 	        super.register(world);
 	        
-	        // Register a new instance, to restart level automatically
 	    	Player franky = new Player(new Vector(0, -4), new Vector(5, 6), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
@@ -28,6 +30,11 @@ public class Level_01 extends Level {
 	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
 	    	world.register(key);
 		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
+		    Loader loader = world.getLoader();
+		    //texte de début
+		    SignalInvisibleCollision signal1Texte = new SignalInvisibleCollision(new Box(new Vector(5, 6), 4, 6));
+		    world.register(signal1Texte);
+		    world.register(new BlockDecoSignal(new Vector(5, 5), 15, 10, loader, "dcfce", signal1Texte));
 
 
 		    

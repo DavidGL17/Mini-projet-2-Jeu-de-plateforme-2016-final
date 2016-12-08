@@ -1,20 +1,18 @@
 package platform.game.Actors.levels;
 
-import platform.game.Actors.Exit;
 import platform.game.Actors.Heart;
 import platform.game.Actors.Jumper;
 import platform.game.Actors.Key;
-import platform.game.Actors.Lever;
 import platform.game.Actors.Limits;
 import platform.game.Actors.Locker;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
+import platform.game.Actors.SignalInvisibleCollision;
 import platform.game.Actors.Spikes;
 import platform.game.Actors.Torch;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
-import platform.game.Actors.blocks.BlockDeco;
-import platform.game.Actors.blocks.Mover;
+import platform.game.Actors.blocks.BlockDecoSignal;
 import platform.util.Box;
 import platform.util.Vector;
 
@@ -24,19 +22,19 @@ public class BasicLevel extends Level {
     public void register(World world) {
         super.register(world);
         
-        // Register a new instance, to restart level automatically
-        world.setNextLevel(new BasicLevel());
-        
         // Create blocks
 //        world.register(new Block(new Box(new Vector(0, 0), 4, 2), world.getLoader().getSprite("stone.broken.2")));
 //        world.register(new Block(new Box(new Vector(-1.5, 1.5), 1, 1), world.getLoader().getSprite("stone.broken.1")));
-    	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),world.getLoader());
-    	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
+//    	Block block2 = new Block(new Vector(-2, 0),new Vector(-1, 1),world.getLoader());
+//    	Block block3 = new Block(new Vector(4, 0), new Vector(5, 5), world.getLoader());
     	Player franky = new Player(new Vector(0, -4), new Vector(-10, 12), world.getLoader());
     	world.register(franky);
     	Overlay overlayfranky = new Overlay(franky);
     	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader()); 
     	
+    	SignalInvisibleCollision signal1Texte = new SignalInvisibleCollision(new Box(new Vector(5, 6), 4, 6));
+	    world.register(signal1Texte);
+	    world.register(new BlockDecoSignal(new Vector(5, 5), 15, 10, getWorld().getLoader(), "dcfce", signal1Texte));
     									// Salle 1
     	
     	Key key = new Key(new Vector(2, 8), world.getLoader(), Key.blue);

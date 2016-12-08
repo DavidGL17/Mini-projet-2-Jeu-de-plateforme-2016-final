@@ -169,7 +169,7 @@ public class Level_07 extends Level{
 	    //mover Lava
 	    SignalInvisibleConstant signalInvisible1 = new SignalInvisibleConstant(new Box(new Vector(130, 6), 2, 20));
 	    world.register(signalInvisible1);
-	    world.register(new MoverLava(new Vector(133, -8), new Vector(210, 5), 20, 16, new Box(new Vector(133, -12), 20, 16), 0.04, loader, signalInvisible1, "liquidLavaTop_mid6x4"));
+	    world.register(new MoverLava(new Vector(133, -10), new Vector(210, 5), 20, 16, new Box(new Vector(133, -20), 20, 16), 0.04, loader, signalInvisible1, "liquidLavaTop_mid6x4"));
 	    //platformes
 	    world.register(new BlockIndecis(new Box(new Vector(132, 1.5), 3, 1), 3, 2, loader, "stone.broken.3", "stone.broken2.3"));
 	    world.register(new Block(new Box(new Vector(145, 2), 3, 1), loader.getSprite("stone.3")));
