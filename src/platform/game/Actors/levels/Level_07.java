@@ -1,15 +1,15 @@
 package platform.game.Actors.levels;
 
 import platform.game.Actors.Checkpoint;
+import platform.game.Actors.Exit;
 import platform.game.Actors.Lava;
+import platform.game.Actors.Lever;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
-import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockIndecis;
-import platform.game.Actors.blocks.MoverLava;
 import platform.game.Actors.monsters.Slime;
 import platform.util.Box;
 import platform.util.Loader;
@@ -25,7 +25,7 @@ public class Level_07 extends Level{
 		Player franky;
 		//premier spawn point
 		if (!world.getCheckpoint()){
-			franky = new Player(new Vector(0, 1), new Vector(252, 10), world.getLoader());
+			franky = new Player(new Vector(0, 1), new Vector(0, 0), world.getLoader());
 		} else {
 			//deuxème spawn point (si le joueur a passer le checkpoint)
 			franky = new Player(new Vector(0, 1), new Vector(108, 0), world.getLoader());
@@ -195,8 +195,11 @@ public class Level_07 extends Level{
 	    world.register(new Block(new Box(new Vector(239, 10), 6, 2), loader.getSprite("stone.3")));
 	    world.register(new Block(new Box(new Vector(243, 8), 2, 6), loader.getSprite("stone.7")));
 	    world.register(new Block(new Box(new Vector(243, 2), 2, 6), loader.getSprite("stone.7")));
-
+	    Lever levier = new Lever(new Vector(236, 3), loader, "lever.left", "lever.right");
+	    world.register(levier);
+	    
 	    //exit
+	    world.register(new Exit(new Vector(258, 0), 1.5, 2, loader, levier));
 	    	//sol
 	    world.register(new Block(new Box(new Vector(246, -4), 6, 6), world.getLoader().getSprite("castle.middle3")));
 	    world.register(new Block(new Box(new Vector(246, -10), 6, 6), world.getLoader().getSprite("castle.center3")));
