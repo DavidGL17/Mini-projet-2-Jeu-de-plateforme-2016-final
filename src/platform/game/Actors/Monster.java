@@ -60,11 +60,19 @@ public abstract class Monster extends Actor{
 		return boxDAction;
 	}
 
+	private boolean colliding = false;
 	//triggered permet de définir si le joueur est ou n'est pas dans la zone d'action. Elle permet de définir le comportement à adopter
 	private boolean triggered = false;
 	//Permet d'avoir accès au Player qui a oser embeter le monstre. (Notament à sa position)
 	private Player theEnnemi;
 
+	/**
+	 * @return the colliding
+	 */
+	public boolean isColliding() {
+		return colliding;
+	}
+	
 	/**
 	 * @return the triggered
 	 */
@@ -77,11 +85,23 @@ public abstract class Monster extends Actor{
 	public Player getTheEnnemi() {
 		return theEnnemi;
 	}
-	
 	//Permet de gérer les interactions des monstres (les sous-classes y feront appel et complementerons cette méthode)
 	@Override
 	public void interact(Actor other) {
 		super.interact(other);
+		if (other.isSolid ()) {
+			Vector delta = other.getBox().getCollision(getBox());
+			if (delta != null) {
+				colliding = true;
+				position = position.add(delta) ;
+				if (delta.getX() != 0.0){
+					vitesse = new Vector (0.0, vitesse.getY());
+				}
+				if (delta.getY() != 0.0){
+					vitesse = new Vector(vitesse.getX(), 0.0) ;
+				}
+			}
+		}
 		//permet de savoir si le joueur est dans la box d'action. S'il n'y est pas, on vérifie que l'actor en question est bien le joueur.
 		//Si c'est le cas, cela veut dire que la box du joueur ne collide pas avec celle du monstre, et donc que le monstre ne doit pas être activé
 		if (other.isPlayer()){
@@ -112,8 +132,16 @@ public abstract class Monster extends Actor{
 		return movement;
 	}
 	@Override
+	public void preUpdate(){
+		colliding=false;
+	}
+	@Override
 	public void update(Input input) {
 		super.update(input);
+		if (colliding) {
+			double scale = Math.pow (0.001 , input.getDeltaTime ()) ;
+			vitesse = vitesse.mul(scale) ;
+		}
 	// Les monstres n'ont pas de vitesse, leur position change uniquement en x (ils ne tombent pas mais ne sautent pas non plus)
 	//La constant mouvement permet de changer leur position. le boolean directionDroite permet de savoir dans quelle direction va le monstre, 
 	//pour pouvoir ajouter ou retirer la constante mouvement au X de la position. Ceci est uniquement pour quand le player n'est pas dans la zone
