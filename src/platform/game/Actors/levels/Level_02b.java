@@ -1,5 +1,6 @@
 package platform.game.Actors.levels;
 
+import platform.game.Actors.Checkpoint;
 import platform.game.Actors.Exit;
 import platform.game.Actors.Jumper;
 import platform.game.Actors.Key;
@@ -24,19 +25,24 @@ public class Level_02b extends Level{
 	 @Override
 	    public void register(World world) {
 	        super.register(world);
-	        
-	        // Register a new instance, to restart level automatically
-	    	Player franky = new Player(new Vector(0, -4), new Vector(4, 4), world.getLoader());
+	       
+		    Loader loader = world.getLoader();
+
+	        Checkpoint checkpoint = new Checkpoint(new Vector(160.5, 4), loader, "flagGreenHanging", "flagGreen", "flagGreen2");
+	    	world.register(checkpoint);	    	
+	        Player franky;
+	    	if (!world.getCheckpoint()){
+				franky = new Player(new Vector(0, 1), new Vector(4, 2), world.getLoader());
+			} else {
+				franky = new Player(new Vector(0, 1), new Vector(160.5, 2), world.getLoader());
+			}
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
 	    	world.register(new Limits(new Box(new Vector(0, -3) , 1000, 5)));
-	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
-	    	world.register(key);
 		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
 		    world.register(new LimiteTangible(new Vector(338, 0), 2, 30));
 
-		    Loader loader = world.getLoader();
 		    
 		    										// Partie 1
 		    
