@@ -6,7 +6,12 @@ import platform.game.Actor;
 import platform.game.Actors.ActeurOverlay;
 import platform.game.Actors.Damage;
 import platform.game.Actors.FireballBoss;
+import platform.game.Actors.Heart;
 import platform.game.Actors.Monster;
+import platform.game.Actors.blocks.BlockDestructible;
+import platform.game.Actors.blocks.MoverDamageFire;
+import platform.game.Actors.blocks.MoverLava;
+import platform.game.Signals.Constant;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -19,12 +24,25 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final static String dessin = "blockerMad";
 	private final Vector positionRepos;
 	private final Vector positionCombat;
+	private final Box boxDActionMinions;
+	private final Vector positionSpawnMinions;
+	private final Vector positionCoeurInterphase2;
+	private final MoverLava moverInterphase2;
+	private final MoverDamageFire moverFirePhase3;
+	private final BlockDestructible blockDestructibleMort;
 	
 	
-	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos, double width, double height,Loader loader){
+	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,MoverDamageFire moverFirePhase3,BlockDestructible blockDestructibleMort,Loader loader){
 		super(vitesse, positionCombat, width, height, null, 0, loader, dessin);
 		this.positionCombat = positionCombat;
 		this.positionRepos = positionRepos;
+		this.boxDActionMinions = boxDActionMinions;
+		this.positionSpawnMinions = positionSpawnMinions;
+		this.positionCoeurInterphase2 = positionCoeurInterphase2;
+		this.moverInterphase2 = moverInterphase2;
+		this.cooldownInterphase2 = timerMoverLavaInterphase2;
+		this.moverFirePhase3 = moverFirePhase3;
+		this.blockDestructibleMort = blockDestructibleMort;
 	}
 
 	@Override
@@ -49,6 +67,11 @@ public class Boss extends Monster implements ActeurOverlay{
 	//phase 2
 	private final double COOLDOWN_ETEINDRE = 1.5;	
 	private double cooldownEteindre = 0;
+	//interphase 2
+	private double cooldownInterphase2;
+	//mort
+	private boolean dead = false;
+	private double cooldownDisparition = 1;
 		
 	@Override
 	public boolean hurt(Actor instigator, Damage type, double amount, Vector location) {
@@ -84,29 +107,64 @@ public class Boss extends Monster implements ActeurOverlay{
 				getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
 			}
 		}
-		//interphase 1
-		if (HP<=15&&phase==1){
+		//passage à la phase 1
+		if (HP<=10&&phase==1&&!interphase){
 			++phase;
 			interphase = true;
 			//fait spawn les slimes
 			for (int i = 0;i<3;++i){
-//				Slime slime = new Slime(vitesse, position, movement, i, boxDAction, loader, width, height, showMustGoOn)
+			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.03,4, boxDActionMinions, getWorld().getLoader(), 2,2,true);
+			    minions.add(slime);
 			}
 		}
+		//interphase 1
+		//verifie que les slimes sont pas mort et si oui, fait passer à la phase suivante
 		if (interphase && phase ==2){
-			
+			int minionsDead = 0;
+			for (int i = 0;i<minions.size();++i){
+				if (minions.get(i).getWorld()==null){
+					++minionsDead;
+				}
+			}
+			if (minionsDead>=3){
+				interphase = false;
+			}
 		}
 		//phase 2
 		//Eteint les boules de feu qui viennent vers lui (voir hurt)
-		if (cooldownEteindre>0){
-			cooldownEteindre -= input.getDeltaTime();
+		if (!interphase&&phase>=2){
+			if (cooldownEteindre>0){
+				cooldownEteindre -= input.getDeltaTime();
+			}
 		}
 		//passage à phase 3
-		if (HP<=10&&phase==2){
+		if (HP<=10&&phase==2&&!interphase){
 			++phase;
+			interphase = true;
+			getWorld().register(new Heart(positionCoeurInterphase2, getWorld().getLoader()));
+			getWorld().register(moverInterphase2);
 		}
-		//phase 3
+		//interphase 2
+		if (interphase&&phase == 3){
+			cooldownInterphase2 -= input.getDeltaTime();
+			if (cooldownInterphase2 <=0){
+				interphase = false;
+				for (int i = 0;i<5;++i){
+					Vector off = new Vector(moverFirePhase3.getOff().getX(), moverFirePhase3.getOff().getY()+4);
+					Vector on = new Vector(moverFirePhase3.getOn().getX(), moverFirePhase3.getOn().getY()+4);
+					getWorld().register(new MoverDamageFire(off, on, moverFirePhase3.getBox().getWidth(), moverFirePhase3.getBox().getHeight(), moverFirePhase3.getVitesseDeMouvement(), getWorld().getLoader(), new Constant(true), dessin));
+				}
+			}
+		}
 		//mort
+		if (HP<=0){
+			dead = true;
+			HP = 0;
+			cooldownDisparition -= input.getDeltaTime();
+			if (cooldownDisparition<=0){
+				getWorld().unregister(this);
+			}
+		}
 	}
 	
 	@Override
