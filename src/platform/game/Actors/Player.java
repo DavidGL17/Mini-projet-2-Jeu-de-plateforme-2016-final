@@ -9,7 +9,7 @@ import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
 
-public class Player extends Actor implements ActeurHP{
+public class Player extends Actor implements ActeurOverlay{
 	private Vector position;
 	private Vector vitesse;
 	private final static double SIZE = 1;

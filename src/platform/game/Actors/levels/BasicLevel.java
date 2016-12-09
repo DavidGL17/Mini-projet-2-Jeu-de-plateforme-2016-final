@@ -32,9 +32,7 @@ public class BasicLevel extends Level {
     	Overlay overlayfranky = new Overlay(franky);
     	Jumper jumper = new Jumper(new Vector(12,7.5), world.getLoader()); 
     	
-    	SignalInvisibleCollision signal1Texte = new SignalInvisibleCollision(new Box(new Vector(5, 6), 4, 6));
-	    world.register(signal1Texte);
-	    world.register(new BlockDecoSignal(new Vector(5, 5), 15, 10, getWorld().getLoader(), "dcfce", signal1Texte));
+    	world.register(new Block(new Box(new Vector(5, 10), 5, 5), world.getLoader().getSprite("blockerMad")));
     									// Salle 1
     	
     	Key key = new Key(new Vector(2, 8), world.getLoader(), Key.blue);
