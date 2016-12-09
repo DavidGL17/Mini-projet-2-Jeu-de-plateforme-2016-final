@@ -7,14 +7,14 @@ import platform.util.Output;
 import platform.util.Vector;
 
 public class Overlay extends Actor{
-	private ActeurHP acteur;
+	private ActeurOverlay acteur;
 	private final static String COEUR_PLEIN = "heart.full";
 	private final String COEUR_VIDE = "heart.empty";
 	private final double SIZE = 0.2;
 	private final double HPMax;
 	private Vector position;
 	
-	public Overlay(ActeurHP acteur){
+	public Overlay(ActeurOverlay acteur){
 		super(10, new Box(new Vector(acteur.getPosition().getX(), acteur.getPosition().getY()+0.5), 0.2, 0.2), acteur.getWorld().getLoader().getSprite(COEUR_PLEIN));
 		this.acteur = acteur;
 		this.position= new Vector(acteur.getPosition().getX()+0.1, acteur.getPosition().getY()+0.8);
