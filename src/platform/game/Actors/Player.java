@@ -116,7 +116,7 @@ public class Player extends Actor implements ActeurOverlay{
 					return false;
 				}
 			default :
-				return super.hurt(instigator , type, amount , location);
+				return false;
 		}
 	}
 	public boolean isPlayer(){

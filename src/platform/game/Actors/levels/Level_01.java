@@ -7,7 +7,7 @@ import platform.game.Actors.Limits;
 import platform.game.Actors.Locker;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
-import platform.game.Actors.SignalInvisibleCollision;
+import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
@@ -30,11 +30,11 @@ public class Level_01 extends Level {
 	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
 	    	world.register(key);
 		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
-//		    Loader loader = world.getLoader();
+		    Loader loader = world.getLoader();
 		    //texte de début
-//		    SignalInvisibleCollision signal1Texte = new SignalInvisibleCollision(new Box(new Vector(5, 6), 4, 6));
-//		    world.register(signal1Texte);
-//		    world.register(new BlockDecoSignal(new Vector(5, 5), 15, 10, loader, "dcfce", signal1Texte));
+		    SignalInvisibleConstant signal1Texte = new SignalInvisibleConstant(new Box(new Vector(5, 6), 4, 6));
+		    world.register(signal1Texte);
+		    world.register(new BlockDecoSignal(new Vector(5, 10), 12, 8, loader, "zoneTexteLevel01_1", signal1Texte));
 
 
 		    
