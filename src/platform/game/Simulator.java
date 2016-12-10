@@ -42,7 +42,7 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>() ;
-     	niveaux = new Level[]{new Level_07()};
+     	niveaux = new Level[]{new Level_00()};
     	nextLevel();
     	register(nextLevel);
     	transition = false;
@@ -75,9 +75,9 @@ public class Simulator implements World {
     //permet e savoir en quel mode est le jeu(histoire, choix de niveau,...) et de passer d'un à l'autre
     //0 : level intro, ou on choisit entre histoire ou freeChoice
     //1 Mode histoire, on ne changera pas de mode de jeu à moins qu'on arrive à la fin. On utilise le tableau Levels en itéterant dessus
-    //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice
+    //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
-    private int levelMode = 1;
+    private int levelMode = 2;
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
     private Level[] niveaux;
@@ -115,8 +115,8 @@ public class Simulator implements World {
     		if (compteurDeNiveau<niveaux.length){
     			setNextLevel(niveaux[compteurDeNiveau]);
     		} else {
-    			compteurDeNiveau = 0;
-    			setNextLevel(niveaux[compteurDeNiveau]);
+    			changeLevelMode(0);
+    			return;
     		}
     		++compteurDeNiveau;
     		nbrMorts = 0;
@@ -131,7 +131,7 @@ public class Simulator implements World {
     		checkpoint = false;
     	}
     	if (levelMode == 3){
-    		compteurDeNiveau = 0;
+    		compteurDeNiveau = 2;
     		nbrMorts = 0;
     		transition = true;
     		checkpoint = false;
@@ -192,7 +192,10 @@ public class Simulator implements World {
 			// tous les anciens acteurs sont désenregistrés ,
 			// y compris le Level précédent :
 			unregistered.clear () ;
-			register(nextLevel) ;
+			register(nextLevel);
+			if (levelMode == 3){
+				setNextLevel(levelChoixNiveau);
+			}
 		}
 		
 		// Pre Update
