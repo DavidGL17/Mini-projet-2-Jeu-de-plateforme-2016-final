@@ -8,7 +8,7 @@ import platform.game.Actors.Damage;
 import platform.game.Actors.FireballBoss;
 import platform.game.Actors.Heart;
 import platform.game.Actors.Monster;
-import platform.game.Actors.blocks.BlockDestructible;
+import platform.game.Actors.blocks.BlockDisparitionSignal;
 import platform.game.Actors.blocks.MoverDamageFire;
 import platform.game.Actors.blocks.MoverLava;
 import platform.game.Signals.Constant;
@@ -29,10 +29,11 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final Vector positionCoeurInterphase2;
 	private final MoverLava moverInterphase2;
 	private final MoverDamageFire moverFirePhase3;
-	private final BlockDestructible blockDestructibleMort;
+	private final BlockDisparitionSignal blockDisparitionSignalDeadARemplacer;
+	private final BlockDisparitionSignal blockDisparitionSignalDead;
+	private final String blockDisparitionSignalDeadDessin;
 	
-	
-	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,MoverDamageFire moverFirePhase3,BlockDestructible blockDestructibleMort,Loader loader){
+	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,MoverDamageFire moverFirePhase3,BlockDisparitionSignal blockDisparitionSignalDeadARemplacer,BlockDisparitionSignal blockDisparitionSignalDead, String blockDisparitionSignalDeadDessin,Loader loader){
 		super(vitesse, positionCombat, width, height, null, 0, loader, dessin);
 		this.positionCombat = positionCombat;
 		this.positionRepos = positionRepos;
@@ -42,7 +43,9 @@ public class Boss extends Monster implements ActeurOverlay{
 		this.moverInterphase2 = moverInterphase2;
 		this.cooldownInterphase2 = timerMoverLavaInterphase2;
 		this.moverFirePhase3 = moverFirePhase3;
-		this.blockDestructibleMort = blockDestructibleMort;
+		this.blockDisparitionSignalDeadARemplacer = blockDisparitionSignalDeadARemplacer;
+		this.blockDisparitionSignalDead = blockDisparitionSignalDead;
+		this.blockDisparitionSignalDeadDessin = blockDisparitionSignalDeadDessin;
 	}
 
 	@Override
@@ -111,6 +114,7 @@ public class Boss extends Monster implements ActeurOverlay{
 		if (HP<=10&&phase==1&&!interphase){
 			++phase;
 			interphase = true;
+			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
 			//fait spawn les slimes
 			for (int i = 0;i<3;++i){
 			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.03,4, boxDActionMinions, getWorld().getLoader(), 2,2,true);
@@ -128,6 +132,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			}
 			if (minionsDead>=3){
 				interphase = false;
+				setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
 			}
 		}
 		//phase 2
@@ -141,6 +146,7 @@ public class Boss extends Monster implements ActeurOverlay{
 		if (HP<=10&&phase==2&&!interphase){
 			++phase;
 			interphase = true;
+			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
 			getWorld().register(new Heart(positionCoeurInterphase2, getWorld().getLoader()));
 			getWorld().register(moverInterphase2);
 		}
@@ -149,6 +155,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			cooldownInterphase2 -= input.getDeltaTime();
 			if (cooldownInterphase2 <=0){
 				interphase = false;
+				setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
 				for (int i = 0;i<5;++i){
 					Vector off = new Vector(moverFirePhase3.getOff().getX(), moverFirePhase3.getOff().getY()+4);
 					Vector on = new Vector(moverFirePhase3.getOn().getX(), moverFirePhase3.getOn().getY()+4);
@@ -157,11 +164,15 @@ public class Boss extends Monster implements ActeurOverlay{
 			}
 		}
 		//mort
-		if (HP<=0){
+		if (HP<=0&&!dead){
 			dead = true;
 			HP = 0;
+		}
+		if (dead){
 			cooldownDisparition -= input.getDeltaTime();
 			if (cooldownDisparition<=0){
+				getWorld().unregister(blockDisparitionSignalDeadARemplacer);
+				getWorld().register(new BlockDisparitionSignal(blockDisparitionSignalDead.getBox(), getWorld().getLoader(), blockDisparitionSignalDeadDessin, new Constant(true)));
 				getWorld().unregister(this);
 			}
 		}
@@ -169,6 +180,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	
 	@Override
 	public void draw(Input input, Output output) {
+		output.drawSprite(getSprite(), getBox());
 	}
 	
 }
