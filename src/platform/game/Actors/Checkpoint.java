@@ -37,6 +37,10 @@ public class Checkpoint extends Actor{
 		}
 	}
 	public void update(Input input){
+		//Dans le cas ou le jeour à déjà passé le chackpoint, celui ci va automatiquement se mettre en mode chackpoint done
+		if (getWorld().getCheckpoint()){
+			checkpointDone = true;
+		}
 		if (checkpointDone){
 			cooldown -= input.getDeltaTime();
 			setBox(new Box(getPosition(), widthCheckpoint, heightCheckpoint));
