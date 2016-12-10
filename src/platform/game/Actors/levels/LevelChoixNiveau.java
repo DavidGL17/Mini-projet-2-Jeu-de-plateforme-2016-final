@@ -9,7 +9,7 @@ import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
 
-public class LevelIntro extends Level{
+public class LevelChoixNiveau extends Level{
 	@Override
     public void register(World world) {
         super.register(world);
@@ -17,6 +17,6 @@ public class LevelIntro extends Level{
         Player franky = new Player(new Vector(0, 0), new Vector(-2, 3), world.getLoader());
         world.register(franky);
         world.register(new Block(new Box(new Vector(0, -1), 10, 2), loader.getSprite("stone.3")));
-        world.register(new Exit(new Vector(4, 1), 1.5, 2, loader, new Constant(true),2));
+        world.register(new Exit(new Vector(4, 1), 1.5, 2, loader, new Constant(true),1));
 	}
 }

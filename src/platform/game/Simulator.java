@@ -41,20 +41,8 @@ public class Simulator implements World {
     	currentCenter = Vector.ZERO ;
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
-    	unregistered = new ArrayList<Actor>();
-<<<<<<< HEAD
-     	niveaux = new Level[]{new Level_02b()};
-=======
-<<<<<<< HEAD
-     	niveaux = new Level[]{new Level_07()};
-=======
-<<<<<<< HEAD
-     	niveaux = new Level[]{new Level_02b()};
-=======
-     	niveaux = new Level[]{new Level_08()};
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
+    	unregistered = new ArrayList<Actor>() ;
+     	niveaux = new Level[]{new Level_07() };
     	nextLevel();
     	register(nextLevel);
     	transition = false;
@@ -84,6 +72,14 @@ public class Simulator implements World {
     }
 	
     //Levels
+    //permet e savoir en quel mode est le jeu(histoire, choix de niveau,...) et de passer d'un à l'autre
+    //0 : level intro, ou on choisit entre histoire ou freeChoice
+    //1 Mode histoire, on ne changera pas de mode de jeu à moins qu'on arrive à la fin. On utilise le tableau Levels en itéterant dessus
+    //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice
+    //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
+    private int levelMode = 1;
+    private Level levelIntro = new LevelIntro();
+    private Level levelChoixNiveau = new LevelChoixNiveau();
     private Level[] niveaux;
 	private Level nextLevel;
     private int compteurDeNiveau = 0;
@@ -107,26 +103,60 @@ public class Simulator implements World {
 		return nbrMorts;
 	}
     public void nextLevel(){
-    	if (compteurDeNiveau<niveaux.length){
-    		setNextLevel(niveaux[compteurDeNiveau]);
-    	} else {
+    	if (levelMode ==0){
+    		transition = true;
+    		setNextLevel(levelIntro);
     		compteurDeNiveau = 0;
-    		setNextLevel(niveaux[compteurDeNiveau]);
+    		nbrMorts = 0;
+    		transition = true;
+    		checkpoint = false;
     	}
-    	++compteurDeNiveau;
-    	nbrMorts = 0;
-    	transition = true;
-    	checkpoint = false;
+    	if (levelMode == 1){
+    		if (compteurDeNiveau<niveaux.length){
+    			setNextLevel(niveaux[compteurDeNiveau]);
+    		} else {
+    			compteurDeNiveau = 0;
+    			setNextLevel(niveaux[compteurDeNiveau]);
+    		}
+    		++compteurDeNiveau;
+    		nbrMorts = 0;
+    		transition = true;
+    		checkpoint = false;
+    	}
+    	if (levelMode == 2){
+    		setNextLevel(levelChoixNiveau);
+    		compteurDeNiveau = 0;
+    		nbrMorts = 0;
+    		transition = true;
+    		checkpoint = false;
+    	}
+    	if (levelMode == 3){
+    		compteurDeNiveau = 0;
+    		nbrMorts = 0;
+    		transition = true;
+    		checkpoint = false;
+    	}
     }
 	public void setNextLevel(Level level){
     	nextLevel = level;
     }
+	//Lorsque cette méthode est appelée, on changera le mode de jeu puis on activera le changement de niveau
+	public void changeLevelMode(int levelMode){
+		this.levelMode = levelMode;
+		nextLevel();
+	}
     public void tryAgain(){
-    	++nbrMorts;
-    	--compteurDeNiveau;
-    	setNextLevel(niveaux[compteurDeNiveau]);
-    	++compteurDeNiveau;
-    	transition = true;
+    	if (levelMode==1){
+    		++nbrMorts;
+    		--compteurDeNiveau;
+    		setNextLevel(niveaux[compteurDeNiveau]);
+    		++compteurDeNiveau;
+    		transition = true;
+    	}
+    	if (levelMode == 3){
+    		++nbrMorts;
+    		transition = true;
+    	}
     }
 	
 	
