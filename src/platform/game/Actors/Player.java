@@ -9,13 +9,13 @@ import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
 
-public class Player extends Actor{
+public class Player extends Actor implements ActeurOverlay{
 	private Vector position;
 	private Vector vitesse;
 	private final static double SIZE = 1;
 	private final static String dessin = "blocker.happy";
-	private double HP = 10;
-	private double HPMax = 10;
+	private double HP = 5;
+	private double HPMax = 5;
 	
 	public Player(Vector vitesse, Vector position, Loader loader){
 		super(1337,new Box(position, SIZE, SIZE),loader,dessin);
@@ -116,7 +116,7 @@ public class Player extends Actor{
 					return false;
 				}
 			default :
-				return super.hurt(instigator , type, amount , location);
+				return false;
 		}
 	}
 	public boolean isPlayer(){

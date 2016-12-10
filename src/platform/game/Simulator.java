@@ -5,7 +5,6 @@ import java.util.List;
 
 import platform.game.Actors.Damage;
 import platform.game.Actors.World;
-import platform.game.Actors.levels.Level;
 import platform.game.Actors.levels.*;
 import platform.util.Box;
 import platform.util.Input;
@@ -43,7 +42,23 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
+<<<<<<< HEAD
      	niveaux = new Level[]{new Level_02b()};
+=======
+<<<<<<< HEAD
+     	niveaux = new Level[]{new Level_02b()};
+=======
+<<<<<<< HEAD
+     	niveaux = new Level[]{new Level_07()};
+=======
+<<<<<<< HEAD
+     	niveaux = new Level[]{new Level_02b()};
+=======
+     	niveaux = new Level[]{new Level_08()};
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
     	nextLevel();
     	register(nextLevel);
     	transition = false;
@@ -80,13 +95,21 @@ public class Simulator implements World {
     //permet de savoir si le joueur a passé un checkpoint (s'il y en a un). Il est remit a false à chaaue nouveau level
     //@see nextLevel
     private boolean checkpoint = false;
+    //Permet de conpter le nombre de mort du joueur par niveau. Est utilisé dans certains niveaux pour afficher du texte
+    private int nbrMorts = 0;
     
-    public boolean getCheckpoint(){
+	public boolean getCheckpoint(){
     	return checkpoint;
     }
     public void setCheckpoint(boolean checkpoint){
     	this.checkpoint = checkpoint;
     }
+    /**
+	 * @return the nbrMorts
+	 */
+	public int getNbrMorts() {
+		return nbrMorts;
+	}
     public void nextLevel(){
     	if (compteurDeNiveau<niveaux.length){
     		setNextLevel(niveaux[compteurDeNiveau]);
@@ -95,13 +118,15 @@ public class Simulator implements World {
     		setNextLevel(niveaux[compteurDeNiveau]);
     	}
     	++compteurDeNiveau;
+    	nbrMorts = 0;
     	transition = true;
     	checkpoint = false;
     }
-    public void setNextLevel(Level level){
+	public void setNextLevel(Level level){
     	nextLevel = level;
     }
     public void tryAgain(){
+    	++nbrMorts;
     	--compteurDeNiveau;
     	setNextLevel(niveaux[compteurDeNiveau]);
     	++compteurDeNiveau;

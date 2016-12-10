@@ -7,10 +7,13 @@ import platform.game.Actors.Limits;
 import platform.game.Actors.Locker;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
+import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
+import platform.game.Actors.blocks.BlockDecoSignal;
 import platform.util.Box;
+import platform.util.Loader;
 import platform.util.Vector;
 
 public class Level_01 extends Level {
@@ -19,8 +22,7 @@ public class Level_01 extends Level {
 	    public void register(World world) {
 	        super.register(world);
 	        
-	        // Register a new instance, to restart level automatically
-	    	Player franky = new Player(new Vector(0, -4), new Vector(45, 6), world.getLoader());
+	    	Player franky = new Player(new Vector(0, -4), new Vector(5, 6), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
@@ -28,6 +30,11 @@ public class Level_01 extends Level {
 	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
 	    	world.register(key);
 		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
+		    Loader loader = world.getLoader();
+		    //texte de début
+		    SignalInvisibleConstant signal1Texte = new SignalInvisibleConstant(new Box(new Vector(5, 6), 4, 6));
+		    world.register(signal1Texte);
+		    world.register(new BlockDecoSignal(new Vector(5, 10), 12, 8, loader, "zoneTexteLevel01_1", signal1Texte));
 
 
 		    
@@ -199,6 +206,4 @@ public class Level_01 extends Level {
 	    	world.register(new BlockDeco(new Vector(20, 30), 20, 100, world.getLoader(), "Background_112"));
 	    	world.register(new BlockDeco(new Vector(6, 0), 500, 505, world.getLoader(), "Background2_0"));
 	 }
-	
-	
 }

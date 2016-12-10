@@ -12,11 +12,11 @@ public class Fireball extends Actor{
 	private Vector vitesse;
 	private final static double SIZE = 0.4;
 	private final static String dessin = "fireball";
-	private Player owner = null;
+	private ActeurOverlay owner = null;
 	private double cooldown;
 	private final double COOLDOWN = 5;
 	
-	public Fireball(Vector vitesse, Vector position, Loader loader, Player owner){
+	public Fireball(Vector vitesse, Vector position, Loader loader, ActeurOverlay owner){
 		super(9001,new Box(position, SIZE, SIZE), loader,dessin);
 		if (vitesse ==null){
 			throw new NullPointerException();
@@ -29,10 +29,26 @@ public class Fireball extends Actor{
 		this.owner=owner;
 		this.cooldown = COOLDOWN;
 	}
-
+	/**
+	 * @return the cooldown
+	 */
+	protected double getCooldown() {
+		return cooldown;
+	}
+	/**
+	 * @param cooldown the cooldown to set
+	 */
+	protected void setCooldown(double cooldown) {
+		this.cooldown = cooldown;
+	}
+	
+	//Les fireball disparaissent si elles touchent une limite, ou si ont les eteint
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		switch(type) {
 		case VOID : 
+			getWorld().unregister(this);
+			return true;
+		case AIR :
 			getWorld().unregister(this);
 			return true;
 		default :
@@ -42,8 +58,8 @@ public class Fireball extends Actor{
 	@Override
 	public void interact(Actor other) {
 		super.interact(other);
-		if (other.isSolid ()) {
-			Vector delta = other.getBox ().getCollision(position) ;
+		if (other.isSolid()&&other.getBox()!=null) {
+			Vector delta = other.getBox().getCollision(position);
 			if (delta != null) {
 					position = position.add(delta) ;
 					vitesse = vitesse.mirrored(delta) ;
@@ -65,11 +81,12 @@ public class Fireball extends Actor{
 			getWorld().unregister(this);
 		}
 		double delta = input.getDeltaTime () ;
-		Vector acceleration = new Vector (0.0, -9.81) ;
+		Vector acceleration = getWorld().getGravity();
 		vitesse = vitesse.add(acceleration.mul(delta)) ;
 		position = position.add(vitesse.mul(delta));
 		setBox(new Box(position, SIZE, SIZE));
 	}
+
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox(), input.getTime()*25);
 	}

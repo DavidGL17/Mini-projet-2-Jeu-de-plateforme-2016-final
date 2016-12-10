@@ -66,6 +66,25 @@ public abstract class Monster extends Actor{
 	//Permet d'avoir accès au Player qui a oser embeter le monstre. (Notament à sa position)
 	private Player theEnnemi;
 
+	/**
+	 * @return the colliding
+	 */
+	public boolean isColliding() {
+		return colliding;
+	}
+	
+	/**
+	 * @return the triggered
+	 */
+	public boolean isTriggered() {
+		return triggered;
+	}
+	/**
+	 * @return the theEnnemi
+	 */
+	public Player getTheEnnemi() {
+		return theEnnemi;
+	}
 	//Permet de gérer les interactions des monstres (les sous-classes y feront appel et complementerons cette méthode)
 	@Override
 	public void interact(Actor other) {

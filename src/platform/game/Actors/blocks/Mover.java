@@ -36,6 +36,24 @@ public class Mover extends Block{
 	public Box getBox(){
 		return new Box(currentPosition, Width, Height);
 	}
+	/**
+	 * @return the off
+	 */
+	public Vector getOff() {
+		return off;
+	}
+	/**
+	 * @return the on
+	 */
+	public Vector getOn() {
+		return on;
+	}
+	/**
+	 * @return the vitesseDeMouvement
+	 */
+	public double getVitesseDeMouvement() {
+		return vitesseDeMouvement;
+	}
 
 	@Override
 	public void update(Input input) {

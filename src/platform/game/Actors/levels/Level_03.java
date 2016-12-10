@@ -149,6 +149,9 @@ public class Level_03 extends Level{
 	world.register(new Spikegauche(new Vector(36.5, -22), world.getLoader()));
 	world.register(new Spikegauche(new Vector(36.5, -23.5), world.getLoader()));
 
+	world.register(new Spikegauche(new Vector(36.5, -28.5), world.getLoader()));
+	world.register(new Spikegauche(new Vector(36.5, -30), world.getLoader()));
+
 													//Inside Castle
 	
 	world.register(new Heart(new Vector(38, -26), world.getLoader()));
