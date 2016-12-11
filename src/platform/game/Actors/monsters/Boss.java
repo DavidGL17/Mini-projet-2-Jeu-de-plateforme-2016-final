@@ -103,7 +103,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	@Override
 	public void update(Input input){
 		//au début le boss n'est pas en position de combat, il ne s'y met que si le joueur atteint la salle
-		if (signalDebutCombat.isActive()){
+		if (signalDebutCombat.isActive()&&phase == 1){
 			interphase = false;
 			setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
 		}
