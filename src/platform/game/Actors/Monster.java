@@ -28,9 +28,6 @@ public abstract class Monster extends Actor{
 		if (position==null){
 			throw new NullPointerException ();
 		}
-		if (boxDAction == null){
-			throw new NullPointerException();
-		}
 		this.position=position;
 		this.vitesse=vitesse;
 		this.boxDAction = boxDAction;
@@ -42,7 +39,7 @@ public abstract class Monster extends Actor{
 	 * @return the position
 	 */
 	public Vector getPosition() {
-		return position;
+		return getBox().getCenter();
 	}
 	/**
 	 * @return the vitesse
@@ -105,12 +102,14 @@ public abstract class Monster extends Actor{
 		//permet de savoir si le joueur est dans la box d'action. S'il n'y est pas, on vérifie que l'actor en question est bien le joueur.
 		//Si c'est le cas, cela veut dire que la box du joueur ne collide pas avec celle du monstre, et donc que le monstre ne doit pas être activé
 		if (other.isPlayer()){
-			if (boxDAction.isColliding(other.getBox())){
-				triggered = true;
-				theEnnemi = ((Player)other);
-			} else {
-				triggered = false;
-				theEnnemi = null;
+			if (boxDAction!=null){
+				if (boxDAction.isColliding(other.getBox())){
+					triggered = true;
+					theEnnemi = ((Player)other);
+				} else {
+					triggered = false;
+					theEnnemi = null;
+				}
 			}
 		}
 	}

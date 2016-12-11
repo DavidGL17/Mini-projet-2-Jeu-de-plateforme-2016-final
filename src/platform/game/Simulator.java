@@ -42,7 +42,7 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
-     	niveaux = new Level[]{new Level_8()};
+     	niveaux = new Level[]{new LevelBoss()};
     	nextLevel();
     	register(nextLevel);
     	transition = false;

@@ -65,7 +65,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	private int phase = 1;
 	private boolean interphase = false;
 	//phase 1
-	private final double COOLDOWN_BOULE_FEU = 1;
+	private final double COOLDOWN_BOULE_FEU = 2;
 	private double cooldownBouleDeFeu = 0;
 	private int conteurBouleDeFeu = 0;
 	private final int MAX_BOULE_FEU_SUITE = 5;
@@ -107,14 +107,15 @@ public class Boss extends Monster implements ActeurOverlay{
 		if (!interphase){
 			if (cooldownBouleDeFeu>0){
 				cooldownBouleDeFeu-=input.getDeltaTime();
-			}
-			if (conteurBouleDeFeu>= MAX_BOULE_FEU_SUITE){
-				conteurBouleDeFeu = 0;
-				cooldownBouleDeFeu = COOLDOWN_BOULE_FEU;
-			}
-			if (conteurBouleDeFeu<MAX_BOULE_FEU_SUITE){
-				Vector v = new Vector(-3,-2);
-				getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
+			} else {
+				if (conteurBouleDeFeu>= MAX_BOULE_FEU_SUITE){
+					conteurBouleDeFeu = 0;
+					cooldownBouleDeFeu = COOLDOWN_BOULE_FEU;
+				} else {
+					Vector v = new Vector(-5,-4);
+					getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
+					++conteurBouleDeFeu;
+				}
 			}
 		}
 		//passage à la phase 1
@@ -124,8 +125,9 @@ public class Boss extends Monster implements ActeurOverlay{
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
 			//fait spawn les slimes
 			for (int i = 0;i<nbrSlime;++i){
-			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.001,4, boxDActionMinions, getWorld().getLoader(), 1,1,false);
+			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.01,4, boxDActionMinions, getWorld().getLoader(), 1,1,false);
 			    minions.add(slime);
+			    getWorld().register(slime);
 			}
 		}
 		//interphase 1
@@ -133,11 +135,11 @@ public class Boss extends Monster implements ActeurOverlay{
 		if (interphase && phase ==2){
 			int minionsDead = 0;
 			for (int i = 0;i<minions.size();++i){
-				if (minions.get(i).getWorld()==null){
+				if (minions.get(i).isBigBrotherDead()){
 					++minionsDead;
 				}
 			}
-			if (minionsDead>=nbrSlime){
+			if (minionsDead==nbrSlime){
 				interphase = false;
 				setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
 			}

@@ -32,6 +32,12 @@ public class Slime extends Monster{
 		HP = HPMax;
 		this.HP_MAX = HPMax;
 	}
+	/**
+	 * @return the bigBrotherIsDead
+	 */
+	public boolean isBigBrotherDead() {
+		return bigBrotherIsDead;
+	}
 	
 	@Override
 	public boolean hurt(Actor instigator , Damage type, double amount , Vector location){
@@ -102,6 +108,7 @@ public class Slime extends Monster{
 			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()-width/2, getPosition().getY()-(height/4)),getMovement()*1.25, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
 		}
 	}
+
 
 	@Override
 	public void draw(Input input, Output output) {
