@@ -1,5 +1,6 @@
 package platform.game.Actors.levels;
 
+import platform.game.Actors.Exit;
 import platform.game.Actors.Heart;
 import platform.game.Actors.Lava;
 import platform.game.Actors.Overlay;
@@ -146,6 +147,27 @@ public class LevelBoss extends Level{
 		    world.register(Donald);
 		    world.register(new Overlay(Donald));
 		    
+		    										// After Story (not a Clannad reference)
+		    world.register(new Block(new Box(new Vector(132, 0), 6, 6), world.getLoader().getSprite("des1")));
+		    world.register(new Block(new Box(new Vector(132, -10), 6, 6), world.getLoader().getSprite("des3")));
+		    world.register(new Block(new Box(new Vector(132, -16), 6, 6), world.getLoader().getSprite("castle.center3")));
+		    world.register(new Block(new Box(new Vector(138, -22), 6, 6), world.getLoader().getSprite("castle.center3")));
+		    world.register(new Block(new Box(new Vector(138, -16), 6, 6), world.getLoader().getSprite("castle.center3")));
+		    world.register(new Block(new Box(new Vector(138, -10), 6, 6), world.getLoader().getSprite("castle.center3")));
+		    world.register(new Block(new Box(new Vector(138, -4), 6, 6), world.getLoader().getSprite("des2")));
+		    world.register(new Block(new Box(new Vector(138, 2), 6, 6), world.getLoader().getSprite("castle.center3")));
+		    world.register(new Block(new Box(new Vector(132, 4), 6, 6), world.getLoader().getSprite("des2")));
+
+		    world.register(new Block(new Box(new Vector(126, -8.5), 1, 1), world.getLoader().getSprite("blocker.happy")));
+		    world.register(new Block(new Box(new Vector(133, -6.5), 1, 1), world.getLoader().getSprite("blocker.happy")));
+		    world.register(new Block(new Box(new Vector(131, -9.3), 1, 1), world.getLoader().getSprite("blocker.happy")));
+
+		    
+		    world.register(new Block(new Box(new Vector(111, -15), 36, 12), world.getLoader().getSprite("grass.middle.center36_12")));
+	    	world.register(new BlockDeco(new Vector(103, -8), 2, 20, world.getLoader(), "longbush2"));
+	    	world.register(new BlockDeco(new Vector(119, -8), 2, 20, world.getLoader(), "longbush2"));
+	    	world.register(new Exit(new Vector(128, -8), 1.5, 2, world.getLoader(), plaque3));
+	    
 		    										// Background
 
 		    world.register(new BlockDeco(new Vector(6, 0), 18, 18, world.getLoader(), "bg_castledark3"));
@@ -157,8 +179,10 @@ public class LevelBoss extends Level{
 		    world.register(new BlockDeco(new Vector(78, 10), 18, 18, world.getLoader(), "bg_castledark3"));
 		    world.register(new BlockDeco(new Vector(78, 0), 18, 18, world.getLoader(), "bg_castledark3"));
 		    world.register(new BlockDeco(new Vector(78, -18), 18, 18, world.getLoader(), "bg_castledark3"));
+		    world.register(new BlockDeco(new Vector(120, 0), 20, 100, world.getLoader(), "Background_112"));
 
 		    world.register(new BlockDeco(new Vector(80, 19), 20, 100, world.getLoader(), "Background_112"));
+		    world.register(new BlockDeco(new Vector(111, -2), 15, 25, world.getLoader(), "Background_18"));
 
 		    world.register(new BlockDeco(new Vector(0, 0), 20, 100, world.getLoader(), "Background_112"));
 			world.register(new BlockDeco(new Vector(6, 0), 500, 505, world.getLoader(), "Background2_1"));
