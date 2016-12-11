@@ -21,6 +21,13 @@ public class MoverLava extends Mover{
 		setPriority(1400);
 	}
 	
+	/**
+	 * @return the hitBox
+	 */
+	public Box getHitBox() {
+		return hitBox;
+	}
+
 	//return la box utilisée pour les collisions
 	public Box getBox(){
 		return hitBox;

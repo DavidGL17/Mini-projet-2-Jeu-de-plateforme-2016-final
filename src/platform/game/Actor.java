@@ -68,7 +68,7 @@ public abstract class Actor implements Comparable<Actor> {
 	protected void setSprite(String dessin, Loader loader){
 		sprite = loader.getSprite(dessin);
 	}
-	protected void setSprite(Sprite sprite){
+	public void setSprite(Sprite sprite){
 		this.sprite = sprite;
 	}
 	

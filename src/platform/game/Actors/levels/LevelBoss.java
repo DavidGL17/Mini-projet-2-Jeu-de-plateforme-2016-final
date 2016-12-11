@@ -104,12 +104,14 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(75, -12), 6, 6), world.getLoader().getSprite("castle.middle3")));
 		    world.register(new Block(new Box(new Vector(84, -12), 6, 6), world.getLoader().getSprite("castle.center3")));
 		    world.register(new Block(new Box(new Vector(84, -18), 6, 6), world.getLoader().getSprite("castle.center3")));
-		    world.register(new Block(new Box(new Vector(84, -6), 6, 6), world.getLoader().getSprite("castle.middle.left3")));	//va disparaitre
+		    Block blockDisparaitra1 = new Block(new Box(new Vector(84, -6), 6, 6), world.getLoader().getSprite("castle.middle.left3"));
+		    world.register(blockDisparaitra1);
 		    world.register(new Block(new Box(new Vector(84, 0), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
 		    world.register(new Block(new Box(new Vector(84, 6), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
 		    world.register(new Block(new Box(new Vector(84, 12), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
 		    world.register(new Block(new Box(new Vector(90, 0), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
-		    world.register(new Block(new Box(new Vector(90, -6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));	// va disparaitre
+		    Block blockDisparaitra2 = new Block(new Box(new Vector(90, -6), 6, 6), world.getLoader().getSprite("castle.middle.right3"));
+		    world.register(blockDisparaitra2);
 		    world.register(new Block(new Box(new Vector(90, -12), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, -18), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
@@ -136,16 +138,12 @@ public class LevelBoss extends Level{
 	    	Heart coeurInterphase2 = new  Heart(new Vector(65, -8), world.getLoader());
 		    										// Phase 3
 		
-		    MoverDamageFire flame4 = new MoverDamageFire(new Vector(90, -3), new Vector(40 , -3), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
-			world.register(flame4);
-			MoverDamageFire flame5 = new MoverDamageFire(new Vector(85, -8), new Vector(35 , -8), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
-			world.register(flame5);
-			MoverDamageFire flame6 = new MoverDamageFire(new Vector(90, -7.2), new Vector(40 , -7.2), 1.5, 0.5, 0.2, world.getLoader(), plaque3, "flame2");
-			world.register(flame6);
+		    MoverDamageFire flame4 = new MoverDamageFire(new Vector(90, -8), new Vector(40 , -3), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
 			Lava lavaPhase3NoWalljump = new Lava(new Box(new Vector(52.5, -4), 3, 16), loader, "colonnelava");
 		    
+			Block blockDisparitionSignalDeadARemplacer[] = {blockDisparaitra1,blockDisparaitra2};
 		    //Boss
-		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 9, lavaPhase3NoWalljump, flame4, null, null, null, loader);
+		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 9, lavaPhase3NoWalljump, flame4, blockDisparitionSignalDeadARemplacer, loader);
 		    world.register(Donald);
 		    world.register(new Overlay(Donald));
 		    
