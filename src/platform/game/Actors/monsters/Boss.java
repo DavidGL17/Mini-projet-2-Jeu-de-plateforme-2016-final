@@ -12,9 +12,9 @@ import platform.game.Actors.Monster;
 import platform.game.Actors.Particle;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDisparitionSignal;
-import platform.game.Actors.blocks.MoverDamageFire;
 import platform.game.Actors.blocks.MoverLava;
 import platform.game.Signals.Constant;
+import platform.game.Signals.Signal;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -28,6 +28,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final static String dessinInterphase = "blockerSad";
 	private final Vector positionRepos;
 	private final Vector positionCombat;
+	private final Signal signalDebutCombat;
 	private final Box boxDActionMinions;
 	private final Vector positionSpawnMinions;
 	private final Vector positionCoeurInterphase2;
@@ -35,10 +36,11 @@ public class Boss extends Monster implements ActeurOverlay{
 	private Lava lavaPhase3NoWalljump;
 	private final Block[] blockDisparitionSignalDeadARemplacer;
 	
-	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,Lava lavaPhase3NoWalljump,Block[] blockDisparitionSignalDeadARemplacer,Loader loader){
-		super(vitesse, positionCombat, width, height, null, 0, loader, dessin);
+	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Signal signalDebutCombat,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,Lava lavaPhase3NoWalljump,Block[] blockDisparitionSignalDeadARemplacer,Loader loader){
+		super(vitesse, positionRepos, width, height, null, 0, loader, dessin);
 		this.positionCombat = positionCombat;
 		this.positionRepos = positionRepos;
+		this.signalDebutCombat = signalDebutCombat;
 		this.boxDActionMinions = boxDActionMinions;
 		this.positionSpawnMinions = positionSpawnMinions;
 		this.positionCoeurInterphase2 = positionCoeurInterphase2;
@@ -47,7 +49,7 @@ public class Boss extends Monster implements ActeurOverlay{
 		this.blockDisparitionSignalDeadARemplacer = blockDisparitionSignalDeadARemplacer;
 		this.lavaPhase3NoWalljump = lavaPhase3NoWalljump;
 	}
-	//Le boss est solide pour éviter que des joueurs trop malins se mettent au même endroti que le bosse pour éviter toute les proectiles
+	//Le boss est solide pour éviter que des joueurs trop malins se mettent au même endroit que le bosse pour éviter toute les proectiles
 	@Override
 	public boolean isSolid(){
 		return true;
@@ -63,7 +65,7 @@ public class Boss extends Monster implements ActeurOverlay{
 
 	//permet de conter la phase actuelle du boss et de voir si on est entre les phases ou pas
 	private int phase = 1;
-	private boolean interphase = false;
+	private boolean interphase = true;
 	//phase 1
 	private final double COOLDOWN_BOULE_FEU = 2;
 	private double cooldownBouleDeFeu = 0;
@@ -100,25 +102,30 @@ public class Boss extends Monster implements ActeurOverlay{
 	
 	@Override
 	public void update(Input input){
+		//au début le boss n'est pas en position de combat, il ne s'y met que si le joueur atteint la salle
+		if (signalDebutCombat.isActive()){
+			interphase = false;
+			setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
+		}
 		//phase 1
-		//Boules de feu
+		//Boules de feu 
 		if (!interphase){
 			if (cooldownBouleDeFeu>0){
 				cooldownBouleDeFeu-=input.getDeltaTime();
 			} else {
 				if (conteurBouleDeFeu ==0){
 					Vector v = new Vector(-5,0);
-					getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
+					getWorld().register(new FireballBoss(v, new Vector(getPosition().getX()-getBox().getWidth()/2, getPosition().getY()), getWorld().getLoader(),this));
 					++conteurBouleDeFeu;
 				} else {
 					if (conteurBouleDeFeu == 1){
 						Vector v = new Vector(-5,-2);
-						getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
+						getWorld().register(new FireballBoss(v, new Vector(getPosition().getX()-getBox().getWidth()/2, getPosition().getY()), getWorld().getLoader(),this));
 						++conteurBouleDeFeu;
 					} else {
 						if (conteurBouleDeFeu == 2){
 							Vector v = new Vector(-5,-4);
-							getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
+							getWorld().register(new FireballBoss(v, new Vector(getPosition().getX()-getBox().getWidth()/2, getPosition().getY()), getWorld().getLoader(),this));
 							++conteurBouleDeFeu;
 						} else {
 							cooldownBouleDeFeu = COOLDOWN_BOULE_FEU;

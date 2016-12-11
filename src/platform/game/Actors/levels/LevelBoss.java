@@ -142,7 +142,7 @@ public class LevelBoss extends Level{
 		    
 			Block blockDisparitionSignalDeadARemplacer[] = {blockDisparaitra1,blockDisparaitra2};
 		    //Boss
-		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 12, lavaPhase3NoWalljump, blockDisparitionSignalDeadARemplacer, loader);
+		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, plaque3,minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 12, lavaPhase3NoWalljump, blockDisparitionSignalDeadARemplacer, loader);
 		    world.register(Donald);
 		    world.register(new Overlay(Donald));
 		    
