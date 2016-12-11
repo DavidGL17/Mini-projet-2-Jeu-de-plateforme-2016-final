@@ -65,7 +65,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	private int phase = 1;
 	private boolean interphase = false;
 	//phase 1
-	private final double COOLDOWN_BOULE_FEU = 1;
+	private final double COOLDOWN_BOULE_FEU = 2;
 	private double cooldownBouleDeFeu = 0;
 	private int conteurBouleDeFeu = 0;
 	//interphase 1
