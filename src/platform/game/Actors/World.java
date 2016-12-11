@@ -31,6 +31,7 @@ public interface World {
     public void nextLevel () ;
 	//Lorsque cette méthode est appelée, on changera le mode de jeu puis on activera le changement de niveau
     public void changeLevelMode(int levelMode);
+    public int getLevelMode();
     // permet de passer au niveau level :
     public void setNextLevel(Level level) ;
     public void tryAgain();
