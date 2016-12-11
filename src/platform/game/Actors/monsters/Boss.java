@@ -65,10 +65,9 @@ public class Boss extends Monster implements ActeurOverlay{
 	private int phase = 1;
 	private boolean interphase = false;
 	//phase 1
-	private final double COOLDOWN_BOULE_FEU = 2;
+	private final double COOLDOWN_BOULE_FEU = 1;
 	private double cooldownBouleDeFeu = 0;
 	private int conteurBouleDeFeu = 0;
-	private final int MAX_BOULE_FEU_SUITE = 5;
 	//interphase 1
 	private ArrayList<Slime> minions = new ArrayList<Slime>();
 	private final int nbrSlime = 3;
@@ -108,13 +107,25 @@ public class Boss extends Monster implements ActeurOverlay{
 			if (cooldownBouleDeFeu>0){
 				cooldownBouleDeFeu-=input.getDeltaTime();
 			} else {
-				if (conteurBouleDeFeu>= MAX_BOULE_FEU_SUITE){
-					conteurBouleDeFeu = 0;
-					cooldownBouleDeFeu = COOLDOWN_BOULE_FEU;
-				} else {
-					Vector v = new Vector(-5,-4);
+				if (conteurBouleDeFeu ==0){
+					Vector v = new Vector(-5,0);
 					getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
 					++conteurBouleDeFeu;
+				} else {
+					if (conteurBouleDeFeu == 1){
+						Vector v = new Vector(-5,-2);
+						getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
+						++conteurBouleDeFeu;
+					} else {
+						if (conteurBouleDeFeu == 2){
+							Vector v = new Vector(-5,-4);
+							getWorld().register(new FireballBoss(v, getPosition(), getWorld().getLoader(),this));
+							++conteurBouleDeFeu;
+						} else {
+							cooldownBouleDeFeu = COOLDOWN_BOULE_FEU;
+							conteurBouleDeFeu = 0;
+						}
+					}
 				}
 			}
 		}
