@@ -5,10 +5,12 @@ import platform.game.Actors.Lever;
 import platform.game.Actors.Limits;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
+import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.Torch;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
+import platform.game.Actors.blocks.BlockDecoSignal;
 import platform.game.Signals.And;
 import platform.game.Signals.Not;
 import platform.util.Box;
@@ -27,8 +29,14 @@ public class Level_04 extends Level{
 	    world.register(overlayfranky);
 	    
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
+	    SignalInvisibleConstant tuto = new SignalInvisibleConstant(new Box(new Vector(0, 0), 3, 5));
+	    world.register(tuto);
+	    world.register(new BlockDecoSignal(new Vector(0, 2.5), 5, 3, loader, "tuto3", tuto));
+	     
 	    world.register(new BlockDeco(new Vector(6, 6), 18, 18, world.getLoader(), "bg_castle3"));
-
+	   
+	  
+	    
 	    										//Platforme
 	    world.register(new Block(new Box(new Vector(-12, -3), 6, 6), world.getLoader().getSprite("castle.center3")));
 	    world.register(new Block(new Box(new Vector(-12, -9), 6, 6), world.getLoader().getSprite("castle.center3")));

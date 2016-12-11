@@ -43,9 +43,13 @@ public class Simulator implements World {
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
 <<<<<<< HEAD
+<<<<<<< HEAD
      	niveaux = new Level[]{new LevelBoss()};
 =======
      	niveaux = new Level[]{new Level_01()};
+>>>>>>> origin/master
+=======
+     	niveaux = new Level[]{new Level_04()};
 >>>>>>> origin/master
     	nextLevel();
     	register(nextLevel);
