@@ -463,7 +463,7 @@ public class Level_08 extends Level{
     world.register(new BlockDeco(new Vector(173, 50), 18, 18, world.getLoader(), "bg_castle3"));
     world.register(new BlockDeco(new Vector(173, 68), 18, 18, world.getLoader(), "bg_castle3"));
     world.register(new BlockDeco(new Vector(155, 70), 20, 100, world.getLoader(), "Background_112"));
-	world.register(new BlockDeco(new Vector(6, 0), 500, 505, world.getLoader(), "Background2_0"));
+	world.register(new BlockDeco(new Vector(6, 0), 500, 505, world.getLoader(), "Background2_1"));
 	
 											//Register
 	
