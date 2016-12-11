@@ -30,7 +30,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final Box boxDActionMinions;
 	private final Vector positionSpawnMinions;
 	private final Vector positionCoeurInterphase2;
-	private final MoverLava moverInterphase2;
+	private MoverLava moverInterphase2;
 	private Lava lavaPhase3NoWalljump;
 	private final MoverDamageFire moverFirePhase3;
 	private final Block[] blockDisparitionSignalDeadARemplacer;
@@ -138,7 +138,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
 			//fait spawn les slimes
 			for (int i = 0;i<nbrSlime;++i){
-			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.03,2, boxDActionMinions, getWorld().getLoader(), 1,1,false);
+			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.01,2, boxDActionMinions, getWorld().getLoader(), 1,1,false);
 			    minions.add(slime);
 			    getWorld().register(slime);
 			}
@@ -175,6 +175,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			MoverLava lava = new MoverLava(moverInterphase2.getOff(), moverInterphase2.getOn(), moverInterphase2.getBox().getWidth(), moverInterphase2.getBox().getHeight(), moverInterphase2.getHitBox(), moverInterphase2.getVitesseDeMouvement(), getWorld().getLoader(), new Constant(true), "");
 			lava.setSprite(moverInterphase2.getSprite());
 			getWorld().register(lava);
+			moverInterphase2 = lava;
 		}
 		//interphase 2
 		if (interphase&&phase == 3){
