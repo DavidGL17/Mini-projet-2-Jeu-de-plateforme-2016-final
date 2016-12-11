@@ -117,7 +117,7 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(90, 6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 12), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 18), 6, 6), world.getLoader().getSprite("castle.middle.corner3")));
-		    world.register(new Lava(new Box(new Vector(66, -19), 30, 16), loader, "liquidLavaTop_mid26x4"));
+		    world.register(new Lava(new Box(new Vector(66, -22), 30, 16), loader, "liquidLavaTop_mid26x4"));
 
 		    world.register(new Block(new Box(new Vector(78, 4), 6, 2), world.getLoader().getSprite("stone.3")));
 		    world.register(new Block(new Box(new Vector(72, 4), 6, 2), world.getLoader().getSprite("stone.3")));
@@ -134,7 +134,7 @@ public class LevelBoss extends Level{
 		    Slime minion1 = new Slime(new Vector(0, 0), new Vector(60, -8.5),0.01,4, new Box(new Vector(65.5, -8), 20, 5), loader, 1,1,false);
 		    										// Interphase 2
 	    
-	   		MoverLava lava = new MoverLava(new Vector(66, -18), new Vector(66, 5), 30, 16,new Box(new Vector(30,16), 30,13), 0.1, world.getLoader(), plaque3, "liquidLavaTop_mid6x4"); // 9s
+	   		MoverLava lava = new MoverLava(new Vector(66, -22), new Vector(66, 5), 30, 16,new Box(new Vector(66,-18), 30,13), 0.075, world.getLoader(), plaque3, "liquidLavaTop_mid26x4"); // 9s
 	    	Heart coeurInterphase2 = new  Heart(new Vector(65, -8), world.getLoader());
 		    										// Phase 3
 		
@@ -143,7 +143,7 @@ public class LevelBoss extends Level{
 		    
 			Block blockDisparitionSignalDeadARemplacer[] = {blockDisparaitra1,blockDisparaitra2};
 		    //Boss
-		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 9, lavaPhase3NoWalljump, flame4, blockDisparitionSignalDeadARemplacer, loader);
+		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 12, lavaPhase3NoWalljump, flame4, blockDisparitionSignalDeadARemplacer, loader);
 		    world.register(Donald);
 		    world.register(new Overlay(Donald));
 		    
