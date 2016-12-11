@@ -27,6 +27,7 @@ public class LevelBoss extends Level{
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
 		    Loader loader = world.getLoader();
+		    world.setView(new Vector(0, 0), 100);
 		    
 
 		    										// Couloir
@@ -136,7 +137,7 @@ public class LevelBoss extends Level{
 			Lava lavaPhase3NoWalljump = new Lava(new Box(new Vector(52.5, -4), 3, 16), loader, "colonnelava");
 		    
 		    //Boss
-		    Boss Donald = new Boss(new Vector(0, 0), new Vector(78, -5), new Vector(100, 50), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 9, lavaPhase3NoWalljump, flame4, null, null, null, loader);
+		    Boss Donald = new Boss(new Vector(0, 0), new Vector(78, -5), new Vector(78, 15), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 9, lavaPhase3NoWalljump, flame4, null, null, null, loader);
 		    world.register(Donald);
 		    world.register(new Overlay(Donald));
 		    

@@ -42,15 +42,7 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
-<<<<<<< HEAD
-<<<<<<< HEAD
      	niveaux = new Level[]{new LevelBoss()};
-=======
-     	niveaux = new Level[]{new Level_01()};
->>>>>>> origin/master
-=======
-     	niveaux = new Level[]{new Level_04()};
->>>>>>> origin/master
     	nextLevel();
     	register(nextLevel);
     	transition = false;
@@ -85,7 +77,7 @@ public class Simulator implements World {
     //1 Mode histoire, on ne changera pas de mode de jeu à moins qu'on arrive à la fin. On utilise le tableau Levels en itéterant dessus
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
-    private int levelMode = 1;
+    private int levelMode = 0;
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
     private Level[] niveaux;

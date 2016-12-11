@@ -54,7 +54,7 @@ public class Slime extends Monster{
 	}
 	
 	//permet de donner un cooldown aux dégats du slime, afin d'éviter de mourir instantanément
-	private final double COOLDOWN_MAX_DEGATS = 0.5;
+	private final double COOLDOWN_MAX_DEGATS = 1;
 	private double cooldownDegats = 0;
 	//permet de faire apparaitre les slimes (1 fois)
 	private boolean bigBrotherIsDead = false;
