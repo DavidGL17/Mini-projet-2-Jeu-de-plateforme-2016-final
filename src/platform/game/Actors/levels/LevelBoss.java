@@ -23,7 +23,7 @@ public class LevelBoss extends Level{
 	    public void register(World world) {
 	        super.register(world);
 	        
-	    	Player franky = new Player(new Vector(0, -4), new Vector(60, -6), world.getLoader());
+	    	Player franky = new Player(new Vector(0, -4), new Vector(0, 0), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);

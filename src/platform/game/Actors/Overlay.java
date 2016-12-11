@@ -26,6 +26,9 @@ public class Overlay extends Actor{
 	
 	public void update(Input input) {
 		super.update(input);
+		if (acteur.getHP()==0){
+			getWorld().unregister(this);
+		}
 		this.position= new Vector(acteur.getPosition().getX()+0.1, acteur.getPosition().getY()+acteur.getBox().getHeight()/2+0.3);
 	}
 	public void draw(Input input, Output output){
