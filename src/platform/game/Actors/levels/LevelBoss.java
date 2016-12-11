@@ -138,12 +138,11 @@ public class LevelBoss extends Level{
 	    	Heart coeurInterphase2 = new  Heart(new Vector(65, -8), world.getLoader());
 		    										// Phase 3
 		
-		    MoverDamageFire flame4 = new MoverDamageFire(new Vector(90, -8), new Vector(40 , -3), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
 			Lava lavaPhase3NoWalljump = new Lava(new Box(new Vector(52.5, -8), 3, 16), loader, "colonnelava");
 		    
 			Block blockDisparitionSignalDeadARemplacer[] = {blockDisparaitra1,blockDisparaitra2};
 		    //Boss
-		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 12, lavaPhase3NoWalljump, flame4, blockDisparitionSignalDeadARemplacer, loader);
+		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 12, lavaPhase3NoWalljump, blockDisparitionSignalDeadARemplacer, loader);
 		    world.register(Donald);
 		    world.register(new Overlay(Donald));
 		    
