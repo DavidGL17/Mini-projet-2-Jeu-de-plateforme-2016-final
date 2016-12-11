@@ -17,7 +17,7 @@ public class Overlay extends Actor{
 	public Overlay(ActeurOverlay acteur){
 		super(10, new Box(new Vector(acteur.getPosition().getX(), acteur.getPosition().getY()+0.5), 0.2, 0.2), acteur.getWorld().getLoader().getSprite(COEUR_PLEIN));
 		this.acteur = acteur;
-		this.position= new Vector(acteur.getPosition().getX()+0.1, acteur.getPosition().getY()+0.8);
+		this.position= new Vector(acteur.getPosition().getX()+0.1, acteur.getPosition().getY()+acteur.getBox().getHeight()/2+0.3);
 		HPMax = acteur.getHPMax()/10*(-1);
 	}
 	public Vector getPosition(){
@@ -26,15 +26,15 @@ public class Overlay extends Actor{
 	
 	public void update(Input input) {
 		super.update(input);
-		this.position= new Vector(acteur.getPosition().getX()+0.1, acteur.getPosition().getY()+0.8);
+		this.position= new Vector(acteur.getPosition().getX()+0.1, acteur.getPosition().getY()+acteur.getBox().getHeight()/2+0.3);
 	}
 	public void draw(Input input, Output output){
 		double p = HPMax;
 		for (int i = 1;i<=acteur.getHPMax();++i){
 			if (i <= acteur.getHP()){
-				output.drawSprite(acteur.getWorld().getLoader().getSprite(COEUR_PLEIN), new Box(new Vector(getPosition().getX()+p, getPosition().getY()), SIZE, SIZE));
+				output.drawSprite(getWorld().getLoader().getSprite(COEUR_PLEIN), new Box(new Vector(getPosition().getX()+p, getPosition().getY()), SIZE, SIZE));
 			} else {
-				output.drawSprite(acteur.getWorld().getLoader().getSprite(COEUR_VIDE), new Box(new Vector(getPosition().getX()+p, getPosition().getY()), SIZE, SIZE));
+				output.drawSprite(getWorld().getLoader().getSprite(COEUR_VIDE), new Box(new Vector(getPosition().getX()+p, getPosition().getY()), SIZE, SIZE));
 			}
 			p +=0.2;
 		}

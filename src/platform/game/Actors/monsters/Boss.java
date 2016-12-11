@@ -8,6 +8,7 @@ import platform.game.Actors.Damage;
 import platform.game.Actors.FireballBoss;
 import platform.game.Actors.Heart;
 import platform.game.Actors.Monster;
+import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDisparitionSignal;
 import platform.game.Actors.blocks.MoverDamageFire;
 import platform.game.Actors.blocks.MoverLava;
@@ -29,11 +30,11 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final Vector positionCoeurInterphase2;
 	private final MoverLava moverInterphase2;
 	private final MoverDamageFire moverFirePhase3;
-	private final BlockDisparitionSignal blockDisparitionSignalDeadARemplacer;
+	private final Block blockDisparitionSignalDeadARemplacer;
 	private final BlockDisparitionSignal blockDisparitionSignalDead;
 	private final String blockDisparitionSignalDeadDessin;
 	
-	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,MoverDamageFire moverFirePhase3,BlockDisparitionSignal blockDisparitionSignalDeadARemplacer,BlockDisparitionSignal blockDisparitionSignalDead, String blockDisparitionSignalDeadDessin,Loader loader){
+	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,MoverDamageFire moverFirePhase3,Block blockDisparitionSignalDeadARemplacer,BlockDisparitionSignal blockDisparitionSignalDead, String blockDisparitionSignalDeadDessin,Loader loader){
 		super(vitesse, positionCombat, width, height, null, 0, loader, dessin);
 		this.positionCombat = positionCombat;
 		this.positionRepos = positionRepos;
@@ -67,6 +68,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final int MAX_BOULE_FEU_SUITE = 5;
 	//interphase 1
 	private ArrayList<Slime> minions = new ArrayList<Slime>();
+	private final int nbrSlime = 3;
 	//phase 2
 	private final double COOLDOWN_ETEINDRE = 1.5;	
 	private double cooldownEteindre = 0;
@@ -116,8 +118,8 @@ public class Boss extends Monster implements ActeurOverlay{
 			interphase = true;
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
 			//fait spawn les slimes
-			for (int i = 0;i<3;++i){
-			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.03,4, boxDActionMinions, getWorld().getLoader(), 2,2,true);
+			for (int i = 0;i<nbrSlime;++i){
+			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.001,4, boxDActionMinions, getWorld().getLoader(), 1,1,false);
 			    minions.add(slime);
 			}
 		}
@@ -130,7 +132,7 @@ public class Boss extends Monster implements ActeurOverlay{
 					++minionsDead;
 				}
 			}
-			if (minionsDead>=3){
+			if (minionsDead>=nbrSlime){
 				interphase = false;
 				setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
 			}
