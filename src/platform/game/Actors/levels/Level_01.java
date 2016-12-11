@@ -31,6 +31,10 @@ public class Level_01 extends Level {
 	    	world.register(key);
 		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
 		    Loader loader = world.getLoader();
+		  
+		    SignalInvisibleConstant tuto = new SignalInvisibleConstant(new Box(new Vector(24, 6), 4, 6));
+		    world.register(tuto);
+		    world.register(new BlockDecoSignal(new Vector(24, 9), 12, 8, loader, "tuto1", tuto));
 
 
 		    

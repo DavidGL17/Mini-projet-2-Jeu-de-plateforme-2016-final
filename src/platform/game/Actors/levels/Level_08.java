@@ -74,11 +74,11 @@ public class Level_08 extends Level{
 
     										// Lava
 
-    world.register(new Lava(new Box(new Vector(15, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
-    world.register(new Lava(new Box(new Vector(39, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
-    world.register(new Lava(new Box(new Vector(63, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
-    world.register(new Lava(new Box(new Vector(92, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
-    world.register(new Lava(new Box(new Vector(116, -16), 24, 16), loader, "liquidLavaTop_mid6x4"));
+    world.register(new Lava(new Box(new Vector(15, -16), 24, 16), loader, "liquidLavaTop_mid26x4"));
+    world.register(new Lava(new Box(new Vector(39, -16), 24, 16), loader, "liquidLavaTop_mid26x4"));
+    world.register(new Lava(new Box(new Vector(63, -16), 24, 16), loader, "liquidLavaTop_mid26x4"));
+    world.register(new Lava(new Box(new Vector(92, -16), 24, 16), loader, "liquidLavaTop_mid26x4"));
+    world.register(new Lava(new Box(new Vector(116, -16), 24, 16), loader, "liquidLavaTop_mid26x4"));
     world.register(new Lava(new Box(new Vector(145, -32), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(87, -40), 24, 16), loader, "liquidLava2"));
     world.register(new Lava(new Box(new Vector(111, -40), 24, 16), loader, "liquidLava2"));

@@ -44,7 +44,7 @@ public class Level_02 extends Level{
 	    world.register(new BlockDeco(new Vector(33, -1), 20, 30, world.getLoader(), "Background_92"));
 	    world.register(new BlockDeco(new Vector(54, 8), 8 , 12, world.getLoader(), "Background2_84"));
 	    world.register(new BlockDeco(new Vector(40, 18), 20, 100, world.getLoader(), "Background_112"));
-	    world.register(new BlockDeco(new Vector(40, 18), 55, 100, world.getLoader(), "Background2_0"));
+	    world.register(new BlockDeco(new Vector(40, 18), 55, 100, world.getLoader(), "Background2_1"));
 	    
 	    
 	    											//Début du saut
