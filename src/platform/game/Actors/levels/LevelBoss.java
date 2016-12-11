@@ -136,7 +136,7 @@ public class LevelBoss extends Level{
 	    	Heart coeurInterphase2 = new  Heart(new Vector(65, -8), world.getLoader());
 		    										// Phase 3
 		
-		    MoverDamageFire flame4 = new MoverDamageFire(new Vector(90, -6), new Vector(40 , -6), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
+		    MoverDamageFire flame4 = new MoverDamageFire(new Vector(90, -3), new Vector(40 , -3), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
 			world.register(flame4);
 			MoverDamageFire flame5 = new MoverDamageFire(new Vector(85, -8), new Vector(35 , -8), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
 			world.register(flame5);
