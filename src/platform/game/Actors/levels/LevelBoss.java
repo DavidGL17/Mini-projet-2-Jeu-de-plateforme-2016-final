@@ -27,7 +27,6 @@ public class LevelBoss extends Level{
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
 		    Loader loader = world.getLoader();
-		    world.setView(new Vector(0, 0), 100);
 		    
 
 		    										// Couloir
