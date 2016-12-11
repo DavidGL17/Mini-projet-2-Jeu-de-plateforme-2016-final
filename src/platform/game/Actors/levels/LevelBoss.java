@@ -104,12 +104,12 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(75, -12), 6, 6), world.getLoader().getSprite("castle.middle3")));
 		    world.register(new Block(new Box(new Vector(84, -12), 6, 6), world.getLoader().getSprite("castle.center3")));
 		    world.register(new Block(new Box(new Vector(84, -18), 6, 6), world.getLoader().getSprite("castle.center3")));
-		    world.register(new Block(new Box(new Vector(84, -6), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
+		    world.register(new Block(new Box(new Vector(84, -6), 6, 6), world.getLoader().getSprite("castle.middle.left3")));	//va disparaitre
 		    world.register(new Block(new Box(new Vector(84, 0), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
 		    world.register(new Block(new Box(new Vector(84, 6), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
 		    world.register(new Block(new Box(new Vector(84, 12), 6, 6), world.getLoader().getSprite("castle.middle.left3")));
 		    world.register(new Block(new Box(new Vector(90, 0), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
-		    world.register(new Block(new Box(new Vector(90, -6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
+		    world.register(new Block(new Box(new Vector(90, -6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));	// va disparaitre
 		    world.register(new Block(new Box(new Vector(90, -12), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, -18), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
@@ -133,7 +133,6 @@ public class LevelBoss extends Level{
 		    										// Interphase 2
 	    
 	   		MoverLava lava = new MoverLava(new Vector(66, -18), new Vector(66, 5), 30, 16,new Box(new Vector(30,16), 30,13), 0.1, world.getLoader(), plaque3, "liquidLavaTop_mid6x4"); // 9s
-	    	world.register(lava);
 	    	Heart coeurInterphase2 = new  Heart(new Vector(65, -8), world.getLoader());
 		    										// Phase 3
 		
