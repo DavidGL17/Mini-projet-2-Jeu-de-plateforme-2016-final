@@ -139,7 +139,7 @@ public class LevelBoss extends Level{
 		    										// Phase 3
 		
 		    MoverDamageFire flame4 = new MoverDamageFire(new Vector(90, -8), new Vector(40 , -3), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
-			Lava lavaPhase3NoWalljump = new Lava(new Box(new Vector(52.5, -4), 3, 16), loader, "colonnelava");
+			Lava lavaPhase3NoWalljump = new Lava(new Box(new Vector(52.5, -8), 3, 16), loader, "colonnelava");
 		    
 			Block blockDisparitionSignalDeadARemplacer[] = {blockDisparaitra1,blockDisparaitra2};
 		    //Boss
