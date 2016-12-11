@@ -16,10 +16,11 @@ public class LevelIntro extends Level{
     public void register(World world) {
         super.register(world);
         Loader loader = getWorld().getLoader();
-        Player franky = new Player(new Vector(0, 0), new Vector(0, -20), world.getLoader());
+        Player franky = new Player(new Vector(0, 0), new Vector(0, 20), world.getLoader());
         world.register(franky);
         world.register(new LimiteTangible(new Vector(-6.5, 0), 1, 100));
         world.register(new LimiteTangible(new Vector(6.5, 0), 1, 100));
+        world.register(new BlockDeco(new Vector(0, 10), 20, 20, loader, "textIntro"));
         
         //portes
         world.register(new Exit(new Vector(5, -28), 1.5, 2, loader, new Constant(true),1));

@@ -9,7 +9,6 @@ import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
-import platform.game.Actors.blocks.BlockIndecis;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.blocks.MoverDamageFire;
 import platform.game.Actors.blocks.MoverLava;
@@ -21,7 +20,7 @@ import platform.util.Vector;
 
 public class LevelBoss extends Level{
 	 @Override
-	    public void register(World world) {
+	 public void register(World world) {
 	        super.register(world);
 	        
 	    	Player franky = new Player(new Vector(0, -4), new Vector(0, 0), world.getLoader());
