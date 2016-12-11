@@ -121,10 +121,10 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(72, 4), 6, 2), world.getLoader().getSprite("stone.3")));
 		    world.register(new Block(new Box(new Vector(68, 6), 2, 6), world.getLoader().getSprite("stone.7")));
 		    world.register(new Block(new Box(new Vector(68, 12), 2, 6), world.getLoader().getSprite("stone.7")));
-		    world.register(new BlockIndecis(new Box(new Vector(65, -7), 3, 1), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
-		    world.register(new BlockIndecis(new Box(new Vector(70, -5), 3, 1), 2, 2, loader, "stone.broken.3", "stone.broken2.3"));
-		    world.register(new BlockIndecis(new Box(new Vector(63, -2), 3, 1), 3, 1, loader, "stone.broken.3", "stone.broken2.3"));
-		    world.register(new BlockIndecis(new Box(new Vector(58, 0), 3, 1), 2, 2, loader, "stone.broken.3", "stone.broken2.3"));
+//		    world.register(new BlockIndecis(new Box(new Vector(65, -7), 3, 1), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
+//		    world.register(new BlockIndecis(new Box(new Vector(70, -5), 3, 1), 2, 2, loader, "stone.broken.3", "stone.broken2.3"));
+//		    world.register(new BlockIndecis(new Box(new Vector(63, -2), 3, 1), 3, 1, loader, "stone.broken.3", "stone.broken2.3"));
+//		    world.register(new BlockIndecis(new Box(new Vector(58, 0), 3, 1), 2, 2, loader, "stone.broken.3", "stone.broken2.3"));
 
 		    
 		    										// Interphase 1
@@ -145,7 +145,7 @@ public class LevelBoss extends Level{
 			Lava lavaPhase3NoWalljump = new Lava(new Box(new Vector(52.5, -4), 3, 16), loader, "colonnelava");
 		    
 		    //Boss
-		    Boss Donald = new Boss(new Vector(0, 0), new Vector(78, -5), new Vector(78, 15), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 9, lavaPhase3NoWalljump, flame4, null, null, null, loader);
+		    Boss Donald = new Boss(new Vector(0, 0), new Vector(74.5, -5), new Vector(75, 9), 8, 8, minion1.getBoxDAction(), minion1.getPosition(), coeurInterphase2.getPosition(), lava, 9, lavaPhase3NoWalljump, flame4, null, null, null, loader);
 		    world.register(Donald);
 		    world.register(new Overlay(Donald));
 		    
