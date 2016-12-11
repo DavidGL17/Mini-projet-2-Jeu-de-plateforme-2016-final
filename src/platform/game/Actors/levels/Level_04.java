@@ -29,9 +29,9 @@ public class Level_04 extends Level{
 	    world.register(overlayfranky);
 	    
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
-	    SignalInvisibleConstant tuto = new SignalInvisibleConstant(new Box(new Vector(0, 0), 3, 5));
+	    SignalInvisibleConstant tuto = new SignalInvisibleConstant(new Box(new Vector(6, 7), 3, 5));
 	    world.register(tuto);
-	    world.register(new BlockDecoSignal(new Vector(0, 2.5), 5, 3, loader, "tuto3", tuto));
+	    world.register(new BlockDecoSignal(new Vector(7, 11), 10, 6, loader, "tuto3", tuto));
 	     
 	    world.register(new BlockDeco(new Vector(6, 6), 18, 18, world.getLoader(), "bg_castle3"));
 	   
