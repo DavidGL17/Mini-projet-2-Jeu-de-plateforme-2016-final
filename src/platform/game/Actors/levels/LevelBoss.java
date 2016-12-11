@@ -83,11 +83,9 @@ public class LevelBoss extends Level{
 			SignalInvisibleConstant plaque3 = new SignalInvisibleConstant(new Box(new Vector(54, 0), 6, 6));
 		    world.register(plaque3);
 			world.register(new Mover(new Vector(50, 6), new Vector(50, 0), 2, 6, 1, world.getLoader(), plaque3, "castle.middle2_4"));
-
 			world.register(new Block(new Box(new Vector(47.25, 19), 20, 8), world.getLoader().getSprite("castle.top")));
 			world.register(new Block(new Box(new Vector(65.1, 19), 20, 8), world.getLoader().getSprite("castle.top")));
 			world.register(new Block(new Box(new Vector(83, 19), 20, 8), world.getLoader().getSprite("castle.top")));
-
 		    world.register(new Block(new Box(new Vector(48, 12), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(54, 18), 6, 6), world.getLoader().getSprite("castle.middle2.3")));
 		    world.register(new Block(new Box(new Vector(60, 18), 6, 6), world.getLoader().getSprite("castle.middle2.3")));
@@ -100,8 +98,6 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(42, 18), 6, 6), world.getLoader().getSprite("castle.center3")));
 		    world.register(new Block(new Box(new Vector(36, 12), 6, 6), world.getLoader().getSprite("castle.center3")));
 		    world.register(new Block(new Box(new Vector(36, 18), 6, 6), world.getLoader().getSprite("castle.center3")));
-
-
 		    world.register(new Block(new Box(new Vector(57, -12), 6, 6), world.getLoader().getSprite("castle.middle3")));
 		    world.register(new Block(new Box(new Vector(63, -12), 6, 6), world.getLoader().getSprite("castle.middle3")));
 		    world.register(new Block(new Box(new Vector(69, -12), 6, 6), world.getLoader().getSprite("castle.middle3")));
@@ -119,11 +115,11 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(90, 6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 12), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 18), 6, 6), world.getLoader().getSprite("castle.middle.corner3")));
-
-		    
-			
 		    world.register(new Lava(new Box(new Vector(66, -18), 30, 16), loader, "liquidLavaTop_mid6x4"));
 
+		    
+		    										// Phase 2 -> 3
+		    
 		    										// Background
 
 		    world.register(new BlockDeco(new Vector(6, 0), 18, 18, world.getLoader(), "bg_castledark3"));

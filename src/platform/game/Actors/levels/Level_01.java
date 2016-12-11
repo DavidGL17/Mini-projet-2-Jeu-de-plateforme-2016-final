@@ -26,15 +26,15 @@ public class Level_01 extends Level {
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
-	    	world.register(new Limits(new Box(new Vector(0, -12) , 1000, 5)));
+	    	world.register(new Limits(new Box(new Vector(0, -3) , 1000, 5)));
 	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
 	    	world.register(key);
 		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
 		    Loader loader = world.getLoader();
 		    //texte de début
-		    SignalInvisibleConstant signal1Texte = new SignalInvisibleConstant(new Box(new Vector(5, 6), 4, 6));
-		    world.register(signal1Texte);
-		    world.register(new BlockDecoSignal(new Vector(5, 10), 12, 8, loader, "zoneTexteLevel01_1", signal1Texte));
+//		    SignalInvisibleConstant signal1Texte = new SignalInvisibleConstant(new Box(new Vector(5, 6), 4, 6));
+//		    world.register(signal1Texte);
+//		    world.register(new BlockDecoSignal(new Vector(5, 10), 12, 8, loader, "zoneTexteLevel01_1", signal1Texte));
 
 
 		    
@@ -136,6 +136,7 @@ public class Level_01 extends Level {
 	    	world.register(new BlockDeco(new Vector(28, 14), 2, 2, world.getLoader(), "foliagePack_leaves_003"));
 	    	world.register(new BlockDeco(new Vector(29, 15.5), 1, 1, world.getLoader(), "bush"));
 	    	world.register(new BlockDeco(new Vector(26.5, 13.5), 1, 1, world.getLoader(), "bush"));
+	    	world.register(new BlockDeco(new Vector(26, -4), 10, 16, world.getLoader(), "Background2_84"));
 
 	    														// Exit
 	    	
@@ -194,16 +195,17 @@ public class Level_01 extends Level {
 	    	world.register(new BlockDeco(new Vector(46, 12), 8, 12, world.getLoader(), "Background2_84"));
 	    	world.register(new BlockDeco(new Vector(46, 4), 8, 12, world.getLoader(), "Background2_84"));
 	    	world.register(new BlockDeco(new Vector(54, 4), 8, 12, world.getLoader(), "Background2_84"));
-	    	world.register(new BlockDeco(new Vector(37, 28), 8, 3, world.getLoader(), "hill_largeAlt"));
-	    	world.register(new BlockDeco(new Vector(42, 28), 10, 3, world.getLoader(), "hill_largeAlt"));
-	    	world.register(new BlockDeco(new Vector(40, 28), 14, 3, world.getLoader(), "hill_largeAlt"));
-	    	world.register(new BlockDeco(new Vector(52.5, 28), 14, 3, world.getLoader(), "hill_largeAlt"));
+	    	
 
 
 	    													// Background
 
 	    	world.register(new BlockDeco(new Vector(6, 4), 20, 60, world.getLoader(), "Background_17"));
 	    	world.register(new BlockDeco(new Vector(20, 30), 20, 100, world.getLoader(), "Background_112"));
+	    	world.register(new BlockDeco(new Vector(37, 28), 8, 3, world.getLoader(), "hill_largeAlt"));
+	    	world.register(new BlockDeco(new Vector(42, 28), 10, 3, world.getLoader(), "hill_largeAlt"));
+	    	world.register(new BlockDeco(new Vector(40, 28), 14, 3, world.getLoader(), "hill_largeAlt"));
+	    	world.register(new BlockDeco(new Vector(52.5, 28), 14, 3, world.getLoader(), "hill_largeAlt"));
 	    	world.register(new BlockDeco(new Vector(6, 0), 500, 505, world.getLoader(), "Background2_1"));
 	 }
 }

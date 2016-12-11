@@ -26,7 +26,6 @@ public class Level_06 extends Level{
 	world.register(overlayfranky);
 	
   
-    world.register(new BlockDeco(new Vector(-4, 13), 2, 2, world.getLoader(), "door.closed"));
     world.register(new Block(new Box(new Vector(-18, 16), 6, 6), world.getLoader().getSprite("castle.center3")));
     world.register(new Block(new Box(new Vector(-18, 22), 6, 6), world.getLoader().getSprite("castle.center3")));
     world.register(new Block(new Box(new Vector(-18, 10), 6, 6), world.getLoader().getSprite("castle.center3")));
