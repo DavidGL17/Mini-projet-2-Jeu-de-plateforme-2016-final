@@ -42,7 +42,7 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
-     	niveaux = new Level[]{new Level_8()};
+     	niveaux = new Level[]{new Level_01()};
     	nextLevel();
     	register(nextLevel);
     	transition = false;
@@ -82,7 +82,7 @@ public class Simulator implements World {
     private Level levelChoixNiveau = new LevelChoixNiveau();
     private Level[] niveaux;
 	private Level nextLevel;
-    private int compteurDeNiveau = 0;
+    private int compteurDeNiveau = 1;
     private boolean transition = false;
     //permet de savoir si le joueur a passé un checkpoint (s'il y en a un). Il est remit a false à chaaue nouveau level
     //@see nextLevel
