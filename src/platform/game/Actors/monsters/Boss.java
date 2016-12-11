@@ -25,6 +25,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final double HPMax = 15;
 	private double HP = HPMax;
 	private final static String dessin = "blockerMad";
+	private final static String dessinInterphase = "blockerSad";
 	private final Vector positionRepos;
 	private final Vector positionCombat;
 	private final Box boxDActionMinions;
@@ -32,10 +33,9 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final Vector positionCoeurInterphase2;
 	private MoverLava moverInterphase2;
 	private Lava lavaPhase3NoWalljump;
-	private final MoverDamageFire moverFirePhase3;
 	private final Block[] blockDisparitionSignalDeadARemplacer;
 	
-	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,Lava lavaPhase3NoWalljump,MoverDamageFire moverFirePhase3,Block[] blockDisparitionSignalDeadARemplacer,Loader loader){
+	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,Lava lavaPhase3NoWalljump,Block[] blockDisparitionSignalDeadARemplacer,Loader loader){
 		super(vitesse, positionCombat, width, height, null, 0, loader, dessin);
 		this.positionCombat = positionCombat;
 		this.positionRepos = positionRepos;
@@ -44,7 +44,6 @@ public class Boss extends Monster implements ActeurOverlay{
 		this.positionCoeurInterphase2 = positionCoeurInterphase2;
 		this.moverInterphase2 = moverInterphase2;
 		this.cooldownInterphase2 = timerMoverLavaInterphase2;
-		this.moverFirePhase3 = moverFirePhase3;
 		this.blockDisparitionSignalDeadARemplacer = blockDisparitionSignalDeadARemplacer;
 		this.lavaPhase3NoWalljump = lavaPhase3NoWalljump;
 	}
@@ -77,8 +76,6 @@ public class Boss extends Monster implements ActeurOverlay{
 	private double cooldownEteindre = 0;
 	//interphase 2
 	private double cooldownInterphase2;
-	//phase 3
-	private final int nbrMoverFirePhase3 = 3;
 	//mort
 	private boolean dead = false;
 	private double cooldownDisparition = 1;
@@ -184,12 +181,6 @@ public class Boss extends Monster implements ActeurOverlay{
 				interphase = false;
 				getWorld().unregister(moverInterphase2);
 				setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
-				//fait spawn des moverFire 
-				for (int i = 0;i<nbrMoverFirePhase3;++i){
-					Vector off = new Vector(moverFirePhase3.getOff().getX(), moverFirePhase3.getOff().getY()+(2*i));
-					Vector on = new Vector(moverFirePhase3.getOn().getX(), moverFirePhase3.getOn().getY()+(2*i));
-					getWorld().register(new MoverDamageFire(off, on, moverFirePhase3.getBox().getWidth(), moverFirePhase3.getBox().getHeight(), moverFirePhase3.getVitesseDeMouvement(), getWorld().getLoader(), new Constant(true), "flame2"));
-				}
 				//fait apparaitre de la lave sur le murs gauche pour empecher les walljumps
 				getWorld().register(lavaPhase3NoWalljump);
 			}
@@ -215,6 +206,11 @@ public class Boss extends Monster implements ActeurOverlay{
 	
 	@Override
 	public void draw(Input input, Output output) {
+		if (interphase){
+			setSprite(getWorld().getLoader().getSprite(dessinInterphase));
+		} else {
+			setSprite(getWorld().getLoader().getSprite(dessin));
+		}
 		output.drawSprite(getSprite(), getBox());
 	}
 	
