@@ -9,6 +9,7 @@ import platform.game.Actors.FireballBoss;
 import platform.game.Actors.Heart;
 import platform.game.Actors.Lava;
 import platform.game.Actors.Monster;
+import platform.game.Actors.Particle;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDisparitionSignal;
 import platform.game.Actors.blocks.MoverDamageFire;
@@ -88,6 +89,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			case FIRE :
 				if (phase >=2&&cooldownEteindre<=0){
 					cooldownEteindre = COOLDOWN_ETEINDRE;
+					getWorld().register(new Particle(new Box(location, 2, 2), getWorld().getLoader().getSprite("smoke.white.1"), 1.5));
 					return true;
 				} else {
 					HP -= amount;
@@ -136,7 +138,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
 			//fait spawn les slimes
 			for (int i = 0;i<nbrSlime;++i){
-			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.01,4, boxDActionMinions, getWorld().getLoader(), 1,1,false);
+			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.03,2, boxDActionMinions, getWorld().getLoader(), 1,1,false);
 			    minions.add(slime);
 			    getWorld().register(slime);
 			}
