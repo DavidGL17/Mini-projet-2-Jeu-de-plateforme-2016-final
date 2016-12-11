@@ -8,6 +8,7 @@ import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
+import platform.game.Actors.blocks.BlockIndecis;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.blocks.MoverDamageFire;
 import platform.game.Actors.blocks.MoverLava;
@@ -22,7 +23,7 @@ public class LevelBoss extends Level{
 	    public void register(World world) {
 	        super.register(world);
 	        
-	    	Player franky = new Player(new Vector(0, -4), new Vector(60, -2), world.getLoader());
+	    	Player franky = new Player(new Vector(0, -4), new Vector(60, -6), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
@@ -115,6 +116,15 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(90, 12), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 18), 6, 6), world.getLoader().getSprite("castle.middle.corner3")));
 		    world.register(new Lava(new Box(new Vector(66, -19), 30, 16), loader, "liquidLavaTop_mid26x4"));
+
+		    world.register(new Block(new Box(new Vector(78, 4), 6, 2), world.getLoader().getSprite("stone.3")));
+		    world.register(new Block(new Box(new Vector(72, 4), 6, 2), world.getLoader().getSprite("stone.3")));
+		    world.register(new Block(new Box(new Vector(68, 6), 2, 6), world.getLoader().getSprite("stone.7")));
+		    world.register(new Block(new Box(new Vector(68, 12), 2, 6), world.getLoader().getSprite("stone.7")));
+		    world.register(new BlockIndecis(new Box(new Vector(65, -7), 3, 1), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
+		    world.register(new BlockIndecis(new Box(new Vector(70, -5), 3, 1), 2, 2, loader, "stone.broken.3", "stone.broken2.3"));
+		    world.register(new BlockIndecis(new Box(new Vector(63, -2), 3, 1), 3, 1, loader, "stone.broken.3", "stone.broken2.3"));
+		    world.register(new BlockIndecis(new Box(new Vector(58, 0), 3, 1), 2, 2, loader, "stone.broken.3", "stone.broken2.3"));
 
 		    
 		    										// Interphase 1
