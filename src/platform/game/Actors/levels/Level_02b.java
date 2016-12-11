@@ -14,6 +14,7 @@ import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockDecoAvant;
+import platform.game.Actors.blocks.BlockDecoSignal;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.monsters.Slime;
 import platform.util.Box;
@@ -46,6 +47,9 @@ public class Level_02b extends Level{
 		    world.register(new LimiteTangible(new Vector(270, 32), 2, 30));
 		    world.register(new LimiteTangible(new Vector(338, 0), 2, 30));
 
+		    SignalInvisibleConstant tuto = new SignalInvisibleConstant(new Box(new Vector(7, 6), 3, 5));
+		    world.register(tuto);
+		    world.register(new BlockDecoSignal(new Vector(8, 7), 10, 6, loader, "tuto2", tuto));
 		    
 		    										// Partie 1
 		    
