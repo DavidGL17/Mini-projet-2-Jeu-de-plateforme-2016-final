@@ -7,6 +7,7 @@ import platform.game.Actors.ActeurOverlay;
 import platform.game.Actors.Damage;
 import platform.game.Actors.FireballBoss;
 import platform.game.Actors.Heart;
+import platform.game.Actors.Lava;
 import platform.game.Actors.Monster;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDisparitionSignal;
@@ -29,12 +30,13 @@ public class Boss extends Monster implements ActeurOverlay{
 	private final Vector positionSpawnMinions;
 	private final Vector positionCoeurInterphase2;
 	private final MoverLava moverInterphase2;
+	private Lava lavaPhase3NoWalljump;
 	private final MoverDamageFire moverFirePhase3;
 	private final Block blockDisparitionSignalDeadARemplacer;
 	private final BlockDisparitionSignal blockDisparitionSignalDead;
 	private final String blockDisparitionSignalDeadDessin;
 	
-	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,MoverDamageFire moverFirePhase3,Block blockDisparitionSignalDeadARemplacer,BlockDisparitionSignal blockDisparitionSignalDead, String blockDisparitionSignalDeadDessin,Loader loader){
+	public Boss(Vector vitesse, Vector positionCombat,Vector positionRepos,double width, double height,Box boxDActionMinions,Vector positionSpawnMinions,Vector positionCoeurInterphase2, MoverLava moverInterphase2, double timerMoverLavaInterphase2,Lava lavaPhase3NoWalljump,MoverDamageFire moverFirePhase3,Block blockDisparitionSignalDeadARemplacer,BlockDisparitionSignal blockDisparitionSignalDead, String blockDisparitionSignalDeadDessin,Loader loader){
 		super(vitesse, positionCombat, width, height, null, 0, loader, dessin);
 		this.positionCombat = positionCombat;
 		this.positionRepos = positionRepos;
@@ -47,6 +49,7 @@ public class Boss extends Monster implements ActeurOverlay{
 		this.blockDisparitionSignalDeadARemplacer = blockDisparitionSignalDeadARemplacer;
 		this.blockDisparitionSignalDead = blockDisparitionSignalDead;
 		this.blockDisparitionSignalDeadDessin = blockDisparitionSignalDeadDessin;
+		this.lavaPhase3NoWalljump = lavaPhase3NoWalljump;
 	}
 
 	@Override
@@ -74,6 +77,8 @@ public class Boss extends Monster implements ActeurOverlay{
 	private double cooldownEteindre = 0;
 	//interphase 2
 	private double cooldownInterphase2;
+	//phase 3
+	private final int nbrMoverFirePhase3 = 3;
 	//mort
 	private boolean dead = false;
 	private double cooldownDisparition = 1;
@@ -149,6 +154,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			++phase;
 			interphase = true;
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
+			//fait apparaitre un ceour
 			getWorld().register(new Heart(positionCoeurInterphase2, getWorld().getLoader()));
 			getWorld().register(moverInterphase2);
 		}
@@ -157,12 +163,16 @@ public class Boss extends Monster implements ActeurOverlay{
 			cooldownInterphase2 -= input.getDeltaTime();
 			if (cooldownInterphase2 <=0){
 				interphase = false;
+				getWorld().unregister(moverInterphase2);
 				setBox(new Box(positionCombat, getBox().getWidth(), getBox().getHeight()));
-				for (int i = 0;i<5;++i){
+				//fait spawn des moverFire 
+				for (int i = 0;i<nbrMoverFirePhase3;++i){
 					Vector off = new Vector(moverFirePhase3.getOff().getX(), moverFirePhase3.getOff().getY()+4);
 					Vector on = new Vector(moverFirePhase3.getOn().getX(), moverFirePhase3.getOn().getY()+4);
 					getWorld().register(new MoverDamageFire(off, on, moverFirePhase3.getBox().getWidth(), moverFirePhase3.getBox().getHeight(), moverFirePhase3.getVitesseDeMouvement(), getWorld().getLoader(), new Constant(true), dessin));
 				}
+				//fait apparaitre de la lave sur le murs gauche pour empecher les walljumps
+				getWorld().register(lavaPhase3NoWalljump);
 			}
 		}
 		//mort
