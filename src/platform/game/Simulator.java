@@ -77,7 +77,7 @@ public class Simulator implements World {
     //1 Mode histoire, on ne changera pas de mode de jeu à moins qu'on arrive à la fin. On utilise le tableau Levels en itéterant dessus
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
-    private int levelMode = 1;
+    private int levelMode = 0;
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
     private Level[] niveaux;
@@ -131,7 +131,7 @@ public class Simulator implements World {
     		checkpoint = false;
     	}
     	if (levelMode == 3){
-    		compteurDeNiveau = 2;
+    		compteurDeNiveau = 0;
     		nbrMorts = 0;
     		transition = true;
     		checkpoint = false;
@@ -144,6 +144,9 @@ public class Simulator implements World {
 	public void changeLevelMode(int levelMode){
 		this.levelMode = levelMode;
 		nextLevel();
+	}
+	public int getLevelMode(){
+		return levelMode;
 	}
     public void tryAgain(){
     	if (levelMode==1){
@@ -187,13 +190,13 @@ public class Simulator implements World {
 		if (transition) {
 			// si un acteur a appelé setNextLevel , next ne sera pas null :
 			transition = false ;
-			actors.clear () ;
+			actors.clear ();
 			registered.clear () ;
 			// tous les anciens acteurs sont désenregistrés ,
 			// y compris le Level précédent :
 			unregistered.clear () ;
 			register(nextLevel);
-			if (levelMode == 3){
+			if (levelMode == 2){
 				setNextLevel(levelChoixNiveau);
 			}
 		}
