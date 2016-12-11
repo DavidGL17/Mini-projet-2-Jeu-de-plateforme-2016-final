@@ -51,7 +51,11 @@ public class Boss extends Monster implements ActeurOverlay{
 		this.blockDisparitionSignalDeadDessin = blockDisparitionSignalDeadDessin;
 		this.lavaPhase3NoWalljump = lavaPhase3NoWalljump;
 	}
-
+	//Le boss est solide pour éviter que des joeurs trop malins se mettent au même endroti que le bosse pour éviter toute les proectiles
+	@Override
+	public boolean isSolid(){
+		return true;
+	}
 	@Override
 	public double getHP() {
 		return HP;
@@ -163,7 +167,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			}
 		}
 		//passage à phase 3
-		if (HP<=10&&phase==2&&!interphase){
+		if (HP<=5&&phase==2){
 			++phase;
 			interphase = true;
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
