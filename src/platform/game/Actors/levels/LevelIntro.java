@@ -23,9 +23,9 @@ public class LevelIntro extends Level{
         
         //portes
         world.register(new Exit(new Vector(5, -28), 1.5, 2, loader, new Constant(true),1));
-        world.register(new BlockDeco(new Vector(5, -26), 3, 5, loader, "zoneTexteLevelintro_1"));
+        world.register(new BlockDeco(new Vector(5, -26), 1, 5, loader, "text1"));
         world.register(new Exit(new Vector(-5, -28), 1.5, 2, loader, new Constant(true),2));
-        world.register(new BlockDeco(new Vector(-5, -26), 3, 5, loader, "zoneTexteLevelintro_2"));
+        world.register(new BlockDeco(new Vector(-5, -26), 2, 6, loader, "text2"));
         
         //platforme
         for (int i = 0;i<7;++i){

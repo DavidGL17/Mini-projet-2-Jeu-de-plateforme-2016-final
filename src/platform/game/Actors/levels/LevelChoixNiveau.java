@@ -25,30 +25,30 @@ public class LevelChoixNiveau extends Level{
         //Portes et signes
         	//retour choix
         world.register(new Exit(new Vector(0, 1), 1.5, 2, loader, signal,0));
-        world.register(new BlockDeco(new Vector(0, 3), 2, 4, loader, "zoneTexteLevelChoixNiveau_01"));
+        world.register(new BlockDeco(new Vector(0, 3), 1, 4, loader, "text3"));
         for (int i = 0;i<10;++i){
     	    world.register(new Block(new Box(new Vector(10+(i*8), 3), 4, 1), world.getLoader().getSprite("stone.3")));
         }
         world.register(new Exit(new Vector(10, 4.5), 1.5, 2, loader, signal,new Level_01()));
-        world.register(new BlockDeco(new Vector(10, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_02"));
+        world.register(new BlockDeco(new Vector(10, 6.5), 1, 4, loader, "text4"));
         world.register(new Exit(new Vector(18, 4.5), 1.5, 2, loader, signal,new Level_02()));
-        world.register(new BlockDeco(new Vector(18, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_03"));
+        world.register(new BlockDeco(new Vector(18, 6.5), 1, 4, loader, "text5"));
         world.register(new Exit(new Vector(26, 4.5), 1.5, 2, loader, signal,new Level_02b()));
-        world.register(new BlockDeco(new Vector(26, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_04"));
+        world.register(new BlockDeco(new Vector(26, 6.5), 1, 4, loader, "text6"));
         world.register(new Exit(new Vector(34, 4.5), 1.5, 2, loader, signal,new Level_03()));
-        world.register(new BlockDeco(new Vector(34, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_05"));
+        world.register(new BlockDeco(new Vector(34, 6.5), 1, 4, loader, "text7"));
         world.register(new Exit(new Vector(42, 4.5), 1.5, 2, loader, signal,new Level_04()));
-        world.register(new BlockDeco(new Vector(42, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_06"));
+        world.register(new BlockDeco(new Vector(42, 6.5), 1, 4, loader, "text8"));
         world.register(new Exit(new Vector(50, 4.5), 1.5, 2, loader, signal,new Level_05()));
-        world.register(new BlockDeco(new Vector(50, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_07"));
+        world.register(new BlockDeco(new Vector(50, 6.5), 1, 4, loader, "text9"));
         world.register(new Exit(new Vector(58, 4.5), 1.5, 2, loader, signal,new Level_06()));
-        world.register(new BlockDeco(new Vector(58, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_08"));
+        world.register(new BlockDeco(new Vector(58, 6.5), 1, 4, loader, "text10"));
         world.register(new Exit(new Vector(66, 4.5), 1.5, 2, loader, signal,new Level_07()));
-        world.register(new BlockDeco(new Vector(66, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_09"));
+        world.register(new BlockDeco(new Vector(66, 6.5), 1, 4, loader, "text11"));
         world.register(new Exit(new Vector(74, 4.5), 1.5, 2, loader, signal,new Level_08()));
-        world.register(new BlockDeco(new Vector(74, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_10"));
+        world.register(new BlockDeco(new Vector(74, 6.5), 1, 4, loader, "text12"));
         world.register(new Exit(new Vector(82, 4.5), 1.5, 2, loader, signal,new LevelBoss()));
-        world.register(new BlockDeco(new Vector(52, 6.5), 2, 4, loader, "zoneTexteLevelChoixNiveau_11"));
+        world.register(new BlockDeco(new Vector(82, 6.5), 1, 4, loader, "text13"));
 
         
         //platformes et sol
