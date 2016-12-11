@@ -1,5 +1,6 @@
 package platform.game.Actors.levels;
 
+import platform.game.Actors.Heart;
 import platform.game.Actors.Key;
 import platform.game.Actors.Lava;
 import platform.game.Actors.LimiteTangible;
@@ -12,6 +13,8 @@ import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.blocks.MoverDamageFire;
+import platform.game.Actors.blocks.MoverLava;
+import platform.game.Actors.monsters.Slime;
 import platform.game.Signals.And;
 import platform.game.Signals.Not;
 import platform.util.Box;
@@ -23,7 +26,7 @@ public class LevelBoss extends Level{
 	    public void register(World world) {
 	        super.register(world);
 	        
-	    	Player franky = new Player(new Vector(0, -4), new Vector(0, 0), world.getLoader());
+	    	Player franky = new Player(new Vector(0, -4), new Vector(60, -2), world.getLoader());
 	    	world.register(franky);
 	    	Overlay overlayfranky = new Overlay(franky);
 	    	world.register(overlayfranky);
@@ -115,11 +118,34 @@ public class LevelBoss extends Level{
 		    world.register(new Block(new Box(new Vector(90, 6), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 12), 6, 6), world.getLoader().getSprite("castle.middle.right3")));
 		    world.register(new Block(new Box(new Vector(90, 18), 6, 6), world.getLoader().getSprite("castle.middle.corner3")));
-		    world.register(new Lava(new Box(new Vector(66, -18), 30, 16), loader, "liquidLavaTop_mid6x4"));
+		    world.register(new Lava(new Box(new Vector(66, -19), 30, 16), loader, "liquidLavaTop_mid26x4"));
 
 		    
-		    										// Phase 2 -> 3
-		    
+		    										// Interphase 1
+
+		    Slime minion1 = new Slime(new Vector(64, -8), new Vector(64, -8),0.001,4, new Box(new Vector(64, -8), 5, 5), loader, 2,2,true);
+		    world.register(minion1);
+		    Slime minion2 = new Slime(new Vector(70, -8), new Vector(70, -8),0.001,4, new Box(new Vector(70, -8), 5, 5), loader, 2,2,true);
+		    world.register(minion2);
+		    Slime minion3 = new Slime(new Vector(74, -8), new Vector(74, -8),0.001,4, new Box(new Vector(76, -8), 3, 5), loader, 2,2,true);
+		    world.register(minion3);
+		    										// Interphase 2
+	    
+	   		MoverLava lava = new MoverLava(new Vector(66, -18), new Vector(66, 5), 30, 16,new Box(new Vector(30,16), 30,13), 0.1, world.getLoader(), plaque3, "liquidLavaTop_mid6x4"); // 9s
+	    	world.register(lava);
+			world.register(new Heart(new Vector(65, -8), world.getLoader()));
+    
+		    										// Phase 3
+		
+		    MoverDamageFire flame4 = new MoverDamageFire(new Vector(90, -6), new Vector(40 , -6), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
+			world.register(flame4);
+			MoverDamageFire flame5 = new MoverDamageFire(new Vector(85, -8), new Vector(35 , -8), 1.5, 0.5, 0.1, world.getLoader(), plaque3, "flame2");
+			world.register(flame5);
+			MoverDamageFire flame6 = new MoverDamageFire(new Vector(90, -7.2), new Vector(40 , -7.2), 1.5, 0.5, 0.2, world.getLoader(), plaque3, "flame2");
+			world.register(flame6);
+			
+		    world.register(new Lava(new Box(new Vector(52.5, -4), 3, 16), loader, "colonnelava"));
+
 		    										// Background
 
 		    world.register(new BlockDeco(new Vector(6, 0), 18, 18, world.getLoader(), "bg_castledark3"));
