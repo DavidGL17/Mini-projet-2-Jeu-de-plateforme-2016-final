@@ -1,7 +1,7 @@
 package platform.game.Actors.levels;
 
+import platform.game.World;
 import platform.game.Actors.SignalReadKey;
-import platform.game.Actors.World;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockDecoTexte;
 import platform.util.Loader;

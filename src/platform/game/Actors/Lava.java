@@ -9,7 +9,7 @@ public class Lava extends Limits{
 
 	public Lava(Box box, Loader loader, String dessin){
 		super(new Box(box.getCenter(), box.getWidth(), box.getHeight()));
-		setSprite(dessin, loader);
+		setSprite(loader.getSprite(dessin));
 	}
 	
 	// pour être dessiné

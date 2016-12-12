@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import platform.game.Actors.Damage;
-import platform.game.Actors.World;
 import platform.game.Actors.levels.*;
 import platform.util.Box;
 import platform.util.Input;
@@ -51,7 +50,13 @@ public class Simulator implements World {
     public Loader getLoader() {
         return loader;
     }
-    @Override
+    /**
+	 * @return the expectedRadius
+	 */
+	public double getExpectedRadius() {
+		return expectedRadius;
+	}
+	@Override
     public void register(Actor actor) {
     	registered.add(actor) ;
     	actor.register(this);
@@ -87,8 +92,6 @@ public class Simulator implements World {
     //permet de savoir si le joueur a passé un checkpoint (s'il y en a un). Il est remit a false à chaaue nouveau level
     //@see nextLevel
     private boolean checkpoint = false;
-    //Permet de conpter le nombre de mort du joueur par niveau. Est utilisé dans certains niveaux pour afficher du texte
-    private int nbrMorts = 0;
     
 	public boolean getCheckpoint(){
     	return checkpoint;
@@ -96,20 +99,14 @@ public class Simulator implements World {
     public void setCheckpoint(boolean checkpoint){
     	this.checkpoint = checkpoint;
     }
-    /**
-	 * @return the nbrMorts
-	 */
-	public int getNbrMorts() {
-		return nbrMorts;
-	}
     public void nextLevel(){
     	if (levelMode ==0){
     		transition = true;
     		setNextLevel(levelIntro);
     		compteurDeNiveau = 0;
-    		nbrMorts = 0;
     		transition = true;
     		checkpoint = false;
+    		setView(currentCenter, radius);
     	}
     	if (levelMode == 1){
     		if (compteurDeNiveau<niveaux.length){
@@ -119,22 +116,22 @@ public class Simulator implements World {
     			return;
     		}
     		++compteurDeNiveau;
-    		nbrMorts = 0;
     		transition = true;
     		checkpoint = false;
+    		setView(currentCenter, radius);
     	}
     	if (levelMode == 2){
     		setNextLevel(levelChoixNiveau);
     		compteurDeNiveau = 0;
-    		nbrMorts = 0;
     		transition = true;
     		checkpoint = false;
+    		setView(currentCenter, radius);
     	}
     	if (levelMode == 3){
     		compteurDeNiveau = 0;
-    		nbrMorts = 0;
     		transition = true;
     		checkpoint = false;
+    		setView(currentCenter, radius);
     	}
     }
 	public void setNextLevel(Level level){
@@ -148,16 +145,15 @@ public class Simulator implements World {
 	public int getLevelMode(){
 		return levelMode;
 	}
+	//uniquement pour les mode de jeu 1 et 3 (dans les autres on ne peut pas mourir du fait de la disposition du niveau)
     public void tryAgain(){
     	if (levelMode==1){
-    		++nbrMorts;
     		--compteurDeNiveau;
     		setNextLevel(niveaux[compteurDeNiveau]);
     		++compteurDeNiveau;
     		transition = true;
     	}
     	if (levelMode == 3){
-    		++nbrMorts;
     		transition = true;
     	}
     }

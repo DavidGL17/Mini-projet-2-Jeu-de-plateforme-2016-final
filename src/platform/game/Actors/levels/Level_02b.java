@@ -1,5 +1,6 @@
 package platform.game.Actors.levels;
 
+import platform.game.World;
 import platform.game.Actors.Checkpoint;
 import platform.game.Actors.Exit;
 import platform.game.Actors.Jumper;
@@ -10,7 +11,6 @@ import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
 import platform.game.Actors.SignalAlternant;
 import platform.game.Actors.SignalInvisibleConstant;
-import platform.game.Actors.World;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockDecoAvant;

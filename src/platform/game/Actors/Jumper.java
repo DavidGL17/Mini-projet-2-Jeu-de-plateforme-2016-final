@@ -27,10 +27,10 @@ public class Jumper extends Actor{
 		super.update(input);
 		if (!(cooldown <= 0)){
 			cooldown -= input.getDeltaTime();
-			setSprite(retracte,getWorld().getLoader());
+			setSprite(getWorld().getLoader().getSprite(retracte));
 			setPriority(PRIORITY_COOLDOWN);
 		} else {
-			setSprite(repos,getWorld().getLoader());
+			setSprite(getWorld().getLoader().getSprite(repos));
 			setPriority(PRIORITY_NORMAL);
 		}
 	}

@@ -64,10 +64,10 @@ public class Exit extends Actor{
 	}
 	public void update(Input input) {
 		if (signal.isActive()){
-			setSprite(ouverte, getWorld().getLoader());
+			setSprite(getWorld().getLoader().getSprite(ouverte));
 			setPriority(1500);
 		} else {
-			setSprite(fermee,getWorld().getLoader());
+			setSprite(getWorld().getLoader().getSprite(fermee));
 			setPriority(10);
 		}
 	}

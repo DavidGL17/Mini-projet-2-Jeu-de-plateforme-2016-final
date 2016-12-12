@@ -1,7 +1,5 @@
 package platform.game.Actors;
 
-import java.nio.charset.spi.CharsetProvider;
-
 import platform.game.Actor;
 import platform.util.Box;
 import platform.util.Input;

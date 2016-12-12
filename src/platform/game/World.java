@@ -1,6 +1,6 @@
-package platform.game.Actors;
+package platform.game;
 
-import platform.game.Actor;
+import platform.game.Actors.Damage;
 import platform.game.Actors.levels.Level;
 import platform.util.Box;
 import platform.util.Loader;
@@ -19,15 +19,17 @@ public interface World {
     * @param radius viewport radius , positive
     */
     public void setView(Vector center , double radius);
+	public double getExpectedRadius();
     public void register(Actor actor);
     public void unregister(Actor actor);
     default public Vector getGravity(){
     	Vector gravity = new Vector(0.0, -9.81);
     	return gravity;
     }
+    //Permet d'infliger des effets dans une zone
     public int hurt(Box area , Actor instigator , Damage type ,double amount , Vector location);
-    // permet d'indiquer que la transition à un autre niveau
-    // doit se faire :
+    
+    // permet d'indiquer que la transition à un autre niveau doit se faire :
     public void nextLevel () ;
 	//Lorsque cette méthode est appelée, on changera le mode de jeu puis on activera le changement de niveau
     public void changeLevelMode(int levelMode);

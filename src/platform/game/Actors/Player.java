@@ -240,6 +240,6 @@ public class Player extends Actor implements ActeurOverlay{
 	}
 	public void postUpdate(){
 		super.postUpdate();
-		getWorld().setView(position,8);
+		getWorld().setView(position,getWorld().getExpectedRadius());
 	}
 }

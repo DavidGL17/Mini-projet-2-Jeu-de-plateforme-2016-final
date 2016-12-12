@@ -1,5 +1,6 @@
 package platform.game.Actors;
 
+import platform.game.World;
 import platform.util.Box;
 import platform.util.Vector;
 

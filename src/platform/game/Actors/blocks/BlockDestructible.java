@@ -25,7 +25,7 @@ public class BlockDestructible extends Actor{
 			if (!destruction){
 				getWorld().unregister(instigator);
 			}
-			setSprite(dessinDestruction, getWorld().getLoader());
+			setSprite(getWorld().getLoader().getSprite(dessinDestruction));
 			destruction = true;
 			return true;
 		default :

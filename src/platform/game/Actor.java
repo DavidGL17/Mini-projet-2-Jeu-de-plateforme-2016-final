@@ -1,7 +1,6 @@
 package platform.game;
 
 import platform.game.Actors.Damage;
-import platform.game.Actors.World;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -62,20 +61,26 @@ public abstract class Actor implements Comparable<Actor> {
 	protected int getPriority(){
 		return priority;
 	}
-	public void setPriority(int p){
+	protected void setPriority(int p){
 		priority=p;
-	}
-	protected void setSprite(String dessin, Loader loader){
-		sprite = loader.getSprite(dessin);
 	}
 	public void setSprite(Sprite sprite){
 		this.sprite = sprite;
 	}
 	
-	// pour évoluer au cours du temps :
-	public void update(Input input) {}
-	// pour être dessiné
-	public void draw(Input input , Output output) {}
+	public boolean isSolid () {
+		return false ;
+	}
+	//Méthode facilitant l'interaction entre le Player et d'autres acteurs (évite d'avoir recours aux instance of)
+	public boolean isPlayer(){
+		return false;
+	}
+	//Permet de créer des limites qui limitent le mouvement du player(évite d'avoir recours aux instance of)
+	//Voir update de Player
+	public boolean isLimiteTangible(){
+		return false;
+	}
+	
 	@Override
 	public int compareTo(Actor other) {
 		if (this.priority>other.getPriority()){
@@ -88,28 +93,23 @@ public abstract class Actor implements Comparable<Actor> {
 			}
 		}
 	}
-	public void interact(Actor other) {}
-	public boolean isSolid () {
-		return false ;
-	}
-	public void preUpdate(){}
-	public void postUpdate(){}
+	
+	//permet d'enregistrer et de désenregistrer l'acteur dans le monde
 	public void register(World world) {
 		this.world = world ;
 	}
 	public void unregister () {
 		world = null ;
 	}
+	
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		return false ;
 	}
-	//Méthode facilitant l'interaction entre le Player et d'autres acteurs (évite d'avoir recours aux instance of)
-	public boolean isPlayer(){
-		return false;
-	}
-	//Permet de créer des limites qui limitent le mouvement du player(évite d'avoir recours aux instance of)
-	//Voir update de Player
-	public boolean isLimiteTangible(){
-		return false;
-	}
+	public void interact(Actor other) {}
+	public void preUpdate(){}
+	// pour évoluer au cours du temps :
+	public void update(Input input) {}
+	// pour être dessiné
+	public void draw(Input input , Output output) {}
+	public void postUpdate(){}
 }
