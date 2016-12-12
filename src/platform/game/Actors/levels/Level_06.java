@@ -24,8 +24,16 @@ public class Level_06 extends Level{
 	world.register(franky);
 	Overlay overlayfranky = new Overlay(franky);
 	world.register(overlayfranky);
-	
-  
+    world.register(new Block(new Box(new Vector(-14, -22), 6, 6), world.getLoader().getSprite("castle.center3")));
+
+    world.register(new Block(new Box(new Vector(-24, 22), 6, 6), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(-24, 16), 6, 6), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(-24, 10), 6, 6), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(-24, 4), 6, 6), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(-24, -2), 6, 6), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(-24, -8), 6, 6), world.getLoader().getSprite("castle.center3")));
+    world.register(new Block(new Box(new Vector(-24, -14), 6, 6), world.getLoader().getSprite("castle.center3")));
+
     world.register(new Block(new Box(new Vector(-18, 16), 6, 6), world.getLoader().getSprite("castle.center3")));
     world.register(new Block(new Box(new Vector(-18, 22), 6, 6), world.getLoader().getSprite("castle.center3")));
     world.register(new Block(new Box(new Vector(-18, 10), 6, 6), world.getLoader().getSprite("castle.center3")));
@@ -47,6 +55,7 @@ public class Level_06 extends Level{
     world.register(new Block(new Box(new Vector(-10, -14), 6, 6), world.getLoader().getSprite("castle.center3")));
     world.register(new Block(new Box(new Vector(-10, -20), 6, 6), world.getLoader().getSprite("castle.center3")));
     world.register(new Block(new Box(new Vector(-10, -26), 6, 6), world.getLoader().getSprite("castle.center3")));
+
     world.register(new Block(new Box(new Vector(-4, -21), 6, 6), world.getLoader().getSprite("castle.center3")));
 
 
