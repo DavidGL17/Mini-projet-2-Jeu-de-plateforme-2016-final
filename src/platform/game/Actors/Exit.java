@@ -35,7 +35,7 @@ public class Exit extends Actor{
 		super(10, new Box(position, Width, Height), loader.getSprite(fermee));
 		this.signal=signal;
 		this.changeLevelMode = true;
-		this.levelMode = 4;
+		this.levelMode = 3;
 		this.levlAMettre = levelAMettre;
 	}
 	
@@ -45,9 +45,9 @@ public class Exit extends Actor{
 				if (signal.isActive()){
 					//On verifie dans s'il faut changer de mode de Jeu et on vérifie dans quel mode de jeu on est (surtout entre 2 ou 3) voir simulator
 					if (changeLevelMode){
-						if (levelMode == 4){
+						if (levelMode == 3){
 							getWorld().setNextLevel(levlAMettre);
-							getWorld().changeLevelMode(3);
+							getWorld().changeLevelMode(levelMode);
 						} else {
 							getWorld().changeLevelMode(levelMode);
 						}
