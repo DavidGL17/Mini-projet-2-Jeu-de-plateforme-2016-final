@@ -48,9 +48,6 @@ public class Fireball extends Actor{
 		case VOID : 
 			getWorld().unregister(this);
 			return true;
-		case AIR :
-			getWorld().unregister(this);
-			return true;
 		default :
 			return true;
 		}
