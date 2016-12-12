@@ -22,7 +22,7 @@ import platform.util.Output;
 import platform.util.Vector;
 
 public class Boss extends Monster implements ActeurOverlay{
-	private final double HPMax = 15;
+	private final double HPMax = 24;
 	private double HP = HPMax;
 	private final static String dessin = "blockerMad";
 	private final static String dessinInterphase = "blockerSad";
@@ -136,7 +136,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			}
 		}
 		//passage à la phase 1
-		if (HP<=10&&phase==1&&!interphase){
+		if (HP<=(24/3)*2&&phase==1&&!interphase){
 			++phase;
 			interphase = true;
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
@@ -169,7 +169,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			}
 		}
 		//passage à phase 3
-		if (HP<=5&&phase==2){
+		if (HP<=(24/3)&&phase==2){
 			++phase;
 			interphase = true;
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
