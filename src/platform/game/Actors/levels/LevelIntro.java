@@ -29,9 +29,9 @@ public class LevelIntro extends Level{
         world.register(new BlockDeco(new Vector(-5, -26), 2, 6, loader, "text2"));
         
         //platforme
-        for (int i = 0;i<7;++i){
-        	world.register(new Block(new Box(new Vector(-18+(6*i), -32), 6, 6),loader.getSprite("grass.middle.center3")));
-        	world.register(new Block(new Box(new Vector(-18+(6*i), -38), 6, 6),loader.getSprite("grass.center3")));
+        for (int i = 0;i<9;++i){
+        	world.register(new Block(new Box(new Vector(-24+(6*i), -32), 6, 6),loader.getSprite("grass.middle.center3")));
+        	world.register(new Block(new Box(new Vector(-24+(6*i), -38), 6, 6),loader.getSprite("grass.center3")));
         }
         //background
 	   
