@@ -64,7 +64,7 @@ public class Level_02b extends Level{
 	    	world.register(new Block(new Box(new Vector(0, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    	    	
 	    	world.register(new Block(new Box(new Vector(6, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(27, -3), 36, 12), world.getLoader().getSprite("grass.middle.center36_12")));    	    	
-		    world.register(new Slime(new Vector(0, 0), new Vector(15, 4),0.006,4, new Box(new Vector(20, 4), 18, 4), loader, 2,2,true));
+		    world.register(new Slime(new Vector(0, 0), new Vector(15, 4),5,4, new Box(new Vector(20, 4), 18, 4), loader, 2,2,true));
 		    world.register(new Block(new Box(new Vector(36, 3.5), 1, 1), world.getLoader().getSprite("box")));    
 		    world.register(new Block(new Box(new Vector(37, 3.5), 1, 1), world.getLoader().getSprite("box")));    
 		    world.register(new Block(new Box(new Vector(38, 3.5), 1, 1), world.getLoader().getSprite("box")));    
@@ -245,7 +245,7 @@ public class Level_02b extends Level{
 	    	world.register(new Block(new Box(new Vector(294, 14), 4, 2), world.getLoader().getSprite("grassHalf")));    	    	
 	    	world.register(new Block(new Box(new Vector(291, 7), 6, 2), world.getLoader().getSprite("grass.middle3")));    	    	
 	    	world.register(new Block(new Box(new Vector(297, 7), 6, 2), world.getLoader().getSprite("grass.middle3")));    	    	
-		    world.register(new Slime(new Vector(0, 0), new Vector(287, 9),0.006,4, new Box(new Vector(294, 9), 9, 4), loader, 2,2,true));
+		    world.register(new Slime(new Vector(0, 0), new Vector(287, 9),5,4, new Box(new Vector(294, 9), 9, 4), loader, 2,2,true));
 	    	world.register(new Block(new Box(new Vector(300, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    	    	
 	    	world.register(new Block(new Box(new Vector(300, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    	    	
 	    	world.register(new Block(new Box(new Vector(304, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    	    	
@@ -254,8 +254,8 @@ public class Level_02b extends Level{
 	    	world.register(new Block(new Box(new Vector(310, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    	    	
 	    	world.register(new Block(new Box(new Vector(309, 7), 6, 2), world.getLoader().getSprite("grass.middle3")));    	    	
 	    	world.register(new Block(new Box(new Vector(309, 12), 6, 2), world.getLoader().getSprite("grass.middle3")));    	    	
-		    world.register(new Slime(new Vector(0, 0), new Vector(307, 9),0.006,4, new Box(new Vector(309, 9), 3, 2), loader, 2,2,true));
-		    world.register(new Slime(new Vector(0, 0), new Vector(309, 4),0.006,4, new Box(new Vector(307, 4), 3, 2), loader, 2,2,true));
+		    world.register(new Slime(new Vector(0, 0), new Vector(307, 9),5,4, new Box(new Vector(309, 9), 3, 2), loader, 2,2,true));
+		    world.register(new Slime(new Vector(0, 0), new Vector(309, 4),5,4, new Box(new Vector(307, 4), 3, 2), loader, 2,2,true));
 	    	world.register(new Block(new Box(new Vector(322, 0), 6, 6), world.getLoader().getSprite("grass.middle.center3")));    	    	
 	    	world.register(new Block(new Box(new Vector(322, -6), 6, 6), world.getLoader().getSprite("grass.center3")));    	    	
 	    	world.register(new Block(new Box(new Vector(319.5, 3.5), 1, 1), world.getLoader().getSprite("box")));    	    	

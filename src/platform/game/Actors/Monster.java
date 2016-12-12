@@ -147,13 +147,13 @@ public abstract class Monster extends Actor{
 	//d'action du monstre
 		if (!triggered){
 			if (directionDroite){
-				position = new Vector(position.getX()+movement, position.getY());
+				position = new Vector(position.getX()+(movement*input.getDeltaTime()), position.getY());
 				if (position.getX()>boxDAction.getCenter().getX()+(boxDAction.getWidth()/2)){
 					position = new Vector(boxDAction.getCenter().getX()+(boxDAction.getWidth()/2), position.getY());
 					directionDroite=false;
 				}
 			} else {
-				position = new Vector(position.getX()-movement, position.getY());
+				position = new Vector(position.getX()-(movement*input.getDeltaTime()), position.getY());
 				if (position.getX()<boxDAction.getCenter().getX()-(boxDAction.getWidth()/2)){
 					position = new Vector(boxDAction.getCenter().getX()-(boxDAction.getWidth()/2), position.getY());
 					directionDroite = true;
@@ -162,14 +162,14 @@ public abstract class Monster extends Actor{
 		} else {
 			//Le monstre va se diriger vers le joueur
 			if (position.getX()<theEnnemi.getPosition().getX()){
-				position = new Vector(position.getX()+movement, position.getY());
+				position = new Vector(position.getX()+(movement*input.getDeltaTime()), position.getY());
 			} else {
 				if (position.getX()>theEnnemi.getPosition().getX()){
-					position = new Vector(position.getX()-movement, position.getY());
+					position = new Vector(position.getX()-(movement*input.getDeltaTime()), position.getY());
 				} else {
 					//permet d'éviter que le monstre bouge s'il est déja sur le joueur
 					if (position.getX() == theEnnemi.getPosition().getX()){
-						position = new Vector(position.getX()-movement, position.getY());
+						position = new Vector(position.getX()-(movement*input.getDeltaTime()), position.getY());
 					}
 				}
 			}

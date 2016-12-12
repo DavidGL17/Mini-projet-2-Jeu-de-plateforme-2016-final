@@ -142,7 +142,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			setBox(new Box(positionRepos, getBox().getWidth(), getBox().getHeight()));
 			//fait spawn les slimes
 			for (int i = 0;i<nbrSlime;++i){
-			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),0.01,2, boxDActionMinions, getWorld().getLoader(), 1,1,false);
+			    Slime slime = new Slime(new Vector(0, 0),new Vector(positionSpawnMinions.getX()+i*4, positionSpawnMinions.getY()),5,2, boxDActionMinions, getWorld().getLoader(), 1,1,false);
 			    minions.add(slime);
 			    getWorld().register(slime);
 			}
