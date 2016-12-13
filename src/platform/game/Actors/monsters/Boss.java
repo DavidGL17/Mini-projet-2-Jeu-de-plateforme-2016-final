@@ -48,13 +48,6 @@ public class Boss extends Monster implements ActeurOverlay{
 		this.cooldownInterphase2 = timerMoverLavaInterphase2;
 		this.blockDisparitionSignalDeadARemplacer = blockDisparitionSignalDeadARemplacer;
 		this.lavaPhase3NoWalljump = lavaPhase3NoWalljump;
-		//nous déscendons la priorité pour que le joueur ne puisse pas traversez le boss
-		setPriority(1330);
-	}
-	//Le boss est solide pour éviter que des joueurs trop malins se mettent au même endroit que le bosse pour éviter toute les proectiles
-	@Override
-	public boolean isSolid(){
-		return true;
 	}
 	@Override
 	public double getHP() {
@@ -64,7 +57,12 @@ public class Boss extends Monster implements ActeurOverlay{
 	public double getHPMax() {
 		return HPMax;
 	}
-
+	//si le joueur touche le boss il meurt 
+	public void interact(Actor other){
+		if (getBox().isColliding(other.getBox())&&other.isPlayer()){
+			other.hurt(other, Damage.VOID, Damage.VOID.getDamage(), getPosition());
+		}
+	}
 	//permet de conter la phase actuelle du boss et de voir si on est entre les phases ou pas
 	private int phase = 1;
 	private boolean interphase = true;
@@ -83,7 +81,7 @@ public class Boss extends Monster implements ActeurOverlay{
 	//mort
 	private boolean dead = false;
 	private double cooldownDisparition = 1;
-		
+	
 	@Override
 	public boolean hurt(Actor instigator, Damage type, double amount, Vector location) {
 		switch (type){
