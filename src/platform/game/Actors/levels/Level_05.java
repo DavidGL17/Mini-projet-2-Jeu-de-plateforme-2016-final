@@ -166,7 +166,7 @@ public class Level_05 extends Level{
 	    world.register(new Lava(new Box(new Vector(12, -63.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(18, -63.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(24, -63.25), 6, 4), loader, "liquidLava2"));
-	    world.register(new Lava(new Box(new Vector(30, -67.25), 6, 4), loader, "liquidLava2"));
+	    world.register(new Lava(new Box(new Vector(30, -63.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(12, -67.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(18, -67.25), 6, 4), loader, "liquidLava2"));
 	    world.register(new Lava(new Box(new Vector(24, -67.25), 6, 4), loader, "liquidLava2"));
