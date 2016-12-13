@@ -29,7 +29,7 @@ public class Level_01 extends Level {
 	    	world.register(new Limits(new Box(new Vector(0, -3) , 1000, 5)));
 	    	Key key = new Key(new Vector(56, 26), world.getLoader(), Key.blue);
 	    	world.register(key);
-		    world.register(new LimiteTangible(new Vector(2, 0), 2, 30));
+		    world.register(new LimiteTangible(new Vector(2, 0), 2, 60));
 		    Loader loader = world.getLoader();
 		  
 		    SignalInvisibleConstant tuto = new SignalInvisibleConstant(new Box(new Vector(24, 6), 4, 6));
@@ -184,6 +184,17 @@ public class Level_01 extends Level {
 	    	world.register(new Block(new Box(new Vector(68, 8), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(68, 2), 6, 6), world.getLoader().getSprite("grass.center3")));    
 	    	world.register(new Block(new Box(new Vector(68, -4), 6, 6), world.getLoader().getSprite("grass.center3")));    
+
+	    	world.register(new Block(new Box(new Vector(74, 32), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, 38), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, 26), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, 20), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, 14), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, 8), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, 2), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, -4), 6, 6), world.getLoader().getSprite("grass.center3")));    
+	    	world.register(new Block(new Box(new Vector(74, -10), 6, 6), world.getLoader().getSprite("grass.center3")));    
+
 	    	world.register(new Exit(new Vector(58, 6), 1.5, 2, world.getLoader(), key));
 
 	    	world.register(new BlockDeco(new Vector(35, 24), 1, 1, world.getLoader(), "foliagePack_001"));

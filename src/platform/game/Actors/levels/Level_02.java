@@ -27,6 +27,9 @@ public class Level_02 extends Level{
 	    												//Spawn	
 	    world.register(new Limits(new Box(new Vector(0, -19), 300, 1)));
 	    world.register(new LimiteTangible(new Vector(7, 0), 2, 30));
+	    world.register(new Block(new Box(new Vector(-12, -3), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
+	    world.register(new Block(new Box(new Vector(-12, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
+
 	    world.register(new Block(new Box(new Vector(-6, -3), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
 	    world.register(new Block(new Box(new Vector(-6, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(-6, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
@@ -40,11 +43,25 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(12, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(12, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    
+    	world.register(new BlockDeco(new Vector(5, 1), 2, 20, world.getLoader(), "longbush2"));
+    	world.register(new BlockDeco(new Vector(-15, 1), 2, 20, world.getLoader(), "longbush2"));
+    	world.register(new BlockDeco(new Vector(25, -5), 2, 20, world.getLoader(), "longbush2"));
+    	world.register(new BlockDeco(new Vector(43, 1), 2, 20, world.getLoader(), "longbush2"));
+
+    	world.register(new BlockDeco(new Vector(43, 13), 2, 20, world.getLoader(), "longbush2"));
+    	world.register(new BlockDeco(new Vector(63, 13), 2, 20, world.getLoader(), "longbush2"));
+    	world.register(new BlockDeco(new Vector(83, 13), 2, 20, world.getLoader(), "longbush2"));
+
+    	
+	    world.register(new BlockDeco(new Vector(44, 18), 20, 100, world.getLoader(), "Background_112"));
+	    world.register(new BlockDeco(new Vector(44, 15), 15, 4, world.getLoader(), "hill_largeAlt"));
+    	world.register(new BlockDeco(new Vector(48, 13), 13, 3, world.getLoader(), "hill_largeAlt"));
+    	world.register(new BlockDeco(new Vector(46, 15), 18, 4, world.getLoader(), "hill_largeAlt"));
 	    world.register(new BlockDeco(new Vector(4, -1), 20, 30, world.getLoader(), "Background_92"));
 	    world.register(new BlockDeco(new Vector(33, -1), 20, 30, world.getLoader(), "Background_92"));
 	    world.register(new BlockDeco(new Vector(54, 8), 8 , 12, world.getLoader(), "Background2_84"));
-	    world.register(new BlockDeco(new Vector(40, 18), 20, 100, world.getLoader(), "Background_112"));
 	    world.register(new BlockDeco(new Vector(40, 18), 55, 100, world.getLoader(), "Background2_1"));
+	
 	    
 	    
 	    											//Début du saut
@@ -75,6 +92,8 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(48, -3), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(48, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(48, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
+
+
 	    
 	    world.register(new Block(new Box(new Vector(52, -17), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(54, -17), 2, 6), world.getLoader().getSprite("grass.center1_3")));
@@ -85,6 +104,7 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(52, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    world.register(new Block(new Box(new Vector(54, 1), 2, 6), world.getLoader().getSprite("grass.center1_3")));
 	    
+
 	    
 	    Key keyRed = new Key(new Vector(52, 4.5), world.getLoader(), Key.red);
 	    Locker locker1 = new Locker(new Vector(56.5, 12.5), world.getLoader(), Locker.red, keyRed);
@@ -109,5 +129,18 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(58, -3), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(58, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(58, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
+
+	    world.register(new Block(new Box(new Vector(64, 9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
+	    world.register(new Block(new Box(new Vector(64, 3), 6, 6), world.getLoader().getSprite("grass.center3")));
+	    world.register(new Block(new Box(new Vector(64, -3), 6, 6), world.getLoader().getSprite("grass.center3")));
+
+	    world.register(new Block(new Box(new Vector(70, 9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
+	    world.register(new Block(new Box(new Vector(70, 3), 6, 6), world.getLoader().getSprite("grass.center3")));
+	    world.register(new Block(new Box(new Vector(70, -3), 6, 6), world.getLoader().getSprite("grass.center3")));
+
+	    world.register(new Block(new Box(new Vector(76, 9), 6, 6), world.getLoader().getSprite("grass.middle.center3")));
+	    world.register(new Block(new Box(new Vector(76, 3), 6, 6), world.getLoader().getSprite("grass.center3")));
+	    world.register(new Block(new Box(new Vector(76, -3), 6, 6), world.getLoader().getSprite("grass.center3")));
+
 	 }
 }

@@ -320,6 +320,8 @@ public class Level_02b extends Level{
 		    world.register(new BlockDeco(new Vector(281, 8), 20, 5, world.getLoader(), "hill_largeAlt"));
 	    	world.register(new BlockDeco(new Vector(285, 6), 35, 6, world.getLoader(), "hill_largeAlt"));
 	    	world.register(new BlockDeco(new Vector(287, 8), 22, 5, world.getLoader(), "hill_largeAlt"));
+		    world.register(new BlockDeco(new Vector(0, 0), 500, 505, world.getLoader(), "Background2_1"));
 		    world.register(new BlockDeco(new Vector(240, 0), 500, 505, world.getLoader(), "Background2_1"));
+
 	 }
 }
