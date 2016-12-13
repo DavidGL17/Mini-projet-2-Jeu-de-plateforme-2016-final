@@ -181,7 +181,7 @@ public class Level_07 extends Level{
 	    world.register(new Block(new Box(new Vector(179, 11), 2, 6), loader.getSprite("stone.7")));
 	    world.register(new Block(new Box(new Vector(203, 2), 6, 1), loader.getSprite("stone.3")));
 	    world.register(new BlockIndecis(new Box(new Vector(215, 1), 3, 1), 1, 2, loader, "stone.broken.3", "stone.broken2.3"));
-	    world.register(new BlockIndecis(new Box(new Vector(226, 2), 3, 1), 2, 1, loader, "stone.broken.3", "stone.broken2.3"));
+	    world.register(new Block(new Box(new Vector(226, 2), 3, 1),loader.getSprite("stone.3")));
 	    world.register(new Block(new Box(new Vector(236, 2), 3, 1), loader.getSprite("stone.3")));
 
 
