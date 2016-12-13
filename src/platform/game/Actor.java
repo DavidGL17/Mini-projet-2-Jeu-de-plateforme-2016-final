@@ -105,6 +105,7 @@ public abstract class Actor implements Comparable<Actor> {
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		return false ;
 	}
+	//permet de gérer les interactions avec les autres acteur
 	public void interact(Actor other) {}
 	public void preUpdate(){}
 	// pour évoluer au cours du temps :

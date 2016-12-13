@@ -18,7 +18,7 @@ public class MoverLava extends Mover{
 		super(off, on, Width, Height, vitesseDeMouvement, loader, signal, dessin);
 		this.hitBox = hitBox;
 		this.boxDraw = new Box(off, Width, Height);
-		setPriority(1400);
+		setPriority(10000);
 	}
 	
 	/**
@@ -32,16 +32,19 @@ public class MoverLava extends Mover{
 	public Box getBox(){
 		return hitBox;
 	}
+	//permet de gérer les interactions avec les autres acteur
 	public void interact(Actor other) {
 		if (getBox().isColliding(other.getBox())){
 			other.hurt(this, Damage.VOID, Damage.VOID.getDamage(), getPosition());
 		}
 	}
+	// pour évoluer au cours du temps :
 	public void update (Input input){
 		super.update(input);
 		hitBox = new Box(getCurrentPosition(), hitBox.getWidth(), hitBox.getHeight());
 		boxDraw = new Box(getCurrentPosition(), boxDraw.getWidth(), boxDraw.getHeight());
 	}
+	// pour être dessiné
 	public void draw (Input input, Output output){
 		output.drawSprite(getSprite(), boxDraw);
 	}

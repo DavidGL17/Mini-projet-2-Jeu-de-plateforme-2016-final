@@ -35,9 +35,4 @@ public abstract class Level extends Actor {
         Sprite sprite = getWorld().getLoader().getSprite("pixel.black");
         output.drawSprite(sprite, output.getBox(), 0.0, fadein);
     }
-    
-    /** @return a new instance of default level */
-    public static Level createDefaultLevel() {
-        return new BasicLevel();
-    }
 }
