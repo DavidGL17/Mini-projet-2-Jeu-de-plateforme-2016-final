@@ -8,11 +8,9 @@ import platform.game.Actors.Limits;
 import platform.game.Actors.Locker;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
-import platform.game.Actors.SignalInvisibleCollision;
 import platform.game.Actors.Spikes;
 import platform.game.Actors.Torch;
 import platform.game.Actors.blocks.Block;
-import platform.game.Actors.blocks.BlockDecoSignal;
 import platform.util.Box;
 import platform.util.Vector;
 

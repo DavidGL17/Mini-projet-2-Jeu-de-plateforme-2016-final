@@ -12,7 +12,7 @@ public class BlockDecoSignal extends BlockDeco{
 	private boolean permission = false;
 	
 	public BlockDecoSignal(Vector position, double height, double width, Loader loader,String dessin,Signal signal){
-		super(position, height, width, loader, dessin);
+		super(position, width, height, loader, dessin);
 		this.signal = signal;
 		permission = signal.isActive();
 	}

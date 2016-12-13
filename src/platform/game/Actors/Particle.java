@@ -13,7 +13,6 @@ public class Particle extends Actor{
 	public Particle(Box box, Sprite sprite,double Cooldown){
 		super(20, box, sprite);
 		this.COOLDOWN = Cooldown;
-		timer = Cooldown;
 	}
 	
 	@Override

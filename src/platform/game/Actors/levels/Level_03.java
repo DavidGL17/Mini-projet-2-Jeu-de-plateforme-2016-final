@@ -4,7 +4,6 @@ import platform.game.World;
 import platform.game.Actors.Exit;
 import platform.game.Actors.Heart;
 import platform.game.Actors.Jumper;
-import platform.game.Actors.Key;
 import platform.game.Actors.Lever;
 import platform.game.Actors.LimiteTangible;
 import platform.game.Actors.Limits;

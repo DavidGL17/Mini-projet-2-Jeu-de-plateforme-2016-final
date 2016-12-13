@@ -6,7 +6,6 @@ import platform.util.Vector;
 
 public class Spikebas extends Spikes {
 	
-	private Vector position;
 	private final static String spikeBas = "spikesbas";
 
 	public Spikebas(Vector position, Loader loader) {

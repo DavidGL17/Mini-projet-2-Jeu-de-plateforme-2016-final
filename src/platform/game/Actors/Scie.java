@@ -5,7 +5,6 @@ import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
 import platform.util.Output;
-import platform.util.Vector;
 
 public class Scie extends Actor{
 	

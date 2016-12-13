@@ -48,6 +48,8 @@ public class Boss extends Monster implements ActeurOverlay{
 		this.cooldownInterphase2 = timerMoverLavaInterphase2;
 		this.blockDisparitionSignalDeadARemplacer = blockDisparitionSignalDeadARemplacer;
 		this.lavaPhase3NoWalljump = lavaPhase3NoWalljump;
+		//nous déscendons la priorité pour que le joueur ne puisse pas traversez le boss
+		setPriority(1330);
 	}
 	//Le boss est solide pour éviter que des joueurs trop malins se mettent au même endroit que le bosse pour éviter toute les proectiles
 	@Override
@@ -88,7 +90,7 @@ public class Boss extends Monster implements ActeurOverlay{
 			case FIRE :
 				if (phase >=2&&cooldownEteindre<=0){
 					cooldownEteindre = COOLDOWN_ETEINDRE;
-					getWorld().register(new Particle(new Box(location, 2, 2), getWorld().getLoader().getSprite("smoke.white.1"), 1.5));
+					getWorld().register(new Particle(new Box(location, 2, 2), getWorld().getLoader().getSprite("smoke.white.1"),0.5));
 					return true;
 				} else {
 					HP -= amount;

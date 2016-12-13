@@ -6,7 +6,6 @@ import platform.util.Vector;
 
 public class Spikedroite extends Spikes{
 	
-	private Vector position;
 	private final static String spikedroite = "spikesdroite";
 
 	public Spikedroite(Vector position, Loader loader) {

@@ -9,7 +9,6 @@ import platform.util.Output;
 import platform.util.Vector;
 
 public class Lever extends Actor implements Signal{
-	private Vector position;
 	private boolean value = true;
 	private final String leverActive;
 	private final String leverNotActive;
@@ -18,7 +17,6 @@ public class Lever extends Actor implements Signal{
 	
 	public Lever(Vector position, Loader loader, String leverActive, String leverNotActive){
 		super(10, new Box(position, WIDTH, HEIGHT), loader.getSprite("lever.left"));
-		this.position = position;
 		this.leverActive = leverActive;
 		this.leverNotActive = leverNotActive;
 	}

@@ -6,7 +6,6 @@ import platform.util.Vector;
 
 public class Spikegauche extends Spikes {
 	
-	private Vector position;
 	private final static String spikeGauche = "spikesgauche";
 
 	public Spikegauche(Vector position, Loader loader) {
