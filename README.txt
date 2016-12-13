@@ -1,5 +1,7 @@
+1. Lancer le jeu
 
 
+Pour lancer le jeu, il suffit de Run “Program.java” en tant que application java.
 
 
 2. Contrôles
@@ -11,9 +13,7 @@ Espace + flèche directionnelle gauche ou droite pour sauter contre un mur en lon
 Espace + flèche directionnelle gauche ou droite + flèche haut pour sauter contre un mur en hauteur.
 Q pour lancer des boules de feu
 E pour activer et désactiver les leviers
-W pour souffler
-Souffler sur les torches
-Souffler sur les boules de feu
+W pour souffler sur les torches
 B pour passer texte
 
 
