@@ -39,7 +39,7 @@ public class Overlay extends Actor{
 			} else {
 				output.drawSprite(getWorld().getLoader().getSprite(COEUR_VIDE), new Box(new Vector(getPosition().getX()+p, getPosition().getY()), SIZE, SIZE));
 			}
-			p +=0.2;
+			p +=SIZE;
 		}
 	}
 }
