@@ -11,6 +11,7 @@ import platform.game.Actors.Lava;
 import platform.game.Actors.Monster;
 import platform.game.Actors.Particle;
 import platform.game.Actors.blocks.Block;
+import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockDisparitionSignal;
 import platform.game.Actors.blocks.MoverLava;
 import platform.game.Signals.Constant;
@@ -201,6 +202,7 @@ public class Boss extends Monster implements ActeurOverlay{
 		if (dead){
 			cooldownDisparition -= input.getDeltaTime();
 			if (cooldownDisparition<=0){
+				//Lorsque le boss disparait, il fait disparaitre avec lui des blocks du mur se trouvant derrière lui
 				for (int i = 0;i<blockDisparitionSignalDeadARemplacer.length;++i){
 					getWorld().unregister(blockDisparitionSignalDeadARemplacer[i]);
 					BlockDisparitionSignal block = new BlockDisparitionSignal(blockDisparitionSignalDeadARemplacer[i].getBox(), getWorld().getLoader(), "", new Constant(true));

@@ -6,9 +6,11 @@ import platform.game.Actors.Heart;
 import platform.game.Actors.Lava;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
+import platform.game.Actors.SignalInvisibleCollision;
 import platform.game.Actors.SignalInvisibleConstant;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
+import platform.game.Actors.blocks.BlockDecoSignal;
 import platform.game.Actors.blocks.Mover;
 import platform.game.Actors.blocks.MoverDamageFire;
 import platform.game.Actors.blocks.MoverLava;
@@ -29,7 +31,18 @@ public class LevelBoss extends Level{
 	    	world.register(overlayfranky);
 		    Loader loader = world.getLoader();
 		    
-		    getWorld().setView(new Vector(0,0), 15);
+		    getWorld().setView(new Vector(0,0), 14);
+		    
+		    //texte
+		    SignalInvisibleCollision signalTexte1 = new SignalInvisibleCollision(new Box(new Vector(5, 0), 15, 5));
+		    world.register(signalTexte1);
+		    world.register(new BlockDecoSignal(new Vector(8, 0), 10, 6, loader, "ZoneTexteEvilKing1", signalTexte1));
+		    SignalInvisibleCollision signalTexte2 = new SignalInvisibleCollision(new Box(new Vector(93, -6), 20, 10));
+		    world.register(signalTexte2);
+		    world.register(new BlockDecoSignal(new Vector(102, -1), 14, 8, loader, "ZoneTexteEvilKing2", signalTexte2));
+		    SignalInvisibleConstant signalTexte3 = new SignalInvisibleConstant(new Box(new Vector(115, -4), 10, 10));
+		    world.register(signalTexte3);
+		    world.register(new BlockDecoSignal(new Vector(120, 0), 14, 8, loader, "ZoneTexteNarrator1", signalTexte3));
 
 		    										// Couloir
 		    
@@ -144,7 +157,7 @@ public class LevelBoss extends Level{
 		    
 		    										// Interphase 1
 
-		    Slime minion1 = new Slime(new Vector(0, 0), new Vector(60, -8.5),0.01,4, new Box(new Vector(65.5, -8), 20, 5), loader, 1,1,false);
+		    Slime minion1 = new Slime(new Vector(0, 0), new Vector(64, -8.5),0.01,4, new Box(new Vector(65.5, -8), 20, 5), loader, 1,1,false);
 		    
 		    										// Interphase 2
 	    
