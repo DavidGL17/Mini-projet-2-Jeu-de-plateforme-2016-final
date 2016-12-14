@@ -29,12 +29,14 @@ public class Torch extends Actor implements Signal {
 	private final double VARIATION_MAX = 1;
 	private final double VARIATION_CHANGEMENT = 0.5;
 	
+	@Override
 	public void update(Input input) {
 		variation -= input.getDeltaTime () ;
 		if (variation < 0.0){
 			variation = VARIATION_MAX;
 		}
 	}
+	@Override
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		switch (type) {
 		case AIR : 
@@ -50,6 +52,7 @@ public class Torch extends Actor implements Signal {
 			return false;
 		}
 	}
+	@Override
 	public void draw(Input input, Output output){
 		if (lit){
 			if (variation <VARIATION_CHANGEMENT){

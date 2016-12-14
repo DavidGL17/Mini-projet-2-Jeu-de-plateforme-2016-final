@@ -9,20 +9,15 @@ import platform.util.Vector;
 //Nous utilisons cette classe pour display du texte principalement
 public class BlockDecoSignal extends BlockDeco{
 	private final Signal signal;
-	private boolean permission = false;
 	
 	public BlockDecoSignal(Vector position, double width, double height, Loader loader,String dessin,Signal signal){
 		super(position, height, width, loader, dessin);
 		this.signal = signal;
-		permission = signal.isActive();
 	}
-	@Override
-	public void update (Input input){
-		permission = signal.isActive();
-	}
+	//dessine uniquement si permission est actif
 	@Override
 	public void draw (Input input, Output output){
-		if (permission){
+		if (signal.isActive()){
 			output.drawSprite(getSprite(), getBox());
 		}
 	}
