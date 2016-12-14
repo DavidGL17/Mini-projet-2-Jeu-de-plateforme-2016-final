@@ -33,6 +33,7 @@ public class Mover extends Block{
 	public Vector getCurrentPosition() {
 		return currentPosition;
 	}
+	@Override
 	public Box getBox(){
 		return new Box(currentPosition, Width, Height);
 	}

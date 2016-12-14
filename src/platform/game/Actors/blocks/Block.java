@@ -22,10 +22,12 @@ public class Block extends Actor {
 	public Block(Box box, Sprite sprite){
 		super(1,box,sprite);
 	}
+	@Override
 	public void draw(Input input , Output output) {
 		output.drawSprite(getSprite(), getBox());
 	}
 	
+	@Override
 	public boolean isSolid(){
 		return true;
 	}

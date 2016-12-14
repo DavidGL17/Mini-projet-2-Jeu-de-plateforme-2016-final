@@ -9,7 +9,8 @@ import platform.util.Loader;
 import platform.util.Output;
 import platform.util.Vector;
 
-//Ce mover est spécifique au blocks de lave puvant bouger. Il a deux box car nos sprites onts une partie transparents, il nous faut donc redefinir 
+//Ce mover est spécifique aux blocks de lave pouvant bouger. 
+//Il a deux box car nos sprites ont une partie invisible au-dessus, il nous faut donc redéfinir 
 //la hitbox pour que le joueur ne meurt pas alors qu'il n'a pas touché la lave (la partie visible)
 public class MoverLava extends Mover{
 	private Box boxDraw;
@@ -29,25 +30,30 @@ public class MoverLava extends Mover{
 	}
 
 	//return la box utilisée pour les collisions
+	@Override
 	public Box getBox(){
 		return hitBox;
 	}
-	//permet de gérer les interactions avec les autres acteur
+	//permet de gérer les interactions avec les autres acteurs
+	@Override
 	public void interact(Actor other) {
 		if (getBox().isColliding(other.getBox())){
 			other.hurt(this, Damage.VOID, Damage.VOID.getDamage(), getPosition());
 		}
 	}
 	// pour évoluer au cours du temps :
+	@Override
 	public void update (Input input){
 		super.update(input);
 		hitBox = new Box(getCurrentPosition(), hitBox.getWidth(), hitBox.getHeight());
 		boxDraw = new Box(getCurrentPosition(), boxDraw.getWidth(), boxDraw.getHeight());
 	}
 	// pour être dessiné
+	@Override
 	public void draw (Input input, Output output){
 		output.drawSprite(getSprite(), boxDraw);
 	}
+	@Override
 	public boolean isSolid(){
 		return false;
 	}

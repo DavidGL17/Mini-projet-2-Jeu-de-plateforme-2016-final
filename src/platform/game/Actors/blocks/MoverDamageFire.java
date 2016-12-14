@@ -15,6 +15,8 @@ public class MoverDamageFire extends Mover{
 	private final double COOLDOWN_MAX = 0.5;
 	private double cooldownDegats = COOLDOWN_MAX;
 	
+	// Blesse le joueur s'ils sont en contact
+	@Override
 	public void interact(Actor other) {
 		if (getBox().isColliding(other.getBox())){
 			if (cooldownDegats <= 0){
@@ -24,6 +26,8 @@ public class MoverDamageFire extends Mover{
 			}
 		}
 	}
+	// Cooldown pour éviter de recevoir des damage en permanence
+	@Override
 	public void update (Input input){
 		super.update(input);
 		cooldownDegats -= input.getDeltaTime();
@@ -31,6 +35,7 @@ public class MoverDamageFire extends Mover{
 			cooldownDegats = 0;
 		}
 	}
+	@Override
 	public boolean isSolid(){
 		return false;
 	}

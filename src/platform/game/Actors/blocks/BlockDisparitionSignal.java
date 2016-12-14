@@ -17,7 +17,8 @@ public class BlockDisparitionSignal extends Block{
 		apparait = !signal.isActive();
 		this.box = box;
 	}
-	
+	// Permet d'unregister un block si un signal est lancé
+	@Override
 	public void update(Input input){
 		apparait = !signal.isActive();
 		if (!apparait){
@@ -26,6 +27,7 @@ public class BlockDisparitionSignal extends Block{
 			setBox(box);
 		}
 	}
+	@Override
 	public boolean isSolid(){
 		if (apparait){
 			return true;
@@ -33,6 +35,7 @@ public class BlockDisparitionSignal extends Block{
 			 return false;
 		}
 	}
+	@Override
 	public void draw(Input input, Output output){
 		if (apparait){
 			output.drawSprite(getSprite(), getBox());

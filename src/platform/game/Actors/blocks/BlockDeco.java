@@ -11,6 +11,7 @@ public class BlockDeco extends Block{
 		this.setPriority(-10);
 	}
 	
+	@Override
 	public boolean isSolid(){
 		return false;
 	}

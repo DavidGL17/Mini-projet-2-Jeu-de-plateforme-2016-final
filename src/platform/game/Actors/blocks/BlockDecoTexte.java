@@ -7,13 +7,14 @@ import platform.game.Actors.SignalReadKey;
 import platform.util.Input;
 import platform.util.Output;
 
-//cette classe nous ppermet de display un ou plusieur sprites de texte efficacement (voir Level_00)
+//cette classe nous permet de display un ou plusieurs sprites de texte efficacement (voir Level_00)
 public class BlockDecoTexte extends Actor{
 	private ArrayList<BlockDeco> texte = new ArrayList<BlockDeco>();
 	//permet d'avancer dans le tableau à chaque fois que signal est actif
 	private int n = 0;
 	private SignalReadKey signal;
-	//Cet attribut boolean permet de, si ce block est le seul de register dans le World, de passer au niveau suivant lorsqu'il a fini de display tout ses textes
+	//Cet attribut boolean permet de, si ce block est le seul de register dans le World, 
+	//de passer au niveau suivant lorsqu'il a fini de display tous ses textes
 	private boolean aloneInWorld;
 
 	
@@ -33,6 +34,7 @@ public class BlockDecoTexte extends Actor{
 		}
 	}
 	//Si il reste encore des blocks de texte à display alors on les display, sinon il se unregister du World
+	@Override
 	public void update(Input input){
 		if (signal.isActive()){
 			++n;
@@ -47,6 +49,7 @@ public class BlockDecoTexte extends Actor{
 			}
 		}
 	}
+	@Override
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox());
 	}

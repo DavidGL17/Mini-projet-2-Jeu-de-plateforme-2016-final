@@ -24,6 +24,7 @@ public class BlockIndecis extends Block{
 		this.dessinDisparait = dessinDisparait;
 	}
 	
+	@Override
 	public boolean isSolid(){
 		if (apparait){
 			return super.isSolid();
@@ -32,6 +33,7 @@ public class BlockIndecis extends Block{
 		}
 	}
 	// pour évoluer au cours du temps :
+	@Override
 	public void update(Input input) {
 		if (apparait){
 			timerDisparition -= input.getDeltaTime();
@@ -47,6 +49,7 @@ public class BlockIndecis extends Block{
 			}
 		}
 	}
+	@Override
 	public void draw(Input input , Output output) {
 		if (apparait){
 			output.drawSprite(getWorld().getLoader().getSprite(dessinApparait), getBox());

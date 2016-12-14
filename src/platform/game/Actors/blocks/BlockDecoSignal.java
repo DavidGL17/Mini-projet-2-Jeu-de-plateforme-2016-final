@@ -16,9 +16,11 @@ public class BlockDecoSignal extends BlockDeco{
 		this.signal = signal;
 		permission = signal.isActive();
 	}
+	@Override
 	public void update (Input input){
 		permission = signal.isActive();
 	}
+	@Override
 	public void draw (Input input, Output output){
 		if (permission){
 			output.drawSprite(getSprite(), getBox());
