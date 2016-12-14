@@ -34,6 +34,7 @@ public class BlockDecoTexte extends Actor{
 		}
 	}
 	//Si il reste encore des blocks de texte à display alors on les display, sinon il se unregister du World
+	//si aloneInWorld est initialisé à true, il passe au niveau suivant
 	@Override
 	public void update(Input input){
 		if (signal.isActive()){
