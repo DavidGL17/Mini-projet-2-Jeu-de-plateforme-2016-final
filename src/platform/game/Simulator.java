@@ -94,12 +94,14 @@ public class Simulator implements World {
     //@see nextLevel
     private boolean checkpoint = false;
     
+    //gets and set the checkpoint
 	public boolean getCheckpoint(){
     	return checkpoint;
     }
     public void setCheckpoint(boolean checkpoint){
     	this.checkpoint = checkpoint;
     }
+    //Fait quelque chose de différent selon chaque mode de jeu
     public void nextLevel(){
     	if (levelMode ==0){
     		transition = true;
@@ -143,6 +145,7 @@ public class Simulator implements World {
 		this.levelMode = levelMode;
 		nextLevel();
 	}
+	//gets the levelMode
 	public int getLevelMode(){
 		return levelMode;
 	}
