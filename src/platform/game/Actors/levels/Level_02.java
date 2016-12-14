@@ -18,7 +18,7 @@ public class Level_02 extends Level{
 	    public void register(World world) {
         super.register(world);
 
-		Player franky = new Player(new Vector(0, 1), new Vector(8, 0), world.getLoader());
+		Player franky = new Player(new Vector(0, 1), new Vector(8,0), world.getLoader());
 	    world.register(franky);
 	    Overlay overlayfranky = new Overlay(franky);
 	    world.register(overlayfranky);
@@ -43,24 +43,50 @@ public class Level_02 extends Level{
 	    world.register(new Block(new Box(new Vector(12, -9), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    world.register(new Block(new Box(new Vector(12, -15), 6, 6), world.getLoader().getSprite("grass.center3")));
 	    
+    	world.register(new BlockDeco(new Vector(5, 1), 2, 3, world.getLoader(), "foliagePack_056"));
+    	world.register(new BlockDeco(new Vector(0, 0.5), 1, 1, world.getLoader(), "foliagePack_001"));
+    	world.register(new BlockDeco(new Vector(14, 0.5), 1, 1, world.getLoader(), "foliagePack_001"));
+    	world.register(new BlockDeco(new Vector(-4, 0.5), 1, 1, world.getLoader(), "foliagePack_004"));
+    	world.register(new BlockDeco(new Vector(21, -1.5), 9, 5, world.getLoader(), "foliagePack_008"));
+    	world.register(new BlockDeco(new Vector(25, -5.5), 1, 1, world.getLoader(), "mushroomRed"));
+    	world.register(new BlockDeco(new Vector(28, -5.5), 1, 1, world.getLoader(), "mushroomBrown"));
+	    
+    	world.register(new BlockDeco(new Vector(40, 12.5), 1, 1, world.getLoader(), "foliagePack_001"));
+    	world.register(new BlockDeco(new Vector(37, 12.5), 1, 1, world.getLoader(), "foliagePack_001"));
+    	world.register(new BlockDeco(new Vector(45, 12.5), 1, 1, world.getLoader(), "foliagePack_003"));
+    	world.register(new BlockDeco(new Vector(50, 12.5), 1, 1, world.getLoader(), "foliagePack_002"));
+    	world.register(new BlockDeco(new Vector(40, 12.5), 1, 1, world.getLoader(), "foliagePack_001"));
+    	world.register(new BlockDeco(new Vector(54, 4.5), 1, 1, world.getLoader(), "mushroomBrown"));
+    	world.register(new BlockDeco(new Vector(51.5, 4.5), 1, 1, world.getLoader(), "mushroomBrown"));
+
+    	world.register(new BlockDeco(new Vector(64, 16.5), 9, 5, world.getLoader(), "foliagePack_006"));
+    	world.register(new BlockDeco(new Vector(66, 12.5), 1, 1, world.getLoader(), "mushroomRed"));
+    	world.register(new BlockDeco(new Vector(68, 12.5), 1, 1, world.getLoader(), "mushroomRed"));
+
+    	world.register(new BlockDeco(new Vector(73, 17), 12, 6, world.getLoader(), "foliagePack_005"));
+
     	world.register(new BlockDeco(new Vector(5, 1), 2, 20, world.getLoader(), "longbush2"));
     	world.register(new BlockDeco(new Vector(-15, 1), 2, 20, world.getLoader(), "longbush2"));
     	world.register(new BlockDeco(new Vector(25, -5), 2, 20, world.getLoader(), "longbush2"));
     	world.register(new BlockDeco(new Vector(43, 1), 2, 20, world.getLoader(), "longbush2"));
-
     	world.register(new BlockDeco(new Vector(43, 13), 2, 20, world.getLoader(), "longbush2"));
     	world.register(new BlockDeco(new Vector(63, 13), 2, 20, world.getLoader(), "longbush2"));
     	world.register(new BlockDeco(new Vector(83, 13), 2, 20, world.getLoader(), "longbush2"));
-
-    	
 	    world.register(new BlockDeco(new Vector(44, 18), 20, 100, world.getLoader(), "Background_112"));
 	    world.register(new BlockDeco(new Vector(44, 15), 15, 4, world.getLoader(), "hill_largeAlt"));
     	world.register(new BlockDeco(new Vector(48, 13), 13, 3, world.getLoader(), "hill_largeAlt"));
     	world.register(new BlockDeco(new Vector(46, 15), 18, 4, world.getLoader(), "hill_largeAlt"));
 	    world.register(new BlockDeco(new Vector(4, -1), 20, 30, world.getLoader(), "Background_92"));
-	    world.register(new BlockDeco(new Vector(33, -1), 20, 30, world.getLoader(), "Background_92"));
+		world.register(new BlockDeco(new Vector(8, 7), 8, 3, world.getLoader(), "hill_largeAlt"));
+		world.register(new BlockDeco(new Vector(0, 6), 9, 3, world.getLoader(), "hill_largeAlt"));
+	    world.register(new BlockDeco(new Vector(6, 10), 8, 20, world.getLoader(), "Cloud_7"));
+		world.register(new BlockDeco(new Vector(11, 8), 12, 3, world.getLoader(), "hill_largeAlt"));
+    	world.register(new BlockDeco(new Vector(4, 8), 10, 3, world.getLoader(), "hill_largeAlt"));
+		world.register(new BlockDeco(new Vector(33, -1), 20, 30, world.getLoader(), "Background_92"));
 	    world.register(new BlockDeco(new Vector(54, 8), 8 , 12, world.getLoader(), "Background2_84"));
-	    world.register(new BlockDeco(new Vector(40, 18), 55, 100, world.getLoader(), "Background2_1"));
+        world.register(new BlockDeco(new Vector(15, 6), 15, 20, world.getLoader(), "Background_19"));
+
+	    world.register(new BlockDeco(new Vector(40, 18), 500, 500, world.getLoader(), "Background2_1"));
 	
 	    
 	    
@@ -106,7 +132,7 @@ public class Level_02 extends Level{
 	    
 
 	    
-	    Key keyRed = new Key(new Vector(52, 4.5), world.getLoader(), Key.red);
+	    Key keyRed = new Key(new Vector(53, 4.5), world.getLoader(), Key.red);
 	    Locker locker1 = new Locker(new Vector(56.5, 12.5), world.getLoader(), Locker.red, keyRed);
 	    Locker locker2 = new Locker(new Vector(59.5, 12.5), world.getLoader(), Locker.red, keyRed);
 	    Locker locker3 = new Locker(new Vector(56.5, 13.5), world.getLoader(), Locker.red, keyRed);
