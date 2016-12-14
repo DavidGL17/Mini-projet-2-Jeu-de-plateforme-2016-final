@@ -34,7 +34,7 @@ public class Level_01 extends Level {
 		  
 		    SignalInvisibleConstant tuto = new SignalInvisibleConstant(new Box(new Vector(24, 6), 4, 6));
 		    world.register(tuto);
-		    world.register(new BlockDecoSignal(new Vector(24, 9), 12, 8, loader, "tuto1", tuto));
+		    world.register(new BlockDecoSignal(new Vector(24, 9), 10, 8, loader, "tuto1", tuto));
 		    SignalInvisibleConstant tuto0 = new SignalInvisibleConstant(new Box(new Vector(9, 4), 1, 1));
 		    world.register(tuto0);
 		    world.register(new BlockDecoSignal(new Vector(5, 9), 10, 6, loader, "tuto0", tuto0));

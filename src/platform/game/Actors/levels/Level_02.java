@@ -50,7 +50,8 @@ public class Level_02 extends Level{
     	world.register(new BlockDeco(new Vector(21, -1.5), 9, 5, world.getLoader(), "foliagePack_008"));
     	world.register(new BlockDeco(new Vector(25, -5.5), 1, 1, world.getLoader(), "mushroomRed"));
     	world.register(new BlockDeco(new Vector(28, -5.5), 1, 1, world.getLoader(), "mushroomBrown"));
-	    
+    	world.register(new BlockDeco(new Vector(35, 0.5), 1, 1, world.getLoader(), "mushroomRed"));
+    	world.register(new BlockDeco(new Vector(38, 0.5), 1, 1, world.getLoader(), "mushroomRed"));
     	world.register(new BlockDeco(new Vector(40, 12.5), 1, 1, world.getLoader(), "foliagePack_001"));
     	world.register(new BlockDeco(new Vector(37, 12.5), 1, 1, world.getLoader(), "foliagePack_001"));
     	world.register(new BlockDeco(new Vector(45, 12.5), 1, 1, world.getLoader(), "foliagePack_003"));
