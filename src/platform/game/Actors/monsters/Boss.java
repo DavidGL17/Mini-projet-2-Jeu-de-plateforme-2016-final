@@ -11,7 +11,6 @@ import platform.game.Actors.Lava;
 import platform.game.Actors.Monster;
 import platform.game.Actors.Particle;
 import platform.game.Actors.blocks.Block;
-import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockDisparitionSignal;
 import platform.game.Actors.blocks.MoverLava;
 import platform.game.Signals.Constant;
