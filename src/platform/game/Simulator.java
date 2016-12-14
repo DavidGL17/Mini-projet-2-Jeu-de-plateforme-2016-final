@@ -76,7 +76,7 @@ public class Simulator implements World {
     }
 	
     //Levels
-    //permet e savoir en quel mode est le jeu(histoire, choix de niveau,...) et de passer d'un à l'autre
+    //permet de savoir en quel mode est le jeu(histoire, choix de niveau,...) et de passer d'un à l'autre
     //0 : level intro, ou on choisit entre histoire ou freeChoice
     //1 Mode histoire, on ne changera pas de mode de jeu à moins qu'on arrive à la fin. On utilise le tableau Levels en itéterant dessus
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
@@ -90,7 +90,7 @@ public class Simulator implements World {
 	private Level nextLevel;
     private int compteurDeNiveau = 0;
     private boolean transition = false;
-    //permet de savoir si le joueur a passé un checkpoint (s'il y en a un). Il est remit a false à chaaue nouveau level
+    //permet de savoir si le joueur a passé un checkpoint (s'il y en a un). Il est remit a false à chaque nouveau level
     //@see nextLevel
     private boolean checkpoint = false;
     

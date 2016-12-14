@@ -31,11 +31,12 @@ public class Locker extends Actor implements Signal{
 		this.timer = timer;
 		this.cooldown = cooldown;
 	}
-	
+	@Override
 	public boolean isSolid(){
 		return !destructionDone;
 	}
 	// pour évoluer au cours du temps :
+	@Override
 	public void update(Input input) {
 		if (signal.isActive()&&timer&&!destructionDone){
 			destructionBegins = true;
@@ -50,6 +51,7 @@ public class Locker extends Actor implements Signal{
 		}
 	}
 	// pour être dessiné
+	@Override
 	public void draw(Input input , Output output) {
 		if (!timer && !destructionBegins){
 			if (!signal.isActive()){

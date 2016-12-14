@@ -38,6 +38,7 @@ public abstract class Monster extends Actor{
 	/**
 	 * @return the position
 	 */
+	@Override
 	public Vector getPosition() {
 		return getBox().getCenter();
 	}

@@ -20,7 +20,7 @@ public class Lever extends Actor implements Signal{
 		this.leverActive = leverActive;
 		this.leverNotActive = leverNotActive;
 	}
-	
+	@Override
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		switch (type){
 		case ACTIVATION :
@@ -31,6 +31,7 @@ public class Lever extends Actor implements Signal{
 		}
 	}
 	// pour être dessiné
+	@Override
 	public void draw(Input input , Output output) {
 		if (value){
 			output.drawSprite(getWorld().getLoader().getSprite(leverNotActive), getBox());

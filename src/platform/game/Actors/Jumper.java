@@ -23,6 +23,12 @@ public class Jumper extends Actor{
 	}
 	
 	@Override
+	public boolean isSolid(){
+		return true;
+	}
+	
+	//La priorité change si le jumper est en repos, pour que le joueur rentre en collision avec vu que Jumper est solid est solide
+	@Override
 	public void update(Input input) {
 		super.update(input);
 		if (!(cooldown <= 0)){
@@ -45,9 +51,7 @@ public class Jumper extends Actor{
 			}
 		}
 	}
-	public boolean isSolid(){
-		return true;
-	}
+	@Override
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox());
 	}

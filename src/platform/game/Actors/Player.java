@@ -31,6 +31,7 @@ public class Player extends Actor implements ActeurOverlay{
 	/**
 	 * @return the position
 	 */
+	@Override
 	public Vector getPosition() {
 		return position;
 	}
@@ -52,12 +53,14 @@ public class Player extends Actor implements ActeurOverlay{
 	/**
 	 * @return the hP
 	 */
+	@Override
 	public double getHP() {
 		return HP;
 	}
 	/**
 	 * @return the hPMax
 	 */
+	@Override
 	public double getHPMax() {
 		return HPMax;
 	}
@@ -119,6 +122,8 @@ public class Player extends Actor implements ActeurOverlay{
 				return false;
 		}
 	}
+	//Le Player est bel est bien un Player
+	@Override
 	public boolean isPlayer(){
 		return true;
 	}
@@ -130,7 +135,7 @@ public class Player extends Actor implements ActeurOverlay{
 	private int conteurDeBoule = 0;
 	private final double COOLDOWN_BOULE_DE_FEU = 0.7;
 	private final int MAX_BOULEDEFEU_SUITE = 2;
-	
+	@Override
 	public void preUpdate(){
 		colliding=false;
 	}
@@ -235,9 +240,11 @@ public class Player extends Actor implements ActeurOverlay{
 		position = position.add(vitesse.mul(delta));
 		setBox(new Box(position, SIZE, SIZE));
 	}
+	@Override
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox());
 	}
+	@Override
 	public void postUpdate(){
 		super.postUpdate();
 		getWorld().setView(position,getWorld().getExpectedRadius());

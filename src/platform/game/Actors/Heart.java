@@ -28,12 +28,14 @@ public class Heart extends Actor {
 			}
 		}
 	}
+	@Override
 	public void update(Input input) {
 		super.update(input);
 		if (!(cooldown <= 0)){
 			cooldown -= input.getDeltaTime();
 		}
 	}
+	@Override
 	public void draw(Input input, Output output){
 		if (cooldown<=0){
 			output.drawSprite(getSprite(), getBox());

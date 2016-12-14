@@ -18,7 +18,8 @@ public class FireballBoss extends Fireball{
 		this.vitesse = vitesse;
 		this.position = position;
 	}
-	
+	//cette fireball ne suvit pas la gravité, nous devons donc redéfinir interact et update
+	@Override
 	public void interact(Actor other){
 		super.interact(other);
 		if (other.isSolid()&&other.getBox()!=null) {

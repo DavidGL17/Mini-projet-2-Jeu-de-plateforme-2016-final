@@ -8,6 +8,7 @@ public class Limits extends Actor{
 	public Limits(Box box){
 		super(box,1000000);
 	}
+	@Override
 	public void interact(Actor other) {
 		super.interact(other);
 		if (getBox().isColliding(other.getBox())){

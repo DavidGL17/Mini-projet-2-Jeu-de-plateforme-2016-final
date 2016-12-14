@@ -21,12 +21,13 @@ public class Key extends Actor implements Signal{
 	}
 	
 	private boolean taken = false;
-	
+	@Override
 	public void update(Input input) {
 		if (taken){
 			getWorld().unregister(this);
 		}
 	}
+	@Override
 	public void interact(Actor other){
 		super.interact(other);
 		if (other.isPlayer()&&(getBox().isColliding(other.getBox()))){
@@ -34,9 +35,11 @@ public class Key extends Actor implements Signal{
 			getWorld().unregister(this);
 		}
 	}
+	@Override
 	public void draw(Input input , Output output) {
 		output.drawSprite(getSprite(), getBox());
 	}
+	@Override
 	public boolean isActive(){
 		return taken;
 	}

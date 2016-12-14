@@ -16,7 +16,7 @@ public class SignalAlternant extends Actor implements Signal{
 		this.timer = timer;
 		setPriority(11);
 	}
-	
+	@Override
 	public void update (Input input){
 		timer -= input.getDeltaTime();
 		if (timer<=0){
@@ -24,6 +24,7 @@ public class SignalAlternant extends Actor implements Signal{
 			signal = !signal;
 		}
 	}
+	@Override
 	public boolean isActive(){
 		return signal;
 	}

@@ -58,6 +58,7 @@ public class Boss extends Monster implements ActeurOverlay{
 		return HPMax;
 	}
 	//si le joueur touche le boss il meurt 
+	@Override
 	public void interact(Actor other){
 		super.interact(other);
 		if (getBox().isColliding(other.getBox())&&other.isPlayer()){

@@ -13,6 +13,7 @@ public class Lava extends Limits{
 	}
 	
 	// pour être dessiné
+	@Override
 	public void draw(Input input , Output output) {
 		output.drawSprite(getSprite(), getBox());
 	}

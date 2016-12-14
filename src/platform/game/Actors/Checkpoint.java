@@ -27,7 +27,7 @@ public class Checkpoint extends Actor{
 		this.drapeauHaut1 = drapeauHaut1;
 		this.drapeauHaut2 = drapeauHaut2;
 	}
-	
+	//Si le joueur rentre en collision avec Checkpoint, sont attribut checkpointDone va passer à true et il va mettre set le checkpoint de World à true 
 	public void interact(Actor other){
 		if (getBox().isColliding(other.getBox())&&other.isPlayer()&&!checkpointDone){
 			checkpointDone = true;
@@ -35,7 +35,7 @@ public class Checkpoint extends Actor{
 		}
 	}
 	public void update(Input input){
-		//Dans le cas ou le jeour à déjà passé le chackpoint, celui ci va automatiquement se mettre en mode chackpoint done
+		//Dans le cas ou le joueur à déjà passé le checkpoint, celui ci va automatiquement se mettre checkpointDone à true
 		if (getWorld().getCheckpoint()){
 			checkpointDone = true;
 		}

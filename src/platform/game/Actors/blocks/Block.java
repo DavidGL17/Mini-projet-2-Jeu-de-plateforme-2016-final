@@ -14,11 +14,6 @@ import platform.util.Vector;
 public class Block extends Actor {
 	private final static String dessin = "box.empty";
 	
-	//Constructeur de base
-	public Block(Vector basGauche, Vector hautDroite, Loader loader){
-		super(1,new Box(basGauche, hautDroite),loader ,dessin);
-	}
-	//Constructeur utilisé par les levels. Permet de régler la taille
 	public Block(Box box, Sprite sprite){
 		super(1,box,sprite);
 	}

@@ -10,6 +10,7 @@ import platform.util.Input;
 public class SignalReadKey extends Actor implements Signal{
 	private boolean signal = false;
 	
+	@Override
 	public void update(Input input){
 		if (input.getKeyboardButton(KeyEvent.VK_B).isPressed()){
 			signal = true;
@@ -17,6 +18,7 @@ public class SignalReadKey extends Actor implements Signal{
 			signal = false;
 		}
 	}
+	@Override
 	public boolean isActive(){
 		return signal;
 	}

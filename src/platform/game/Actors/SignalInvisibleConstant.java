@@ -9,11 +9,13 @@ public class SignalInvisibleConstant extends Actor implements Signal{
 	public SignalInvisibleConstant(Box box){
 		super(box, 1400);
 	}
+	@Override
 	public void interact(Actor other){
 		if (getBox().isColliding(other.getBox())&&other.isPlayer()){
 			signal = true;
 		}
 	}
+	@Override
 	public boolean isActive(){
 		return signal;
 	}

@@ -19,12 +19,14 @@ public class Teleporteur extends Actor{
 		super(10000, box, loader, dessin1);
 		this.positionDarrivee = positionDarrivee;
 	}
-	
+	@Override
+	//Lorsque le joueur rentre en contacte il est teléporté à la position voulue
 	public void interact(Actor other) {
 		if (getBox().isColliding(other.getBox())&&other.isPlayer()){
 			((Player)other).setPosition(positionDarrivee);
 		}
 	}
+	@Override
 	//Pour évoluer au cours du temps
 	public void update(Input input){
 		cooldown -= input.getDeltaTime()/2;
@@ -32,7 +34,8 @@ public class Teleporteur extends Actor{
 			cooldown = 1;
 		}
 	}
-	// pour être dessiné
+	@Override
+	// pour être dessiné. Le teleporteur a 4 sprites, il alterne entre elles grâce à cooldown
 	public void draw(Input input , Output output) {
 		if (cooldown<0.75){
 			output.drawSprite(getWorld().getLoader().getSprite(dessin2), getBox());

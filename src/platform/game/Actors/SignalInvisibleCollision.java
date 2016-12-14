@@ -12,14 +12,17 @@ public class SignalInvisibleCollision extends Actor implements Signal{
 	public SignalInvisibleCollision(Box box){
 		super(box, 1500);
 	}
+	@Override
 	public void interact(Actor other){
 		if (getBox().isColliding(other.getBox())&&other.isPlayer()){
 			signal = true;
 		}
 	}
+	@Override
 	public void preUpdate(){
 		signal = false;
 	}
+	@Override
 	public boolean isActive(){
 		return signal;
 	}

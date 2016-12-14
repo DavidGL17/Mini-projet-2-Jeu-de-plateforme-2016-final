@@ -81,6 +81,7 @@ public class Slime extends Monster{
 	public void update(Input input) {
 		super.update(input);
 		
+		//Permet de régler le cooldownDessin pour gérer le sprite à mettre et la hitbox
 		cooldownDessin -= input.getDeltaTime();
 		if (cooldownDessin<0){
 			cooldownDessin = COOLDOWN_MAX_DESSIN;
@@ -95,14 +96,17 @@ public class Slime extends Monster{
 				setBox(new Box(getPosition(), width, height/3));
 			}
 		}
+		//Le slime ne peut pas infliger des dégats constamment
 		cooldownDegats -=input.getDeltaTime();
 		if (cooldownDegats<0){
 			cooldownDegats = 0;
 		}
+		//Si le slime meur il en informe le reste de la classe
 		if (HP<0){
 			getWorld().unregister(this);
 			bigBrotherIsDead = true;
 		}
+		//si l'attribut showMustGoOn à été mis à true dans le constructeur, de plus petits slimes apparaitront
 		if (bigBrotherIsDead&&showMustGoOn){
 			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()+width/2, getPosition().getY()-(height/4)),getMovement()*1.25, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));
 			getWorld().register(new Slime(getVitesse(), new Vector(getPosition().getX()-width/2, getPosition().getY()-(height/4)),getMovement()*1.25, HP_MAX/2,getBoxDAction(), getWorld().getLoader(), width/2, height/2, false));

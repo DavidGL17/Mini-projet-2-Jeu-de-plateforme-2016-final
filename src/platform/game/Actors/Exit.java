@@ -30,7 +30,7 @@ public class Exit extends Actor{
 		this.changeLevelMode = true;
 		this.levelMode = levelMode;
 	}
-	//Celui la permet de passer à un niveau spécifique (levelMode == 3=
+	//Celui la permet de passer à un niveau spécifique (levelMode == 3)
 	public Exit(Vector position, double Width, double Height,Loader loader, Signal signal, Level levelAMettre){
 		super(10, new Box(position, Width, Height), loader.getSprite(fermee));
 		this.signal=signal;
@@ -39,6 +39,7 @@ public class Exit extends Actor{
 		this.levlAMettre = levelAMettre;
 	}
 	
+	@Override
 	public void interact(Actor other) {
 		if (getBox().isColliding(other.getBox())){
 			if (other.isPlayer()){
@@ -62,6 +63,8 @@ public class Exit extends Actor{
 			}
 		}
 	}
+	//La priorité change pour que lorsque la porte est fermée elle ne soit pas déssinnée par dessus le player
+	@Override
 	public void update(Input input) {
 		if (signal.isActive()){
 			setSprite(getWorld().getLoader().getSprite(ouverte));
@@ -72,6 +75,7 @@ public class Exit extends Actor{
 		}
 	}
 	// pour être dessiné
+	@Override
 	public void draw(Input input , Output output) {
 		if (signal.isActive()){
 			output.drawSprite(getSprite(), getBox());

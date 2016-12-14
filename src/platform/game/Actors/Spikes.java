@@ -35,7 +35,7 @@ public class Spikes extends Actor{
 			cooldown = 0;
 		}
 	}
-
+	@Override
 	public void interact(Actor other) {
 		super.interact(other);
 		if ((cooldown <= 0) && (getBox().isColliding(other.getBox()))){
@@ -44,10 +44,11 @@ public class Spikes extends Actor{
 			}
 		}
 	}
+	@Override
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox());
 	}
-	
+	@Override
 	public boolean isSolid(){
 		return true;
 	}

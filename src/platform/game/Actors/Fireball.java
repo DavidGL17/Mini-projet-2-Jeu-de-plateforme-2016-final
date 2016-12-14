@@ -42,7 +42,8 @@ public class Fireball extends Actor{
 		this.cooldown = cooldown;
 	}
 	
-	//Les fireball disparaissent si elles touchent une limite, ou si ont les eteint
+	//Les fireball disparaissent si elles touchent une limite
+	@Override
 	public boolean hurt(Actor instigator , Damage type , double amount , Vector location) {
 		switch(type) {
 		case VOID : 
@@ -62,6 +63,7 @@ public class Fireball extends Actor{
 					vitesse = vitesse.mirrored(delta) ;
 			}
 		}
+		//Si other est réceptif aux dégats fireball se désenregistre du monde
 		if (getBox().isColliding(other.getBox())){
 			if (!other.equals(owner) && owner!=null){
 				if(other.hurt(this,Damage.FIRE,Damage.FIRE.getDamage(),getPosition())){
@@ -83,7 +85,7 @@ public class Fireball extends Actor{
 		position = position.add(vitesse.mul(delta));
 		setBox(new Box(position, SIZE, SIZE));
 	}
-
+	@Override
 	public void draw(Input input, Output output){
 		output.drawSprite(getSprite(), getBox(), input.getTime()*25);
 	}
