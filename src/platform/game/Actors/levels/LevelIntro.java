@@ -1,9 +1,13 @@
 package platform.game.Actors.levels;
 
+import java.awt.event.KeyEvent;
+
 import platform.game.World;
 import platform.game.Actors.Exit;
+import platform.game.Actors.GravitySwitcher;
 import platform.game.Actors.LimiteTangible;
 import platform.game.Actors.Player;
+import platform.game.Actors.actorSignal.SignalReadKey;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Signals.Constant;
@@ -21,6 +25,12 @@ public class LevelIntro extends Level{
         world.register(new LimiteTangible(new Vector(-6.5, 0), 1, 100));
         world.register(new LimiteTangible(new Vector(6.5, 0), 1, 100));
         world.register(new BlockDeco(new Vector(0, 0), 20, 20, loader, "textIntro"));
+        
+        
+        SignalReadKey signalGravity = new SignalReadKey(KeyEvent.VK_L);
+        world.register(signalGravity);
+        world.register(new GravitySwitcher(signalGravity));
+        
         
         //portes
         world.register(new Exit(new Vector(5, -28), 1.5, 2, loader, new Constant(true),1));

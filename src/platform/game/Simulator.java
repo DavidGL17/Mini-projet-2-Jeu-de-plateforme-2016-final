@@ -74,7 +74,20 @@ public class Simulator implements World {
     	expectedCenter = center;
     	expectedRadius = radius;
     }
-	
+    
+    //Permet de gérer la gravité
+    private Vector gravity = new Vector(0, -9.81);
+    
+	public Vector getGravity(){
+		return gravity;
+	}
+	public void switchGravity(){
+		gravity = new Vector(gravity.getX(), -1*gravity.getY());
+	}
+	public void gravityNormal(){
+		gravity = new Vector(gravity.getX(), -1*Math.abs(gravity.getY()));
+	}
+    
     //Levels
     //permet de savoir en quel mode est le jeu(histoire, choix de niveau,...) et de passer d'un à l'autre
     //0 : level intro, ou on choisit entre histoire ou freeChoice
@@ -109,6 +122,7 @@ public class Simulator implements World {
     		compteurDeNiveau = 0;
     		transition = true;
     		checkpoint = false;
+    		gravityNormal();
     		setView(currentCenter, radius);
     	}
     	if (levelMode == 1){
@@ -121,6 +135,7 @@ public class Simulator implements World {
     		++compteurDeNiveau;
     		transition = true;
     		checkpoint = false;
+    		gravityNormal();
     		setView(currentCenter, radius);
     	}
     	if (levelMode == 2){
@@ -128,12 +143,14 @@ public class Simulator implements World {
     		compteurDeNiveau = 0;
     		transition = true;
     		checkpoint = false;
+    		gravityNormal();
     		setView(currentCenter, radius);
     	}
     	if (levelMode == 3){
     		compteurDeNiveau = 0;
     		transition = true;
     		checkpoint = false;
+    		gravityNormal();
     		setView(currentCenter, radius);
     	}
     }

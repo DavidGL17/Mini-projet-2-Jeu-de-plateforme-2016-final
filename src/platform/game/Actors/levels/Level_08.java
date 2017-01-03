@@ -12,7 +12,7 @@ import platform.game.Actors.Locker;
 import platform.game.Actors.Overlay;
 import platform.game.Actors.Player;
 import platform.game.Actors.Scie;
-import platform.game.Actors.SignalInvisibleConstant;
+import platform.game.Actors.actorSignal.SignalInvisibleConstant;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Actors.blocks.BlockIndecis;

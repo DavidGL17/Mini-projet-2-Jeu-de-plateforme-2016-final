@@ -3,7 +3,7 @@ package platform.game.Actors.blocks;
 import java.util.ArrayList;
 
 import platform.game.Actor;
-import platform.game.Actors.SignalReadKey;
+import platform.game.Actors.actorSignal.SignalReadKey;
 import platform.util.Input;
 import platform.util.Output;
 

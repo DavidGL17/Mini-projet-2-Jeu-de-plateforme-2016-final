@@ -22,10 +22,12 @@ public interface World {
 	public double getExpectedRadius();
     public void register(Actor actor);
     public void unregister(Actor actor);
-    default public Vector getGravity(){
-    	Vector gravity = new Vector(0.0, -9.81);
-    	return gravity;
-    }
+    //permet de recuperer le vecteur gravité
+    public Vector getGravity();
+    //inverse la gravité
+    public void switchGravity();
+    //remet la gravité à la normale
+    public void gravityNormal();
     //Permet d'infliger des effets dans une zone
     public int hurt(Box area , Actor instigator , Damage type ,double amount , Vector location);
     

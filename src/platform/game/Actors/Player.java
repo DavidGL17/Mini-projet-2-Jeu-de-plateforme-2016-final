@@ -234,7 +234,7 @@ public class Player extends Actor implements ActeurOverlay{
 			getWorld().unregister(this);
 			getWorld().tryAgain();
 		}
-		double delta = input.getDeltaTime () ;
+		double delta = input.getDeltaTime();
 		Vector acceleration = getWorld().getGravity();
 		vitesse = vitesse.add(acceleration.mul(delta));
 		position = position.add(vitesse.mul(delta));
