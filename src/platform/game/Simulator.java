@@ -4,7 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import platform.game.Actors.Damage;
-import platform.game.Actors.levels.*;
+import platform.game.Actors.levels.Level;
+import platform.game.Actors.levels.LevelBoss;
+import platform.game.Actors.levels.LevelChoixNiveau;
+import platform.game.Actors.levels.LevelIntro;
+import platform.game.Actors.levels.Level_00;
+import platform.game.Actors.levels.Level_01;
+import platform.game.Actors.levels.Level_02;
+import platform.game.Actors.levels.Level_02b;
+import platform.game.Actors.levels.Level_03;
+import platform.game.Actors.levels.Level_04;
+import platform.game.Actors.levels.Level_05;
+import platform.game.Actors.levels.Level_06;
+import platform.game.Actors.levels.Level_07;
+import platform.game.Actors.levels.Level_08;
+import platform.game.Actors.levels.Level_Matrices;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -94,10 +108,12 @@ public class Simulator implements World {
     //1 Mode histoire, on ne changera pas de mode de jeu à moins qu'on arrive à la fin. On utilise le tableau Levels en itéterant dessus
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
+	//4 : mode matrice
     private int levelMode = 0;
     //Les niveaux à choix : les deux premiers sont ceux permettant de choisir le mode de jeu et les niveaux
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
+    private Level levelMatrices = new Level_Matrices();
     //Ce tableau contient tous les niveaux disponibles pour le mode histoire (levelMode 1)
     private Level[] niveaux = new Level[]{new Level_00(),new Level_01(),new Level_02(),new Level_02b(),new Level_03(),new Level_04(),new Level_05(),new Level_06(),new Level_07(),new Level_08(),new LevelBoss()};
 	private Level nextLevel;
@@ -117,7 +133,6 @@ public class Simulator implements World {
     //Fait quelque chose de différent selon chaque mode de jeu
     public void nextLevel(){
     	if (levelMode ==0){
-    		transition = true;
     		setNextLevel(levelIntro);
     		compteurDeNiveau = 0;
     		transition = true;
@@ -147,6 +162,14 @@ public class Simulator implements World {
     		setView(currentCenter, radius);
     	}
     	if (levelMode == 3){
+    		compteurDeNiveau = 0;
+    		transition = true;
+    		checkpoint = false;
+    		gravityNormal();
+    		setView(currentCenter, radius);
+    	}
+    	if (levelMode == 4){
+    		setNextLevel(levelMatrices);
     		compteurDeNiveau = 0;
     		transition = true;
     		checkpoint = false;

@@ -4,10 +4,12 @@ import java.awt.event.KeyEvent;
 
 import platform.game.World;
 import platform.game.Actors.Exit;
+import platform.game.Actors.ExitSignal;
 import platform.game.Actors.GravitySwitcher;
 import platform.game.Actors.LimiteTangible;
 import platform.game.Actors.Player;
 import platform.game.Actors.actorSignal.SignalReadKey;
+import platform.game.Actors.actorSignal.SignalSouris;
 import platform.game.Actors.blocks.Block;
 import platform.game.Actors.blocks.BlockDeco;
 import platform.game.Signals.Constant;
@@ -43,6 +45,17 @@ public class LevelIntro extends Level{
         	world.register(new Block(new Box(new Vector(-24+(6*i), -32), 6, 6),loader.getSprite("grass.middle.center3")));
         	world.register(new Block(new Box(new Vector(-24+(6*i), -38), 6, 6),loader.getSprite("grass.center3")));
         }
+        
+      //haut(matrices)
+	    for (int i = 0;i<9;++i){
+        	world.register(new Block(new Box(new Vector(-12+(3*i), 32), 3, 3),loader.getSprite("grass.center")));
+        }
+	    SignalSouris signal = new SignalSouris(new Box(new Vector(0, 36),2,2));
+	    world.register(signal);
+	    world.register(new ExitSignal(signal));
+	    world.register(new BlockDeco(new Vector(0, 36), 2, 2, loader, "portal1"));
+        
+        
         //background
 	   
     	world.register(new BlockDeco(new Vector(0, -28.5), 1, 1, world.getLoader(), "foliagePack_001"));
@@ -61,5 +74,6 @@ public class LevelIntro extends Level{
         world.register(new BlockDeco(new Vector(0, -22), 15, 25, world.getLoader(), "Background_18"));
 	    world.register(new BlockDeco(new Vector(0, 0), 500, 505, world.getLoader(), "Background2_1"));
 
+	    
 	}
 }
