@@ -1,5 +1,24 @@
 package platform.game.Actors.levels;
 
+import platform.game.World;
+import platform.game.Actors.Locker;
+import platform.game.Actors.actorSignal.SignalSouris;
+import platform.game.Actors.blocks.BlockDeco;
+import platform.util.Box;
+import platform.util.Loader;
+import platform.util.Vector;
+
 public class Level_Matrices extends Level{
 
+    public void register(World world) {
+    	super.register(world);
+    	
+    	Loader loader = world.getLoader();
+    	
+    	
+    	SignalSouris signal = new SignalSouris(new Box(new Vector(0, 0), 3, 3));
+    	world.register(signal);
+	    world.register(new Locker(new Vector(0, 5), loader, Locker.blue, signal));
+	    world.register(new BlockDeco(new Vector(0, 0), 3, 3, loader, "portal1"));
+    }
 }

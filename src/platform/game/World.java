@@ -4,7 +4,8 @@ import platform.game.Actors.Damage;
 import platform.game.Actors.levels.Level;
 import platform.util.Box;
 import platform.util.Loader;
-import platform.util.Vector;;
+import platform.util.Vector;
+import platform.util.View;;
 
 /**
  * Represents an environment populated by actors.
@@ -13,6 +14,10 @@ public interface World {
 
     /** @return associated loader, not null */
     public Loader getLoader();
+    //permet d'acceder a des méthodes pour la souris notamment
+	public View getView();
+	//permet d'obtenir la position de la souris
+	public Vector getSourisPosition();
     /**
     * Set viewport location and size.
     * @param center viewport center , not null

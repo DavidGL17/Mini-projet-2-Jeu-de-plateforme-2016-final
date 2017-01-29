@@ -7,6 +7,7 @@ import platform.game.Actors.Exit;
 import platform.game.Actors.ExitSignal;
 import platform.game.Actors.GravitySwitcher;
 import platform.game.Actors.LimiteTangible;
+import platform.game.Actors.Locker;
 import platform.game.Actors.Player;
 import platform.game.Actors.actorSignal.SignalReadKey;
 import platform.game.Actors.actorSignal.SignalSouris;
@@ -54,6 +55,7 @@ public class LevelIntro extends Level{
 	    world.register(signal);
 	    world.register(new ExitSignal(signal));
 	    world.register(new BlockDeco(new Vector(0, 36), 2, 2, loader, "portal1"));
+	    world.register(new Locker(new Vector(5, 36), loader, Locker.blue, signal));
         
         
         //background

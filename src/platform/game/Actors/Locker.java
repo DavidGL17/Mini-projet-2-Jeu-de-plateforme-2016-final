@@ -9,6 +9,7 @@ import platform.util.Output;
 import platform.util.Vector;
 
 public class Locker extends Actor implements Signal{
+	private Box box;
 	private Signal signal;
 	private final static double SIZE =1;
 	public final static String blue = "lock.blue";
@@ -24,6 +25,7 @@ public class Locker extends Actor implements Signal{
 	public Locker(Vector position, Loader loader, String color,Signal signal){
 		super(10, new Box(position, SIZE, SIZE), loader.getSprite(color));
 		this.signal= signal;
+		box =new Box(position, SIZE, SIZE);
 	}
 	public Locker(Vector position, Loader loader, String color,Signal signal, boolean timer, double cooldown){
 		super(10, new Box(position, SIZE, SIZE), loader.getSprite(color));
@@ -44,6 +46,8 @@ public class Locker extends Actor implements Signal{
 		}
 		if (!timer &&(signal.isActive())){
 			setBox(null);
+		} else {
+			setBox(box);
 		}
 		if (destructionBegins && (cooldown <=0)){
 			setBox(null);

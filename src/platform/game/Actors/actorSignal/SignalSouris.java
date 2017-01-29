@@ -18,13 +18,12 @@ public class SignalSouris extends Actor implements Signal {
 		setPriority(10000);
 	}
 
-	public void preUpdate(){
-		signal = false;
-	}
 	@Override
 	public void update(Input input) {
-		if (positionClic.isColliding(input.getMouseLocation()) && input.getMouseButton(clicGauche).isPressed()) {
+		if (positionClic.isColliding(getWorld().getSourisPosition())) {
 			signal = true;
+		} else{
+			signal = false;
 		}
 	}
 

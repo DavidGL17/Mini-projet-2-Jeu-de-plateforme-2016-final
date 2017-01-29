@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import platform.game.Actors.Damage;
+import platform.game.Actors.Souris;
 import platform.game.Actors.levels.Level;
 import platform.game.Actors.levels.LevelBoss;
 import platform.game.Actors.levels.LevelChoixNiveau;
@@ -96,7 +97,7 @@ public class Simulator implements World {
 		return gravity;
 	}
 	public void switchGravity(){
-		gravity = new Vector(gravity.getX(), -1*gravity.getY());
+		gravity = gravity.opposite();
 	}
 	public void gravityNormal(){
 		gravity = new Vector(gravity.getX(), -1*Math.abs(gravity.getY()));
@@ -109,7 +110,7 @@ public class Simulator implements World {
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
 	//4 : mode matrice
-    private int levelMode = 0;
+    private int levelMode = 4;
     //Les niveaux à choix : les deux premiers sont ceux permettant de choisir le mode de jeu et les niveaux
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
@@ -214,6 +215,19 @@ public class Simulator implements World {
     		}
     	return victims;
     }
+	
+	
+	private View view;
+	public View getView(){
+		return view;
+	}
+	
+	//souris
+	private Souris souris = new Souris(getLoader());
+	public Vector getSourisPosition(){
+		return souris.getPosition();
+	}
+	
     /**
      * Simulate a single step of the simulation.
      * @param input input object to use, not null
@@ -223,7 +237,7 @@ public class Simulator implements World {
 		double factor = 0.1 ;
 		currentCenter = currentCenter.mul (1.0 -factor).add(expectedCenter.mul(factor));
 		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor;
-		View view = new View(input , output);
+		view = new View(input , output);
 		view.setTarget(currentCenter , currentRadius);
 		// si un acteur a mis transition à true pour demander le passage
 		// à un autre niveau :
@@ -235,6 +249,7 @@ public class Simulator implements World {
 			// tous les anciens acteurs sont désenregistrés ,
 			// y compris le Level précédent :
 			unregistered.clear () ;
+			register(souris);
 			register(nextLevel);
 			if (levelMode == 2){
 				setNextLevel(levelChoixNiveau);
