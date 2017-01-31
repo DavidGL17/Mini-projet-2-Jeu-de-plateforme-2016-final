@@ -38,6 +38,12 @@ public class Exit extends Actor{
 		this.levelMode = 3;
 		this.levlAMettre = levelAMettre;
 	}
+	//Celui la permet de changer de niveau normalement mais la porte n'est pas dessinnée
+	public Exit(Signal signal, int levelMode){
+		changeLevelMode = true;
+		this.signal = signal;
+		this.levelMode = levelMode;
+	}
 	
 	@Override
 	public void interact(Actor other) {
@@ -46,11 +52,11 @@ public class Exit extends Actor{
 				if (signal.isActive()){
 					//On verifie dans s'il faut changer de mode de Jeu et on vérifie dans quel mode de jeu on est (surtout entre 2 ou 3) voir simulator
 					if (changeLevelMode){
-						if (levelMode == 3){
-							getWorld().setNextLevel(levlAMettre);
-							getWorld().changeLevelMode(levelMode);
-						} else {
-							getWorld().changeLevelMode(levelMode);
+						switch (levelMode){
+							case 3 :
+								getWorld().setNextLevel(levlAMettre);
+							default :
+								getWorld().changeLevelMode(levelMode);
 						}
 					} else {
 						if(getWorld().getLevelMode() == 3){

@@ -4,7 +4,6 @@ import java.awt.event.KeyEvent;
 
 import platform.game.World;
 import platform.game.Actors.Exit;
-import platform.game.Actors.ExitSignal;
 import platform.game.Actors.GravitySwitcher;
 import platform.game.Actors.LimiteTangible;
 import platform.game.Actors.Locker;
@@ -51,9 +50,8 @@ public class LevelIntro extends Level{
 	    for (int i = 0;i<9;++i){
         	world.register(new Block(new Box(new Vector(-12+(3*i), 32), 3, 3),loader.getSprite("grass.center")));
         }
-	    SignalSouris signal = new SignalSouris(new Box(new Vector(0, 36),2,2));
+	    SignalSouris signal = new SignalSouris(new Box(new Vector(0, 36),2,2),true);
 	    world.register(signal);
-	    world.register(new ExitSignal(signal));
 	    world.register(new BlockDeco(new Vector(0, 36), 2, 2, loader, "portal1"));
 	    world.register(new Locker(new Vector(5, 36), loader, Locker.blue, signal));
         

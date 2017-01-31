@@ -62,7 +62,7 @@ public class Locker extends Actor implements Signal{
 				output.drawSprite(getSprite(), getBox());
 			}
 		} else {
-			if (cooldown>0){
+			if (cooldown>0 && box != null){
 				output.drawSprite(getSprite(), getBox());
 			}
 		}

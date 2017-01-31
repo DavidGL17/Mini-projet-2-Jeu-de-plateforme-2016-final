@@ -56,6 +56,8 @@ public class Simulator implements World {
     	currentRadius = radius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
+		souris = new Souris(loader);
+		register(souris);
     	nextLevel();
     	register(nextLevel);
     	transition = false;
@@ -110,7 +112,7 @@ public class Simulator implements World {
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
 	//4 : mode matrice
-    private int levelMode = 4;
+    private int levelMode = 0;
     //Les niveaux à choix : les deux premiers sont ceux permettant de choisir le mode de jeu et les niveaux
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
@@ -133,49 +135,51 @@ public class Simulator implements World {
     }
     //Fait quelque chose de différent selon chaque mode de jeu
     public void nextLevel(){
-    	if (levelMode ==0){
-    		setNextLevel(levelIntro);
-    		compteurDeNiveau = 0;
-    		transition = true;
-    		checkpoint = false;
-    		gravityNormal();
-    		setView(currentCenter, radius);
-    	}
-    	if (levelMode == 1){
-    		if (compteurDeNiveau<niveaux.length){
-    			setNextLevel(niveaux[compteurDeNiveau]);
-    		} else {
-    			changeLevelMode(0);
-    			return;
-    		}
-    		++compteurDeNiveau;
-    		transition = true;
-    		checkpoint = false;
-    		gravityNormal();
-    		setView(currentCenter, radius);
-    	}
-    	if (levelMode == 2){
-    		setNextLevel(levelChoixNiveau);
-    		compteurDeNiveau = 0;
-    		transition = true;
-    		checkpoint = false;
-    		gravityNormal();
-    		setView(currentCenter, radius);
-    	}
-    	if (levelMode == 3){
-    		compteurDeNiveau = 0;
-    		transition = true;
-    		checkpoint = false;
-    		gravityNormal();
-    		setView(currentCenter, radius);
-    	}
-    	if (levelMode == 4){
-    		setNextLevel(levelMatrices);
-    		compteurDeNiveau = 0;
-    		transition = true;
-    		checkpoint = false;
-    		gravityNormal();
-    		setView(currentCenter, radius);
+    	switch(levelMode){
+    		case 0 :
+        		setNextLevel(levelIntro);
+        		compteurDeNiveau = 0;
+        		transition = true;
+        		checkpoint = false;
+        		gravityNormal();
+        		setView(currentCenter, radius);
+        		break;
+    		case 1 :
+    			if (compteurDeNiveau<niveaux.length){
+    				setNextLevel(niveaux[compteurDeNiveau]);
+    			} else {
+    				changeLevelMode(0);
+    				return;
+    			}
+    			++compteurDeNiveau;
+    			transition = true;
+    			checkpoint = false;
+    			gravityNormal();
+    			setView(currentCenter, radius);
+    			break;
+    		case 2 :
+    			setNextLevel(levelChoixNiveau);
+    			compteurDeNiveau = 0;
+    			transition = true;
+    			checkpoint = false;
+    			gravityNormal();
+    			setView(currentCenter, radius);
+    			break;
+    		case 3 :
+    			compteurDeNiveau = 0;
+    			transition = true;
+    			checkpoint = false;
+    			gravityNormal();
+    			setView(currentCenter, radius);
+    			break;
+    		case 4 :
+    			setNextLevel(levelMatrices);
+    			compteurDeNiveau = 0;
+    			transition = true;
+    			checkpoint = false;
+    			gravityNormal();
+    			setView(currentCenter, radius);
+    			break;
     	}
     }
 	public void setNextLevel(Level level){
@@ -223,7 +227,7 @@ public class Simulator implements World {
 	}
 	
 	//souris
-	private Souris souris = new Souris(getLoader());
+	private Souris souris;
 	public Vector getSourisPosition(){
 		return souris.getPosition();
 	}

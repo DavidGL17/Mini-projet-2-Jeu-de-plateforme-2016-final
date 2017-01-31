@@ -9,14 +9,15 @@ import platform.util.Loader;
 import platform.util.Vector;
 
 public class Level_Matrices extends Level{
-
+	
+	@Override
     public void register(World world) {
     	super.register(world);
-    	
+
     	Loader loader = world.getLoader();
     	
     	
-    	SignalSouris signal = new SignalSouris(new Box(new Vector(0, 0), 3, 3));
+    	SignalSouris signal = new SignalSouris(new Box(new Vector(0, 0), 3, 3),true);
     	world.register(signal);
 	    world.register(new Locker(new Vector(0, 5), loader, Locker.blue, signal));
 	    world.register(new BlockDeco(new Vector(0, 0), 3, 3, loader, "portal1"));
