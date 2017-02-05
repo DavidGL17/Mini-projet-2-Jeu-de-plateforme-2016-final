@@ -35,6 +35,7 @@ import platform.util.View;
 public class Simulator implements World {
 
     private Loader loader;
+    private Vector defaultCenter = new Vector(0, 0);
     private Vector currentCenter ;
     private double currentRadius;
     private Vector expectedCenter = Vector.ZERO;
@@ -92,6 +93,11 @@ public class Simulator implements World {
     	expectedRadius = radius;
     }
     
+    private void resetView(Vector center, double radius){
+    	currentCenter = center;
+    	currentRadius = radius;
+    }
+    
     //Permet de gérer la gravité
     private Vector gravity = new Vector(0, -9.81);
     
@@ -112,7 +118,7 @@ public class Simulator implements World {
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
 	//4 : mode matrice
-    private int levelMode = 0;
+    private int levelMode = 4;
     //Les niveaux à choix : les deux premiers sont ceux permettant de choisir le mode de jeu et les niveaux
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
@@ -142,7 +148,7 @@ public class Simulator implements World {
         		transition = true;
         		checkpoint = false;
         		gravityNormal();
-        		setView(currentCenter, radius);
+        		resetView(defaultCenter, radius);
         		break;
     		case 1 :
     			if (compteurDeNiveau<niveaux.length){
@@ -155,7 +161,7 @@ public class Simulator implements World {
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-    			setView(currentCenter, radius);
+        		resetView(defaultCenter, radius);
     			break;
     		case 2 :
     			setNextLevel(levelChoixNiveau);
@@ -163,14 +169,14 @@ public class Simulator implements World {
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-    			setView(currentCenter, radius);
+        		resetView(defaultCenter, radius);
     			break;
     		case 3 :
     			compteurDeNiveau = 0;
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-    			setView(currentCenter, radius);
+        		resetView(defaultCenter, radius);
     			break;
     		case 4 :
     			setNextLevel(levelMatrices);
@@ -178,9 +184,10 @@ public class Simulator implements World {
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-    			setView(currentCenter, radius);
+        		resetView(defaultCenter, radius);
     			break;
     	}
+    	factor = defaultFactor;
     }
 	public void setNextLevel(Level level){
     	nextLevel = level;
@@ -207,6 +214,14 @@ public class Simulator implements World {
     	}
     }
 	
+    private boolean isThereAPlayer = true;
+    public void thereIsNoPlayer(){
+    	isThereAPlayer = false;
+    	factor = 0.001;
+    	double height = (currentRadius*2) - currentRadius/14;
+    	double width = (currentRadius*2) + currentRadius*0.75;
+    	boxDactionSouris = new Box(defaultCenter, width, height);
+    }
 	
 	@Override
     public int hurt(Box area , Actor instigator , Damage type ,double amount , Vector location) {
@@ -232,13 +247,17 @@ public class Simulator implements World {
 		return souris.getPosition();
 	}
 	
+	//la box qui, quand il n'y a pas de player, définit la zone d'action de la souris. Elle est juste un peu plus petite que la view
+	private Box boxDactionSouris;
+	
+	private double factor = 0.1;
+	private final double defaultFactor = 0.1;
     /**
      * Simulate a single step of the simulation.
      * @param input input object to use, not null
      * @param output output object to use, not null
      */
 	public void update(Input input, Output output){
-		double factor = 0.1 ;
 		currentCenter = currentCenter.mul (1.0 -factor).add(expectedCenter.mul(factor));
 		currentRadius = currentRadius * (1.0 - factor) +expectedRadius * factor;
 		view = new View(input , output);
@@ -299,5 +318,15 @@ public class Simulator implements World {
 			actors.remove(actor) ;
 		}
 		unregistered.clear();
+		//s'il n'y a pas de player, la caméra se centre sur la souris (plus ou moins, seulement si celle ci sort d'un ceratin carré)
+		if (!isThereAPlayer){
+			boxDactionSouris = new Box(currentCenter, boxDactionSouris.getWidth(), boxDactionSouris.getHeight());
+			if (boxDactionSouris.isColliding(getSourisPosition())){
+				expectedCenter = boxDactionSouris.getCenter();
+			} else {
+				expectedCenter = getSourisPosition();
+			}
+			
+		}
 	}
 }

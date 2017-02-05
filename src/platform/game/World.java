@@ -47,4 +47,5 @@ public interface World {
     //permet d'acceder à la variable checkpoint
     public boolean getCheckpoint();
     public void setCheckpoint(boolean checkpoint);
+    public void thereIsNoPlayer();
 }
