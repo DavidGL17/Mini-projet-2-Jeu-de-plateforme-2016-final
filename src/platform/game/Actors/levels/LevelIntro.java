@@ -54,6 +54,7 @@ public class LevelIntro extends Level{
 	    world.register(signal);
 	    world.register(new BlockDeco(new Vector(0, 36), 2, 2, loader, "portal1"));
 	    world.register(new Locker(new Vector(5, 36), loader, Locker.blue, signal));
+	    world.register(new Exit(signal, 4,false));
         
         
         //background
