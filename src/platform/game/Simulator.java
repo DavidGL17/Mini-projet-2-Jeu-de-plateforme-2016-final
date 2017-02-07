@@ -20,6 +20,7 @@ import platform.game.Actors.levels.Level_06;
 import platform.game.Actors.levels.Level_07;
 import platform.game.Actors.levels.Level_08;
 import platform.game.Actors.levels.Level_Matrices;
+import platform.game.Actors.matrices.Numbers;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -39,11 +40,11 @@ public class Simulator implements World {
     private Vector currentCenter ;
     private double currentRadius;
     private Vector expectedCenter = Vector.ZERO;
-    private double expectedRadius=radius;
+    private double expectedRadius=defaultRadius;
     private SortedCollection<Actor> actors = new SortedCollection<Actor>();
     private List<Actor> registered;
     private List<Actor> unregistered;
-    public static double radius = 10;
+    public static final double defaultRadius = 10;
     /**
     * Create a new simulator.
     * @param loader associated loader , not null
@@ -54,7 +55,7 @@ public class Simulator implements World {
     	}
     	this.loader = loader ;
     	currentCenter = Vector.ZERO ;
-    	currentRadius = radius;
+    	currentRadius = defaultRadius;
     	registered = new ArrayList<Actor>();
     	unregistered = new ArrayList<Actor>();
 		souris = new Souris(loader);
@@ -94,8 +95,8 @@ public class Simulator implements World {
     }
     
     private void resetView(Vector center, double radius){
-    	currentCenter = center;
-    	currentRadius = radius;
+    	currentCenter = expectedCenter = center;
+    	currentRadius = expectedRadius = radius;
     }
     
     //Permet de gérer la gravité
@@ -118,7 +119,7 @@ public class Simulator implements World {
     //2 : freeChoice : le joueur pourra choisir le niveau qu'il veut. Lorsqu'il aura finit ce niveau, il sera téléporté de nouveau au level freeChoice (voir option 3)
     //3 permet de passer au niveau choisit par le joueur dans le level freeChoice
 	//4 : mode matrice
-    private int levelMode = 4;
+    private int levelMode = 0;
     //Les niveaux à choix : les deux premiers sont ceux permettant de choisir le mode de jeu et les niveaux
     private Level levelIntro = new LevelIntro();
     private Level levelChoixNiveau = new LevelChoixNiveau();
@@ -148,7 +149,7 @@ public class Simulator implements World {
         		transition = true;
         		checkpoint = false;
         		gravityNormal();
-        		resetView(defaultCenter, radius);
+        		resetView(defaultCenter, defaultRadius);
         		break;
     		case 1 :
     			if (compteurDeNiveau<niveaux.length){
@@ -161,7 +162,7 @@ public class Simulator implements World {
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-        		resetView(defaultCenter, radius);
+    			resetView(defaultCenter, defaultRadius);
     			break;
     		case 2 :
     			setNextLevel(levelChoixNiveau);
@@ -169,14 +170,14 @@ public class Simulator implements World {
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-        		resetView(defaultCenter, radius);
+        		resetView(defaultCenter, defaultRadius);
     			break;
     		case 3 :
     			compteurDeNiveau = 0;
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-        		resetView(defaultCenter, radius);
+        		resetView(defaultCenter, defaultRadius);
     			break;
     		case 4 :
     			setNextLevel(levelMatrices);
@@ -184,7 +185,7 @@ public class Simulator implements World {
     			transition = true;
     			checkpoint = false;
     			gravityNormal();
-        		resetView(defaultCenter, radius);
+        		resetView(defaultCenter, defaultRadius);
     			break;
     	}
     	factor = defaultFactor;
@@ -245,6 +246,18 @@ public class Simulator implements World {
 	private Souris souris;
 	public Vector getSourisPosition(){
 		return souris.getPosition();
+	}
+	public boolean sourisHasANumber(){
+		return souris.hasANumber();
+	}
+	public Numbers getSourisNumber(){
+		return souris.getSourisNumber();
+	}
+	public void viderSouris(){
+		souris.vider();
+	}
+	public void setSourisNumber(Numbers number){
+//		souris.s
 	}
 	
 	//la box qui, quand il n'y a pas de player, définit la zone d'action de la souris. Elle est juste un peu plus petite que la view
