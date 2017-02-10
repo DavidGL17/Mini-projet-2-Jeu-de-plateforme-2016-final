@@ -33,12 +33,15 @@ public class Souris extends Actor{
 	public void setSourisNumber(Numbers number){
 		if (number != null){
 			this.number = number;
+			getWorld().register(number);
 		}
 	}
 	//permet de vider le nombre de la souris après l'avoir déposé
 	public void vider(){
+		getWorld().unregister(number);
 		number = null;
 	}
+	
 
 	public Vector getPosition(){
 		return position;
