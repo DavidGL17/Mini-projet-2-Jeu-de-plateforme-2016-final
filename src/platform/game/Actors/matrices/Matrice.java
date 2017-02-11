@@ -30,9 +30,9 @@ public class Matrice extends Actor{
 		boxDroite = new Box(new Vector(centre.getX()+calculDemiLargeur(), centre.getY()), 1, calculHauteur());
 		boxGauche = new Box(new Vector(centre.getX()-calculDemiLargeur(), centre.getY()), 1, calculHauteur());
 		taille[0] = new Numbers(new Vector(centre.getX()-2, centre.getY()+calculHauteur()+2), world.getLoader(), false);
-		taille[0].setValue(1);
+		taille[0].setValue(1,1);
 		taille[1] = new Numbers(new Vector(centre.getX()+2, centre.getY()+calculHauteur()+2), world.getLoader(), false);
-		taille[1].setValue(1);
+		taille[1].setValue(1,1);
 		world.register(taille[0]);
 		world.register(taille[1]);
 	}

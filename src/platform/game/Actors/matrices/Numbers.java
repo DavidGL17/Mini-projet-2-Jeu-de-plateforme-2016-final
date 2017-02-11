@@ -11,12 +11,13 @@ import platform.util.Output;
 import platform.util.Vector;
 
 public class Numbers extends Actor{
+	//le premier dessin de digit dans dessins est le premier digit du chiffre
 	private ArrayList<String> dessins = new ArrayList<String>();
 	private final static String dessinVide = "digitvide";
 	private final String[] numbers = {"digit.0","digit.1","digit.2","digit.3","digit.4","digit.5","digit.6","digit.7","digit.8","digit.9"};
 	
 	private SignalSouris signal;
-	private int nombreDeDigit = 1;
+	private int nombreDeDigit = 0;
 	private boolean isEmpty = true;
 	private boolean isMoving = false;
 	//permet de savoir si le nombre doit pouvoir changer de chiffre ou pas
@@ -48,9 +49,10 @@ public class Numbers extends Actor{
 	}
 	
 	public int getNbrDigit(){
-		return dessins.size();
+		return nombreDeDigit;
 	}
 	
+	//gets a digit at the number position. if number is bigger than the max digit, returns 0
 	public String getDigit(){
 		return dessins.get(dessins.size()-1);
 	}
@@ -59,18 +61,19 @@ public class Numbers extends Actor{
 	public int getValue(){
 		int value = 0;
 		for (int i = 0;i<dessins.size();++i){
-			value += chercherChiffre(dessins.get(i));
+			double x = Math.pow(10, dessins.size()-1-i);
+			value += chercherChiffre(dessins.get(i))*x;
 		}
 		return value;
 	}
 	
 	//permet de définir la valeur du number 
-	protected void setValue(int value){
-		for (int i = 0;i<numbers.length;++i){
-			if (i == value){
-				setSprite(getWorld().getLoader().getSprite(numbers[i]));
-				dessins.add(numbers[i]);
-			}
+	protected void setValue(int value, int nbrDeDigit){
+		dessins.clear();
+		for (int i = 0;i<nbrDeDigit;++i){
+			double x = Math.pow(10, nbrDeDigit-1-i);
+			int digit = (int) (value/x);
+			addADigit(digit);
 		}
 	}
 	
@@ -83,11 +86,25 @@ public class Numbers extends Actor{
 		}
 		return 0;
 	}
+	//cherche le dessin correspondant à un chiffre. si le chaiffre est plus grand que 9 ou plus pedtit que 0 returns null
+	private String chercherDessin(int chiffre){
+		if (chiffre>=0 && chiffre<10){
+			return numbers[chiffre];
+		}
+		return null;
+	}
+	//ajoute un digit a dessin
+	private void addADigit(int digit){
+		String dessinDigit = chercherDessin(digit);
+		dessins.add(dessinDigit);
+	}
+	
 	
 	public Numbers copy(){
 		Numbers x = new Numbers(getBox().getCenter(), getWorld().getLoader(), false);
 		x.setSprite(getSprite());
 		x.dessins = dessins;
+		x.setValue(getValue(), getNbrDigit());
 		return x;
 	}
 	
@@ -101,6 +118,7 @@ public class Numbers extends Actor{
 //				//Si la souris a un chiffre mais que this est vide alors il prend le chiffre, sinon il remplace le chiffre de la souris s'il est immuable
 				if (isEmpty){
 					setSprite(getWorld().getLoader().getSprite(getWorld().getSourisNumber().getDigit()));
+					dessins.clear();
 					dessins.add(getWorld().getSourisNumber().getDigit());
 					getWorld().viderSouris();
 					isEmpty = false;
