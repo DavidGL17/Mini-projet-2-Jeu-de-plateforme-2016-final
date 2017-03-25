@@ -2,7 +2,6 @@ package platform.game;
 
 import platform.game.Actors.Damage;
 import platform.game.Actors.levels.Level;
-import platform.game.Actors.matrices.Numbers;
 import platform.util.Box;
 import platform.util.Loader;
 import platform.util.Vector;
@@ -19,14 +18,7 @@ public interface World {
 	public View getView();
 	//permet d'obtenir la position de la souris
 	public Vector getSourisPosition();
-	//Permet de savoir si la souris transporte un chiffre
-	public boolean sourisHasANumber();
-	//Pemret d'obtenir le number que la souris transporte
-	public Numbers getSourisNumber();
-	//Permet de vider la souris après que le nombre ai été déposé
-	public void viderSouris();
-	//Permet de rajouter un nombre à la souris
-	public void setSourisNumber(Numbers number);
+	
 	
     /**
     * Set viewport location and size.
@@ -58,4 +50,21 @@ public interface World {
     public boolean getCheckpoint();
     public void setCheckpoint(boolean checkpoint);
     public void thereIsNoPlayer();
+    
+    
+    
+    
+    
+    
+    
+    //méthodes pour les matrices, à mettre de coter
+//	//Permet de savoir si la souris transporte un chiffre
+//	public boolean sourisHasANumber();
+//	//Pemret d'obtenir le number que la souris transporte
+//	public Numbers getSourisNumber();
+//	//Permet de vider la souris après que le nombre ai été déposé
+//	public void viderSouris();
+//	//Permet de rajouter un nombre à la souris
+//	public void setSourisNumber(Numbers number);
+	
 }

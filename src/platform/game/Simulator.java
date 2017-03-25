@@ -20,7 +20,6 @@ import platform.game.Actors.levels.Level_06;
 import platform.game.Actors.levels.Level_07;
 import platform.game.Actors.levels.Level_08;
 import platform.game.Actors.levels.Level_Matrices;
-import platform.game.Actors.matrices.Numbers;
 import platform.util.Box;
 import platform.util.Input;
 import platform.util.Loader;
@@ -246,18 +245,6 @@ public class Simulator implements World {
 	private Souris souris;
 	public Vector getSourisPosition(){
 		return souris.getPosition();
-	}
-	public boolean sourisHasANumber(){
-		return souris.hasANumber();
-	}
-	public Numbers getSourisNumber(){
-		return souris.getSourisNumber();
-	}
-	public void viderSouris(){
-		souris.vider();
-	}
-	public void setSourisNumber(Numbers number){
-//		souris.s
 	}
 	
 	//la box qui, quand il n'y a pas de player, définit la zone d'action de la souris. Elle est juste un peu plus petite que la view
