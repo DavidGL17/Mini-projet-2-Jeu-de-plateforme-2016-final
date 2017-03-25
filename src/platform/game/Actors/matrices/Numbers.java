@@ -12,64 +12,56 @@ import platform.util.Vector;
 
 public class Numbers extends Actor{
 	//le premier dessin de digit dans dessins est le premier digit du chiffre
-	private ArrayList<String> dessins = new ArrayList<String>();
-	private final static String dessinVide = "digitvide";
-	private final String[] numbers = {"digit.0","digit.1","digit.2","digit.3","digit.4","digit.5","digit.6","digit.7","digit.8","digit.9"};
+	private ArrayList<Digit> digits = new ArrayList<Digit>();
+//	private final static String dessinVide = "digitvide";
+//	private final String[] numbers = {"digit.0","digit.1","digit.2","digit.3","digit.4","digit.5","digit.6","digit.7","digit.8","digit.9"};
 	
 	private SignalSouris signal;
 	private int nombreDeDigit = 0;
-	private boolean isEmpty = true;
-	private boolean isMoving = false;
 	//permet de savoir si le nombre doit pouvoir changer de chiffre ou pas
 	private boolean immuable;
 	private final static double width = 1;
 	private final static double height = 1;
 	private final double distanceEntreDigit = 0.25;
+	
+	private Vector positionVide;
+	private Vector centreNumber;
 
 	public Numbers(Vector position, Loader loader, boolean immuable){
-		super(10, new Box(position, width, height), loader, dessinVide);
+		super(new Box(position, width, height),10);
 		signal = new SignalSouris(new Box(position, width, height), true);
-	}
-	public Numbers(Vector position, Loader loader, boolean immuable, int number){
-		super(10, new Box(position, width, height), loader, dessinVide);
-		if (0 <= number && number <=9){
-			setSprite(loader.getSprite(numbers[number]));
-			dessins.add(numbers[number]);
-		}
-		signal = new SignalSouris(new Box(position, width, height), true);
+		centreNumber = position;
 	}
 	
-	//permet de dire au number qu'il bouge
-	public void confirmMovement(){
-		isMoving = true;
-	}
 	
-	public boolean isEmpty(){
-		return isEmpty;
-	}
 	
 	public int getNbrDigit(){
 		return nombreDeDigit;
 	}
 	
 	//gets a digit at the number position. if number is bigger than the max digit, returns 0
-	public String getDigit(){
-		return dessins.get(dessins.size()-1);
-	}
+//	public String getDigit(){
+//		return dessins.get(dessins.size()-1);
+//	}
 	
 	//permet de calculer la valeur du nombre
 	public int getValue(){
 		int value = 0;
-		for (int i = 0;i<dessins.size();++i){
-			double x = Math.pow(10, dessins.size()-1-i);
-			value += chercherChiffre(dessins.get(i))*x;
+		for (int i = 0;i<digits.size();++i){
+			double x = Math.pow(10, digits.size()-1-i);
+			value += digits.get(i).getValue()	*x;
 		}
 		return value;
 	}
 	
 	//permet de définir la valeur du number 
+	//a modifier
+	ad
 	protected void setValue(int value, int nbrDeDigit){
-		dessins.clear();
+		if (immuable && value<0 && value>=10){
+			return;
+		}
+		digits.clear();
 		for (int i = 0;i<nbrDeDigit;++i){
 			double x = Math.pow(10, nbrDeDigit-1-i);
 			int digit = (int) (value/x);
@@ -77,79 +69,71 @@ public class Numbers extends Actor{
 		}
 	}
 	
-	//permet de trouver a quel digit correspond un dessin
-	private int chercherChiffre(String dessin){
-		for (int i = 0;i<numbers.length;++i){
-			if (dessin == numbers[i]){
-				return i;
-			}
-		}
-		return 0;
-	}
-	//cherche le dessin correspondant à un chiffre. si le chaiffre est plus grand que 9 ou plus pedtit que 0 returns null
-	private String chercherDessin(int chiffre){
-		if (chiffre>=0 && chiffre<10){
-			return numbers[chiffre];
-		}
-		return null;
-	}
+	
+	
 	//ajoute un digit a dessin
 	private void addADigit(int digit){
-		String dessinDigit = chercherDessin(digit);
-		dessins.add(dessinDigit);
+		Digit d = new Digit(positionVide, getWorld().getLoader(), digit);
+		digits.add(d);
 	}
 	
 	
 	public Numbers copy(){
 		Numbers x = new Numbers(getBox().getCenter(), getWorld().getLoader(), false);
 		x.setSprite(getSprite());
-		x.dessins = dessins;
+		x.digits = digits;
 		x.setValue(getValue(), getNbrDigit());
 		return x;
 	}
 	
-	protected void setPosition(Vector vector){
+	protected void setCentre(Vector vector){
 		setBox(new Box(vector, width, height));
+	}
+	
+	private void calculerPositionDigitVide(){
+		
 	}
 	
 	public void update(Input input){
 		if (signal.isActive()){
 			if (getWorld().sourisHasANumber()){
 //				//Si la souris a un chiffre mais que this est vide alors il prend le chiffre, sinon il remplace le chiffre de la souris s'il est immuable
-				if (isEmpty){
-					setSprite(getWorld().getLoader().getSprite(getWorld().getSourisNumber().getDigit()));
-					dessins.clear();
-					dessins.add(getWorld().getSourisNumber().getDigit());
-					getWorld().viderSouris();
-					isEmpty = false;
+//				if (isEmpty){
+//					setSprite(getWorld().getLoader().getSprite(getWorld().getSourisNumber().getDigit()));
+//					dessins.clear();
+//					dessins.add(getWorld().getSourisNumber().getDigit());
+//					getWorld().viderSouris();
+//					isEmpty = false;
 				} else {
 					if (immuable){
-						getWorld().viderSouris();
-						Numbers x = this.copy();
-						x.confirmMovement();
-						getWorld().setSourisNumber(x);
+//						getWorld().viderSouris();
+//						Numbers x = this.copy();
+//						x.confirmMovement();
+//						getWorld().setSourisNumber(x);
 					} else {
-						setSprite(getWorld().getSourisNumber().getSprite());
-						dessins.add(getWorld().getSourisNumber().getDigit());
-						getWorld().viderSouris();
+//						setSprite(getWorld().getSourisNumber().getSprite());
+//						dessins.add(getWorld().getSourisNumber().getDigit());
+//						getWorld().viderSouris();
 					}
 				}
 			} else {
-				if (!isEmpty && immuable){
-					Numbers x = this.copy();
-					x.confirmMovement();
-					getWorld().setSourisNumber(x);
+//				if (!isEmpty && immuable){
+//					Numbers x = this.copy();
+//					x.confirmMovement();
+//					getWorld().setSourisNumber(x);
 				}
-			}
-		}
+//			}
+//		}
+		nombreDeDigit = digits.size();
+		
 	}
 	
 	public void draw(Input input, Output output){
-		if (!isMoving){
-			output.drawSprite(getSprite(), getBox());
-		} else {
-			setBox(new Box(getWorld().getSourisPosition(), width, height));
-			output.drawSprite(getSprite(), getBox());
-		}
+//		if (!isMoving){
+//			output.drawSprite(getSprite(), getBox());
+//		} else {
+//			setBox(new Box(getWorld().getSourisPosition(), width, height));
+//			output.drawSprite(getSprite(), getBox());
+//		}
 	}
 }
